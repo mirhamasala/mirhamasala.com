@@ -4,12 +4,7 @@ import Link from 'next/link'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import {
-  TwitterIcon,
-  InstagramIcon,
-  GitHubIcon,
-  LinkedInIcon,
-} from '@/components/SocialIcons'
+import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 import portraitImage from '@/images/portrait.jpg'
 
 function SocialLink({ className, href, children, icon: Icon }) {
@@ -17,9 +12,9 @@ function SocialLink({ className, href, children, icon: Icon }) {
     <li className={clsx(className, 'flex')}>
       <Link
         href={href}
-        className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+        className="flex text-sm font-medium transition group text-zinc-800 hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
       >
-        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
+        <Icon className="flex-none w-6 h-6 transition fill-zinc-500 group-hover:fill-teal-500" />
         <span className="ml-4">{children}</span>
       </Link>
     </li>
@@ -41,10 +36,10 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About - Spencer Sharp</title>
+        <title>About - Mirha Masala</title>
         <meta
           name="description"
-          content="I’m Spencer Sharp. I live in New York City, where I design the future."
+          content="I’m Mirha Masala. I live in Portugal, where I surf, write and code."
         />
       </Head>
       <Container className="mt-16 sm:mt-32">
@@ -55,64 +50,60 @@ export default function About() {
                 src={portraitImage}
                 alt=""
                 sizes="(min-width: 1024px) 32rem, 20rem"
-                className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+                className="object-cover aspect-square rotate-3 rounded-2xl bg-zinc-100 grayscale filter dark:bg-zinc-800"
               />
             </div>
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I’m Spencer Sharp. I live in New York City, where I design the
-              future.
+              I’m Mirha Masala. I live in Portugal, where I surf, write and
+              code.
             </h1>
-            <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+            <div className="mt-6 text-base space-y-7 text-zinc-600 dark:text-zinc-400">
               <p>
-                I’ve loved making things for as long as I can remember, and
-                wrote my first program when I was 6 years old, just two weeks
-                after my mom brought home the brand new Macintosh LC 550 that I
-                taught myself to type on.
+                Ten years ago, I decided I wasn’t going to pursue a career in
+                foreign affairs after all. Instead, I went traveling and started
+                The Spin-Off Project–a lifestyle experiment that I designed to
+                help me discover my interests.
               </p>
               <p>
-                The only thing I loved more than computers as a kid was space.
-                When I was 8, I climbed the 40-foot oak tree at the back of our
-                yard while wearing my older sister’s motorcycle helmet, counted
-                down from three, and jumped — hoping the tree was tall enough
-                that with just a bit of momentum I’d be able to get to orbit.
+                The idea was simple. I would pick twelve things that I wanted to
+                do or learn and devote a year of my life to doing one each
+                month.
               </p>
               <p>
-                I spent the next few summers indoors working on a rocket design,
-                while I recovered from the multiple surgeries it took to fix my
-                badly broken legs. It took nine iterations, but when I was 15 I
-                sent my dad’s Blackberry into orbit and was able to transmit a
-                photo back down to our family computer from space.
+                In between traveling, setting up and dissembling online
+                businesses, and learning to blog, a year became five, and it was
+                only in 2017 that I checked off the last spin-off.
               </p>
               <p>
-                Today, I’m the founder of Planetaria, where we’re working on
-                civilian space suits and manned shuttle kits you can assemble at
-                home so that the next generation of kids really <em>can</em>{' '}
-                make it to orbit — from the comfort of their own backyards.
+                Twelve lifestyles and five years later, I decided to spend the
+                next five years writing and becoming a web developer.
               </p>
             </div>
           </div>
           <div className="lg:pl-20">
             <ul role="list">
-              <SocialLink href="#" icon={TwitterIcon}>
-                Follow on Twitter
-              </SocialLink>
-              <SocialLink href="#" icon={InstagramIcon} className="mt-4">
-                Follow on Instagram
-              </SocialLink>
-              <SocialLink href="#" icon={GitHubIcon} className="mt-4">
-                Follow on GitHub
-              </SocialLink>
-              <SocialLink href="#" icon={LinkedInIcon} className="mt-4">
-                Follow on LinkedIn
+              <SocialLink
+                href="https://github.com/mirhamasala"
+                icon={GitHubIcon}
+                className="mt-4"
+              >
+                GitHub
               </SocialLink>
               <SocialLink
-                href="mailto:spencer@planetaria.tech"
-                icon={MailIcon}
-                className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
+                href="https://www.linkedin.com/in/mirhamasala/"
+                icon={LinkedInIcon}
+                className="mt-4"
               >
-                spencer@planetaria.tech
+                LinkedIn
+              </SocialLink>
+              <SocialLink
+                href="mailto:keepintouch@mirhamasala"
+                icon={MailIcon}
+                className="pt-8 mt-8 border-t border-zinc-100 dark:border-zinc-700/40"
+              >
+                keepintouch@mirhamasala.com
               </SocialLink>
             </ul>
           </div>
