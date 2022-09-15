@@ -49,7 +49,7 @@ export function PostLayout({
                 <ArrowLeftIcon className="w-4 h-4 transition stroke-zinc-500 group-hover:stroke-zinc-700 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400" />
               </button>
             )}
-            <post>
+            <article>
               <header className="flex flex-col">
                 <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                   {meta.title}
@@ -63,7 +63,7 @@ export function PostLayout({
                 </time>
               </header>
               <Prose className="mt-8">{children}</Prose>
-            </post>
+            </article>
           </div>
         </div>
       </Container>

@@ -7,7 +7,7 @@ import { formatDate } from '@/lib/formatDate'
 
 function Post({ post }) {
   return (
-    <post className="md:grid md:grid-cols-4 md:items-baseline">
+    <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
         <Card.Title href={`/posts/${post.slug}`}>{post.title}</Card.Title>
         <Card.Eyebrow
@@ -24,11 +24,11 @@ function Post({ post }) {
       <Card.Eyebrow
         as="time"
         dateTime={post.date}
-        className="mt-1 hidden md:block"
+        className="hidden mt-1 md:block"
       >
         {formatDate(post.date)}
       </Card.Eyebrow>
-    </post>
+    </article>
   )
 }
 
@@ -47,7 +47,7 @@ export default function postsIndex({ posts }) {
         intro="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
       >
         <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
-          <div className="flex max-w-3xl flex-col space-y-16">
+          <div className="flex flex-col max-w-3xl space-y-16">
             {posts.map((post) => (
               <Post key={post.slug} post={post} />
             ))}
