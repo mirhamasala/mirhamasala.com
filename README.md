@@ -1,6 +1,6 @@
 # mirhamasala.com - A Creative Journal
 
-The source code for my personal website, [mirhamasala.com](https://mirhamasala.vercel.app).
+The source code for my personal website [mirhamasala.com](https://mirhamasala.vercel.app)
 
 ## Created With Spotlight
 
