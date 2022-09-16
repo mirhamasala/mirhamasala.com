@@ -68,10 +68,10 @@ function Newsletter() {
     >
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <MailIcon className="flex-none w-6 h-6" />
-        <span className="ml-3">Stay up to date</span>
+        <span className="ml-3">Keep in touch</span>
       </h2>
       <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Get notified when I publish something new, and unsubscribe at any time.
+        Get notified when I send out a letter, and unsubscribe at any time.
       </p>
       <div className="flex mt-6">
         <input
@@ -120,33 +120,30 @@ export default function Home({ posts }) {
   return (
     <>
       <Head>
-        <title>
-          Spencer Sharp - Software designer, founder, and amateur astronaut
-        </title>
+        <title>Mirha Masala - Front-end developer, writer, and alchemist</title>
         <meta
           name="description"
-          content="I’m Spencer, a software designer and entrepreneur based in New York City. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms."
+          content="I'm Mirha, a front-end developer and writer based in Portugal."
         />
       </Head>
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Software designer, founder, and amateur astronaut.
+            Front-end developer, writer, and challenge explorer.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Spencer, a software designer and entrepreneur based in New York
-            City. I’m the founder and CEO of Planetaria, where we develop
-            technologies that empower regular people to explore space on their
-            own terms.
+            I'm Mirha, a front-end developer and writer based in Portugal. This
+            is my creative journal where I share lifestyle experiments,
+            projects, and recommendations in apps, books, travel and more.
           </p>
           <div className="flex gap-6 mt-6">
             <SocialLink
-              href="https://github.com"
+              href="https://github.com/mirhamasala"
               aria-label="Follow on GitHub"
               icon={GitHubIcon}
             />
             <SocialLink
-              href="https://linkedin.com"
+              href="https://linkedin.com/in/mirhamasala"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
             />
