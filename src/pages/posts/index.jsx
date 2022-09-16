@@ -39,12 +39,12 @@ export default function postsIndex({ posts }) {
         <title>Posts - Mirha Masala</title>
         <meta
           name="description"
-          content="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
+          content="All of my posts on lifestyle experiments, creative projects, and favorite apps, books, travel recommendations, and more."
         />
       </Head>
       <SimpleLayout
-        title="Writing on software design, company building, and the aerospace industry."
-        intro="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
+        title="Writing on lifestyle experiments and creative projects."
+        intro="And sharing my favorite apps, books, travel recommendations, and more."
       >
         <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
           <div className="flex flex-col max-w-3xl space-y-16">
