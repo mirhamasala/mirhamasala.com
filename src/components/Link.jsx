@@ -1,15 +1,24 @@
 import NextLink from 'next/link'
 
 export function Link({ href, children }) {
-  const isInternalLink = href.startsWith('/')
+  const isAnchor = href.startsWith('#')
+  const isInternal = href.startsWith('/')
 
-  if (!isInternalLink) {
+  if (isAnchor) {
     return (
-      <a href={href} rel="noopener noreferrer">
+      <NextLink href={href} scroll={false}>
         {children}
-      </a>
+      </NextLink>
     )
   }
 
-  return <NextLink href={href}>{children}</NextLink>
+  if (isInternal) {
+    return <NextLink href={href}>{children}</NextLink>
+  }
+
+  return (
+    <a href={href} rel="noopener noreferrer">
+      {children}
+    </a>
+  )
 }
