@@ -24,7 +24,7 @@ function Post({ post }) {
       <Card.Eyebrow
         as="time"
         dateTime={post.date}
-        className="hidden mt-1 md:block"
+        className="mt-1 hidden md:block"
       >
         {formatDate(post.date)}
       </Card.Eyebrow>
@@ -43,11 +43,11 @@ export default function postsIndex({ posts }) {
         />
       </Head>
       <SimpleLayout
-        title="Writing on lifestyle experiments and creative projects."
+        title="Writing about lifestyle experiments and creative projects."
         intro="And sharing my favorite apps, books, travel recommendations, and more."
       >
         <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
-          <div className="flex flex-col max-w-3xl space-y-16">
+          <div className="flex max-w-3xl flex-col space-y-16">
             {posts.map((post) => (
               <Post key={post.slug} post={post} />
             ))}
