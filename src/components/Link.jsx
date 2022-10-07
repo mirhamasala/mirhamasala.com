@@ -17,7 +17,7 @@ export function Link({ href, children }) {
   }
 
   return (
-    <a href={href} rel="noopener noreferrer">
+    <a href={href} rel="noopener noreferrer" target="_blank">
       {children}
     </a>
   )
