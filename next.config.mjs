@@ -18,6 +18,10 @@ const withMDX = nextMDX({
   options: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [rehypePrism],
+    remarkRehypeOptions: {
+      footnoteLabel: 'Notes',
+      footnoteLabelTagName: 'h2',
+    },
     providerImportSource: '@mdx-js/react',
   },
 })
