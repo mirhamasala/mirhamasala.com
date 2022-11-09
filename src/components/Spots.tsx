@@ -1,7 +1,7 @@
 import { categories, categoryNames } from "@/interfaces/categories";
 import { type Spot } from "@/interfaces/spots";
 
-export function Spots(spots: Spot[]) {
+export function Spots({ spots }: { spots: Spot[] }) {
   let spotsByCategory: Spot[] = [];
 
   function getSpotsByCategory(category: string) {
