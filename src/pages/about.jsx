@@ -1,24 +1,24 @@
-import Image from 'next/future/image'
-import Head from 'next/head'
-import Link from 'next/link'
-import clsx from 'clsx'
+import Image from "next/future/image";
+import Head from "next/head";
+import Link from "next/link";
+import clsx from "clsx";
 
-import { Container } from '@/components/Container'
-import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
-import portraitImage from '@/images/portrait.jpg'
+import { Container } from "@/components/Container";
+import { GitHubIcon, LinkedInIcon } from "@/components/SocialIcons";
+import portraitImage from "@/images/portrait.jpg";
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
-    <li className={clsx(className, 'flex')}>
+    <li className={clsx(className, "flex")}>
       <Link
         href={href}
-        className="flex text-sm font-medium transition group text-zinc-800 hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+        className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
       >
-        <Icon className="flex-none w-6 h-6 transition fill-zinc-500 group-hover:fill-teal-500" />
+        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
         <span className="ml-4">{children}</span>
       </Link>
     </li>
-  )
+  );
 }
 
 function MailIcon(props) {
@@ -29,7 +29,7 @@ function MailIcon(props) {
         d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
       />
     </svg>
-  )
+  );
 }
 
 export default function About() {
@@ -50,7 +50,7 @@ export default function About() {
                 src={portraitImage}
                 alt=""
                 sizes="(min-width: 1024px) 32rem, 20rem"
-                className="object-cover aspect-square rotate-3 rounded-2xl bg-zinc-100 grayscale filter dark:bg-zinc-800"
+                className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover grayscale filter dark:bg-zinc-800"
               />
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function About() {
               I’m Mirha Masala. I live in Portugal, where I surf, write and
               code.
             </h1>
-            <div className="mt-6 text-base space-y-7 text-zinc-600 dark:text-zinc-400">
+            <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
                 Ten years ago, I decided I wasn’t going to pursue a career in
                 foreign affairs after all. Instead, I went traveling and started
@@ -101,7 +101,7 @@ export default function About() {
               <SocialLink
                 href="mailto:keepintouch@mirhamasala"
                 icon={MailIcon}
-                className="pt-8 mt-8 border-t border-zinc-100 dark:border-zinc-700/40"
+                className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
               >
                 keepintouch@mirhamasala.com
               </SocialLink>
@@ -110,5 +110,5 @@ export default function About() {
         </div>
       </Container>
     </>
-  )
+  );
 }

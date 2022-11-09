@@ -1,20 +1,20 @@
-import ReactDOMServer from 'react-dom/server'
-import { Feed } from 'feed'
-import { mkdir, writeFile } from 'fs/promises'
+import ReactDOMServer from "react-dom/server";
+import { Feed } from "feed";
+import { mkdir, writeFile } from "fs/promises";
 
-import { getAllPosts } from './getAllPosts'
+import { getAllPosts } from "./getAllPosts";
 
 export async function generateRssFeed() {
-  let posts = await getAllPosts()
-  let siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  let posts = await getAllPosts();
+  let siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
   let author = {
-    name: 'Mirha Masala',
-    email: 'keepintouch@mirhamasala.com',
-  }
+    name: "Mirha Masala",
+    email: "keepintouch@mirhamasala.com",
+  };
 
   let feed = new Feed({
     title: author.name,
-    description: 'A creative journal',
+    description: "A creative journal",
     author,
     id: siteUrl,
     link: siteUrl,
@@ -25,11 +25,13 @@ export async function generateRssFeed() {
       rss2: `${siteUrl}/rss/feed.xml`,
       json: `${siteUrl}/rss/feed.json`,
     },
-  })
+  });
 
   for (let post of posts) {
-    let url = `${siteUrl}/posts/${post.slug}`
-    let html = ReactDOMServer.renderToStaticMarkup(<post.component isRssFeed />)
+    let url = `${siteUrl}/posts/${post.slug}`;
+    let html = ReactDOMServer.renderToStaticMarkup(
+      <post.component isRssFeed />
+    );
 
     feed.addItem({
       title: post.title,
@@ -40,12 +42,12 @@ export async function generateRssFeed() {
       author: [author],
       contributor: [author],
       date: new Date(post.date),
-    })
+    });
   }
 
-  await mkdir('./public/rss', { recursive: true })
+  await mkdir("./public/rss", { recursive: true });
   await Promise.all([
-    writeFile('./public/rss/feed.xml', feed.rss2(), 'utf8'),
-    writeFile('./public/rss/feed.json', feed.json1(), 'utf8'),
-  ])
+    writeFile("./public/rss/feed.xml", feed.rss2(), "utf8"),
+    writeFile("./public/rss/feed.json", feed.json1(), "utf8"),
+  ]);
 }

@@ -1,28 +1,28 @@
-import { MDXProvider } from '@mdx-js/react'
-import { useEffect, useRef } from 'react'
+import { MDXProvider } from "@mdx-js/react";
+import { useEffect, useRef } from "react";
 
-import { Link } from '@/components/Link'
-import { Footer } from '@/components/Footer'
-import { Header } from '@/components/Header'
+import { Link } from "@/components/Link";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
 
-import '@/styles/tailwind.css'
-import 'focus-visible'
+import "@/styles/tailwind.css";
+import "focus-visible";
 
 function usePrevious(value) {
-  let ref = useRef()
+  let ref = useRef();
 
   useEffect(() => {
-    ref.current = value
-  }, [value])
+    ref.current = value;
+  }, [value]);
 
-  return ref.current
+  return ref.current;
 }
 
 export default function App({ Component, pageProps, router }) {
   const components = {
     a: Link,
-  }
-  let previousPathname = usePrevious(router.pathname)
+  };
+  let previousPathname = usePrevious(router.pathname);
   return (
     <MDXProvider components={components}>
       <div className="fixed inset-0 flex justify-center sm:px-8">
@@ -38,5 +38,5 @@ export default function App({ Component, pageProps, router }) {
         <Footer />
       </div>
     </MDXProvider>
-  )
+  );
 }
