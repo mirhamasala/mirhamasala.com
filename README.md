@@ -16,4 +16,5 @@ To learn more about the technologies used in this site template, see the followi
 ### License
 
 This site template is a commercial product and is licensed under the [Tailwind UI license](https://tailwindui.com/license).
-****
+
+---
