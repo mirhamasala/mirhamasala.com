@@ -1,4 +1,4 @@
-import { type CategoryName } from "./categories";
+import { type CategoryName } from "./category";
 
 export interface Spot {
   category: CategoryName;

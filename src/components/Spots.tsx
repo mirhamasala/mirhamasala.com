@@ -1,5 +1,5 @@
-import { categories, categoryNames } from "@/interfaces/categories";
-import { type Spot } from "@/interfaces/spots";
+import { categories, categoryNames } from "@/models/category";
+import { type Spot } from "@/models/spot";
 
 export function Spots({ spots }: { spots: Spot[] }) {
   let spotsByCategory: Spot[] = [];
