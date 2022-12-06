@@ -44,7 +44,7 @@ export default function postsIndex({ posts }) {
         title="Flying paper planes bimonthly."
         intro={
           <>
-            Some say it's their favorite newsletter. Leave your e-mail
+            Some say it&apos;s their favorite newsletter. Leave your e-mail
             address&nbsp;
             <Link href="https://mirhamasala.us3.list-manage.com/subscribe?u=b39d94447fc443788a5295725&id=f154788ae9">
               here
