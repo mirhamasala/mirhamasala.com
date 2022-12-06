@@ -22,7 +22,12 @@ export function Link({ href, children, ...props }) {
   }
 
   return (
-    <a href={href} rel="noopener noreferrer" target="_blank">
+    <a
+      className="text-teal-500 hover:text-teal-600"
+      href={href}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
       {children}
     </a>
   );
