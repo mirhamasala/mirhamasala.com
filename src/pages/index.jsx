@@ -38,7 +38,7 @@ function MailIcon(props) {
 
 function Post({ post }) {
   return (
-    <Card as="post">
+    <Card as="article">
       <Card.Title href={`/posts/${post.slug}`}>{post.title}</Card.Title>
       <Card.Eyebrow as="time" dateTime={post.date} decorate>
         {formatDate(post.date)}
