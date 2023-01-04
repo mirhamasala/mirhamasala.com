@@ -8,7 +8,7 @@ export interface Spot {
     longitude: number;
   };
   googleMapsUrl: string;
-  hasMarkdown?: boolean;
+  hasMarkdown: boolean;
   name: string;
   published: boolean;
   slug: string;

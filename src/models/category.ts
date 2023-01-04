@@ -1,12 +1,13 @@
 export type CategoryName =
   | "coffee"
-  | "eats"
   | "drinks"
+  | "eats"
   | "gourmet-groceries"
   | "meats"
   | "other"
   | "parks"
   | "shops"
+  | "sweets"
   | "sights";
 
 type Category = {
@@ -19,11 +20,23 @@ type Category = {
 };
 
 export const categories: Category = {
+  parks: {
+    id: 7,
+    emoji: "🌳",
+    label: "Parks",
+    slug: "parks",
+  },
   coffee: {
     id: 1,
     emoji: "☕️",
     label: "Coffee",
     slug: "coffee",
+  },
+  meats: {
+    id: 5,
+    emoji: "🥩",
+    label: "Meats",
+    slug: "meats",
   },
   eats: {
     id: 2,
@@ -43,23 +56,11 @@ export const categories: Category = {
     label: "Gourmet Groceries",
     slug: "gourmet-groceries",
   },
-  meats: {
-    id: 5,
-    emoji: "🥩",
-    label: "Meats",
-    slug: "meats",
-  },
-  other: {
-    id: 6,
-    emoji: "🖇",
-    label: "Other",
-    slug: "other",
-  },
-  parks: {
-    id: 7,
-    emoji: "🌳",
-    label: "Parks",
-    slug: "parks",
+  sights: {
+    id: 9,
+    emoji: "🏛",
+    label: "Sights",
+    slug: "sights",
   },
   shops: {
     id: 8,
@@ -67,11 +68,17 @@ export const categories: Category = {
     label: "Shops",
     slug: "shops",
   },
-  sights: {
-    id: 9,
-    emoji: "🏛",
-    label: "Sights",
-    slug: "sights",
+  sweets: {
+    id: 10,
+    emoji: "🍦",
+    label: "Sweets",
+    slug: "sweets",
+  },
+  other: {
+    id: 6,
+    emoji: "🖇",
+    label: "Other",
+    slug: "other",
   },
 };
 
