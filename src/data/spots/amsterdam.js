@@ -1,6 +1,4 @@
-import { Spot } from "../models/spot";
-
-export const spots: Spot[] = [
+export const spots = [
   {
     category: "parks",
     description:

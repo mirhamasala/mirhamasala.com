@@ -1,15 +1,7 @@
-import { createYoga } from "graphql-yoga";
-import {
-  GraphQLBoolean,
-  GraphQLFloat,
-  GraphQLList,
-  GraphQLObjectType,
-  GraphQLSchema,
-  GraphQLString,
-} from "graphql";
-import type { NextApiRequest, NextApiResponse } from "next";
+import { createSchema, createYoga } from "graphql-yoga";
 
-import { spots } from "@/data/amsterdam";
+import { categories } from "@/data/categories";
+import { spots } from "@/data/spots/amsterdam";
 
 export const config = {
   api: {
@@ -17,47 +9,55 @@ export const config = {
   },
 };
 
-let geoType = new GraphQLObjectType({
-  name: "Geo",
-  fields: () => ({
-    latitude: { type: GraphQLFloat },
-    longitude: { type: GraphQLFloat },
-  }),
-});
+const typeDefs = `
+  type Category {
+    emoji: String!
+    label: String!
+    slug: String!
+    spots: [Spot!]!
+  }
 
-let spotType = new GraphQLObjectType({
-  name: "Spot",
-  fields: () => ({
-    category: { type: GraphQLString },
-    description: { type: GraphQLString },
-    geo: { type: geoType },
-    googleMapsUrl: { type: GraphQLString },
-    hasMarkdown: { type: GraphQLBoolean },
-    name: { type: GraphQLString },
-    published: { type: GraphQLBoolean },
-    slug: { type: GraphQLString },
-    url: { type: GraphQLString },
-  }),
-});
+  type Geo {
+    latitude: Float!
+    longitude: Float!
+  }
 
-let schema = new GraphQLSchema({
-  query: new GraphQLObjectType({
-    name: "RootQueryType",
-    fields: {
-      spots: {
-        type: new GraphQLList(spotType),
-        resolve() {
-          return spots;
-        },
-      },
-    },
-  }),
-});
+  type Spot {
+    category: Category!
+    description: String!
+    geo: Geo!
+    googleMapsUrl: String!
+    hasMarkdown: Boolean!
+    name: String!
+    published: Boolean!
+    slug: String!
+    url: String!
+  }
 
-export default createYoga<{
-  req: NextApiRequest;
-  res: NextApiResponse;
-}>({
+  type Query {
+    categories: [Category!]!
+    spots: [Spot!]!
+  }
+`;
+
+const resolvers = {
+  Query: {
+    categories: () => categories,
+    spots: () => spots,
+  },
+  Category: {
+    spots: (category) =>
+      spots.filter((spot) => spot.category === category.slug && spot.published),
+  },
+  Spot: {
+    category: (spot) =>
+      categories.find((category) => category.slug === spot.category),
+  },
+};
+
+const schema = createSchema({ typeDefs, resolvers });
+
+export default createYoga({
   graphqlEndpoint: "/api/graphql",
   schema,
 });

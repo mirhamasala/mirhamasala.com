@@ -19,6 +19,12 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/data/categories.js",
+    "src/data/spots/amsterdam.js"
+  ],
   "exclude": ["node_modules"]
 }
