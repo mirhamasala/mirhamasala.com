@@ -5,11 +5,7 @@ export function Spots() {
   const [categoriesWithSpots, setCategoriesWithSpots] = useState([]);
 
   useEffect(() => {
-    getCategories().then((data) => {
-      setCategoriesWithSpots(
-        data.filter((category) => category.spots.length > 0)
-      );
-    });
+    getCategories().then(setCategoriesWithSpots);
   }, []);
 
   if (!categoriesWithSpots) return <div>Loading...</div>;

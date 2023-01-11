@@ -14,7 +14,7 @@ const typeDefs = `
     emoji: String!
     label: String!
     slug: String!
-    spots: [Spot!]!
+    spots: [Spot!]
   }
 
   type Geo {
@@ -35,19 +35,31 @@ const typeDefs = `
   }
 
   type Query {
-    categories: [Category!]!
+    categories(hasSpots: Boolean): [Category!]!
     spots: [Spot!]!
   }
 `;
 
 const resolvers = {
   Query: {
-    categories: () => categories,
+    categories(_obj, { hasSpots }) {
+      if (!hasSpots) {
+        return categories;
+      }
+
+      return categories.reduce((categoriesWithSpots, category) => {
+        let categorySpots = spots.filter(
+          (spot) => spot.category === category.slug && spot.published
+        );
+
+        if (categorySpots.length) {
+          categoriesWithSpots.push({ ...category, spots: categorySpots });
+        }
+
+        return categoriesWithSpots;
+      }, []);
+    },
     spots: () => spots,
-  },
-  Category: {
-    spots: (category) =>
-      spots.filter((spot) => spot.category === category.slug && spot.published),
   },
   Spot: {
     category: (spot) =>
