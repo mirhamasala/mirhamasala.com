@@ -1,7 +1,10 @@
 import { createSchema, createYoga } from "graphql-yoga";
+import { readFileSync } from "node:fs";
+import { Resolvers } from "@/graphql/documents";
 
 import { categories } from "@/data/categories";
 import { spots } from "@/data/spots/amsterdam";
+const typeDefs = readFileSync("./schema.graphql", "utf8");
 
 export const config = {
   api: {
@@ -9,38 +12,7 @@ export const config = {
   },
 };
 
-const typeDefs = `
-  type Category {
-    emoji: String!
-    label: String!
-    slug: String!
-    spots: [Spot!]
-  }
-
-  type Geo {
-    latitude: Float!
-    longitude: Float!
-  }
-
-  type Spot {
-    category: Category!
-    description: String!
-    geo: Geo!
-    googleMapsUrl: String!
-    hasMarkdown: Boolean!
-    name: String!
-    published: Boolean!
-    slug: String!
-    url: String!
-  }
-
-  type Query {
-    categories(hasSpots: Boolean): [Category!]!
-    spots: [Spot!]!
-  }
-`;
-
-const resolvers = {
+const resolvers: Resolvers = {
   Query: {
     categories(_obj, { hasSpots }) {
       if (!hasSpots) {
@@ -59,11 +31,6 @@ const resolvers = {
         return categoriesWithSpots;
       }, []);
     },
-    spots: () => spots,
-  },
-  Spot: {
-    category: (spot) =>
-      categories.find((category) => category.slug === spot.category),
   },
 };
 
