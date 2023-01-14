@@ -24,7 +24,8 @@
     "**/*.ts",
     "**/*.tsx",
     "src/data/categories.js",
-    "src/data/spots/amsterdam.js"
+    "src/data/spots/amsterdam.js",
+    "codegen.ts"
   ],
   "exclude": ["node_modules"]
 }
