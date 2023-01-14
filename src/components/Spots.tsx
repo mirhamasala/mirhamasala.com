@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getCategories } from "@/graphql/queries";
+import { type Category } from "@/graphql/documents";
 
 export function Spots() {
   const [categoriesWithSpots, setCategoriesWithSpots] = useState([]);
@@ -12,7 +13,7 @@ export function Spots() {
 
   return (
     <div>
-      {categoriesWithSpots.map((category) => {
+      {categoriesWithSpots.map((category: Category) => {
         return (
           <section key={category.slug}>
             <h3 className="flex gap-2">
