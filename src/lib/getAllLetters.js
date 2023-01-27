@@ -1,23 +1,25 @@
-import glob from 'fast-glob'
-import * as path from 'path'
+import glob from "fast-glob";
+import * as path from "path";
 
 async function importLetter(letterFilename) {
   let { meta, default: component } = await import(
     `../pages/letters/${letterFilename}`
-  )
+  );
   return {
-    slug: letterFilename.replace(/(\/index)?\.mdx$/, ''),
+    slug: letterFilename.replace(/(\/index)?\.mdx$/, ""),
     ...meta,
     component,
-  }
+  };
 }
 
 export async function getAllLetters() {
-  let letterFilenames = await glob(['*.mdx', '*/index.mdx'], {
-    cwd: path.join(process.cwd(), 'src/pages/letters'),
-  })
+  let letterFilenames = await glob(["*.mdx", "*/index.mdx"], {
+    cwd: path.join(process.cwd(), "src/pages/letters"),
+  });
 
-  let letters = await Promise.all(letterFilenames.map(importLetter))
+  let letters = await Promise.all(letterFilenames.map(importLetter));
 
-  return letters.sort((a, z) => new Date(z.date) - new Date(a.date))
+  return letters
+    .filter((post) => post.status !== "draft")
+    .sort((a, z) => new Date(z.date) - new Date(a.date));
 }

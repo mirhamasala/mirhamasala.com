@@ -19,5 +19,7 @@ export async function getAllPosts() {
 
   let posts = await Promise.all(postFilenames.map(importPost));
 
-  return posts.sort((a, z) => new Date(z.date) - new Date(a.date));
+  return posts
+    .filter((post) => post.status !== "draft")
+    .sort((a, z) => new Date(z.date) - new Date(a.date));
 }
