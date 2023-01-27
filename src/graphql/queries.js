@@ -1,7 +1,5 @@
 import { request, gql } from "graphql-request";
 
-const GRAPHQL_ENDPOINT = "http://localhost:3000/api/graphql";
-
 export async function getCategories() {
   const query = gql`
     query {
@@ -18,6 +16,6 @@ export async function getCategories() {
       }
     }
   `;
-  const { categories } = await request(GRAPHQL_ENDPOINT, query);
+  const { categories } = await request(process.env.NEXT_PUBLIC_API_URL, query);
   return categories;
 }
