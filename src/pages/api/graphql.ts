@@ -1,6 +1,7 @@
 import { createSchema, createYoga } from "graphql-yoga";
 import { readFileSync } from "node:fs";
 import { Resolvers } from "@/graphql/documents";
+import type { NextApiRequest, NextApiResponse } from "next";
 
 import { categories } from "@/data/categories";
 import { spots } from "@/data/spots/amsterdam";
@@ -34,9 +35,10 @@ const resolvers: Resolvers = {
   },
 };
 
-const schema = createSchema({ typeDefs, resolvers });
-
-export default createYoga({
+export default createYoga<{
+  req: NextApiRequest;
+  res: NextApiResponse;
+}>({
+  schema: createSchema({ typeDefs, resolvers }),
   graphqlEndpoint: "/api/graphql",
-  schema,
 });
