@@ -1,19 +1,14 @@
-import { useState, useEffect } from "react";
-import { getCategories } from "@/graphql/queries";
 import { type Category } from "@/graphql/documents";
+import useCategories from "@/hooks/useCategories";
 
 export function Spots() {
-  const [categoriesWithSpots, setCategoriesWithSpots] = useState([]);
+  const spots = useCategories();
 
-  useEffect(() => {
-    getCategories().then(setCategoriesWithSpots);
-  }, []);
-
-  if (!categoriesWithSpots) return <div>Loading...</div>;
+  if (!spots) return <div>Loading...</div>;
 
   return (
     <div>
-      {categoriesWithSpots.map((category: Category) => {
+      {spots.map((category: Category) => {
         return (
           <section key={category.slug}>
             <h3 className="flex gap-2">
