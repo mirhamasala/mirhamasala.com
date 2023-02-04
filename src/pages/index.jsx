@@ -94,10 +94,10 @@ export default function Home({ posts }) {
   return (
     <>
       <Head>
-        <title>Mirha Masala - Front-end developer, writer, and alchemist</title>
+        <title>Mirha Masala</title>
         <meta
           name="description"
-          content="I'm Mirha, a front-end developer and writer based in Portugal."
+          content="I'm Mirha, a front-end developer, writer, and challenge-explorer."
         />
       </Head>
       <Container className="mt-9">
@@ -106,9 +106,9 @@ export default function Home({ posts }) {
             Front-end developer, writer, and challenge explorer.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Mirha, a front-end developer and writer based in Portugal. This
-            is my creative journal where I share lifestyle experiments,
-            projects, and recommendations in apps, books, travel and more.
+            I’m Mirha, a front-end developer and writer. This is my creative
+            journal where I share lifestyle experiments, projects, and
+            recommendations in apps, books, travel and more.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
