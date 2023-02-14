@@ -1,6 +1,6 @@
 import { request, gql } from "graphql-request";
 
-export async function getCategories() {
+export async function getCategoriesWithSpots() {
   const query = gql`
     query {
       categories(hasSpots: true) {
