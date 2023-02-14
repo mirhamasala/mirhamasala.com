@@ -1,0 +1,19 @@
+import { PostLayout } from "@/components/PostLayout";
+import { Spots } from "@/components/Spots.tsx";
+
+export const meta = {
+  categories: ["favorites"],
+  date: "2022-02-14",
+  date_modified: "",
+  description: "My favorite spots in Amsterdam.",
+  id: "",
+  slug: "amsterdam-favorites",
+  status: "draft",
+  tags: ["amsterdam", "favorites", "travel"],
+  title: "Amsterdam Favorites",
+  type: "post",
+};
+
+export default (props) => <PostLayout meta={meta} {...props} />;
+
+<Spots />
