@@ -19,9 +19,6 @@ const nextConfig = {
     });
     return config;
   },
-  webpackDevMiddleware: (config) => {
-    return config;
-  },
 };
 
 const withMDX = nextMDX({
