@@ -8,12 +8,20 @@ export const meta = {
   description: "My favorite spots in Amsterdam.",
   id: "",
   slug: "amsterdam-favorites",
-  status: "draft",
+  status: "published",
   tags: ["amsterdam", "favorites", "travel"],
   title: "Amsterdam Favorites",
   type: "post",
 };
 
-export default (props) => <PostLayout meta={meta} {...props} />;
+{/* export default (props) => <PostLayout meta={meta} {...props} />; */}
 
-<Spots />
+{/* <Spots /> */}
+
+export default function AmsterdamFavorites(props) {
+  return (
+    <PostLayout meta={meta} {...props}>
+      <Spots />
+    </PostLayout>
+  );
+}

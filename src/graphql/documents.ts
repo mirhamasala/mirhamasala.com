@@ -18,7 +18,7 @@ export type Category = {
   emoji: Scalars['String'];
   label: Scalars['String'];
   slug: Scalars['String'];
-  spots?: Maybe<Array<Spot>>;
+  spots: Array<Spot>;
 };
 
 export type Geo = {
@@ -29,13 +29,8 @@ export type Geo = {
 
 export type Query = {
   __typename?: 'Query';
-  categories: Array<Category>;
+  categoriesWithSpots: Array<Category>;
   spots: Array<Maybe<Spot>>;
-};
-
-
-export type QueryCategoriesArgs = {
-  hasSpots?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type Spot = {
@@ -145,7 +140,7 @@ export type CategoryResolvers<ContextType = any, ParentType extends ResolversPar
   emoji?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   label?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  spots?: Resolver<Maybe<Array<ResolversTypes['Spot']>>, ParentType, ContextType>;
+  spots?: Resolver<Array<ResolversTypes['Spot']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
@@ -156,7 +151,7 @@ export type GeoResolvers<ContextType = any, ParentType extends ResolversParentTy
 }>;
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
-  categories?: Resolver<Array<ResolversTypes['Category']>, ParentType, ContextType, Partial<QueryCategoriesArgs>>;
+  categoriesWithSpots?: Resolver<Array<ResolversTypes['Category']>, ParentType, ContextType>;
   spots?: Resolver<Array<Maybe<ResolversTypes['Spot']>>, ParentType, ContextType>;
 }>;
 

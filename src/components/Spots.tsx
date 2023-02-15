@@ -1,14 +1,13 @@
-import { type Category } from "@/graphql/documents";
 import useCategories from "@/hooks/useCategories";
 
 export function Spots() {
-  const spots = useCategories();
+  const { categories, loading} = useCategories();
 
-  if (!spots) return <div>Loading...</div>;
+  if (loading) return <div>Loading...</div>;
 
   return (
     <div>
-      {spots.map((category: Category) => {
+      {categories.map((category) => {
         return (
           <section key={category.slug}>
             <h3 className="flex gap-2">
