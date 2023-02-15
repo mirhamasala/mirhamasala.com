@@ -1,6 +1,8 @@
 import { createSchema, createYoga } from "graphql-yoga";
 import { Resolvers } from "@/graphql/documents";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { type Category } from "@/graphql/documents";
+import appConfig from "@/lib/config";
 
 import { categories } from "@/data/categories";
 import { spots } from "@/data/spots/amsterdam";
@@ -14,30 +16,30 @@ export const config = {
 
 const resolvers: Resolvers = {
   Query: {
-    categories(_obj, { hasSpots }) {
-      if (!hasSpots) {
-        return categories;
-      }
-
+    categoriesWithSpots() {
       return categories.reduce((categoriesWithSpots, category) => {
-        let categorySpots = spots.filter(
-          (spot) => spot.category === category.slug && spot.published
-        );
+        let categorySpots = spots
+          .filter((spot) => spot.category === category.slug && spot.published)
+          .map((spot) => ({
+            ...spot,
+            category,
+          }));
 
         if (categorySpots.length) {
           categoriesWithSpots.push({ ...category, spots: categorySpots });
         }
 
         return categoriesWithSpots;
-      }, []);
+      }, [] as Category[]);
     },
   },
 };
+
 
 export default createYoga<{
   req: NextApiRequest;
   res: NextApiResponse;
 }>({
   schema: createSchema({ typeDefs, resolvers }),
-  graphqlEndpoint: process.env.NEXT_PUBLIC_API_URL,
+  graphqlEndpoint: appConfig.api_path,
 });

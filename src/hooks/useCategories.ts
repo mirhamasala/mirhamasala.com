@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react";
 import { getCategories } from "@/graphql/queries";
+import { type Category } from "@/graphql/documents";
 
 function useCategories() {
-  const [categoriesWithSpots, setCategoriesWithSpots] = useState([]);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getCategories().then(setCategoriesWithSpots);
+    setLoading(true);
+
+    getCategories().then(setCategories);
+
+    setLoading(false);
   }, []);
 
-  return categoriesWithSpots;
+
+  return {categories, loading};
 }
 
 export default useCategories;
