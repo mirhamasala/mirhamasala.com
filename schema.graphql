@@ -2,7 +2,7 @@ type Category {
   emoji: String!
   label: String!
   slug: String!
-  spots: [Spot!]
+  spots: [Spot!]!
 }
 
 type Geo {
