@@ -1,11 +1,10 @@
 import { createSchema, createYoga } from "graphql-yoga";
 import { Resolvers } from "@/graphql/documents";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { type Category } from "@/graphql/documents";
-import appConfig from "@/lib/config";
 
 import { categories } from "@/data/categories";
 import { spots } from "@/data/spots/amsterdam";
+import appConfig from "@/lib/config";
 import typeDefs from "schema.graphql";
 
 export const config = {
@@ -16,25 +15,17 @@ export const config = {
 
 const resolvers: Resolvers = {
   Query: {
-    categoriesWithSpots() {
-      return categories.reduce((categoriesWithSpots, category) => {
-        let categorySpots = spots
-          .filter((spot) => spot.category === category.slug && spot.published)
-          .map((spot) => ({
-            ...spot,
-            category,
-          }));
-
-        if (categorySpots.length) {
-          categoriesWithSpots.push({ ...category, spots: categorySpots });
-        }
-
-        return categoriesWithSpots;
-      }, [] as Category[]);
-    },
+    categories: () => categories,
+  },
+  Category: {
+    spots: (category) =>
+      spots.filter((spot) => spot.category === category.slug),
+  },
+  Spot: {
+    category: (spot) =>
+      categories.find((category) => category.slug === spot.category.slug),
   },
 };
-
 
 export default createYoga<{
   req: NextApiRequest;
