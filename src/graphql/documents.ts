@@ -30,6 +30,7 @@ export type Geo = {
 export type Query = {
   __typename?: 'Query';
   categories: Array<Category>;
+  categoriesWithSpots: Array<Category>;
 };
 
 export type Spot = {
@@ -151,6 +152,7 @@ export type GeoResolvers<ContextType = any, ParentType extends ResolversParentTy
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
   categories?: Resolver<Array<ResolversTypes['Category']>, ParentType, ContextType>;
+  categoriesWithSpots?: Resolver<Array<ResolversTypes['Category']>, ParentType, ContextType>;
 }>;
 
 export type SpotResolvers<ContextType = any, ParentType extends ResolversParentTypes['Spot'] = ResolversParentTypes['Spot']> = ResolversObject<{

@@ -5,7 +5,7 @@ import config from "@/lib/config";
 export async function getCategories() {
   const query = gql`
     query {
-      categories {
+      categoriesWithSpots {
         emoji
         label
         slug
@@ -19,9 +19,8 @@ export async function getCategories() {
     }
   `;
 
-  const { categories } = await request<{ categories: Category[] }>(
-    config.api_path,
-    query
-  );
-  return categories;
+  const { categoriesWithSpots } = await request<{
+    categoriesWithSpots: Category[];
+  }>(config.api_path, query);
+  return categoriesWithSpots;
 }
