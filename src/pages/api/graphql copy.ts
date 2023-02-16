@@ -21,21 +21,24 @@ const resolvers: Resolvers = {
         spots: [],
       })),
     categoriesWithSpots: () => {
+      const categoryIDs = categories
+        .map((category) => {
+          return {
+            ...category,
+            spots: spots.filter((spot) => spot.category === category.slug),
+          };
+        })
+        .filter((category) => category.spots.length > 0)
+        .map((category) => category.slug);
+
       return categories
         .map((category) => {
           return {
             ...category,
-            spots: spots
-              .filter((spot) => spot.category === category.slug)
-              .map((spot) => {
-                return {
-                  ...spot,
-                  category: { ...category, spots: [] },
-                };
-              }),
+            spots: [],
           };
         })
-        .filter((category) => category.spots.length > 0);
+        .filter((category) => categoryIDs.includes(category.slug));
     },
   },
   Category: {
