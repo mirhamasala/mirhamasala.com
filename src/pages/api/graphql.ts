@@ -1,7 +1,12 @@
 import { createSchema, createYoga } from "graphql-yoga";
+import { Resolvers } from "@/graphql/documents";
+import type { NextApiRequest, NextApiResponse } from "next";
 
 import { categories } from "@/data/categories";
 import { spots } from "@/data/spots/amsterdam";
+import appConfig from "@/lib/config";
+
+import typeDefs from "schema.graphql";
 
 export const config = {
   api: {
@@ -9,55 +14,48 @@ export const config = {
   },
 };
 
-const typeDefs = `
-  type Category {
-    emoji: String!
-    label: String!
-    slug: String!
-    spots: [Spot!]!
-  }
+const publishedSpots = (slug: string) =>
+  spots.filter((spot) => spot.category === slug && spot.published);
 
-  type Geo {
-    latitude: Float!
-    longitude: Float!
-  }
-
-  type Spot {
-    category: Category!
-    description: String!
-    geo: Geo!
-    googleMapsUrl: String!
-    hasMarkdown: Boolean!
-    name: String!
-    published: Boolean!
-    slug: String!
-    url: String!
-  }
-
-  type Query {
-    categories: [Category!]!
-    spots: [Spot!]!
-  }
-`;
-
-const resolvers = {
+const resolvers: Resolvers = {
   Query: {
-    categories: () => categories,
-    spots: () => spots,
+    categories(_parent, { withSpots }) {
+      if (!withSpots) {
+        return categories.map((category) => ({
+          ...category,
+          spots: [],
+        }));
+      }
+
+      const categoryIDs = categories
+        .map((category) => ({
+          ...category,
+          spots: publishedSpots(category.slug),
+        }))
+        .filter((category) => category.spots.length)
+        .map((category) => category.slug);
+
+      return categories
+        .map((category) => ({
+          ...category,
+          spots: [],
+        }))
+        .filter((category) => categoryIDs.includes(category.slug));
+    },
   },
   Category: {
     spots: (category) =>
-      spots.filter((spot) => spot.category === category.slug && spot.published),
-  },
-  Spot: {
-    category: (spot) =>
-      categories.find((category) => category.slug === spot.category),
+      publishedSpots(category.slug).map((spot) => ({
+        ...spot,
+        category: category,
+      })),
   },
 };
 
-const schema = createSchema({ typeDefs, resolvers });
-
-export default createYoga({
-  graphqlEndpoint: "/api/graphql",
-  schema,
+export default createYoga<{
+  req: NextApiRequest;
+  res: NextApiResponse;
+}>({
+  schema: createSchema({ typeDefs, resolvers }),
+  graphqlEndpoint: appConfig.api_path,
 });
