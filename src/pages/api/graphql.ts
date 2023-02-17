@@ -5,6 +5,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { categories } from "@/data/categories";
 import { spots } from "@/data/spots/amsterdam";
 import appConfig from "@/lib/config";
+
 import typeDefs from "schema.graphql";
 
 export const config = {
@@ -12,6 +13,9 @@ export const config = {
     bodyParser: false,
   },
 };
+
+const getCategoriesWithSpots = (slug: string) =>
+  spots.filter((spot) => spot.category === slug);
 
 const resolvers: Resolvers = {
   Query: {
@@ -21,36 +25,28 @@ const resolvers: Resolvers = {
         spots: [],
       })),
     categoriesWithSpots: () => {
+      const categoryIDs = categories
+        .map((category) => ({
+          ...category,
+          spots: getCategoriesWithSpots(category.slug),
+        }))
+        .filter((category) => category.spots.length)
+        .map((category) => category.slug);
+
       return categories
-        .map((category) => {
-          return {
-            ...category,
-            spots: spots
-              .filter((spot) => spot.category === category.slug)
-              .map((spot) => {
-                return {
-                  ...spot,
-                  category: { ...category, spots: [] },
-                };
-              }),
-          };
-        })
-        .filter((category) => category.spots.length > 0);
+        .map((category) => ({
+          ...category,
+          spots: [],
+        }))
+        .filter((category) => categoryIDs.includes(category.slug));
     },
   },
   Category: {
-    spots: (category) => {
-      const categoriesWithSpots = spots.filter(
-        (spot) => spot.category === category.slug
-      );
-
-      return categoriesWithSpots.map((spot) => {
-        return {
-          ...spot,
-          category: category,
-        };
-      });
-    },
+    spots: (category) =>
+      getCategoriesWithSpots(category.slug).map((spot) => ({
+        ...spot,
+        category: category,
+      })),
   },
 };
 
