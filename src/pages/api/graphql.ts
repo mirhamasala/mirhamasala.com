@@ -14,21 +14,23 @@ export const config = {
   },
 };
 
-const getCategoriesWithSpots = (slug: string) =>
-  spots.filter((spot) => spot.category === slug);
+const publishedSpots = (slug: string) =>
+  spots.filter((spot) => spot.category === slug && spot.published);
 
 const resolvers: Resolvers = {
   Query: {
-    categories: () =>
-      categories.map((category) => ({
-        ...category,
-        spots: [],
-      })),
-    categoriesWithSpots: () => {
+    categories(_parent, { withSpots }) {
+      if (!withSpots) {
+        return categories.map((category) => ({
+          ...category,
+          spots: [],
+        }));
+      }
+
       const categoryIDs = categories
         .map((category) => ({
           ...category,
-          spots: getCategoriesWithSpots(category.slug),
+          spots: publishedSpots(category.slug),
         }))
         .filter((category) => category.spots.length)
         .map((category) => category.slug);
@@ -43,7 +45,7 @@ const resolvers: Resolvers = {
   },
   Category: {
     spots: (category) =>
-      getCategoriesWithSpots(category.slug).map((spot) => ({
+      publishedSpots(category.slug).map((spot) => ({
         ...spot,
         category: category,
       })),

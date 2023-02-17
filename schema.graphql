@@ -23,6 +23,5 @@ type Spot {
 }
 
 type Query {
-  categories: [Category!]!
-  categoriesWithSpots: [Category!]!
+  categories(withSpots: Boolean): [Category!]!
 }
