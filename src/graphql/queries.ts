@@ -1,5 +1,6 @@
 import { request, gql } from "graphql-request";
 import { type Category } from "@/graphql/documents";
+import config from "@/lib/config";
 
 export async function getCategories() {
   const query = gql`
@@ -20,6 +21,6 @@ export async function getCategories() {
 
   const { categories } = await request<{
     categories: Category[];
-  }>("/api/graphql", query);
+  }>(config.api_path, query);
   return categories;
 }
