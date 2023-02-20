@@ -4,6 +4,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 import { categories } from "@/data/categories";
 import { spots } from "@/data/spots/amsterdam";
+import appConfig from "@/lib/config";
 
 import typeDefs from "schema.graphql";
 
@@ -56,5 +57,5 @@ export default createYoga<{
   res: NextApiResponse;
 }>({
   schema: createSchema({ typeDefs, resolvers }),
-  graphqlEndpoint: "/api/graphql",
+  graphqlEndpoint: appConfig.api_path,
 });
