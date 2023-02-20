@@ -41,7 +41,7 @@ export const spots = [
     name: "Westerpark",
     published: true,
     slug: "westerpark",
-    url: "",
+    url: null,
   },
   {
     category: "coffee",
@@ -128,7 +128,7 @@ export const spots = [
     name: "Broodje Bert",
     published: false,
     slug: "broodje-bert",
-    url: "",
+    url: null,
   },
   {
     category: "eats",
@@ -551,7 +551,7 @@ export const spots = [
     name: "Hiding in Plain Sight",
     published: false,
     slug: "hiding-in-plain-sight",
-    url: "",
+    url: null,
   },
   {
     category: "drinks",
@@ -779,7 +779,7 @@ export const spots = [
     name: "Ten Katestraat",
     published: true,
     slug: "ten-katestraat",
-    url: "",
+    url: null,
   },
   {
     category: "other",
