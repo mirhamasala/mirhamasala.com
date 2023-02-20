@@ -1,14 +1,23 @@
 import useCategories from "@/hooks/useCategories";
 
 export function Spots() {
+  console.log("Spots rendered");
   const { categories, error, isLoading, isRejected, isResolved } =
     useCategories();
 
+  console.log("Spots rendered 2");
+
   if (isLoading) return <div>Loading...</div>;
+
+  console.log("Spots rendered 3");
 
   if (isRejected) return <div>Oops. {error}</div>;
 
+  console.log("Spots rendered 4");
+
   if (isResolved) {
+    console.log("Spots rendered 5");
+
     return (
       <div>
         {categories.map((category) => (
