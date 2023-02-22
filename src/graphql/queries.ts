@@ -1,5 +1,5 @@
 import { request, gql } from "graphql-request";
-import { type Category } from "@/graphql/documents";
+// import { graphql } from "@/graphql/documents";
 
 export async function getCategories() {
   const query = gql`
@@ -19,7 +19,7 @@ export async function getCategories() {
   `;
 
   const { categories } = await request<{
-    categories: Category[];
+    categories;
   }>("/api/graphql", query);
   return categories;
 }
