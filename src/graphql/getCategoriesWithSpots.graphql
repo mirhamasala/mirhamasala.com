@@ -1,0 +1,13 @@
+query GetCategoriesWithSpots {
+  categories(withSpots: true) {
+    emoji
+    label
+    slug
+    spots {
+      description
+      googleMapsUrl
+      name
+      slug
+    }
+  }
+}

@@ -1,25 +1,11 @@
-import { request, gql } from "graphql-request";
-// import { graphql } from "@/graphql/documents";
+import { GraphQLClient } from "graphql-request";
+import { getSdk } from "./documents";
 
 export async function getCategories() {
-  const query = gql`
-    query {
-      categories(withSpots: true) {
-        emoji
-        label
-        slug
-        spots {
-          description
-          googleMapsUrl
-          name
-          slug
-        }
-      }
-    }
-  `;
+  const client = new GraphQLClient("/api/graphql");
+  const sdk = getSdk(client);
 
-  const { categories } = await request<{
-    categories;
-  }>("/api/graphql", query);
+  const { categories } = await sdk.GetCategoriesWithSpots();
+
   return categories;
 }
