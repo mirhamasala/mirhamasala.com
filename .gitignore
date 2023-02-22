@@ -33,6 +33,7 @@ yarn-error.log*
 
 # generated files
 /public/rss/
+/src/graphql/documents.ts
 next-env.d.ts
 
 .vscode
