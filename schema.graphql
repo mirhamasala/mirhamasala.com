@@ -1,0 +1,27 @@
+type Category {
+  emoji: String!
+  label: String!
+  slug: String!
+  spots: [Spot!]!
+}
+
+type Geo {
+  latitude: Float!
+  longitude: Float!
+}
+
+type Spot {
+  category: Category!
+  description: String!
+  geo: Geo!
+  googleMapsUrl: String!
+  hasMarkdown: Boolean!
+  name: String!
+  published: Boolean!
+  slug: String!
+  url: String!
+}
+
+type Query {
+  categories(withSpots: Boolean): [Category!]!
+}

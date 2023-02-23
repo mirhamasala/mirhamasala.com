@@ -1,4 +1,4 @@
-export const spots = [
+export const amsterdam = [
   {
     category: "parks",
     description:
@@ -41,7 +41,7 @@ export const spots = [
     name: "Westerpark",
     published: true,
     slug: "westerpark",
-    url: null,
+    url: "",
   },
   {
     category: "coffee",
@@ -128,7 +128,7 @@ export const spots = [
     name: "Broodje Bert",
     published: false,
     slug: "broodje-bert",
-    url: null,
+    url: "",
   },
   {
     category: "eats",
@@ -551,7 +551,7 @@ export const spots = [
     name: "Hiding in Plain Sight",
     published: false,
     slug: "hiding-in-plain-sight",
-    url: null,
+    url: "",
   },
   {
     category: "drinks",
@@ -779,7 +779,7 @@ export const spots = [
     name: "Ten Katestraat",
     published: true,
     slug: "ten-katestraat",
-    url: null,
+    url: "",
   },
   {
     category: "other",

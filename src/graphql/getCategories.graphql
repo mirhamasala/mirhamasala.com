@@ -1,0 +1,13 @@
+query GetCategories($withSpots: Boolean!) {
+  categories(withSpots: $withSpots) {
+    emoji
+    label
+    slug
+    spots @include(if: $withSpots) {
+      description
+      googleMapsUrl
+      name
+      slug
+    }
+  }
+}
