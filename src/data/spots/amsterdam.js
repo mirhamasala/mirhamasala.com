@@ -1,4 +1,4 @@
-export const spots = [
+export const amsterdam = [
   {
     category: "parks",
     description:

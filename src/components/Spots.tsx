@@ -2,7 +2,7 @@ import useCategories from "@/hooks/useCategories";
 
 export function Spots() {
   const { categories, error, isLoading, isRejected, isResolved } =
-    useCategories();
+    useCategories({ withSpots: true });
 
   if (isLoading) return <div>Loading...</div>;
 

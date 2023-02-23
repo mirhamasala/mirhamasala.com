@@ -1,28 +1,35 @@
 import { useState, useEffect } from "react";
+import { GraphQLClient } from "graphql-request";
 
-import { type Category } from "@/graphql/documents";
-import { getCategories } from "@/graphql/queries";
+import { getSdk } from "@/graphql/documents";
 
-type StatusProps = "idle" | "pending" | "rejected" | "resolved";
+type Status = "idle" | "pending" | "rejected" | "resolved";
 
-function useCategories() {
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [status, setStatus] = useState<StatusProps>("idle");
+function useCategories({ withSpots }: { withSpots: boolean }) {
+  const [categories, setCategories] = useState([]);
+  const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setStatus("pending");
+    const client = new GraphQLClient("/api/graphql");
+    const sdk = getSdk(client);
 
-    getCategories()
-      .then((data) => {
-        setCategories(data);
+    const fetchCategories = async () => {
+      setStatus("pending");
+      try {
+        const { categories } = await sdk.GetCategories({
+          withSpots,
+        });
+        setCategories(categories);
         setStatus("resolved");
-      })
-      .catch((error) => {
+      } catch (error) {
         setError(error.message);
         setStatus("rejected");
-      });
-  }, []);
+      }
+    };
+
+    fetchCategories();
+  }, [withSpots]);
 
   return {
     categories,
