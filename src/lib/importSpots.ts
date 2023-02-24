@@ -1,13 +1,13 @@
 import { amsterdam } from "@/data/spots/amsterdam";
 import { sarajevo } from "@/data/spots/sarajevo";
 
-export type City = "amsterdam" | "sarajevo";
-
 export const spots = {
   amsterdam: [...amsterdam],
   sarajevo: [...sarajevo],
 };
 
-const importSpots = (city: City) => spots[city];
+export const allSpots = Object.values(spots).flat();
+
+const importSpots = (city: string) => spots[city];
 
 export default importSpots;

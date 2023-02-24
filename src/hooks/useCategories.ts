@@ -2,7 +2,13 @@ import { request } from "graphql-request";
 import { useQuery } from "@tanstack/react-query";
 import { GetCategoriesQuery, GetCategoriesDocument } from "@/graphql/documents";
 
-function useCategories({ withSpots }: { withSpots: boolean }) {
+function useCategories({
+  withSpots,
+  city,
+}: {
+  withSpots: boolean;
+  city: string;
+}) {
   const {
     data: { categories } = { categories: [] },
     isLoading,
@@ -11,8 +17,8 @@ function useCategories({ withSpots }: { withSpots: boolean }) {
   } = useQuery<GetCategoriesQuery, Error>({
     queryKey: ["categories"],
     queryFn: async () =>
-      await request("/api/graphql", GetCategoriesDocument, { withSpots }),
-    enabled: !!withSpots,
+      await request("/api/graphql", GetCategoriesDocument, { withSpots, city }),
+    enabled: !!withSpots && !!city,
   });
 
   return {

@@ -9,7 +9,7 @@ export const meta = {
   description: "My favorite spots in Sarajevo.",
   id: "",
   slug: "sarajevo-favorites",
-  status: "draft",
+  status: "published",
   tags: ["sarajevo", "favorites", "travel"],
   title: "Sarajevo Favorites",
   type: "post",
@@ -17,4 +17,4 @@ export const meta = {
 
 export default (props) => <PostLayout meta={meta} {...props} />;
 
-<Spots />
+<Spots city="sarajevo" />

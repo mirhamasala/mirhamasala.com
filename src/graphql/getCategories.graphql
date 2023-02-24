@@ -1,5 +1,5 @@
-query GetCategories($withSpots: Boolean!) {
-  categories(withSpots: $withSpots) {
+query GetCategories($withSpots: Boolean!, $city: String) {
+  categories(withSpots: $withSpots, city: $city) {
     emoji
     label
     slug

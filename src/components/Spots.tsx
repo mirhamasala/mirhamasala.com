@@ -1,8 +1,9 @@
 import useCategories from "@/hooks/useCategories";
 
-export function Spots() {
+export function Spots({ city }: { city: string }) {
   const { categories, isLoading, isError, error } = useCategories({
     withSpots: true,
+    city,
   });
 
   if (isLoading) return <div>Loading...</div>;

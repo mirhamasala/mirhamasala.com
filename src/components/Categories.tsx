@@ -3,6 +3,7 @@ import useCategories from "@/hooks/useCategories";
 export function Categories() {
   const { categories, isLoading, isError, error } = useCategories({
     withSpots: false,
+    city: "",
   });
 
   if (isLoading) return <div>Loading...</div>;

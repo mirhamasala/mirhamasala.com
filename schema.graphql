@@ -23,5 +23,5 @@ type Spot {
 }
 
 type Query {
-  categories(withSpots: Boolean): [Category!]!
+  categories(withSpots: Boolean, city: String): [Category!]!
 }
