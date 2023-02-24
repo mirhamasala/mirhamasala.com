@@ -1,42 +1,25 @@
-import { useState, useEffect } from "react";
-import { GraphQLClient } from "graphql-request";
-
-import { getSdk } from "@/graphql/documents";
-
-type Status = "idle" | "pending" | "rejected" | "resolved";
+import { request } from "graphql-request";
+import { useQuery } from "@tanstack/react-query";
+import { GetCategoriesQuery, GetCategoriesDocument } from "@/graphql/documents";
 
 function useCategories({ withSpots }: { withSpots: boolean }) {
-  const [categories, setCategories] = useState([]);
-  const [status, setStatus] = useState<Status>("idle");
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const client = new GraphQLClient("/api/graphql");
-    const sdk = getSdk(client);
-
-    const fetchCategories = async () => {
-      setStatus("pending");
-      try {
-        const { categories } = await sdk.GetCategories({
-          withSpots,
-        });
-        setCategories(categories);
-        setStatus("resolved");
-      } catch (error) {
-        setError(error.message);
-        setStatus("rejected");
-      }
-    };
-
-    fetchCategories();
-  }, [withSpots]);
+  const {
+    data: { categories } = { categories: [] },
+    isLoading,
+    isError,
+    error,
+  } = useQuery<GetCategoriesQuery, Error>({
+    queryKey: ["categories"],
+    queryFn: async () =>
+      await request("/api/graphql", GetCategoriesDocument, { withSpots }),
+    enabled: !!withSpots,
+  });
 
   return {
     categories,
+    isLoading,
+    isError,
     error,
-    isLoading: status === "idle" || status === "pending",
-    isResolved: status === "resolved",
-    isRejected: status === "rejected",
   };
 }
 

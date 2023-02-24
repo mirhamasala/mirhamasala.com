@@ -1,20 +1,19 @@
 import useCategories from "@/hooks/useCategories";
 
 export function Categories() {
-  const { categories, error, isLoading, isRejected, isResolved } =
-    useCategories({ withSpots: false });
+  const { categories, isLoading, isError, error } = useCategories({
+    withSpots: false,
+  });
 
   if (isLoading) return <div>Loading...</div>;
 
-  if (isRejected) return <div>Oops. {error}</div>;
+  if (isError) return <div>Oops. {error.message}</div>;
 
-  if (isResolved) {
-    return (
-      <div>
-        {categories.map((category) => (
-          <li key={category.slug}>{category.label}</li>
-        ))}
-      </div>
-    );
-  }
+  return (
+    <div>
+      {categories.map((category) => (
+        <li key={category.slug}>{category.label}</li>
+      ))}
+    </div>
+  );
 }
