@@ -29,7 +29,7 @@ export function Spots({ city }: { city: string }) {
             <span>{category.label}</span>
           </h3>
           <ul>
-            {category.spots.map((spot) => {
+            {category.spots.map((spot) => (
               <li key={spot.slug}>
                 <h4>
                   {spot.googleMapsUrl ? (
@@ -39,8 +39,8 @@ export function Spots({ city }: { city: string }) {
                   )}
                 </h4>
                 <p>{spot.description}</p>
-              </li>;
-            })}
+              </li>
+            ))}
           </ul>
         </section>
       ))}
