@@ -1,4 +1,5 @@
 import useCity from "@/hooks/useCity";
+import { Category, Spot } from "@/graphql/documents";
 
 export function Spots({ city }: { city: string }) {
   const { spots, isLoading, isError, error } = useCity(city);
@@ -16,9 +17,11 @@ export function Spots({ city }: { city: string }) {
         spots: [],
       };
     }
-    acc[category.slug].spots.push(spot);
+    acc[category.slug].spots.push(spot as Spot);
     return acc;
-  }, {} as Record<string, any>);
+  }, {} as Record<string, Category>);
+
+  console.log(categories);
 
   return (
     <div>
