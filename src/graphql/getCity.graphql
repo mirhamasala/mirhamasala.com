@@ -1,0 +1,15 @@
+query GetCity($id: String!) {
+  city(id: $id) {
+    spots {
+      description
+      googleMapsUrl
+      name
+      slug
+      category {
+        emoji
+        label
+        slug
+      }
+    }
+  }
+}

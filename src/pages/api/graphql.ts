@@ -3,7 +3,7 @@ import { Resolvers } from "@/graphql/documents";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import { categories } from "@/data/categories";
-import importSpots, { allSpots } from "@/lib/importSpots";
+import allSpots from "@/lib/getSpots";
 
 import typeDefs from "schema.graphql";
 
@@ -13,20 +13,15 @@ export const config = {
   },
 };
 
-const publishedSpots = (slug: string, city: string) => {
-  if (!city) {
-    allSpots.filter((spot) => spot.category === slug && spot.published);
-  }
-  return importSpots(city).filter(
-    (spot) => spot.category === slug && spot.published
-  );
-};
+const publishedSpots = (slug: string) =>
+  allSpots.filter((spot) => spot.category === slug && spot.published);
+
+const citySpots = (id: string) =>
+  allSpots.filter((spot) => spot.city === id && spot.published);
 
 const resolvers: Resolvers = {
   Query: {
-    categories(_parent, { withSpots, city }) {
-      city = city;
-
+    categories: (_, { withSpots }) => {
       if (!withSpots) {
         return categories.map((category) => ({
           ...category,
@@ -37,7 +32,7 @@ const resolvers: Resolvers = {
       const categoryIDs = categories
         .map((category) => ({
           ...category,
-          spots: publishedSpots(category.slug, city),
+          spots: publishedSpots(category.slug),
         }))
         .filter((category) => category.spots.length)
         .map((category) => category.slug);
@@ -49,10 +44,26 @@ const resolvers: Resolvers = {
         }))
         .filter((category) => categoryIDs.includes(category.slug));
     },
+    city: (_, { id }) => ({ id, spots: [] }),
   },
   Category: {
-    spots: (category, __, ___, info) =>
-      publishedSpots(category.slug, info.variableValues.city as string),
+    spots: (category) =>
+      publishedSpots(category.slug).map((spot) => ({
+        ...spot,
+        category: category,
+        city: { id: spot.city, spots: [] },
+      })),
+  },
+  City: {
+    spots: (city) =>
+      citySpots(city.id).map((spot) => ({
+        ...spot,
+        category: {
+          ...categories.find((category) => category.slug === spot.category),
+          spots: [],
+        },
+        city: { id: spot.city, spots: [] },
+      })),
   },
 };
 
