@@ -1,6 +1,7 @@
 export const amsterdam = [
   {
     category: "parks",
+    city: "amsterdam",
     description:
       "G and I only recently stumbled into these community gardens. They're cute. And just next to the Westerpark.",
     geo: {
@@ -16,6 +17,7 @@ export const amsterdam = [
   },
   {
     category: "parks",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.35799,
@@ -30,6 +32,7 @@ export const amsterdam = [
   },
   {
     category: "parks",
+    city: "amsterdam",
     description:
       "I love the industrial vibe of the Westergas area. And have fond memories of skating here and having drinks at [Pacific](https://goo.gl/maps/6rzkrTvaLRW6MGJVA) and [Troost](https://g.page/brouwerij-troost-westergas)",
     geo: {
@@ -45,6 +48,7 @@ export const amsterdam = [
   },
   {
     category: "coffee",
+    city: "amsterdam",
     description:
       "Really good milk-based coffees, plus a cool selection of beans, and a few shelves of coffee gear.",
     geo: {
@@ -60,6 +64,7 @@ export const amsterdam = [
   },
   {
     category: "coffee",
+    city: "amsterdam",
     description:
       "My absolute new favorite in town. I always go for the batch brew which is like a fancy manual filter. And G loves the cortado. Bakes are from [Ulmus Bakery](https://goo.gl/maps/kLssQXH6Lxjs2aVY7)",
     geo: {
@@ -75,6 +80,7 @@ export const amsterdam = [
   },
   {
     category: "coffee",
+    city: "amsterdam",
     description: "I like their beans and mellow hood vibe.",
     geo: {
       latitude: 52.38127,
@@ -89,6 +95,7 @@ export const amsterdam = [
   },
   {
     category: "coffee",
+    city: "amsterdam",
     description:
       "Good, good coffee. Pair with a sweet from [SUE Bites Bar](https://goo.gl/maps/2hyvH5pLRKCwGP1r7) down the street.",
     geo: {
@@ -104,6 +111,7 @@ export const amsterdam = [
   },
   {
     category: "eats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.37717,
@@ -118,6 +126,7 @@ export const amsterdam = [
   },
   {
     category: "eats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.37015,
@@ -132,6 +141,7 @@ export const amsterdam = [
   },
   {
     category: "eats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.37794,
@@ -146,6 +156,7 @@ export const amsterdam = [
   },
   {
     category: "eats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.37825,
@@ -160,6 +171,7 @@ export const amsterdam = [
   },
   {
     category: "eats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.36684,
@@ -174,6 +186,7 @@ export const amsterdam = [
   },
   {
     category: "eats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.3758,
@@ -188,6 +201,7 @@ export const amsterdam = [
   },
   {
     category: "eats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.35584,
@@ -202,6 +216,7 @@ export const amsterdam = [
   },
   {
     category: "eats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.36235,
@@ -216,6 +231,7 @@ export const amsterdam = [
   },
   {
     category: "eats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.37524,
@@ -230,6 +246,7 @@ export const amsterdam = [
   },
   {
     category: "eats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.36942,
@@ -244,6 +261,7 @@ export const amsterdam = [
   },
   {
     category: "eats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.37466,
@@ -258,6 +276,7 @@ export const amsterdam = [
   },
   {
     category: "eats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.38014,
@@ -272,6 +291,7 @@ export const amsterdam = [
   },
   {
     category: "eats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.35163,
@@ -286,6 +306,7 @@ export const amsterdam = [
   },
   {
     category: "eats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.36789,
@@ -300,6 +321,7 @@ export const amsterdam = [
   },
   {
     category: "meats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.37574,
@@ -314,6 +336,7 @@ export const amsterdam = [
   },
   {
     category: "meats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.36388,
@@ -328,6 +351,7 @@ export const amsterdam = [
   },
   {
     category: "meats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.38413,
@@ -342,6 +366,7 @@ export const amsterdam = [
   },
   {
     category: "meats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.37323,
@@ -356,6 +381,7 @@ export const amsterdam = [
   },
   {
     category: "meats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.4029,
@@ -370,6 +396,7 @@ export const amsterdam = [
   },
   {
     category: "meats",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.37025,
@@ -384,6 +411,7 @@ export const amsterdam = [
   },
   {
     category: "eats",
+    city: "amsterdam",
     description:
       "Both the döner and Turkish pizza are worth a bike ride. They bake their own buns too.",
     name: "Leeman Döner",
@@ -399,6 +427,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description: "Cocktails in a dark mood.",
     geo: {
       latitude: 52.3697,
@@ -413,6 +442,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description:
       "Have the flight of beers and choose from old fashioned Dutch snacks, like, peanuts, boiled eggs, couple of cheeses (abdijkaas, Skeapsrond), and three types of sausages (droge worst, grillworst, ossenworst) from local producers.",
     geo: {
@@ -428,6 +458,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description: "Good spot to settle down for a few beers.",
     geo: {
       latitude: 52.38608,
@@ -442,6 +473,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description:
       "One of the very few winebars that was around when G and I met. Start with the wine flight.",
     geo: {
@@ -457,6 +489,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.35746,
@@ -471,6 +504,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.36989,
@@ -485,6 +519,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.37458,
@@ -499,6 +534,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.35855,
@@ -513,6 +549,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.36591,
@@ -527,6 +564,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.35466,
@@ -541,6 +579,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.37172,
@@ -555,6 +594,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.3691,
@@ -569,6 +609,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.37673,
@@ -583,6 +624,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.36237,
@@ -597,6 +639,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.37594,
@@ -611,6 +654,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.38046,
@@ -625,6 +669,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.36981,
@@ -639,6 +684,7 @@ export const amsterdam = [
   },
   {
     category: "drinks",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.37231,
@@ -653,6 +699,7 @@ export const amsterdam = [
   },
   {
     category: "gourmet-groceries",
+    city: "amsterdam",
     description:
       "Mostly a cheese shop, excellenty located in-between a bakery and wine store. Try my favorite: the Italian La Tur–a soft ripened cheese of sheep's, cow's and goat's milk. Or get a good chunk of Dutch cheese.",
     geo: {
@@ -668,6 +715,7 @@ export const amsterdam = [
   },
   {
     category: "gourmet-groceries",
+    city: "amsterdam",
     description: "Spices, legumes, nuts, and... fatty Medjool dates.",
     geo: {
       latitude: 52.36652,
@@ -682,6 +730,7 @@ export const amsterdam = [
   },
   {
     category: "gourmet-groceries",
+    city: "amsterdam",
     description:
       "I come here for the sourdough bread (and do my best to ignore all the flakey things behind the glass showcase). You can get half a loaf too, and ask to have it sliced.",
     geo: {
@@ -697,6 +746,7 @@ export const amsterdam = [
   },
   {
     category: "gourmet-groceries",
+    city: "amsterdam",
     description:
       "Although a local chain, they only import wines from small wine farmers which whom they have an exclusive deal. That's how I found one of my favorite Portguese wines, Fitapreta.",
     geo: {
@@ -712,6 +762,7 @@ export const amsterdam = [
   },
   {
     category: "gourmet-groceries",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.38051,
@@ -726,6 +777,7 @@ export const amsterdam = [
   },
   {
     category: "gourmet-groceries",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.36969,
@@ -740,6 +792,7 @@ export const amsterdam = [
   },
   {
     category: "gourmet-groceries",
+    city: "amsterdam",
     description: "Only on Saturdays (9:00-16:00) and Mondays (9:00-13:00).",
     geo: {
       latitude: 52.37953,
@@ -754,6 +807,7 @@ export const amsterdam = [
   },
   {
     category: "gourmet-groceries",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.35541,
@@ -768,6 +822,7 @@ export const amsterdam = [
   },
   {
     category: "other",
+    city: "amsterdam",
     description:
       "Have a stroll and pick up some fresh produce if you happen to be in the hood.",
     geo: {
@@ -783,6 +838,7 @@ export const amsterdam = [
   },
   {
     category: "other",
+    city: "amsterdam",
     description:
       "I like their games and card sets for dinners, retreats, and gifts.",
     geo: {
@@ -798,6 +854,7 @@ export const amsterdam = [
   },
   {
     category: "other",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.37038,
@@ -812,6 +869,7 @@ export const amsterdam = [
   },
   {
     category: "other",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.36643,
@@ -826,6 +884,7 @@ export const amsterdam = [
   },
   {
     category: "sweets",
+    city: "amsterdam",
     description:
       "The salted caramel bite is my favorite, which is only sweetened by dates, and the chocolate layer. I also like their coconut and date truffles. Let the sweets come to room temperature. It'll be worth the wait.",
     geo: {
@@ -841,6 +900,7 @@ export const amsterdam = [
   },
   {
     category: "sweets",
+    city: "amsterdam",
     description:
       "There's no apple pie like this one. Go over the top, and have it with cream.",
     geo: {
