@@ -5,6 +5,11 @@ type Category {
   spots: [Spot!]!
 }
 
+type City {
+  id: String!
+  spots: [Spot!]!
+}
+
 type Geo {
   latitude: Float!
   longitude: Float!
@@ -12,6 +17,7 @@ type Geo {
 
 type Spot {
   category: Category!
+  city: City!
   description: String!
   geo: Geo!
   googleMapsUrl: String!
@@ -23,5 +29,6 @@ type Spot {
 }
 
 type Query {
-  categories(withSpots: Boolean): [Category!]!
+  categories(withSpots: Boolean!): [Category!]!
+  city(id: String!): City!
 }

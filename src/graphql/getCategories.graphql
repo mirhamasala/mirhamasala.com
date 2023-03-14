@@ -3,11 +3,5 @@ query GetCategories($withSpots: Boolean!) {
     emoji
     label
     slug
-    spots @include(if: $withSpots) {
-      description
-      googleMapsUrl
-      name
-      slug
-    }
   }
 }

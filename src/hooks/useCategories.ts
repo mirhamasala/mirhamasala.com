@@ -2,25 +2,15 @@ import { request } from "graphql-request";
 import { useQuery } from "@tanstack/react-query";
 import { GetCategoriesQuery, GetCategoriesDocument } from "@/graphql/documents";
 
-function useCategories({ withSpots }: { withSpots: boolean }) {
-  const {
-    data: { categories } = { categories: [] },
-    isLoading,
-    isError,
-    error,
-  } = useQuery<GetCategoriesQuery, Error>({
-    queryKey: ["categories"],
-    queryFn: async () =>
-      await request("/api/graphql", GetCategoriesDocument, { withSpots }),
-    enabled: !!withSpots,
+const fetchCategories = async (withSpots: boolean) =>
+  await request("http://localhost:3000/api/graphql", GetCategoriesDocument, {
+    withSpots,
   });
 
-  return {
-    categories,
-    isLoading,
-    isError,
-    error,
-  };
-}
+const useCategories = (withSpots: boolean) =>
+  useQuery<GetCategoriesQuery, Error>({
+    queryKey: ["categories"],
+    queryFn: () => fetchCategories(withSpots),
+  });
 
-export default useCategories;
+export { useCategories, fetchCategories };

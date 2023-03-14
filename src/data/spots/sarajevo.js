@@ -1,6 +1,7 @@
 export const sarajevo = [
   {
     category: "coffee",
+    city: "sarajevo",
     description: "Coffee",
     geo: {
       latitude: 43.86034599574558,
@@ -15,6 +16,7 @@ export const sarajevo = [
   },
   {
     category: "eats",
+    city: "sarajevo",
     description: "Cevapcici",
     geo: {
       latitude: 43.85921733550572,

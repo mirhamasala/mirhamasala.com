@@ -3,7 +3,7 @@ import { Resolvers } from "@/graphql/documents";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import { categories } from "@/data/categories";
-import { amsterdam as spots } from "@/data/spots/amsterdam";
+import allSpots from "@/lib/getSpots";
 
 import typeDefs from "schema.graphql";
 
@@ -14,11 +14,14 @@ export const config = {
 };
 
 const publishedSpots = (slug: string) =>
-  spots.filter((spot) => spot.category === slug && spot.published);
+  allSpots.filter((spot) => spot.category === slug && spot.published);
+
+const citySpots = (id: string) =>
+  allSpots.filter((spot) => spot.city === id && spot.published);
 
 const resolvers: Resolvers = {
   Query: {
-    categories(_parent, { withSpots }) {
+    categories: (_, { withSpots }) => {
       if (!withSpots) {
         return categories.map((category) => ({
           ...category,
@@ -41,12 +44,25 @@ const resolvers: Resolvers = {
         }))
         .filter((category) => categoryIDs.includes(category.slug));
     },
+    city: (_, { id }) => ({ id, spots: [] }),
   },
   Category: {
     spots: (category) =>
       publishedSpots(category.slug).map((spot) => ({
         ...spot,
         category: category,
+        city: { id: spot.city, spots: [] },
+      })),
+  },
+  City: {
+    spots: (city) =>
+      citySpots(city.id).map((spot) => ({
+        ...spot,
+        category: {
+          ...categories.find((category) => category.slug === spot.category),
+          spots: [],
+        },
+        city: { id: spot.city, spots: [] },
       })),
   },
 };
