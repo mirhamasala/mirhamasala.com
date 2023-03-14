@@ -1,14 +1,15 @@
-import useCity from "@/hooks/useCity";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useCity } from "@/hooks/useCity";
 import { Category, Spot } from "@/graphql/documents";
 
-export function Spots({ city }: { city: string }) {
-  const { spots, isLoading, isError, error } = useCity(city);
+function Spots({ id }: { id: string }) {
+  const { data, isLoading, isError, error } = useCity(id);
 
   if (isLoading) return <div>Loading...</div>;
 
   if (isError) return <div>Oops. {error.message}</div>;
 
-  const categories = spots.reduce((acc, spot) => {
+  const categories = data?.city.spots.reduce((acc, spot) => {
     const category = spot.category;
 
     if (!acc[category.slug]) {
@@ -21,7 +22,9 @@ export function Spots({ city }: { city: string }) {
     return acc;
   }, {} as Record<string, Category>);
 
-  console.log(categories);
+  if (typeof window === "undefined") {
+    return null;
+  }
 
   return (
     <div>
@@ -50,3 +53,13 @@ export function Spots({ city }: { city: string }) {
     </div>
   );
 }
+
+function WrappedSpots(props: { id: string }) {
+  return (
+    <QueryClientProvider client={new QueryClient()}>
+      <Spots {...props} />
+    </QueryClientProvider>
+  );
+}
+
+export default WrappedSpots;
