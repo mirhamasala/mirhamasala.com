@@ -1,4 +1,3 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MDXProvider } from "@mdx-js/react";
 import { useEffect, useRef } from "react";
 
@@ -20,28 +19,25 @@ function usePrevious(value) {
 }
 
 export default function App({ Component, pageProps, router }) {
-  const queryClient = new QueryClient();
   const components = {
     a: Link,
   };
   let previousPathname = usePrevious(router.pathname);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <MDXProvider components={components}>
-        <div className="fixed inset-0 flex justify-center sm:px-8">
-          <div className="flex w-full max-w-7xl lg:px-8">
-            <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
-          </div>
+    <MDXProvider components={components}>
+      <div className="fixed inset-0 flex justify-center sm:px-8">
+        <div className="flex w-full max-w-7xl lg:px-8">
+          <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
         </div>
-        <div className="relative">
-          <Header />
-          <main>
-            <Component previousPathname={previousPathname} {...pageProps} />
-          </main>
-          <Footer />
-        </div>
-      </MDXProvider>
-    </QueryClientProvider>
+      </div>
+      <div className="relative">
+        <Header />
+        <main>
+          <Component previousPathname={previousPathname} {...pageProps} />
+        </main>
+        <Footer />
+      </div>
+    </MDXProvider>
   );
 }
