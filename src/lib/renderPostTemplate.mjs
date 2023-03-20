@@ -1,4 +1,4 @@
-import { htmlToMarkdown } from './htmlToMarkdown.mjs'
+import { htmlToMarkdown } from "./htmlToMarkdown.mjs";
 
 export default function renderPostTemplate(entry) {
   const {
@@ -13,7 +13,7 @@ export default function renderPostTemplate(entry) {
     tags,
     title,
     type,
-  } = entry
+  } = entry;
 
   return `import { PostLayout } from '@/components/PostLayout'
 
@@ -33,5 +33,5 @@ export const meta = {
 export default (props) => <PostLayout meta={meta} {...props} />
 
 ${htmlToMarkdown(content, id)}
-`
+`;
 }
