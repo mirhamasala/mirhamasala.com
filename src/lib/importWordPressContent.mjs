@@ -10,8 +10,8 @@ const importWordPressContent = async () => {
     const [categories, tags, content] = await Promise.all([
       fetchContent("categories"),
       fetchContent("tags/?per_page=100"),
-      fetchContent("posts/?per_page=100"),
-      // fetchContent('pages/?per_page=100'),
+      fetchContent("posts/?per_page=2"),
+      fetchContent("pages/?per_page=2"),
     ]);
 
     const contentWithCustomProperties = extractProperties(
@@ -19,13 +19,14 @@ const importWordPressContent = async () => {
       tags,
       content
     );
+
     writeContent(contentWithCustomProperties);
   } catch (err) {
     console.log(err);
   }
 };
 
-const fetchContent = async (endpoint) => {
+export const fetchContent = async (endpoint) => {
   const url = `https://mirhamasala.com/wp-json/wp/v2/${endpoint}`;
   const response = await fetch(url);
   const body = await response.json();
@@ -37,8 +38,8 @@ const fetchContent = async (endpoint) => {
   return body;
 };
 
-const extractProperties = (categoriesData, tagsData, content) => {
-  return content.map((entry) => {
+const extractProperties = (categoriesData, tagsData, content) =>
+  content.map((entry) => {
     let {
       categories,
       content: { rendered: content },
@@ -67,12 +68,11 @@ const extractProperties = (categoriesData, tagsData, content) => {
       type,
     };
   });
-};
 
 const convertIdsToSlugs = (ids, data) => {
-  return ids.map((id) => {
-    return data.find((data) => data.id === id).slug;
-  });
+  if (!ids) return [];
+
+  return ids.map((id) => data.find((data) => data.id === id).slug);
 };
 
 const writeContent = (content) => {
