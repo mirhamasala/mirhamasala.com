@@ -10,8 +10,8 @@ const importWordPressContent = async () => {
     const [categories, tags, content] = await Promise.all([
       fetchContent("categories"),
       fetchContent("tags/?per_page=100"),
-      fetchContent("posts/?per_page=2"),
-      fetchContent("pages/?per_page=2"),
+      fetchContent("posts/?per_page=100"),
+      fetchContent("pages/?per_page=20"),
     ]);
 
     const contentWithCustomProperties = extractProperties(
@@ -77,15 +77,6 @@ const convertIdsToSlugs = (ids, data) => {
 
 const writeContent = (content) => {
   content.forEach((entry) => {
-    if (
-      entry.id === 3142 ||
-      entry.id === 2695 ||
-      entry.id === 2443 ||
-      entry.id === 2118 ||
-      entry.id === 2297 // page
-    )
-      return;
-
     if (isPost(entry)) {
       createDirectoryAndWriteToFile(
         `src/pages/posts/${entry.slug}`,

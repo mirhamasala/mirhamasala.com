@@ -32,6 +32,6 @@ export const meta = {
 
 export default (props) => <PostLayout meta={meta} {...props} />
 
-${htmlToMarkdown(content, type)}
+${htmlToMarkdown(content, slug, type)}
 `;
 }
