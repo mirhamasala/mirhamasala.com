@@ -11,7 +11,7 @@ const importWordPressContent = async () => {
       fetchContent("categories"),
       fetchContent("tags/?per_page=100"),
       fetchContent("posts/?per_page=100"),
-      fetchContent("pages/?per_page=20"),
+      // fetchContent("pages/?per_page=20"),
     ]);
 
     const contentWithCustomProperties = extractProperties(
