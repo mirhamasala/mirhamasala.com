@@ -1,4 +1,4 @@
-With [The Knitting Club](https://www.mirhamasala.com/the-knitting-club), I confronted my [fear of doing nothing](https://www.mirhamasala.com/the-fear-list), and we discussed minimalism and personal finance.
+With [The Knitting Club](/posts/the-knitting-club), I confronted my [fear of doing nothing](/posts/the-fear-list), and we discussed minimalism and personal finance.
 
 I counted 2 React projects, 9 paper planes, and 25 finished books, 10000 kilometers of road-tripping.
 
