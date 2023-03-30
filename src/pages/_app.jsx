@@ -1,5 +1,6 @@
 import { MDXProvider } from "@mdx-js/react";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 import { Link } from "@/components/Link";
 import { Footer } from "@/components/Footer";
@@ -21,7 +22,11 @@ function usePrevious(value) {
 export default function App({ Component, pageProps, router }) {
   const components = {
     a: Link,
+    img: ({ src, height = 800, width = 1200, alt }) => (
+      <Image src={src} height={height} width={width} alt={alt} />
+    ),
   };
+
   let previousPathname = usePrevious(router.pathname);
 
   return (
