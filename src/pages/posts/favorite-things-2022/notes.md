@@ -45,7 +45,6 @@ When Dylan was born in March, I also opened a [DEGIRO](https://www.degiro.com/) 
 
 - The [specialty coffee](https://goo.gl/maps/RVG3V3xhTn2nfveL8) and long chat with an American lady in Annecy.
 
-
 Exploring the old town of [Besalu](https://goo.gl/maps/vTDz4rR5GBtiejVR7) on an early, rainy morning on our own.
 
 Fancy dinner in Lleida and staying in blabla.
