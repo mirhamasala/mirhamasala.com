@@ -11,6 +11,20 @@ const nextConfig = {
     newNextLinkBehavior: true,
     scrollRestoration: true,
   },
+  async redirects() {
+    return [
+      {
+        source: "/all-posts/:path*",
+        destination: "/posts/:path*",
+        permanent: true,
+      },
+      {
+        source: "/paper-planes-packets/:path*",
+        destination: "/letters/:path*",
+        permanent: true,
+      },
+    ];
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.(graphql|gql)$/,
