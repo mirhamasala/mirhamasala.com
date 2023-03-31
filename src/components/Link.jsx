@@ -1,6 +1,6 @@
 import NextLink from "next/link";
 
-export function Link({ href, children, ...props }) {
+export function Link({ href, className, children, ...props }) {
   const isFootNote = href.startsWith("#user-content");
   const isAnchor = href.startsWith("#") && !isFootNote;
   const isInternal = href.startsWith("/");
@@ -18,7 +18,11 @@ export function Link({ href, children, ...props }) {
   }
 
   if (isInternal) {
-    return <NextLink href={href}>{children}</NextLink>;
+    return (
+      <NextLink className={className} href={href}>
+        {children}
+      </NextLink>
+    );
   }
 
   return (
