@@ -2,6 +2,7 @@ import nextMDX from "@next/mdx";
 import remarkGfm from "remark-gfm";
 import rehypePrism from "@mapbox/rehype-prism";
 import rehypeSlug from "rehype-slug";
+import redirects from "./src/lib/redirects.mjs";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -13,18 +14,7 @@ const nextConfig = {
     scrollRestoration: true,
   },
   async redirects() {
-    return [
-      {
-        source: "/all-posts/:path*",
-        destination: "/posts/:path*",
-        permanent: true,
-      },
-      {
-        source: "/paper-planes-packets/:path*",
-        destination: "/letters/:path*",
-        permanent: true,
-      },
-    ];
+    return redirects;
   },
   webpack: (config) => {
     config.module.rules.push({
