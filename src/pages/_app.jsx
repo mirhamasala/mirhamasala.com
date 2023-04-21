@@ -1,6 +1,7 @@
 import { MDXProvider } from "@mdx-js/react";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { Analytics } from "@vercel/analytics/react";
 
 import { Link } from "@/components/Link";
 import { Footer } from "@/components/Footer";
@@ -40,6 +41,7 @@ export default function App({ Component, pageProps, router }) {
         <Header />
         <main>
           <Component previousPathname={previousPathname} {...pageProps} />
+          <Analytics />
         </main>
         <Footer />
       </div>
