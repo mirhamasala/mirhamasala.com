@@ -33,10 +33,9 @@ const postSlugs = [
   "memory-bytes",
   "artist-month",
   "polyglot-month",
-  "about",
 ];
 
-const pageSlugs = ["resources", "contact", "aboutme", "now", "faqs"];
+const pageSlugs = ["about-me", "about", "contact", "faqs", "now", "resources"];
 
 export default function TSOP() {
   return (

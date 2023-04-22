@@ -116,7 +116,6 @@ const TSOP_POSTS = [
   "30-days-surfing",
   "30-days-traveling",
   "5-things-nobody-tells-you-about-kiteboarding",
-  "about",
   "about-dancing-salsa",
   "arjen-calter-feedback",
   "artist-month",
@@ -148,4 +147,4 @@ const TSOP_POSTS = [
   "surviving-web-designers-developers",
 ];
 
-const TSOP_PAGES = ["aboutme", "contact", "faqs", "now", "resources"];
+const TSOP_PAGES = ["about", "about-me", "contact", "faqs", "now", "resources"];
