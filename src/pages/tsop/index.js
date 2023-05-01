@@ -30,7 +30,12 @@ export default function postsIndex({ posts }) {
       >
         <div className="flex flex-col gap-y-16 md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
           {Object.entries(JSON.parse(posts)).map(([key, value]) => (
-            <section key={key}>
+            <section
+              key={key}
+              id={
+                key === "9" ? "Traveler" : value[0].slug.replace("-month", "")
+              }
+            >
               <h2 className="text-base font-semibold capitalize tracking-tight text-zinc-800 dark:text-zinc-100">
                 {key}.{" "}
                 {key === "9" ? "Traveler" : value[0].slug.replace("-month", "")}
