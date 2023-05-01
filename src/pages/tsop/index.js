@@ -1,63 +1,64 @@
-const postSlugs = [
-  "30-days-photography",
-  "photographer-month",
-  "30-days-traveling",
-  "surfer-month",
-  "30-days-surfing",
-  "meditator-month",
-  "snowboarder-month",
-  "reading-habits",
-  "reading-time",
-  "read-business-books",
-  "reading-tips",
-  "reader-month",
-  "bucket-list",
-  "surviving-web-designers-developers",
-  "finding-web-design-development-company",
-  "customized-website",
-  "start-blogging",
-  "entrepreneur-month",
-  "salsa-dancing-havana",
-  "casa-son",
-  "salsa-classes-havana",
-  "cuban-style-salsa-lessons",
-  "about-dancing-salsa",
-  "dancer-month",
-  "arjen-calter-feedback",
-  "philanthropist-month",
-  "10-reasons-why-every-girl-should-learn-to-kiteboard",
-  "5-things-nobody-tells-you-about-kiteboarding",
-  "kiteboarding-playa-del-carmen",
-  "find-best-kiteboard-school",
-  "kiteboarder-month",
-  "memory-bytes",
-  "artist-month",
-  "polyglot-month",
-];
+import Head from "next/head";
 
-const pageSlugs = ["about-me", "about", "contact", "faqs", "now", "resources"];
+import { Link } from "@/components/Link";
+import { SimpleLayout } from "@/components/SimpleLayout";
+import { getAllPosts } from "@/lib/getAllPostsTSOP";
 
-export default function TSOP() {
+export default function postsIndex({ posts }) {
   return (
-    <div className="text-white">
-      <h2>Posts</h2>
-      {postSlugs.map((slug) => {
-        return (
-          <a className="block" key={slug} href={`tsop/posts/${slug}`}>
-            {slug}
-          </a>
-        );
-      })}
-      <br />
-      <br />
-      <h2>Pages</h2>
-      {pageSlugs.map((slug) => {
-        return (
-          <a className="block" key={slug} href={`tsop/${slug}`}>
-            {slug}
-          </a>
-        );
-      })}
-    </div>
+    <>
+      <Head>
+        <title>The Spin-Off Project - Mirha Masala</title>
+        <meta
+          name="description"
+          content="An archive of my posts from The Spin-Off Project."
+        />
+      </Head>
+      <SimpleLayout
+        title="The Spin-Off Project"
+        intro={
+          <>
+            In 2012, I started a lifestyle experiment called The Spin-Off
+            Project. I picked twelve things I wanted to do or learn and devoted
+            a month to each. I wrote about my experiences on the now defunct{" "}
+            <Link href="https://web.archive.org/web/20230130015454/http://www.thespinoffproject.com/">
+              thespinoffproject.com
+            </Link>
+            . Below is an archive of all the posts and pages I published.
+          </>
+        }
+      >
+        <div className="flex flex-col gap-y-16 md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
+          {Object.entries(JSON.parse(posts)).map(([key, value]) => (
+            <section
+              key={key}
+              id={
+                key === "9" ? "Traveler" : value[0].slug.replace("-month", "")
+              }
+            >
+              <h2 className="text-base font-semibold capitalize tracking-tight text-zinc-800 dark:text-zinc-100">
+                {key}.{" "}
+                {key === "9" ? "Traveler" : value[0].slug.replace("-month", "")}
+              </h2>
+              <ul className="prose">
+                {value.map((post) => (
+                  <li className="prose" key={post.slug}>
+                    <Link href={`/tsop/posts/${post.slug}`}>{post.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+      </SimpleLayout>
+    </>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      posts: JSON.stringify(await getAllPosts()),
+    },
+  };
 }
