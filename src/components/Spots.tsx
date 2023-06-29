@@ -29,7 +29,7 @@ function Spots({ id }: { id: string }) {
   return (
     <div>
       {Object.values(categories).map((category) => (
-        <section key={category.slug}>
+        <section id={category.slug} key={category.slug}>
           <h3 className="flex gap-2">
             <span className="mr-4">{category.emoji}</span>
             <span>{category.label}</span>
@@ -39,7 +39,9 @@ function Spots({ id }: { id: string }) {
               <li key={spot.slug}>
                 <h4>
                   {spot.googleMapsUrl ? (
-                    <a href={spot.googleMapsUrl}>{spot.name}</a>
+                    <a id={spot.slug} href={spot.googleMapsUrl}>
+                      {spot.name}
+                    </a>
                   ) : (
                     spot.name
                   )}
