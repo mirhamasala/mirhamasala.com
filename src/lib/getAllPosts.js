@@ -20,6 +20,6 @@ export async function getAllPosts() {
   let posts = await Promise.all(postFilenames.map(importPost));
 
   return posts
-    .filter((post) => post.status !== "draft")
+    .filter((post) => post.published)
     .sort((a, z) => new Date(z.date) - new Date(a.date));
 }

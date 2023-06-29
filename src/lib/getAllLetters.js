@@ -20,6 +20,6 @@ export async function getAllLetters() {
   let letters = await Promise.all(letterFilenames.map(importLetter));
 
   return letters
-    .filter((post) => post.status !== "draft")
+    .filter((post) => post.published)
     .sort((a, z) => new Date(z.date) - new Date(a.date));
 }

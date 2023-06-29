@@ -20,6 +20,6 @@ export async function getAllRecipes() {
   let recipes = await Promise.all(fileNames.map(importRecipe));
 
   return recipes
-    .filter((recipe) => recipe.status !== "draft")
+    .filter((recipe) => recipe.published)
     .sort((a, z) => new Date(z.date) - new Date(a.date));
 }
