@@ -21,7 +21,6 @@ type Spot {
   description: String!
   geo: Geo!
   googleMapsUrl: String!
-  hasMarkdown: Boolean!
   name: String!
   published: Boolean!
   slug: String!
