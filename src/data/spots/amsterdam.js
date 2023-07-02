@@ -239,28 +239,30 @@ export const amsterdam = [
   {
     category: "eats",
     city: "amsterdam",
-    description: "",
+    description:
+      "Original, bold Mexican taco and salsa flavors with in-house-made tortillas (from grinding the corn to pressing the dough). Try the Pumpkin (goat cheese, macha) and Cochinita Pibil (pulled pork, refried beans, pickled onions, habanero salsa) tacos. Also nice: the down-to-earth setting and range of Mezcal and Tequila options to make you sing along with a Mariachi band.",
     geo: {
       latitude: 52.37524,
       longitude: 4.84782,
     },
     googleMapsUrl: "https://g.page/masmais",
     name: "MasMais Taqueria",
-    published: false,
+    published: true,
     slug: "masmais-taqueria",
     url: "https://masmais.nl/",
   },
   {
     category: "eats",
     city: "amsterdam",
-    description: "",
+    description:
+      "Lots of eclectic choices (topping the 2-day-long fermented, rested, and proofed dough), though I tend to stick to the classic Margherita. With quite a few local, European, and worldwide awards, a reservation is a must.",
     geo: {
       latitude: 52.36942,
       longitude: 4.87035,
     },
     googleMapsUrl: "https://goo.gl/maps/jJMT93ocM5vk8BVF6",
     name: "nNea Pizza",
-    published: false,
+    published: true,
     slug: "nnea-pizza",
     url: "http://www.nneapizza.com/",
   },
@@ -423,7 +425,21 @@ export const amsterdam = [
     slug: "rotisserie-amsterdam",
     url: "http://www.rotisserieamsterdam.nl/",
   },
-
+  {
+    category: "meats",
+    city: "amsterdam",
+    description:
+      "A whole roasted chicken with your choice of sides and a fluitje of draft beer makes for one perfect dinner for two. It also works well for takeout.",
+    geo: {
+      latitude: 52.370028340275645,
+      longitude: 4.867132894286618,
+    },
+    googleMapsUrl: "https://goo.gl/maps/ifUXjm1hweSH6P2w5",
+    name: "Van 't Spit",
+    published: true,
+    slug: "van-t-spit",
+    url: "https://vantspit.nl/",
+  },
   {
     category: "drinks",
     city: "amsterdam",
@@ -528,14 +544,14 @@ export const amsterdam = [
   {
     category: "drinks",
     city: "amsterdam",
-    description: "",
+    description: "My kind of hotel lobby lounge: spacious, serene, and grand.",
     geo: {
       latitude: 52.35855,
       longitude: 4.87947,
     },
     googleMapsUrl: "https://g.page/ConservatoriumHotel",
     name: "Conservatorium Hotel",
-    published: false,
+    published: true,
     slug: "conservatorium-hotel",
     url: "http://www.conservatoriumhotel.com/",
   },
