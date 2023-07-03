@@ -63,7 +63,7 @@ export const amsterdam = [
     category: "coffee",
     city: "amsterdam",
     description:
-      "My absolute new favorite in town. I always go for the batch brew, which tastes like a fancy manual filter. G loves the cortado. And their bakes are from Ulmus Bakery.",
+      "My absolute new favorite in town. I always go for the batch brew, which tastes like a fancy manual filter. G loves the cortado. Their bakes are from Ulmus Bakery. And the daily Ten Kate market just in front.",
     geo: {
       latitude: 52.36602,
       longitude: 4.86731,
@@ -645,14 +645,15 @@ export const amsterdam = [
   {
     category: "drinks",
     city: "amsterdam",
-    description: "",
+    description:
+      "With 30+ wines by the glass, you better clear your afternoon schedule.",
     geo: {
       latitude: 52.36237,
       longitude: 4.88587,
     },
     googleMapsUrl: "https://goo.gl/maps/7Lu4gML73isRwPbK6",
     name: "Shiraz",
-    published: false,
+    published: true,
     slug: "shiraz",
     url: "http://www.shirazamsterdam.nl/",
   },
@@ -673,42 +674,45 @@ export const amsterdam = [
   {
     category: "drinks",
     city: "amsterdam",
-    description: "",
+    description:
+      "A cozy, traditional cafe for those dark, early winter evenings.",
     geo: {
       latitude: 52.38046,
       longitude: 4.88797,
     },
     googleMapsUrl: "https://goo.gl/maps/6xV4qGv7oPXmfDYS9",
     name: "Papeneiland",
-    published: false,
+    published: true,
     slug: "papeneiland",
     url: "http://www.papeneiland.nl/",
   },
   {
     category: "drinks",
     city: "amsterdam",
-    description: "",
+    description:
+      "Large canal-side terrace, where you can work a tan and watch the boats go by.",
     geo: {
       latitude: 52.36981,
       longitude: 4.87634,
     },
     googleMapsUrl: "https://goo.gl/maps/ZEv8vGYjyqTzswKU9",
     name: "Waterkant",
-    published: false,
+    published: true,
     slug: "waterkant",
     url: "http://www.waterkantamsterdam.nl/",
   },
   {
     category: "drinks",
     city: "amsterdam",
-    description: "",
+    description:
+      "Head straight to the tasting room for a range of jenevers and many liqueurs.",
     geo: {
       latitude: 52.37231,
       longitude: 4.89532,
     },
     googleMapsUrl: "https://goo.gl/maps/wMsmxDB2WECqk7wi9",
     name: "Wynand Fockink",
-    published: false,
+    published: true,
     slug: "wynand-fockink",
     url: "http://www.wynand-fockink.nl/",
   },
@@ -832,14 +836,15 @@ export const amsterdam = [
   {
     category: "gourmet-groceries",
     city: "amsterdam",
-    description: "",
+    description:
+      "Charming local farmer's market with stalls offering everything from organic olives and 36-hour simmered bone broths to pasture-fed meat and sustainable fish directly from the ships of the North Sea. Every Saturday, 09:30-17:00.",
     geo: {
       latitude: 52.35541,
       longitude: 4.87577,
     },
     googleMapsUrl: "https://goo.gl/maps/oWzFivb4T3ehdRMH9",
     name: "ZuiderMRKT",
-    published: false,
+    published: true,
     slug: "zuidermrkt",
     url: "https://www.zuidermrkt.nl/",
   },
@@ -854,7 +859,7 @@ export const amsterdam = [
     },
     googleMapsUrl: "https://goo.gl/maps/2D5wtxfiQ591QWkP7",
     name: "Ten Katestraat",
-    published: true,
+    published: false,
     slug: "ten-katestraat",
     url: "",
   },
@@ -871,35 +876,51 @@ export const amsterdam = [
     name: "The School of Life",
     published: true,
     slug: "the-school-of-life",
-    url: "www.theschooloflife.com",
+    url: "https://www.theschooloflife.com/",
   },
   {
     category: "other",
     city: "amsterdam",
-    description: "",
+    description:
+      "A cluster of nine streets separated by Amsterdam's most beautiful canals and jammed with boutiques, specialty stores, and cafes. Famous for a reason, so go as early as possible for a stroll and coffee to avoid the crowd.",
     geo: {
       latitude: 52.37038,
       longitude: 4.88605,
     },
     googleMapsUrl: "https://goo.gl/maps/2YAYCfKSvq2XPuUA9",
     name: "De Negen Straatjes",
-    published: false,
+    published: true,
     slug: "de-negen-straatjes",
     url: "https://de9straatjes.nl/nl/home",
   },
   {
     category: "other",
     city: "amsterdam",
-    description: "",
+    description:
+      "Catch a movie in Art Deco style at what Time Out Magazine dubbed the most beautiful cinema in the world.",
     geo: {
       latitude: 52.36643,
       longitude: 4.89467,
     },
     googleMapsUrl: "https://goo.gl/maps/DsLGZ3WUGdrr49Js5",
     name: "Pathé Tuschinski",
-    published: false,
+    published: true,
     slug: "pathe-tuschinski",
     url: "https://www.pathe.nl/bioscoop/tuschinski",
+  },
+  {
+    category: "sweets",
+    city: "amsterdam",
+    description: "The Alfajores.",
+    geo: {
+      latitude: 52.37463439582504,
+      longitude: 4.891214684654939,
+    },
+    googleMapsUrl: "https://goo.gl/maps/dTGoQfHs1Wb7AXAL9",
+    name: "Melly's Cookie Bar",
+    published: true,
+    slug: "mellys-cookie-bar",
+    url: "https://mellyscookiebar.nl/",
   },
   {
     category: "sweets",
