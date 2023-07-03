@@ -3,9 +3,9 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Analytics } from "@vercel/analytics/react";
 
-import { Link } from "@/components/Link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { Link } from "@/components/Link";
 
 import "@/styles/tailwind.css";
 import "focus-visible";

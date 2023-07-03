@@ -39,7 +39,7 @@ function EverGreenPages() {
           <div className="flex items-center">
             <Link
               href={href}
-              className="mr-4 text-sm font-medium text-zinc-600 hover:text-teal-600 dark:text-zinc-400 dark:hover:text-teal-600"
+              className="mr-4 text-sm font-medium text-zinc-600 hover:text-teal-500 dark:text-zinc-400 dark:hover:text-teal-400"
             >
               {title}
             </Link>

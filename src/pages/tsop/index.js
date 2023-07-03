@@ -21,7 +21,10 @@ export default function postsIndex({ posts }) {
             In 2012, I started a lifestyle experiment called The Spin-Off
             Project. I picked twelve things I wanted to do or learn and devoted
             a month to each. I wrote about my experiences on the now defunct{" "}
-            <Link href="https://web.archive.org/web/20230130015454/http://www.thespinoffproject.com/">
+            <Link
+              href="https://web.archive.org/web/20230130015454/http://www.thespinoffproject.com/"
+              className="text-teal-500 transition hover:text-teal-600 dark:hover:text-teal-400"
+            >
               thespinoffproject.com
             </Link>
             . Below is an archive of all the posts and pages I published.

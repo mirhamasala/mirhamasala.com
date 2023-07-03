@@ -46,7 +46,10 @@ export default function postsIndex({ posts }) {
           <>
             Some say it&apos;s their favorite newsletter. Leave your e-mail
             address{" "}
-            <Link href="https://mirhamasala.us3.list-manage.com/subscribe?u=b39d94447fc443788a5295725&id=f154788ae9">
+            <Link
+              href="https://mirhamasala.us3.list-manage.com/subscribe?u=b39d94447fc443788a5295725&id=f154788ae9"
+              className="text-teal-500 transition hover:text-teal-600 dark:hover:text-teal-400"
+            >
               here
             </Link>
             , and find out for yourself.
