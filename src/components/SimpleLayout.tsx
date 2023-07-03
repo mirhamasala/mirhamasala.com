@@ -1,6 +1,13 @@
 import { Container } from "@/components/Container";
 
-export function SimpleLayout({ title, intro, introExtra, children }) {
+type Props = {
+  title: string;
+  intro: string;
+  introExtra?: JSX.Element;
+  children: JSX.Element;
+};
+
+export function SimpleLayout({ title, intro, introExtra, children }: Props) {
   return (
     <Container className="mt-16 sm:mt-32">
       <header className="max-w-2xl">
@@ -10,7 +17,7 @@ export function SimpleLayout({ title, intro, introExtra, children }) {
         <p className="my-6 text-base text-zinc-600 dark:text-zinc-400">
           {intro}
         </p>
-        {introExtra && introExtra}
+        {introExtra && <p>introExtra</p>}
       </header>
       <div className="mt-16 sm:mt-20">{children}</div>
     </Container>
