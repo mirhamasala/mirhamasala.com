@@ -2,7 +2,7 @@ export const sarajevo = [
   {
     category: "coffee",
     city: "sarajevo",
-    description: "Coffee",
+    description: "",
     geo: {
       latitude: 43.86034599574558,
       longitude: 18.4234170232064,
@@ -16,14 +16,14 @@ export const sarajevo = [
   {
     category: "eats",
     city: "sarajevo",
-    description: "Cevapcici",
+    description: "",
     geo: {
       latitude: 43.85921733550572,
       longitude: 18.432575580389557,
     },
     googleMapsUrl: "https://goo.gl/maps/wCHc3EESpgWV8B6V8",
     name: "Petica",
-    published: false,
+    published: true,
     slug: "petica",
     url: "https://ferhatovic.ba/",
   },
