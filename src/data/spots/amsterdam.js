@@ -195,21 +195,6 @@ export const amsterdam = [
     category: "eats",
     city: "amsterdam",
     description:
-      "Comfort food for those craving more than a typical Dutch cheese-sandwich-lunch. Expect french toast, kedgeree, brisket, potato hash browns, and fermented chili bloody maries with olive and lemon.",
-    geo: {
-      latitude: 52.35584,
-      longitude: 4.89805,
-    },
-    googleMapsUrl: "https://www.google.com/maps?cid=11148560321910305161",
-    name: "Little Collins",
-    published: true,
-    slug: "little-collins",
-    url: "http://www.littlecollins.nl/",
-  },
-  {
-    category: "eats",
-    city: "amsterdam",
-    description:
       "Both the Döner and Turkish Pizza are worth a bike ride. Buns are baked in-house.",
     name: "Leeman Döner",
     geo: {
@@ -225,16 +210,16 @@ export const amsterdam = [
     category: "eats",
     city: "amsterdam",
     description:
-      "Classic Indian cuisine in a sophisticated, intimate setting. My pick always includes the richly spiced Gosht-E-Avadh (tender lamb in curry sauce) paired with Tandoor-baked Naan and a full-bodied glass of red.",
+      "Comfort food for those craving more than a typical Dutch cheese-sandwich-lunch. Expect french toast, kedgeree, brisket, potato hash browns, and fermented chili bloody maries with olive and lemon.",
     geo: {
-      latitude: 52.36235,
-      longitude: 4.88616,
+      latitude: 52.35584,
+      longitude: 4.89805,
     },
-    googleMapsUrl: "https://www.google.com/maps?cid=6959247414698561071",
-    name: "Mayur",
+    googleMapsUrl: "https://www.google.com/maps?cid=11148560321910305161",
+    name: "Little Collins",
     published: true,
-    slug: "mayur",
-    url: "http://www.mayur.nl/",
+    slug: "little-collins",
+    url: "http://www.littlecollins.nl/",
   },
   {
     category: "eats",
@@ -250,6 +235,21 @@ export const amsterdam = [
     published: true,
     slug: "masmais-taqueria",
     url: "https://masmais.nl/",
+  },
+  {
+    category: "eats",
+    city: "amsterdam",
+    description:
+      "Classic Indian cuisine in a sophisticated, intimate setting. My pick always includes the richly spiced Gosht-E-Avadh (tender lamb in curry sauce) paired with Tandoor-baked Naan and a full-bodied glass of red.",
+    geo: {
+      latitude: 52.36235,
+      longitude: 4.88616,
+    },
+    googleMapsUrl: "https://www.google.com/maps?cid=6959247414698561071",
+    name: "Mayur",
+    published: true,
+    slug: "mayur",
+    url: "http://www.mayur.nl/",
   },
   {
     category: "eats",
@@ -631,6 +631,21 @@ export const amsterdam = [
   {
     category: "drinks",
     city: "amsterdam",
+    description:
+      "A cozy, traditional cafe for those dark, early winter evenings.",
+    geo: {
+      latitude: 52.38046,
+      longitude: 4.88797,
+    },
+    googleMapsUrl: "https://goo.gl/maps/6xV4qGv7oPXmfDYS9",
+    name: "Papeneiland",
+    published: true,
+    slug: "papeneiland",
+    url: "http://www.papeneiland.nl/",
+  },
+  {
+    category: "drinks",
+    city: "amsterdam",
     description: "",
     geo: {
       latitude: 52.37673,
@@ -670,21 +685,6 @@ export const amsterdam = [
     published: false,
     slug: "spanjer-en-van-twist",
     url: "http://www.spanjerenvantwist.nl/",
-  },
-  {
-    category: "drinks",
-    city: "amsterdam",
-    description:
-      "A cozy, traditional cafe for those dark, early winter evenings.",
-    geo: {
-      latitude: 52.38046,
-      longitude: 4.88797,
-    },
-    googleMapsUrl: "https://goo.gl/maps/6xV4qGv7oPXmfDYS9",
-    name: "Papeneiland",
-    published: true,
-    slug: "papeneiland",
-    url: "http://www.papeneiland.nl/",
   },
   {
     category: "drinks",
@@ -849,66 +849,6 @@ export const amsterdam = [
     url: "https://www.zuidermrkt.nl/",
   },
   {
-    category: "other",
-    city: "amsterdam",
-    description:
-      "Have a stroll and pick up some fresh produce if you happen to be in the hood.",
-    geo: {
-      latitude: 52.36597,
-      longitude: 4.86755,
-    },
-    googleMapsUrl: "https://goo.gl/maps/2D5wtxfiQ591QWkP7",
-    name: "Ten Katestraat",
-    published: false,
-    slug: "ten-katestraat",
-    url: "",
-  },
-  {
-    category: "other",
-    city: "amsterdam",
-    description:
-      "I like their games and card sets for dinners, retreats, and gifts.",
-    geo: {
-      latitude: 52.35971,
-      longitude: 4.89831,
-    },
-    googleMapsUrl: "https://goo.gl/maps/2D5wtxfiQ591QWkP7",
-    name: "The School of Life",
-    published: true,
-    slug: "the-school-of-life",
-    url: "https://www.theschooloflife.com/",
-  },
-  {
-    category: "other",
-    city: "amsterdam",
-    description:
-      "A cluster of nine streets separated by Amsterdam's most beautiful canals and jammed with boutiques, specialty stores, and cafes. Famous for a reason, so go as early as possible for a stroll and coffee to avoid the crowd.",
-    geo: {
-      latitude: 52.37038,
-      longitude: 4.88605,
-    },
-    googleMapsUrl: "https://goo.gl/maps/2YAYCfKSvq2XPuUA9",
-    name: "De Negen Straatjes",
-    published: true,
-    slug: "de-negen-straatjes",
-    url: "https://de9straatjes.nl/nl/home",
-  },
-  {
-    category: "other",
-    city: "amsterdam",
-    description:
-      "Catch a movie in Art Deco style at what Time Out Magazine dubbed the most beautiful cinema in the world.",
-    geo: {
-      latitude: 52.36643,
-      longitude: 4.89467,
-    },
-    googleMapsUrl: "https://goo.gl/maps/DsLGZ3WUGdrr49Js5",
-    name: "Pathé Tuschinski",
-    published: true,
-    slug: "pathe-tuschinski",
-    url: "https://www.pathe.nl/bioscoop/tuschinski",
-  },
-  {
     category: "sweets",
     city: "amsterdam",
     description: "The Alfajores.",
@@ -951,5 +891,66 @@ export const amsterdam = [
     published: true,
     slug: "winkel-43",
     url: "http://www.winkel43.nl/",
+  },
+  {
+    category: "other",
+    city: "amsterdam",
+    description:
+      "Have a stroll and pick up some fresh produce if you happen to be in the hood.",
+    geo: {
+      latitude: 52.36597,
+      longitude: 4.86755,
+    },
+    googleMapsUrl: "https://goo.gl/maps/2D5wtxfiQ591QWkP7",
+    name: "Ten Katestraat",
+    published: false,
+    slug: "ten-katestraat",
+    url: "",
+  },
+  {
+    category: "shops",
+    city: "amsterdam",
+    description:
+      "A cluster of nine streets separated by Amsterdam's most beautiful canals and jammed with boutiques, specialty stores, and cafes. Famous for a reason, so go as early as possible for a stroll and coffee to avoid the crowd.",
+    geo: {
+      latitude: 52.37038,
+      longitude: 4.88605,
+    },
+    googleMapsUrl: "https://goo.gl/maps/2YAYCfKSvq2XPuUA9",
+    name: "De Negen Straatjes",
+    published: true,
+    slug: "de-negen-straatjes",
+    url: "https://de9straatjes.nl/nl/home",
+  },
+  {
+    category: "shops",
+    city: "amsterdam",
+    description:
+      "I like their games and card sets for dinners, retreats, and gifts.",
+    geo: {
+      latitude: 52.35971,
+      longitude: 4.89831,
+    },
+    googleMapsUrl: "https://goo.gl/maps/2D5wtxfiQ591QWkP7",
+    name: "The School of Life",
+    published: true,
+    slug: "the-school-of-life",
+    url: "https://www.theschooloflife.com/",
+  },
+
+  {
+    category: "other",
+    city: "amsterdam",
+    description:
+      "Catch a movie in Art Deco style at what Time Out Magazine dubbed the most beautiful cinema in the world.",
+    geo: {
+      latitude: 52.36643,
+      longitude: 4.89467,
+    },
+    googleMapsUrl: "https://goo.gl/maps/DsLGZ3WUGdrr49Js5",
+    name: "Pathé Tuschinski",
+    published: true,
+    slug: "pathe-tuschinski",
+    url: "https://www.pathe.nl/bioscoop/tuschinski",
   },
 ];
