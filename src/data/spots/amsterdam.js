@@ -165,14 +165,15 @@ export const amsterdam = [
   {
     category: "eats",
     city: "amsterdam",
-    description: "",
+    description:
+      "An old tram depot turned into a meeting spot with shops, a cinema, Hotel de Hallen, cafe Karavaan, the popular Food Hallen with 20 different food stands (The Butcher's burgers are legit), and more.",
     geo: {
       latitude: 52.36684,
       longitude: 4.86876,
     },
     googleMapsUrl: "https://goo.gl/maps/bnjYzrk5n9AfosJV7",
     name: "De Hallen",
-    published: false,
+    published: true,
     slug: "de-hallen",
     url: "http://www.dehallen-amsterdam.nl/",
   },
@@ -284,28 +285,45 @@ export const amsterdam = [
   {
     category: "eats",
     city: "amsterdam",
-    description: "",
+    description:
+      "Head for the secret bar in the back and settle for the Big Double Dirty burger and a couple of Dark 'n Stormies (Zacapa 23, Pampero Especial, ginger beer, Angostura & lime).",
+    geo: {
+      latitude: 52.37025,
+      longitude: 4.86791,
+    },
+    googleMapsUrl: "https://g.page/ROTIWEST",
+    name: "Rotisserie Amsterdam",
+    published: true,
+    slug: "rotisserie-amsterdam",
+    url: "http://www.rotisserieamsterdam.nl/",
+  },
+  {
+    category: "eats",
+    city: "amsterdam",
+    description:
+      "Expect a classic ever-changing menu with Antipasti, fresh pasta for starters, meat or fish as the main, plus plenty of Italian wine, all in a nonchalant chic setting.",
     geo: {
       latitude: 52.38014,
       longitude: 4.88537,
     },
     googleMapsUrl: "https://goo.gl/maps/G5VBa5uHMSdeE3Pe7",
     name: "Toscanini",
-    published: false,
+    published: true,
     slug: "toscanini",
     url: "http://restauranttoscanini.nl/",
   },
   {
     category: "eats",
     city: "amsterdam",
-    description: "",
+    description:
+      "A gig dedicated to ceviche. Classic is my jam. And the changing fish dishes are worth it.",
     geo: {
       latitude: 52.35163,
       longitude: 4.88708,
     },
     googleMapsUrl: "https://g.page/sjefietshe",
     name: "Sjefietshé",
-    published: false,
+    published: true,
     slug: "sjefietshe",
     url: "http://www.sjefietshe.nl/",
   },
@@ -327,14 +345,15 @@ export const amsterdam = [
   {
     category: "meats",
     city: "amsterdam",
-    description: "",
+    description:
+      "The oysters and steaks are what you're here for. Which also happens to sum up my last meal before going into labor with Dylan.",
     geo: {
       latitude: 52.37574,
       longitude: 4.8854,
     },
     googleMapsUrl: "https://goo.gl/maps/4rgWWua46C1DVUNw9",
     name: "Black and Blue",
-    published: false,
+    published: true,
     slug: "black-and-blue",
     url: "http://www.steakrestaurantamsterdam.nl/",
   },
@@ -414,20 +433,6 @@ export const amsterdam = [
   {
     category: "meats",
     city: "amsterdam",
-    description: "",
-    geo: {
-      latitude: 52.37025,
-      longitude: 4.86791,
-    },
-    googleMapsUrl: "https://g.page/ROTIWEST",
-    name: "Rotisserie Amsterdam",
-    published: false,
-    slug: "rotisserie-amsterdam",
-    url: "http://www.rotisserieamsterdam.nl/",
-  },
-  {
-    category: "meats",
-    city: "amsterdam",
     description:
       "A whole roasted chicken with your choice of sides and a fluitje of draft beer makes for one perfect dinner for two. It also works well for takeout.",
     geo: {
@@ -472,14 +477,15 @@ export const amsterdam = [
   {
     category: "drinks",
     city: "amsterdam",
-    description: "Good spot to settle down for a few beers.",
+    description:
+      "A good spot for craft beers with a group of friends. Depending on the season, you can start outside and move in.",
     geo: {
       latitude: 52.38608,
       longitude: 4.87282,
     },
     googleMapsUrl: "https://g.page/brouwerij-troost-westergas",
-    name: "Brouwerij Troost",
-    published: false,
+    name: "Brouwerij Troost Westergas",
+    published: true,
     slug: "brouwerij-troost-westergas",
     url: "http://www.brouwerijtroostwestergas.nl/",
   },
@@ -501,7 +507,8 @@ export const amsterdam = [
   {
     category: "drinks",
     city: "amsterdam",
-    description: "",
+    description:
+      "Canal-front terrace away from the bustle. I never come for the food, but I like the outside vibe.",
     geo: {
       latitude: 52.35746,
       longitude: 4.90675,
@@ -822,14 +829,15 @@ export const amsterdam = [
   {
     category: "gourmet-groceries",
     city: "amsterdam",
-    description: "Only on Saturdays (9:00-16:00) and Mondays (9:00-13:00).",
+    description:
+      "I like to pass by the farmer's market on the less-crowded Mondays (09:00-13:00). Though, also open Saturdays from 09:00-16:00. Happy coincidence that the best apple pie in town is near (see Sweets).",
     geo: {
       latitude: 52.37953,
       longitude: 4.88616,
     },
     googleMapsUrl: "https://goo.gl/maps/7X6HPNXHJYi3DdvC9",
     name: "Noordermarkt",
-    published: false,
+    published: true,
     slug: "noordermarkt",
     url: "https://www.noordermarkt-amsterdam.nl/",
   },
@@ -937,7 +945,6 @@ export const amsterdam = [
     slug: "the-school-of-life",
     url: "https://www.theschooloflife.com/",
   },
-
   {
     category: "other",
     city: "amsterdam",
