@@ -65,7 +65,9 @@ export function PostLayout({
                 {children}
                 {meta.related_reading && (
                   <PostFooter>
-                    {meta.related_reading.emoji}{" "}
+                    <span aria-hidden="true">
+                      {meta.related_reading.emoji}{" "}
+                    </span>
                     <Link href={meta.related_reading.url}>
                       {meta.related_reading.title}
                     </Link>
