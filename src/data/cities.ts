@@ -12,7 +12,7 @@ export const cities: Cities = {
     },
     id: "all",
     label: "All",
-    post: "map",
+    post: "/map",
   },
   amsterdam: {
     geo: {

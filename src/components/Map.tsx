@@ -70,7 +70,7 @@ function Map({ id, height = "60vh", zoom = 13 }: MapProps) {
             }}
             onCloseClick={() => setIsOpenInfoWindow(false)}
           >
-            <div style={{ padding: "0.125rem" }}>
+            <div style={{ padding: "0.125rem", color: "#18181b" }}>
               <header
                 style={{
                   marginBottom: "0.375rem",
@@ -89,12 +89,20 @@ function Map({ id, height = "60vh", zoom = 13 }: MapProps) {
               >
                 <p style={{ lineHeight: 1.25 }}>{selectedSpot.description}</p>
               </main>
-              <footer style={{ fontWeight: 400 }}>
+              <footer
+                style={{
+                  fontSize: "0.75rem",
+                  fontWeight: 400,
+                  color: "#0f766e",
+                }}
+              >
                 <Link href={selectedSpot.googleMapsUrl}>
                   View in Google Maps
                 </Link>
-                <span> · </span>
-                <Link href={`/${cities[id].post}#${selectedSpot.slug}`}>
+                <span style={{ paddingLeft: "0.5rem", paddingRight: "0.5rem" }}>
+                  ·
+                </span>
+                <Link href={`${cities[id].post}#${selectedSpot.slug}`}>
                   View in Post
                 </Link>
               </footer>

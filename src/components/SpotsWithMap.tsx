@@ -4,10 +4,10 @@ import Spots from "@/components/Spots";
 export function SpotsWithMap({ id }: { id: string }) {
   return (
     <>
-      <Spots id={id} />
       <div className="not-prose">
         <Map id={id} height="480px" />
       </div>
+      <Spots id={id} />
     </>
   );
 }

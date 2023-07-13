@@ -1,13 +1,6 @@
 import { Container } from "@/components/Container";
 
-type Props = {
-  title: string;
-  intro: string;
-  introExtra?: JSX.Element;
-  children: JSX.Element;
-};
-
-export function SimpleLayout({ title, intro, introExtra, children }: Props) {
+export function SimpleLayout({ title, intro, introExtra, children }) {
   return (
     <Container className="mt-16 sm:mt-32">
       <header className="max-w-2xl">
