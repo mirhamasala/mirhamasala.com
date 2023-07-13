@@ -9,7 +9,7 @@ export const other = [
     },
     googleMapsUrl: "https://goo.gl/maps/Em2jdPB67h7StQZG9",
     name: "Santa Katarina",
-    published: false,
+    published: true,
     slug: "santa-katarina",
     url: "",
   },
@@ -23,7 +23,7 @@ export const other = [
     },
     googleMapsUrl: "https://goo.gl/maps/vi9QEFvHLSicFawi7",
     name: "Lune Croissanterie Fitzroy",
-    published: false,
+    published: true,
     slug: "lune-croissanterie-fitzroy",
     url: "https://www.lunecroissanterie.com/",
   },
@@ -37,8 +37,9 @@ export const other = [
     },
     googleMapsUrl: "https://goo.gl/maps/TdYPnSE5QSprTVzS9",
     name: "Aranda's Grill",
-    published: false,
+    published: true,
     slug: "arandas-grill",
     url: "http://www.asadordearanda.com/",
   },
 ];
+true;

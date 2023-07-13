@@ -3,7 +3,7 @@ import { Resolvers } from "@/graphql/documents";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import { categories } from "@/data/categories";
-import allSpots from "@/lib/getSpots";
+import allSpots from "@/data/spots/all";
 
 import typeDefs from "schema.graphql";
 
@@ -44,14 +44,26 @@ const resolvers: Resolvers = {
         }))
         .filter((category) => categoryIDs.includes(category.slug));
     },
-    city: (_, { id }) => ({ id, spots: [] }),
+    city: (_, { id }) => ({
+      id,
+      geo: { latitude: 0, longitude: 0 },
+      label: "",
+      post: "",
+      spots: [],
+    }),
   },
   Category: {
     spots: (category) =>
       publishedSpots(category.slug).map((spot) => ({
         ...spot,
         category: category,
-        city: { id: spot.city, spots: [] },
+        city: {
+          id: spot.city,
+          geo: { latitude: 0, longitude: 0 },
+          label: "",
+          post: "",
+          spots: [],
+        },
       })),
   },
   City: {
@@ -62,7 +74,13 @@ const resolvers: Resolvers = {
           ...categories.find((category) => category.slug === spot.category),
           spots: [],
         },
-        city: { id: spot.city, spots: [] },
+        city: {
+          id: spot.city,
+          geo: { latitude: 0, longitude: 0 },
+          label: "",
+          post: "",
+          spots: [],
+        },
       })),
   },
 };

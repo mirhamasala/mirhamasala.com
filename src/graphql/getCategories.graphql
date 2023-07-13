@@ -2,6 +2,7 @@ query GetCategories($withSpots: Boolean!) {
   categories(withSpots: $withSpots) {
     emoji
     label
+    marker
     slug
   }
 }

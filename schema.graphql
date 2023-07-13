@@ -1,12 +1,16 @@
 type Category {
   emoji: String!
   label: String!
+  marker: String!
   slug: String!
   spots: [Spot!]!
 }
 
 type City {
+  geo: Geo!
   id: String!
+  label: String!
+  post: String!
   spots: [Spot!]!
 }
 

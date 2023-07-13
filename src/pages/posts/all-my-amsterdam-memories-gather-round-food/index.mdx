@@ -1,5 +1,5 @@
 import { PostLayout } from "@/components/PostLayout";
-import Spots from "@/components/Spots.tsx";
+import { SpotsWithMap } from "@/components/SpotsWithMap";
 
 export const meta = {
   categories: ["favorites"],
@@ -36,16 +36,9 @@ Still, once I met G, my gastronomy explorations flared further as we rounded up 
 
 ## Amsterdam Favorites
 
-Here's a list of my all-time favorite spots in Amsterdam.
+Here's a map and list of my all-time favorite spots in Amsterdam.
 
-<Spots id="amsterdam" />
-
-<iframe
-  className="w-full"
-  height="480"
-  src="https://www.google.com/maps/d/u/0/embed?mid=1RR3Wg3apBKSe3gs87kO17fjLdsBpb-U&ehbc=2E312F"
-  title="Google Map with Mirha Masala's favorite spots in Amsterdam, The Netherlands"
-/>
+<SpotsWithMap id="amsterdam" />
 
 [^1]: Unfortunately, the following places, mentioned in the intro, have closed permanently: Wolvenstraat, Caffe Esprit, Restaurant Usama, and 't Kuyltje.
 [^2]: [wikipedia.org/wiki/BLT](https://en.wikipedia.org/wiki/BLT)

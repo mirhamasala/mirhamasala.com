@@ -2,12 +2,17 @@ query GetCity($id: String!) {
   city(id: $id) {
     spots {
       description
+      geo {
+        latitude
+        longitude
+      }
       googleMapsUrl
       name
       slug
       category {
         emoji
         label
+        marker
         slug
       }
     }
