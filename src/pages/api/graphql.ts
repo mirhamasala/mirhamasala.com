@@ -3,7 +3,7 @@ import { Resolvers } from "@/graphql/documents";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import { categories } from "@/data/categories";
-import allSpots from "@/lib/getSpots";
+import allSpots from "@/data/spots/all";
 
 import typeDefs from "schema.graphql";
 
