@@ -52,7 +52,11 @@ function Map({ id, height = "60vh", zoom = 13 }: MapProps) {
 
   return (
     <GoogleMap
-      mapContainerStyle={{ height: height, width: "100%" }}
+      mapContainerStyle={{
+        height: height,
+        width: "100%",
+        borderRadius: "1.5rem",
+      }}
       center={centerMemoized}
       options={mapOptions}
       zoom={zoom}
@@ -80,15 +84,17 @@ function Map({ id, height = "60vh", zoom = 13 }: MapProps) {
               >
                 {selectedSpot.name}
               </header>
-              <main
-                style={{
-                  marginBottom: "0.75rem",
-                  fontSize: "0.75rem",
-                  fontWeight: 300,
-                }}
-              >
-                <p style={{ lineHeight: 1.25 }}>{selectedSpot.description}</p>
-              </main>
+              {selectedSpot.description && (
+                <main
+                  style={{
+                    marginBottom: "0.75rem",
+                    fontSize: "0.75rem",
+                    fontWeight: 300,
+                  }}
+                >
+                  <p style={{ lineHeight: 1.25 }}>{selectedSpot.description}</p>
+                </main>
+              )}
               <footer
                 style={{
                   fontSize: "0.75rem",
@@ -99,12 +105,19 @@ function Map({ id, height = "60vh", zoom = 13 }: MapProps) {
                 <Link href={selectedSpot.googleMapsUrl}>
                   View in Google Maps
                 </Link>
-                <span style={{ paddingLeft: "0.5rem", paddingRight: "0.5rem" }}>
-                  ·
-                </span>
-                <Link href={`${cities[id].post}#${selectedSpot.slug}`}>
-                  View in Post
-                </Link>
+
+                {cities[id].post && (
+                  <>
+                    <span
+                      style={{ paddingLeft: "0.5rem", paddingRight: "0.5rem" }}
+                    >
+                      ·
+                    </span>
+                    <Link href={`${cities[id].post}#${selectedSpot.slug}`}>
+                      View in Post
+                    </Link>
+                  </>
+                )}
               </footer>
             </div>
           </InfoWindowF>
