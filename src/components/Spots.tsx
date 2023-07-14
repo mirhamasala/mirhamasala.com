@@ -27,13 +27,11 @@ function Spots({ id }: { id: string }) {
   }
 
   return (
-    <div>
+    <>
       {Object.values(categories).map((category) => (
         <section id={category.slug} key={category.slug}>
           <h3 className="flex gap-2">
-            <span className="mr-4" aria-hidden="true">
-              {category.emoji}
-            </span>
+            <span aria-hidden="true">{category.emoji}</span>
             <span>{category.label}</span>
           </h3>
           <ul>
@@ -54,7 +52,7 @@ function Spots({ id }: { id: string }) {
           </ul>
         </section>
       ))}
-    </div>
+    </>
   );
 }
 

@@ -4,9 +4,9 @@ import Spots from "@/components/Spots";
 export function SpotsWithMap({ id }: { id: string }) {
   return (
     <>
-      <div className="not-prose">
+      <figure className="not-prose">
         <Map id={id} height="480px" />
-      </div>
+      </figure>
       <Spots id={id} />
     </>
   );

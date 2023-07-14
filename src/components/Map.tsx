@@ -41,7 +41,7 @@ function Map({ id, height = "60vh", zoom = 13 }: MapProps) {
     []
   );
 
-  function handleMouseOver(spot: MapSpot) {
+  function openInfoWindow(spot: MapSpot) {
     setSelectedSpot(spot);
     setIsOpenInfoWindow(true);
   }
@@ -111,18 +111,19 @@ function Map({ id, height = "60vh", zoom = 13 }: MapProps) {
         )}
         {data.city.spots.map((spot) => (
           <MarkerF
+            key={spot.slug}
             options={{
               icon: {
                 scaledSize: new window.google.maps.Size(56, 56),
                 url: spot.category.marker,
               },
             }}
-            key={spot.slug}
             position={{
               lat: spot.geo.latitude,
               lng: spot.geo.longitude,
             }}
-            onMouseOver={() => handleMouseOver(spot)}
+            onClick={() => openInfoWindow(spot)}
+            onMouseOver={() => openInfoWindow(spot)}
           />
         ))}
       </>
