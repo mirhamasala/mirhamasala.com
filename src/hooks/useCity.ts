@@ -7,7 +7,7 @@ const fetchCity = async (id: string) =>
 
 const useCity = (id: string) =>
   useQuery<GetCityQuery, Error>({
-    queryKey: ["city"],
+    queryKey: ["city", id],
     queryFn: () => fetchCity(id),
     enabled: !!id,
   });
