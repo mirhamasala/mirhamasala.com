@@ -63,7 +63,7 @@ export const amsterdam = [
     category: "coffee",
     city: "amsterdam",
     description:
-      "My absolute new favorite in town. I always go for the batch brew, which tastes like a fancy manual filter. G loves the cortado. Their bakes are from Ulmus Bakery. And the daily Ten Kate market just in front.",
+      "My absolute new favorite in town. I always go for the batch brew, which tastes like a fancy manual filter. G loves the cortado. Their bakes are from Ulmus Bakery. And the daily Ten Kate market at their doorstep.",
     geo: {
       latitude: 52.36602,
       longitude: 4.86731,
@@ -448,14 +448,15 @@ export const amsterdam = [
   {
     category: "drinks",
     city: "amsterdam",
-    description: "Cocktails in a dark mood.",
+    description:
+      "Tiny, dim-lit, seat-only cocktail bar. No reservations, so you need to be early or very lucky.",
     geo: {
       latitude: 52.3697,
       longitude: 4.88026,
     },
     googleMapsUrl: "https://goo.gl/maps/WJD86De25rpFGM3A8",
     name: "Bar Oldenhof",
-    published: false,
+    published: true,
     slug: "bar-oldenhof",
     url: "http://www.bar-oldenhof.com/",
   },
@@ -727,7 +728,7 @@ export const amsterdam = [
     category: "gourmet-groceries",
     city: "amsterdam",
     description:
-      "Mostly a cheese shop, excellenty located in-between a bakery and wine store. Try my favorite: The Italian La Tur–a soft ripened cheese of sheep's, cow's and goat's milk. Or get a good chunk of Dutch cheese.",
+      "Mostly a cheese shop, strategically located in-between a bakery and wine store. Try my favorite: The Italian La Tur–a soft ripened cheese of sheep's, cow's and goat's milk. Or get a good chunk of Dutch cheese.",
     geo: {
       latitude: 52.37111,
       longitude: 4.85759,
@@ -845,6 +846,21 @@ export const amsterdam = [
     category: "gourmet-groceries",
     city: "amsterdam",
     description:
+      "A wine boutique with beautiful wines from small producers in Spain and Portugal. Do ask for recommendations, though grab a bottle of the Toro from Botas de Borra if available.",
+    geo: {
+      latitude: 52.36838664484304,
+      longitude: 4.871866884479797,
+    },
+    googleMapsUrl: "https://goo.gl/maps/dxVS88d6wNTz6Rqh7",
+    name: "Petit Celler",
+    published: true,
+    slug: "petit-celler",
+    url: "https://petitceller.nl/",
+  },
+  {
+    category: "gourmet-groceries",
+    city: "amsterdam",
+    description:
       "Charming local farmer's market with stalls offering everything from organic olives and 36-hour simmered bone broths to pasture-fed meat and sustainable fish directly from the ships of the North Sea. Every Saturday, 09:30-17:00.",
     geo: {
       latitude: 52.35541,
@@ -859,6 +875,20 @@ export const amsterdam = [
   {
     category: "sweets",
     city: "amsterdam",
+    description: "Pick up a tompoes, the Dutch variety of the mille-feuille.",
+    geo: {
+      latitude: 52.368188187599934,
+      longitude: 4.868199410389124,
+    },
+    googleMapsUrl: "https://goo.gl/maps/K32fZxoYKYp3ha4L7",
+    name: "Ad Straathof Marktbakkerij",
+    published: true,
+    slug: "ad-straathof-marktbakkerij",
+    url: "http://www.bakkerijstraathof.nl/pages/contact.html",
+  },
+  {
+    category: "sweets",
+    city: "amsterdam",
     description: "The Alfajores.",
     geo: {
       latitude: 52.37463439582504,
@@ -869,6 +899,21 @@ export const amsterdam = [
     published: true,
     slug: "mellys-cookie-bar",
     url: "https://mellyscookiebar.nl/",
+  },
+  {
+    category: "sweets",
+    city: "amsterdam",
+    description:
+      "Petit Gâteau offers French pastries like eclairs, macarons, and madeleines but is mainly known for its tiny tarts (miniminis), which come in 20+ flavors. I like the raspberry vanilla cream, lemon meringue, and everything pistachio. They also do baking masterclasses and have another branch in the Foodhallen in Amsterdam Oud-West.",
+    geo: {
+      latitude: 52.380951128575106,
+      longitude: 4.8935145173157455,
+    },
+    googleMapsUrl: "https://goo.gl/maps/xHY2kdz1cLgbmkco7",
+    name: "Petit Gâteau",
+    published: true,
+    slug: "petit-gateau",
+    url: "https://petitgateau.nl/",
   },
   {
     category: "sweets",
