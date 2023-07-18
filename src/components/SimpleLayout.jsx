@@ -10,7 +10,7 @@ export function SimpleLayout({ title, intro, introExtra, children }) {
         <p className="my-6 text-base text-zinc-600 dark:text-zinc-400">
           {intro}
         </p>
-        {introExtra && <p>{introExtra}</p>}
+        {introExtra && <>{introExtra}</>}
       </header>
       <div className="mt-16 sm:mt-20">{children}</div>
     </Container>
