@@ -1,9 +1,9 @@
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import {
   GoogleMap,
   InfoWindowF,
-  LoadScript,
   MarkerF,
+  useLoadScript,
 } from "@react-google-maps/api";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -24,22 +24,22 @@ type MapSpot = Omit<Spot, "category" | "city" | "published" | "url">;
 
 function Map({ id, height = "60vh", zoom = 13 }: MapProps) {
   const { data, isLoading, isError, error } = useCity(id);
-
   const [isOpenInfoWindow, setIsOpenInfoWindow] = useState(false);
   const [selectedSpot, setSelectedSpot] = useState<MapSpot | undefined>();
 
-  const centerMemoized = useMemo<LatLngLiteral>(
+  const mapRef = useRef<GoogleMap>();
+  const center = useMemo<LatLngLiteral>(
     () => ({ lat: cities[id].geo.latitude, lng: cities[id].geo.longitude }),
     [id]
   );
-
-  const mapOptions = useMemo<MapOptions>(
+  const options = useMemo<MapOptions>(
     () => ({
       disableDefaultUI: true,
       clickableIcons: false,
     }),
     []
   );
+  const onLoad = useCallback((map) => (mapRef.current = map), []);
 
   function openInfoWindow(spot: MapSpot) {
     setSelectedSpot(spot);
@@ -52,9 +52,14 @@ function Map({ id, height = "60vh", zoom = 13 }: MapProps) {
 
   return (
     <GoogleMap
-      mapContainerStyle={{ height: height, width: "100%" }}
-      center={centerMemoized}
-      options={mapOptions}
+      mapContainerStyle={{
+        height: height,
+        width: "100%",
+        borderRadius: "1.5rem",
+      }}
+      center={center}
+      onLoad={onLoad}
+      options={options}
       zoom={zoom}
     >
       <>
@@ -80,15 +85,17 @@ function Map({ id, height = "60vh", zoom = 13 }: MapProps) {
               >
                 {selectedSpot.name}
               </header>
-              <main
-                style={{
-                  marginBottom: "0.75rem",
-                  fontSize: "0.75rem",
-                  fontWeight: 300,
-                }}
-              >
-                <p style={{ lineHeight: 1.25 }}>{selectedSpot.description}</p>
-              </main>
+              {selectedSpot.description && (
+                <main
+                  style={{
+                    marginBottom: "0.75rem",
+                    fontSize: "0.75rem",
+                    fontWeight: 300,
+                  }}
+                >
+                  <p style={{ lineHeight: 1.25 }}>{selectedSpot.description}</p>
+                </main>
+              )}
               <footer
                 style={{
                   fontSize: "0.75rem",
@@ -99,12 +106,19 @@ function Map({ id, height = "60vh", zoom = 13 }: MapProps) {
                 <Link href={selectedSpot.googleMapsUrl}>
                   View in Google Maps
                 </Link>
-                <span style={{ paddingLeft: "0.5rem", paddingRight: "0.5rem" }}>
-                  ·
-                </span>
-                <Link href={`${cities[id].post}#${selectedSpot.slug}`}>
-                  View in Post
-                </Link>
+
+                {cities[id].post && (
+                  <>
+                    <span
+                      style={{ paddingLeft: "0.5rem", paddingRight: "0.5rem" }}
+                    >
+                      ·
+                    </span>
+                    <Link href={`${cities[id].post}#${selectedSpot.slug}`}>
+                      View in Post
+                    </Link>
+                  </>
+                )}
               </footer>
             </div>
           </InfoWindowF>
@@ -132,13 +146,21 @@ function Map({ id, height = "60vh", zoom = 13 }: MapProps) {
 }
 
 function WrappedMap(props: MapProps) {
-  let googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+  const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
+  if (!googleMapsApiKey) {
+    throw new Error("Missing Google Maps API key");
+  }
+
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey,
+  });
+
+  if (!isLoaded) return <div>Loading...</div>;
 
   return (
     <QueryClientProvider client={new QueryClient()}>
-      <LoadScript googleMapsApiKey={googleMapsApiKey}>
-        <Map {...props} />
-      </LoadScript>
+      <Map {...props} />
     </QueryClientProvider>
   );
 }
