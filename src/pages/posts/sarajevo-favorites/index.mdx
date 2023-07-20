@@ -1,5 +1,7 @@
+import { sarajevo as spots } from "@/data/spots/sarajevo";
+
 import { PostLayout } from "@/components/PostLayout";
-import SpotsWithMap from "@/components/SpotsWithMap.tsx";
+import { SpotsWithMap } from "@/components/SpotsWithMap.tsx";
 
 export const meta = {
   categories: ["favorites"],
@@ -16,4 +18,4 @@ export const meta = {
 
 export default (props) => <PostLayout meta={meta} {...props} />;
 
-<SpotsWithMap id="sarajevo" />
+<SpotsWithMap spots={spots} />

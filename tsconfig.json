@@ -23,8 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/pages/map.jsx",
-    "src/components/SimpleLayout.jsx"
+    "src/lib/readSpotsFiles.mjs"
   ],
   "exclude": ["node_modules"]
 }

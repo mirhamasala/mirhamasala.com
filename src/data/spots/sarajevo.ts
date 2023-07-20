@@ -1,4 +1,6 @@
-export const sarajevo = [
+import { type Spot } from "@/types/spots.type";
+
+export const sarajevo: Spot[] = [
   {
     category: "coffee",
     city: "sarajevo",

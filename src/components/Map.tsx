@@ -1,54 +1,53 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import {
   GoogleMap,
-  InfoWindowF,
-  MarkerF,
+  InfoWindowF as InfoWindow,
+  MarkerF as Marker,
   useLoadScript,
 } from "@react-google-maps/api";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { Link } from "@/components/Link";
-import { cities } from "@/data/cities";
-import { Spot } from "@/graphql/documents";
-import { useCity } from "@/hooks/useCity";
+import { type PublishedSpotWithCategoryAndCity } from "@/types/spots.type";
 
-export type MapProps = {
-  id: string;
+type Props = {
+  center: {
+    latitude: number;
+    longitude: number;
+  };
   height?: string;
   zoom?: number;
+  spots: PublishedSpotWithCategoryAndCity[];
 };
 
-type LatLngLiteral = google.maps.LatLngLiteral;
-type MapOptions = google.maps.MapOptions;
-type MapSpot = Omit<Spot, "category" | "city" | "published" | "url">;
+function Map({ center, height = "60vh", zoom = 13, spots }: Props) {
+  const [selectedSpot, setSelectedSpot] =
+    useState<PublishedSpotWithCategoryAndCity | null>(null);
 
-function Map({ id, height = "60vh", zoom = 13 }: MapProps) {
-  const { data, isLoading, isError, error } = useCity(id);
-  const [isOpenInfoWindow, setIsOpenInfoWindow] = useState(false);
-  const [selectedSpot, setSelectedSpot] = useState<MapSpot | undefined>();
-
-  const mapRef = useRef<GoogleMap>();
-  const center = useMemo<LatLngLiteral>(
-    () => ({ lat: cities[id].geo.latitude, lng: cities[id].geo.longitude }),
-    [id]
+  const mapRef = useRef<google.maps.Map | null>(null);
+  const centerMemoized = useMemo<google.maps.LatLngLiteral>(
+    () => ({ lat: center.latitude, lng: center.longitude }),
+    [center]
   );
-  const options = useMemo<MapOptions>(
+  const options = useMemo<google.maps.MapOptions>(
     () => ({
       disableDefaultUI: true,
       clickableIcons: false,
     }),
     []
   );
-  const onLoad = useCallback((map) => (mapRef.current = map), []);
+  const onLoad = useCallback((map: google.maps.Map | null) => {
+    if (map) {
+      mapRef.current = map;
+    }
+  }, []);
 
-  function openInfoWindow(spot: MapSpot) {
+  function openInfoWindow(spot: PublishedSpotWithCategoryAndCity) {
     setSelectedSpot(spot);
-    setIsOpenInfoWindow(true);
   }
 
-  if (isLoading) return <div>Loading...</div>;
-
-  if (isError) return <div>Oops. {error.message}</div>;
+  function closeInfoWindow() {
+    setSelectedSpot(null);
+  }
 
   return (
     <GoogleMap
@@ -57,95 +56,91 @@ function Map({ id, height = "60vh", zoom = 13 }: MapProps) {
         width: "100%",
         borderRadius: "1.5rem",
       }}
-      center={center}
+      center={centerMemoized}
       onLoad={onLoad}
       options={options}
       zoom={zoom}
     >
-      <>
-        {isOpenInfoWindow && selectedSpot && (
-          <InfoWindowF
-            position={{
-              lat: selectedSpot.geo.latitude,
-              lng: selectedSpot.geo.longitude,
-            }}
-            options={{
-              pixelOffset: new window.google.maps.Size(0, -40),
-              maxWidth: 300,
-            }}
-            onCloseClick={() => setIsOpenInfoWindow(false)}
-          >
-            <div style={{ padding: "0.125rem", color: "#18181b" }}>
-              <header
+      {selectedSpot && (
+        <InfoWindow
+          position={{
+            lat: selectedSpot.geo.latitude,
+            lng: selectedSpot.geo.longitude,
+          }}
+          options={{
+            pixelOffset: new window.google.maps.Size(0, -40),
+            maxWidth: 300,
+          }}
+          onCloseClick={closeInfoWindow}
+        >
+          <div style={{ padding: "0.125rem", color: "#18181b" }}>
+            <header
+              style={{
+                marginBottom: "0.375rem",
+                fontSize: "0.875rem",
+                fontWeight: 400,
+              }}
+            >
+              {selectedSpot.name}
+            </header>
+            {selectedSpot.description && (
+              <main
                 style={{
-                  marginBottom: "0.375rem",
-                  fontSize: "0.875rem",
-                  fontWeight: 400,
-                }}
-              >
-                {selectedSpot.name}
-              </header>
-              {selectedSpot.description && (
-                <main
-                  style={{
-                    marginBottom: "0.75rem",
-                    fontSize: "0.75rem",
-                    fontWeight: 300,
-                  }}
-                >
-                  <p style={{ lineHeight: 1.25 }}>{selectedSpot.description}</p>
-                </main>
-              )}
-              <footer
-                style={{
+                  marginBottom: "0.75rem",
                   fontSize: "0.75rem",
-                  fontWeight: 400,
-                  color: "#0f766e",
+                  fontWeight: 300,
                 }}
               >
-                <Link href={selectedSpot.googleMapsUrl}>
-                  View in Google Maps
-                </Link>
+                <p style={{ lineHeight: 1.25 }}>{selectedSpot.description}</p>
+              </main>
+            )}
+            <footer
+              style={{
+                fontSize: "0.75rem",
+                fontWeight: 400,
+                color: "#0f766e",
+              }}
+            >
+              <Link href={selectedSpot.googleMapsUrl}>View in Google Maps</Link>
+              {selectedSpot.city.post && (
+                <>
+                  <span
+                    style={{ paddingLeft: "0.5rem", paddingRight: "0.5rem" }}
+                  >
+                    ·
+                  </span>
+                  <Link href={`${selectedSpot.city.post}#${selectedSpot.slug}`}>
+                    View in Post
+                  </Link>
+                </>
+              )}
+            </footer>
+          </div>
+        </InfoWindow>
+      )}
 
-                {cities[id].post && (
-                  <>
-                    <span
-                      style={{ paddingLeft: "0.5rem", paddingRight: "0.5rem" }}
-                    >
-                      ·
-                    </span>
-                    <Link href={`${cities[id].post}#${selectedSpot.slug}`}>
-                      View in Post
-                    </Link>
-                  </>
-                )}
-              </footer>
-            </div>
-          </InfoWindowF>
-        )}
-        {data.city.spots.map((spot) => (
-          <MarkerF
-            key={spot.slug}
-            options={{
-              icon: {
-                scaledSize: new window.google.maps.Size(56, 56),
-                url: spot.category.marker,
-              },
-            }}
-            position={{
-              lat: spot.geo.latitude,
-              lng: spot.geo.longitude,
-            }}
-            onClick={() => openInfoWindow(spot)}
-            onMouseOver={() => openInfoWindow(spot)}
-          />
-        ))}
-      </>
+      {spots.map((spot) => (
+        <Marker
+          key={spot.slug}
+          options={{
+            icon: {
+              scaledSize: new window.google.maps.Size(56, 56),
+              url: spot.category.marker,
+            },
+          }}
+          position={{
+            lat: spot.geo.latitude,
+            lng: spot.geo.longitude,
+          }}
+          onClick={() => openInfoWindow(spot)}
+          onMouseOver={() => openInfoWindow(spot)}
+        />
+      ))}
     </GoogleMap>
   );
 }
 
-function WrappedMap(props: MapProps) {
+function WrappedMap(props: Props) {
   const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
   if (!googleMapsApiKey) {
@@ -158,11 +153,7 @@ function WrappedMap(props: MapProps) {
 
   if (!isLoaded) return <div>Loading...</div>;
 
-  return (
-    <QueryClientProvider client={new QueryClient()}>
-      <Map {...props} />
-    </QueryClientProvider>
-  );
+  return <Map {...props} />;
 }
 
 export default WrappedMap;

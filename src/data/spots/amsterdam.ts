@@ -1,4 +1,6 @@
-export const amsterdam = [
+import { type Spot } from "@/types/spots.type";
+
+export const amsterdam: Spot[] = [
   {
     category: "parks",
     city: "amsterdam",

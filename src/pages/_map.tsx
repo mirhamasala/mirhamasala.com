@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { Listbox } from "@headlessui/react";
 
-import { cities } from "@/data/cities";
+import { cities, City } from "@/data/cities";
 
 import { getAllSpots } from "@/lib/getAllSpots";
+
+import { PublishedSpotWithCategoryAndCity } from "@/types/spots.type";
 
 import Map from "@/components/Map";
 import { SimpleLayout } from "@/components/SimpleLayout";
 
 import { getPublishedSpotsWithCategoryAndCity } from "@/lib/getPublishedSpotsWithCategoryAndCity";
 
-function Icon(props) {
+function Icon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       fill="none"
@@ -48,7 +50,13 @@ function ChevronUpDownIcon() {
   );
 }
 
-function CitySelect({ selectedCity, setSelectedCity }) {
+function CitySelect({
+  selectedCity,
+  setSelectedCity,
+}: {
+  selectedCity: City;
+  setSelectedCity: (city: City) => void;
+}) {
   const citiesThatCanBeSelected = cities.filter((city) => city.canBeSelected);
 
   return (
@@ -98,10 +106,10 @@ function CitySelect({ selectedCity, setSelectedCity }) {
 }
 
 function MapPage({ spots }) {
-  const publishedSpotsWithCategoryAndCity =
+  const extendedSpots: PublishedSpotWithCategoryAndCity[] =
     getPublishedSpotsWithCategoryAndCity(spots);
 
-  const [selectedCity, setSelectedCity] = useState(cities[0]);
+  const [selectedCity, setSelectedCity] = useState<City>(cities[0]);
 
   return (
     <SimpleLayout
@@ -116,10 +124,7 @@ function MapPage({ spots }) {
           selectedCity={selectedCity}
           setSelectedCity={setSelectedCity}
         />
-        <Map
-          center={selectedCity.geo}
-          spots={publishedSpotsWithCategoryAndCity}
-        />
+        <Map center={selectedCity.geo} spots={extendedSpots} />
       </div>
     </SimpleLayout>
   );

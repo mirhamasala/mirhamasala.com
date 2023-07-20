@@ -1,5 +1,6 @@
 import { PostLayout } from "@/components/PostLayout";
 import { SpotsWithMap } from "@/components/SpotsWithMap";
+import { amsterdam as spots } from "@/data/spots/amsterdam";
 
 export const meta = {
   categories: ["favorites"],
@@ -38,7 +39,7 @@ Still, once I met G, my gastronomy explorations flared further as we rounded up 
 
 Here's a map and list of my all-time favorite spots in Amsterdam.
 
-<SpotsWithMap id="amsterdam" />
+<SpotsWithMap spots={spots} />
 
 [^1]: Unfortunately, the following places, mentioned in the intro, have closed permanently: Wolvenstraat, Caffe Esprit, Restaurant Usama, and 't Kuyltje.
 [^2]: [wikipedia.org/wiki/BLT](https://en.wikipedia.org/wiki/BLT)

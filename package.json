@@ -6,9 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint && prettier --write .",
-    "generate": "graphql-codegen",
-    "postinstall": "npm run generate"
+    "lint": "next lint && prettier --write ."
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
@@ -19,7 +17,6 @@
     "@next/mdx": "^12.3.1",
     "@react-google-maps/api": "^2.18.1",
     "@tailwindcss/typography": "^0.5.7",
-    "@tanstack/react-query": "^4.24.10",
     "@vercel/analytics": "^1.0.0",
     "autoprefixer": "^10.4.12",
     "clsx": "^1.2.0",
