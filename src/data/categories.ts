@@ -1,11 +1,36 @@
 const baseMarkerPath = "/markers/";
 
+type CategorySlug =
+  | "parks"
+  | "coffee"
+  | "meats"
+  | "eats"
+  | "drinks"
+  | "gourmet-groceries"
+  | "sights"
+  | "shops"
+  | "sweets"
+  | "other";
+
 export interface Category {
   emoji: string;
   label: string;
   marker: string;
-  slug: string;
+  slug: CategorySlug;
 }
+
+export const categoriesOrder: CategorySlug[] = [
+  "parks",
+  "coffee",
+  "meats",
+  "eats",
+  "drinks",
+  "gourmet-groceries",
+  "sights",
+  "shops",
+  "sweets",
+  "other",
+];
 
 export const categories: Category[] = [
   {

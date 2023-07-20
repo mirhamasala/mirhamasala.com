@@ -1,4 +1,4 @@
-import { categories } from "@/data/categories";
+import { categories, categoriesOrder } from "@/data/categories";
 import { PublishedSpotWithCategoryAndCity } from "@/types/spots.type";
 
 interface CategoryMap {
@@ -10,27 +10,41 @@ interface CategoryMap {
   };
 }
 
+function addSpotToCategory(
+  spot: PublishedSpotWithCategoryAndCity,
+  categoriesWithSpots: CategoryMap
+) {
+  const { slug, ...categoryDetails } = spot.category;
+  const category = categories.find((cat) => cat.slug === slug);
+
+  if (!categoriesWithSpots[slug]) {
+    categoriesWithSpots[slug] = {
+      ...category!,
+      spots: [],
+    };
+  }
+
+  categoriesWithSpots[slug].spots.push({
+    ...categoryDetails,
+    ...spot,
+  });
+}
+
+function filterAndOrderCategories(categoriesWithSpots: CategoryMap) {
+  return categoriesOrder
+    .filter(
+      (slug) =>
+        categoriesWithSpots[slug] && categoriesWithSpots[slug].spots.length > 0
+    )
+    .map((slug) => categoriesWithSpots[slug]);
+}
+
 export function groupSpotsByCategory(
   spots: PublishedSpotWithCategoryAndCity[]
 ) {
   const categoriesWithSpots: CategoryMap = {};
 
-  spots.forEach((spot) => {
-    const { slug, ...categoryDetails } = spot.category;
+  spots.forEach((spot) => addSpotToCategory(spot, categoriesWithSpots));
 
-    if (!categoriesWithSpots[slug]) {
-      const category = categories.find((cat) => cat.slug === slug);
-      categoriesWithSpots[slug] = {
-        ...category!,
-        spots: [],
-      };
-    }
-
-    categoriesWithSpots[slug].spots.push({
-      ...categoryDetails,
-      ...spot,
-    });
-  });
-
-  return categoriesWithSpots;
+  return filterAndOrderCategories(categoriesWithSpots);
 }
