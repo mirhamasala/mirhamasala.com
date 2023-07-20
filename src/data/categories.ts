@@ -1,6 +1,13 @@
 const baseMarkerPath = "/markers/";
 
-export const categories = [
+export interface Category {
+  emoji: string;
+  label: string;
+  marker: string;
+  slug: string;
+}
+
+export const categories: Category[] = [
   {
     emoji: "🌳",
     label: "Parks",
