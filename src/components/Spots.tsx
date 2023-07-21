@@ -1,13 +1,13 @@
+import { Link } from "@/components/Link";
+
 import { groupSpotsByCategory } from "@/lib/groupSpotsByCategory";
 
 function Spot({ spot }) {
   return (
-    <li key={spot.slug}>
+    <li>
       <h4>
         {spot.googleMapsUrl ? (
-          <a id={spot.slug} href={spot.googleMapsUrl}>
-            {spot.name}
-          </a>
+          <Link href={spot.googleMapsUrl}>{spot.name}</Link>
         ) : (
           spot.name
         )}
