@@ -178,6 +178,11 @@ const posts = [
     permanent: true,
   },
   {
+    source: "/read-100-books",
+    destination: "/posts/read-100-books",
+    permanent: true,
+  },
+  {
     source: "/the-story-of-us",
     destination: "/posts/the-story-of-us",
     permanent: true,
