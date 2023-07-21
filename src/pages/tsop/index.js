@@ -2,9 +2,13 @@ import Head from "next/head";
 
 import { Link } from "@/components/Link";
 import { SimpleLayout } from "@/components/SimpleLayout";
-import { getAllPosts } from "@/lib/getAllPostsTSOP";
+
+import { getAllContent } from "@/lib/getAllContent";
+import { categorizeAndSortTSOPPosts } from "@/lib/categorizeAndSortTSOPPosts";
 
 export default function postsIndex({ posts }) {
+  posts = categorizeAndSortTSOPPosts(posts);
+
   return (
     <>
       <Head>
@@ -32,19 +36,13 @@ export default function postsIndex({ posts }) {
         }
       >
         <div className="flex flex-col gap-y-16 md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
-          {Object.entries(JSON.parse(posts)).map(([key, value]) => (
-            <section
-              key={key}
-              id={
-                key === "9" ? "Traveler" : value[0].slug.replace("-month", "")
-              }
-            >
+          {posts.map(({ spinoffNumber, spinOffName, posts }) => (
+            <section key={spinOffName} id={spinOffName}>
               <h2 className="text-base font-semibold capitalize tracking-tight text-zinc-800 dark:text-zinc-100">
-                {key}.{" "}
-                {key === "9" ? "Traveler" : value[0].slug.replace("-month", "")}
+                {spinOffName} · spin-off no. {spinoffNumber}
               </h2>
               <ul className="prose">
-                {value.map((post) => (
+                {posts.map((post) => (
                   <li className="prose" key={post.slug}>
                     <Link href={`/tsop/posts/${post.slug}`}>{post.title}</Link>
                   </li>
@@ -61,7 +59,9 @@ export default function postsIndex({ posts }) {
 export async function getStaticProps() {
   return {
     props: {
-      posts: JSON.stringify(await getAllPosts()),
+      posts: (await getAllContent("tsop/posts")).map(
+        ({ component, ...meta }) => meta
+      ),
     },
   };
 }

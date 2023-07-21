@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Card } from "@/components/Card";
 import { Link } from "@/components/Link";
 import { SimpleLayout } from "@/components/SimpleLayout";
-import { getAllLetters } from "@/lib/getAllLetters";
+import { getAllContent } from "@/lib/getAllContent";
 import { formatDate } from "@/lib/formatDate";
 
 function Post({ post }) {
@@ -71,7 +71,9 @@ export default function postsIndex({ posts }) {
 export async function getStaticProps() {
   return {
     props: {
-      posts: (await getAllLetters()).map(({ component, ...meta }) => meta),
+      posts: (await getAllContent("letters")).map(
+        ({ component, ...meta }) => meta
+      ),
     },
   };
 }

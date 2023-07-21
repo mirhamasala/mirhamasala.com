@@ -2,10 +2,10 @@ import ReactDOMServer from "react-dom/server";
 import { Feed } from "feed";
 import { mkdir, writeFile } from "fs/promises";
 
-import { getAllPosts } from "./getAllPosts";
+import { getAllContent } from "./getAllContent";
 
 export async function generateRssFeed() {
-  let posts = await getAllPosts();
+  let posts = await getAllContent("posts");
   let siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
   let author = {
     name: "Mirha Masala",

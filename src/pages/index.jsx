@@ -10,7 +10,7 @@ import image1 from "@/images/photos/image-1.jpg";
 import image2 from "@/images/photos/image-2.jpg";
 import image3 from "@/images/photos/image-3.jpg";
 import { generateRssFeed } from "@/lib/generateRssFeed";
-import { getAllPosts } from "@/lib/getAllPosts";
+import { getAllContent } from "@/lib/getAllContent";
 import { formatDate } from "@/lib/formatDate";
 
 function MailIcon(props) {
@@ -145,7 +145,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts: (await getAllPosts())
+      posts: (await getAllContent("posts"))
         .slice(0, 4)
         .map(({ component, ...meta }) => meta),
     },
