@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Card } from "@/components/Card";
 import { Link } from "@/components/Link";
 import { SimpleLayout } from "@/components/SimpleLayout";
-import { getAllPosts } from "@/lib/getAllPosts";
+import { getAllContent } from "@/lib/getAllContent";
 import { formatDate } from "@/lib/formatDate";
 
 function EverGreenPages() {
@@ -117,7 +117,9 @@ export default function postsIndex({ posts }) {
 export async function getStaticProps() {
   return {
     props: {
-      posts: (await getAllPosts()).map(({ component, ...meta }) => meta),
+      posts: (await getAllContent("posts")).map(
+        ({ component, ...meta }) => meta
+      ),
     },
   };
 }

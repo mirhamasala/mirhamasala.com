@@ -1,6 +1,6 @@
 import { Card } from "@/components/Card";
 import { SimpleLayout } from "@/components/SimpleLayout";
-import { getAllRecipes } from "@/lib/getAllRecipes";
+import { getAllContent } from "@/lib/getAllContent";
 import { formatDate } from "@/lib/formatDate";
 
 function Post({ post }) {
@@ -47,7 +47,9 @@ export default function RecipesIndex({ recipes }) {
 export async function getStaticProps() {
   return {
     props: {
-      recipes: (await getAllRecipes()).map(({ component, ...meta }) => meta),
+      recipes: (await getAllContent("recipes")).map(
+        ({ component, ...meta }) => meta
+      ),
     },
   };
 }
