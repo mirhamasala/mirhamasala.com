@@ -5,16 +5,24 @@ type Props = {
   href: string;
 };
 
+const isInternalLink = (href: string) => {
+  try {
+    new URL(href);
+    return false;
+  } catch (e) {
+    return true;
+  }
+};
+
 export function Link({ children, href, ...rest }: Props) {
-  const isInternalLink = href.startsWith("/") || href.startsWith("#");
-  const externalLinkAttributes = !isInternalLink && {
-    target: "_blank",
-    rel: "noopener noreferrer",
-  };
+  const LinkComponent = isInternalLink(href) ? NextLink : "a";
+  const linkProps = isInternalLink(href)
+    ? rest
+    : { target: "_blank", rel: "noopener noreferrer", ...rest };
 
   return (
-    <NextLink href={href} {...externalLinkAttributes} {...rest}>
+    <LinkComponent href={href} {...linkProps}>
       {children}
-    </NextLink>
+    </LinkComponent>
   );
 }
