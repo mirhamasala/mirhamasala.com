@@ -17,7 +17,7 @@ export default function postsIndex({ posts }) {
         />
       </Head>
       <SimpleLayout
-        title="Sharing short stories, mainly drawn from days spent traveling."
+        title="Telling short stories, mainly drawn from days spent traveling."
         intro={
           <>
             Inspired by long dinner conversations during{" "}
