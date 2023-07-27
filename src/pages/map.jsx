@@ -1,14 +1,13 @@
 import React, { useState } from "react";
+import Head from "next/head";
 import { Listbox } from "@headlessui/react";
 
 import { cities } from "@/data/cities";
-
 import { getAllSpots } from "@/lib/getAllSpots";
+import { getPublishedSpotsWithCategoryAndCity } from "@/lib/getPublishedSpotsWithCategoryAndCity";
 
 import Map from "@/components/Map";
 import { SimpleLayout } from "@/components/SimpleLayout";
-
-import { getPublishedSpotsWithCategoryAndCity } from "@/lib/getPublishedSpotsWithCategoryAndCity";
 
 function Icon(props) {
   return (
@@ -104,24 +103,33 @@ function MapPage({ spots }) {
   const [selectedCity, setSelectedCity] = useState(cities[0]);
 
   return (
-    <SimpleLayout
-      title="Sharing my favorite coffee haunts, eateries, and more."
-      intro="From my hometowns, Sarajevo and Amsterdam, to places like Singapore, where I lived for years, and other cities that I visited many times."
-    >
-      <div className="relative">
-        <h2 className="mb-2 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-          Choose a city
-        </h2>
-        <CitySelect
-          selectedCity={selectedCity}
-          setSelectedCity={setSelectedCity}
+    <>
+      <Head>
+        <title>Map - Mirha Masala</title>
+        <meta
+          name="description"
+          content="A map with my favorite parks, coffee haunts, eateries, and other spots from Amsterdam to Tel Aviv."
         />
-        <Map
-          center={selectedCity.geo}
-          spots={publishedSpotsWithCategoryAndCity}
-        />
-      </div>
-    </SimpleLayout>
+      </Head>
+      <SimpleLayout
+        title="Sharing my favorite coffee haunts, eateries, and more."
+        intro="From my hometown Sarajevo to cities like Amsterdam and Singapore, where I lived for years, and other places that I visited many times."
+      >
+        <div className="relative">
+          <h2 className="mb-2 text-base font-semibold text-zinc-800 dark:text-zinc-100">
+            Choose a city
+          </h2>
+          <CitySelect
+            selectedCity={selectedCity}
+            setSelectedCity={setSelectedCity}
+          />
+          <Map
+            center={selectedCity.geo}
+            spots={publishedSpotsWithCategoryAndCity}
+          />
+        </div>
+      </SimpleLayout>
+    </>
   );
 }
 
