@@ -1,11 +1,13 @@
 import Head from "next/head";
+import Image from "next/image";
 import NextLink from "next/link";
 
 import { Container } from "@/components/Container";
-import { Link } from "@/components/Link";
 import { PostFooter } from "@/components/PostFooter";
-import { formatDate } from "@/lib/formatDate";
 import { Prose } from "@/components/Prose";
+import { MomentsPostFooter } from "@/components/MomentsPostFooter";
+
+import { formatDate } from "@/lib/formatDate";
 
 function ArrowLeftIcon(props) {
   return (
@@ -24,6 +26,7 @@ export function PostLayout({
   children,
   meta,
   isRssFeed = false,
+  isMomentsPost = meta.type === "moments",
   previousPathname,
 }) {
   if (isRssFeed) {
@@ -62,16 +65,21 @@ export function PostLayout({
                 </time>
               </header>
               <Prose className="mt-8">
+                {isMomentsPost && meta.image && (
+                  <Image
+                    src={`/pages/moments/${meta.image.src}`}
+                    priority
+                    width={800}
+                    height={1200}
+                    alt={meta.image.alt}
+                    className="aspect-[3/2] rounded-3xl bg-zinc-100 object-cover dark:bg-zinc-800"
+                  />
+                )}
                 {children}
-                {meta.related_reading && (
-                  <PostFooter>
-                    <span aria-hidden="true">
-                      {meta.related_reading.emoji}{" "}
-                    </span>
-                    <Link href={meta.related_reading.url}>
-                      {meta.related_reading.title}
-                    </Link>
-                  </PostFooter>
+                {isMomentsPost ? (
+                  <MomentsPostFooter location={meta.location} />
+                ) : (
+                  <PostFooter relatedReading={meta.related_reading} />
                 )}
               </Prose>
             </article>
