@@ -9,7 +9,7 @@ import { formatDate } from "@/lib/formatDate";
 function EverGreenPages() {
   const pages = [
     { title: "Read 100 Business Books", href: "/posts/read-100-books/" },
-    { title: "Travel Moments", href: "/travel-moments/" },
+    { title: "Travel Moments", href: "/moments/" },
     { title: "Travel Archives", href: "/travel-archives/" },
   ];
 
