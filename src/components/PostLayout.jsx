@@ -3,6 +3,7 @@ import Image from "next/image";
 import NextLink from "next/link";
 
 import { Container } from "@/components/Container";
+import { Link } from "@/components/Link";
 import { PostFooter } from "@/components/PostFooter";
 import { Prose } from "@/components/Prose";
 import { MomentsPostFooter } from "@/components/MomentsPostFooter";
@@ -31,6 +32,41 @@ export function PostLayout({
 }) {
   if (isRssFeed) {
     return children;
+  }
+
+  function renderMomentsPost() {
+    return (
+      <>
+        <Image
+          src={`/pages/moments/${meta.image.src}`}
+          priority
+          width={800}
+          height={1200}
+          alt={meta.image.alt}
+          className="aspect-[3/2] rounded-3xl bg-zinc-100 object-cover dark:bg-zinc-800"
+        />
+        {children}
+        <MomentsPostFooter location={meta.location} />
+      </>
+    );
+  }
+
+  function renderPost() {
+    return (
+      <>
+        {children}
+        {meta.related_reading && (
+          <PostFooter>
+            <>
+              <span aria-hidden="true">{meta.related_reading.emoji} </span>
+              <Link href={meta.related_reading.url}>
+                {meta.related_reading.title}
+              </Link>
+            </>
+          </PostFooter>
+        )}
+      </>
+    );
   }
 
   return (
@@ -65,22 +101,7 @@ export function PostLayout({
                 </time>
               </header>
               <Prose className="mt-8">
-                {isMomentsPost && meta.image && (
-                  <Image
-                    src={`/pages/moments/${meta.image.src}`}
-                    priority
-                    width={800}
-                    height={1200}
-                    alt={meta.image.alt}
-                    className="aspect-[3/2] rounded-3xl bg-zinc-100 object-cover dark:bg-zinc-800"
-                  />
-                )}
-                {children}
-                {isMomentsPost ? (
-                  <MomentsPostFooter location={meta.location} />
-                ) : (
-                  <PostFooter relatedReading={meta.related_reading} />
-                )}
+                {isMomentsPost ? renderMomentsPost() : renderPost()}
               </Prose>
             </article>
           </div>
