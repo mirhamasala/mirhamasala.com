@@ -5,11 +5,11 @@ export type Spot = {
   category: string;
   city: string;
   description?: string;
-  geo: {
+  geo?: {
     latitude: number;
     longitude: number;
   };
-  googleMapsUrl: string;
+  googleMapsUrl?: string;
   name: string;
   published: boolean;
   slug: string;
