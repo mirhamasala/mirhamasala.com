@@ -63,8 +63,8 @@ export const cities: City[] = [
   {
     canBeSelected: true,
     geo: {
-      latitude: 1.3521,
-      longitude: 103.8198,
+      latitude: 1.2860229769167766,
+      longitude: 103.8572152796645,
     },
     id: "singapore",
     label: "Singapore",

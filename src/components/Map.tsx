@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, { use, useCallback, useMemo, useRef, useState } from "react";
 import {
   GoogleMap,
   InfoWindowF as InfoWindow,
@@ -22,6 +22,11 @@ type Props = {
 function Map({ center, height = "60vh", zoom = 13, spots }: Props) {
   const [selectedSpot, setSelectedSpot] =
     useState<PublishedSpotWithCategoryAndCity | null>(null);
+
+  const filteredSpots = useMemo(
+    () => spots.filter((spot) => spot.geo),
+    [spots]
+  );
 
   const mapRef = useRef<google.maps.Map | null>(null);
   const centerMemoized = useMemo<google.maps.LatLngLiteral>(
@@ -119,7 +124,7 @@ function Map({ center, height = "60vh", zoom = 13, spots }: Props) {
         </InfoWindow>
       )}
 
-      {spots.map((spot) => (
+      {filteredSpots.map((spot) => (
         <Marker
           key={spot.slug}
           options={{

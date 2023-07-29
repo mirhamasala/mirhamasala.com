@@ -3,13 +3,16 @@ import { Link } from "@/components/Link";
 import { groupSpotsByCategory } from "@/lib/groupSpotsByCategory";
 
 function Spot({ spot }) {
+  const { name, googleMapsUrl, url } = spot;
+  const linkUrl = googleMapsUrl || url;
+
   return (
     <li>
       <h4>
-        {spot.googleMapsUrl ? (
-          <Link href={spot.googleMapsUrl}>{spot.name}</Link>
+        {linkUrl ? (
+          <Link href={linkUrl}>{name}</Link>
         ) : (
-          spot.name
+          <span className="font-semibold">{name}</span>
         )}
       </h4>
       <p>{spot.description}</p>
