@@ -1,6 +1,7 @@
 type CityID =
   | "amsterdam"
   | "barcelona"
+  | "madrid"
   | "melbourne"
   | "sarajevo"
   | "singapore"
@@ -38,6 +39,16 @@ export const cities: City[] = [
     },
     id: "barcelona",
     label: "Barcelona",
+    post: undefined,
+  },
+  {
+    canBeSelected: true,
+    geo: {
+      latitude: 40.4167754,
+      longitude: -3.7037902,
+    },
+    id: "madrid",
+    label: "Madrid",
     post: undefined,
   },
   {
