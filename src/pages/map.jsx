@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { Listbox } from "@headlessui/react";
 
 import { cities } from "@/data/cities";
@@ -50,9 +51,14 @@ function ChevronUpDownIcon() {
 function CitySelect({ selectedCity, setSelectedCity }) {
   const citiesThatCanBeSelected = cities.filter((city) => city.canBeSelected);
 
+  const handleCityChange = (city) => {
+    setSelectedCity(city);
+    sessionStorage.setItem("selectedCity", city.id);
+  };
+
   return (
     <div className="relative z-10 mb-12 w-full xs:w-72">
-      <Listbox value={selectedCity} onChange={setSelectedCity}>
+      <Listbox value={selectedCity} onChange={handleCityChange}>
         <Listbox.Button className="relative w-full cursor-default rounded-md border border-zinc-900/10 bg-white py-2 pl-3 pr-10 text-left shadow-md shadow-zinc-800/5 dark:border-zinc-700 dark:bg-zinc-800-50 dark:font-medium dark:text-zinc-200 sm:text-sm">
           <span className="block truncate">{selectedCity.label}</span>
           <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
@@ -101,6 +107,18 @@ function MapPage({ spots }) {
     getPublishedSpotsWithCategoryAndCity(spots);
 
   const [selectedCity, setSelectedCity] = useState(cities[0]);
+
+  useEffect(() => {
+    const savedCityId = sessionStorage.getItem("selectedCity");
+
+    if (savedCityId) {
+      const city = cities.find((city) => city.id === savedCityId);
+
+      if (city) {
+        setSelectedCity(city);
+      }
+    }
+  }, []);
 
   return (
     <>
