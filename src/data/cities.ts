@@ -13,7 +13,7 @@ interface GeoLocation {
 }
 
 export interface City {
-  canBeSelected: boolean;
+  isPublished: boolean;
   geo: GeoLocation;
   id: CityID;
   label: string;
@@ -22,7 +22,7 @@ export interface City {
 
 export const cities: City[] = [
   {
-    canBeSelected: true,
+    isPublished: true,
     geo: {
       latitude: 52.3676,
       longitude: 4.9041,
@@ -32,7 +32,7 @@ export const cities: City[] = [
     post: "/posts/all-my-amsterdam-memories-gather-round-food",
   },
   {
-    canBeSelected: true,
+    isPublished: true,
     geo: {
       latitude: 41.3851,
       longitude: 2.1734,
@@ -42,7 +42,7 @@ export const cities: City[] = [
     post: undefined,
   },
   {
-    canBeSelected: true,
+    isPublished: true,
     geo: {
       latitude: 40.4167754,
       longitude: -3.7037902,
@@ -52,7 +52,7 @@ export const cities: City[] = [
     post: undefined,
   },
   {
-    canBeSelected: true,
+    isPublished: true,
     geo: {
       latitude: -37.8136,
       longitude: 144.9631,
@@ -62,7 +62,7 @@ export const cities: City[] = [
     post: undefined,
   },
   {
-    canBeSelected: true,
+    isPublished: true,
     geo: {
       latitude: 43.8563,
       longitude: 18.4131,
@@ -72,7 +72,7 @@ export const cities: City[] = [
     post: "/posts/sarajevo-favorites",
   },
   {
-    canBeSelected: true,
+    isPublished: true,
     geo: {
       latitude: 1.2860229769167766,
       longitude: 103.8572152796645,
@@ -82,7 +82,7 @@ export const cities: City[] = [
     post: "/posts/goodbye-little-red-dot",
   },
   {
-    canBeSelected: true,
+    isPublished: true,
     geo: {
       latitude: 32.0853,
       longitude: 34.7818,
@@ -92,3 +92,5 @@ export const cities: City[] = [
     post: undefined,
   },
 ];
+
+export const publishedCities = cities.filter((city) => city.isPublished);
