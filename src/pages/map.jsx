@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { Listbox } from "@headlessui/react";
 
-import { citiesThatCanBeSelected as cities } from "@/data/cities";
+import { publishedCities } from "@/data/cities";
 import { getAllSpots } from "@/lib/getAllSpots";
 import { getPublishedSpotsWithCategoryAndCity } from "@/lib/getPublishedSpotsWithCategoryAndCity";
 
@@ -62,7 +62,7 @@ function CitySelect({ selectedCity, setSelectedCity }) {
           </span>
         </Listbox.Button>
         <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md border border-zinc-900/10 bg-white p-2 shadow-lg shadow-zinc-800/5 dark:border-zinc-700 dark:bg-zinc-800-50 dark:text-zinc-200 sm:text-sm">
-          {cities.map((city) => (
+          {publishedCities.map((city) => (
             <Listbox.Option
               key={city.id}
               className={({ active }) =>
@@ -108,7 +108,7 @@ function MapPage({ spots }) {
     const savedCityId = sessionStorage.getItem("selectedCity");
 
     if (savedCityId) {
-      const city = cities.find((city) => city.id === savedCityId);
+      const city = publishedCities.find((city) => city.id === savedCityId);
 
       if (city) {
         setSelectedCity(city);
