@@ -113,6 +113,8 @@ function MapPage({ spots }) {
       if (city) {
         setSelectedCity(city);
       }
+    } else {
+      setSelectedCity(publishedCities[0]);
     }
   }, []);
 
