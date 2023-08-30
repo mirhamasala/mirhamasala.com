@@ -1,0 +1,21 @@
+import { ericeira as spots } from "@/data/spots/ericeira";
+
+import { PostLayout } from "@/components/PostLayout";
+import { SpotsWithMap } from "@/components/SpotsWithMap.tsx";
+
+export const meta = {
+  categories: ["favorites"],
+  date: "2022-02-14",
+  date_modified: "",
+  description: "My favorite spots in Ericeira.",
+  id: "",
+  slug: "ericeira-favorites",
+  published: false,
+  tags: ["ericeira", "favorites", "travel"],
+  title: "Ericeira Favorites",
+  type: "post",
+};
+
+export default (props) => <PostLayout meta={meta} {...props} />;
+
+<SpotsWithMap spots={spots} />

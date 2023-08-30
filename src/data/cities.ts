@@ -1,8 +1,13 @@
-type CityID =
+export type CityID =
   | "amsterdam"
   | "barcelona"
+  | "carvoeira"
+  | "encarnação"
+  | "ericeira"
   | "madrid"
   | "melbourne"
+  | "santo-isidoro"
+  | "são-julião"
   | "sarajevo"
   | "singapore"
   | "tel-aviv";
@@ -21,6 +26,16 @@ export interface City {
 }
 
 export const cities: City[] = [
+  {
+    isPublished: false,
+    geo: {
+      latitude: 37.0971,
+      longitude: 8.471,
+    },
+    id: "carvoeira",
+    label: "carvoeira",
+    post: undefined,
+  },
   {
     isPublished: true,
     geo: {
@@ -42,6 +57,26 @@ export const cities: City[] = [
     post: undefined,
   },
   {
+    isPublished: false,
+    geo: {
+      latitude: 39.0311,
+      longitude: 9.368,
+    },
+    id: "encarnação",
+    label: "Encarnação",
+    post: undefined,
+  },
+  {
+    isPublished: true,
+    geo: {
+      latitude: 38.96685758000395,
+      longitude: -9.406102315221707,
+    },
+    id: "ericeira",
+    label: "Ericeira (+ beyond)",
+    post: undefined,
+  },
+  {
     isPublished: true,
     geo: {
       latitude: 40.4167754,
@@ -59,6 +94,26 @@ export const cities: City[] = [
     },
     id: "melbourne",
     label: "Melbourne",
+    post: undefined,
+  },
+  {
+    isPublished: false,
+    geo: {
+      latitude: 38.932,
+      longitude: 9.4197,
+    },
+    id: "são-julião",
+    label: "São Julião",
+    post: undefined,
+  },
+  {
+    isPublished: false,
+    geo: {
+      latitude: 38.9938,
+      longitude: 9.4003,
+    },
+    id: "santo-isidoro",
+    label: "Santo Isidoro",
     post: undefined,
   },
   {
