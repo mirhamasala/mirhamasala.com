@@ -1,9 +1,10 @@
 import { Category } from "@/data/categories";
-import { City } from "@/data/cities";
+import { CityID, City } from "@/data/cities";
 
 export type Spot = {
   category: string;
-  city: string;
+  city: CityID;
+  belongsTo?: CityID;
   description?: string;
   geo?: {
     latitude: number;
