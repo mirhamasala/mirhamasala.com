@@ -5,7 +5,8 @@ export const ericeiraAround: Spot[] = [
     category: "drinks",
     city: "encarnação",
     belongsTo: "ericeira",
-    description: "",
+    description:
+      "For a laid-back drink away from it all in a styled space with pastel beach-toned vibes.",
     geo: {
       latitude: 339.009477296709655,
       longitude: -9.407394730557813,
@@ -20,7 +21,8 @@ export const ericeiraAround: Spot[] = [
     category: "eats",
     city: "santo-isidoro",
     belongsTo: "ericeira",
-    description: "",
+    description:
+      "One of the hotel's recently-opened restaurants, Emme on Fire, features a menu prepared using coal, grill, or the wood-fired oven. Before that, and still, I like to hide in the lobby with a dry gin martini.",
     geo: {
       latitude: 339.009477296709655,
       longitude: -9.407394730557813,
@@ -35,7 +37,8 @@ export const ericeiraAround: Spot[] = [
     category: "sights",
     city: "carvoeira",
     belongsTo: "ericeira",
-    description: "",
+    description:
+      "My favorite beach in the area, long enough for a good beach walk. And with a river that runs into the sea at times.",
     geo: {
       latitude: 38.942022952377634,
       longitude: -9.419427548718307,
@@ -50,7 +53,8 @@ export const ericeiraAround: Spot[] = [
     category: "sights",
     city: "santo-isidoro",
     belongsTo: "ericeira",
-    description: "",
+    description:
+      "A stunning beach to which you can walk from or to Ribeira d'Ilhas. It's an excellent spot for watching surfers ride some impressive waves.",
     geo: {
       latitude: 39.00461276662628,
       longitude: -9.422176459326035,
@@ -65,7 +69,8 @@ export const ericeiraAround: Spot[] = [
     category: "sights",
     city: "santo-isidoro",
     belongsTo: "ericeira",
-    description: "",
+    description:
+      "The sand and cliffs that made me fall in love with the Ericeira area.",
     geo: {
       latitude: 39.01274953059929,
       longitude: -9.42179022124094,
@@ -80,7 +85,7 @@ export const ericeiraAround: Spot[] = [
     category: "sights",
     city: "são-julião",
     belongsTo: "ericeira",
-    description: "",
+    description: "Another bit of sand worth a visit.",
     geo: {
       latitude: 38.93244134107885,
       longitude: -9.419778432212437,
