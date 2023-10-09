@@ -9,8 +9,8 @@
   },
   {
     "path": "/about",
-    "score": 1,
-    "performance": 1,
+    "score": 0.99,
+    "performance": 0.99,
     "accessibility": 0.98,
     "best-practices": 1,
     "seo": 1
@@ -21,7 +21,7 @@
     "performance": 1,
     "accessibility": 0.97,
     "best-practices": 1,
-    "seo": 0.9
+    "seo": 0.91
   },
   {
     "path": "/letters/0818",
@@ -53,7 +53,7 @@
     "performance": 1,
     "accessibility": 0.97,
     "best-practices": 1,
-    "seo": 0.9
+    "seo": 0.91
   },
   {
     "path": "/letters/dead-time-010223",
@@ -90,7 +90,7 @@
   {
     "path": "/map",
     "score": 0.97,
-    "performance": 1,
+    "performance": 0.99,
     "accessibility": 0.96,
     "best-practices": 0.92,
     "seo": 1
@@ -269,7 +269,7 @@
     "performance": 1,
     "accessibility": 0.97,
     "best-practices": 1,
-    "seo": 0.9
+    "seo": 0.91
   },
   {
     "path": "/tsop/posts/photographer-month",
@@ -289,8 +289,8 @@
   },
   {
     "path": "/tsop/posts/surfer-month",
-    "score": 0.98,
-    "performance": 1,
+    "score": 0.97,
+    "performance": 0.98,
     "accessibility": 0.98,
     "best-practices": 0.92,
     "seo": 1
