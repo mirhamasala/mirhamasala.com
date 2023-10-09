@@ -1,0 +1,42 @@
+name: Run Unlighthouse CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  unlighthouse:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: |
+          npm install -g @unlighthouse/cli puppeteer
+
+      - name: Remove old reports
+        run: rm -rf public/unlighthouse/*
+
+      - name: Run Unlighthouse CI
+        run: unlighthouse-ci --config unlighthouse.config.ts --build-static
+
+      - name: Create new branch and commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git checkout -b reports-update-$(date +'%Y%m%d%H%M%S')
+          git add -A
+          git commit -m "Update reports"
+          git push origin HEAD
+
+      - name: Create pull request
+        run: |
+          gh pr create --title "Automated Report Update" --body "This is an automated report update. Please review before merging." --base main --head $(git rev-parse --abbrev-ref HEAD)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
