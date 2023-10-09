@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /_next/
+Disallow: /node_modules/
+Disallow: /.vercel/
+Disallow: /favicons/
+Disallow: /markers/
+Disallow: /unlighthouse/
+
+# Sitemap: https://mirhamasala.com/sitemap.xml
