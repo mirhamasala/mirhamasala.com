@@ -1,0 +1,29 @@
+# ================================
+# linkcheck-skip-file
+# ================================
+#
+# Purpose:
+# This file is part of a GitHub Actions workflow named "Check Broken Links". It contains a list of URLs or links that
+# are intended to be skipped during the automated link-checking process.
+#
+# Instructions:
+# - Add the links that should be skipped by the "Check Broken Links" workflow to this file.
+# - Each link should be on a new line.
+# - Clearly document the reason for skipping each link.
+# - Avoid using this file to bypass issues that can be resolved by correcting or updating the link.
+#
+# The workflow runs a job named "linkcheck" on a schedule and manually (workflow_dispatch). If the job fails,
+# it uploads the results as an artifact and creates a GitHub issue notifying of the broken links found.
+#
+# Format:
+# <URL> # Reason for skipping
+#
+# Example:
+# http://example-broken-link.com # Broken link, site is down
+#
+# ================================
+
+^https://www\.mirhamasala\.com/_next/.*
+.*facebook\.com.*
+.*instagram\.com.*
+.*twitter\.com.*
