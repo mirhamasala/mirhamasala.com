@@ -32,7 +32,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git checkout -b reports-update-$(date +'%d%m%Y')
+          git checkout -b reports-update-$(date +'%Y%m%d%H%M%S')
           git add -A
           git commit -m "Update reports"
           git push origin HEAD
