@@ -1,0 +1,48 @@
+name: Check Broken Links
+
+on:
+  schedule:
+    - cron: "0 2 * * 0"
+  workflow_dispatch:
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check links with linkcheck
+        uses: filiph/linkcheck@3.0.0
+        with:
+          arguments: https://www.mirhamasala.com --external --skip-file linkcheck-skip-file.txt > linkcheck-results.txt
+        id: linkcheck
+
+      - name: Upload linkcheck-results.txt as artifact
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: linkcheck-results
+          path: linkcheck-results.txt
+
+      - name: Create GitHub issue
+        if: ${{ failure() }}
+        uses: dacbd/create-issue-action@main
+        with:
+          token: ${{ github.token }}
+          title: "[BUG] Broken links found"
+          body: |
+            **Describe the bug**
+            During our scheduled (or manually-triggered) link check, the workflow named `check-broken-links` identified one or more broken links in the repository.
+
+            Details of the broken links, including their locations and the reasons for failure, can be found in the `linkcheck-results.txt` artifact, following the failed run link below.
+
+            [Failed Run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            [Codebase](https://github.com/${{ github.repository }}/tree/${{ github.sha }})
+
+            🔗 Workflow name - `${{ github.workflow }}`
+            📇 Job -           `${{ github.job }}`
+            🚦 Status -        `${{ job.status }}`
+          labels: "bug"
+          assignees: mirhamasala
