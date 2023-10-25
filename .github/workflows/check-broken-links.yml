@@ -30,10 +30,10 @@ jobs:
         if: ${{ failure() }}
         uses: dacbd/create-issue-action@main
         with:
-          token: ${{ github.token }}
-          title: "[BUG] Broken links found"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "Content issue: Broken links found"
           body: |
-            **Describe the bug**
+            **Describe the issue**
             During our scheduled (or manually-triggered) link check, the workflow named `check-broken-links` identified one or more broken links in the repository.
 
             Details of the broken links, including their locations and the reasons for failure, can be found in the `linkcheck-results.txt` artifact, following the failed run link below.
@@ -44,5 +44,5 @@ jobs:
             🔗 Workflow name - `${{ github.workflow }}`
             📇 Job -           `${{ github.job }}`
             🚦 Status -        `${{ job.status }}`
-          labels: "bug"
+          labels: "content"
           assignees: mirhamasala

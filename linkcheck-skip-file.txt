@@ -23,6 +23,7 @@
 #
 # ================================
 
+https://www.mirhamasala.com/robots.txt
 .*facebook\.com.*
 .*instagram\.com.*
 .*twitter\.com.*
