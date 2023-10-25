@@ -8,7 +8,7 @@ function Spot({ spot }) {
 
   return (
     <li>
-      <h4>
+      <h4 id={spot.slug}>
         {linkUrl ? (
           <Link href={linkUrl}>{name}</Link>
         ) : (
