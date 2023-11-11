@@ -19,7 +19,7 @@ type Props = {
   spots: PublishedSpotWithCategoryAndCity[];
 };
 
-function Map({ center, height = "60vh", zoom = 13, spots }: Props) {
+function Map({ center, height = "40vh", zoom = 13, spots }: Props) {
   const [selectedSpot, setSelectedSpot] =
     useState<PublishedSpotWithCategoryAndCity | null>(null);
 
@@ -156,7 +156,12 @@ function WrappedMap(props: Props) {
     googleMapsApiKey,
   });
 
-  if (!isLoaded) return <div>Loading...</div>;
+  if (!isLoaded)
+    return (
+      <div className="min-h-[40vh] rounded-md bg-white/90 px-3 py-2 ring-1 ring-zinc-900/5 dark:bg-zinc-800/90 dark:ring-white/20">
+        Loading...
+      </div>
+    );
 
   return <Map {...props} />;
 }
