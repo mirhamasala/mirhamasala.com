@@ -7,6 +7,7 @@ import {
 } from "@react-google-maps/api";
 
 import { Link } from "@/components/Link";
+import { Spinner } from "@/components/Spinner";
 import { type PublishedSpotWithCategoryAndCity } from "@/types/spots.type";
 
 type Props = {
@@ -159,7 +160,7 @@ function WrappedMap(props: Props) {
   if (!isLoaded)
     return (
       <div className="min-h-[40vh] rounded-md bg-white/90 px-3 py-2 ring-1 ring-zinc-900/5 dark:bg-zinc-800/90 dark:ring-white/20">
-        Loading...
+        <Spinner />
       </div>
     );
 
