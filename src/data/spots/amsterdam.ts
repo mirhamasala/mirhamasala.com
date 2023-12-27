@@ -923,8 +923,8 @@ export const amsterdam: Spot[] = [
     description:
       "The salted caramel bite, which gets its sweetness from dates, is my favorite. I also like the coconut and date truffles. Let Sue's sweets come to room temperature and then gorge them down quick.",
     geo: {
-      latitude: 52.35971,
-      longitude: 4.89831,
+      latitude: 52.370849340806586,
+      longitude: 4.8821457,
     },
     googleMapsUrl: "https://goo.gl/maps/dTGoQfHs1Wb7AXAL9",
     name: "SUE Bites Bar",

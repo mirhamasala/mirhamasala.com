@@ -8,8 +8,8 @@ export const ericeiraAround: Spot[] = [
     description:
       "For a laid-back drink away from it all in a styled space with pastel beach-toned vibes.",
     geo: {
-      latitude: 339.009477296709655,
-      longitude: -9.407394730557813,
+      latitude: 39.03465701380405,
+      longitude: -9.417104144441426,
     },
     googleMapsUrl: "https://goo.gl/maps/3j1pnY637np4CLxb8",
     name: "Aethos",
@@ -24,8 +24,8 @@ export const ericeiraAround: Spot[] = [
     description:
       "One of the hotel's recently-opened restaurants, Emme on Fire, features a menu prepared using coal, grill, or the wood-fired oven. Before that, and still, I like to hide in the lobby with a dry gin martini.",
     geo: {
-      latitude: 339.009477296709655,
-      longitude: -9.407394730557813,
+      latitude: 39.00954188036984,
+      longitude: -9.40741780211304,
     },
     googleMapsUrl: "https://goo.gl/maps/nheFQ38BUDQn6AYX7",
     name: "Immerso",

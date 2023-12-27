@@ -2,14 +2,21 @@ import { PostLayout } from "@/components/PostLayout";
 
 export const meta = {
   categories: ["paper-planes-packets"],
-  date_modified: "2023-04-01",
   date: "2023-03-31",
+  date_modified: "2023-04-01",
   description:
     "After becoming a parent, I notice how easy it has become to make excuses for not doing things. I have no choice but to let my mind create long lists of why-nots, but I learn to ignore them all the same.",
-  published: true,
+  emoji: "🌇",
   slug: "no-excuses-030423",
+  related_reading: {
+    emoji: "⏳",
+    title: "Life Suspended",
+    url: "/letters/life-suspended-0422",
+  },
+  published: true,
   title: "No Excuses",
   type: "letter",
+  tags: ["parenting"],
 };
 
 export default (props) => <PostLayout meta={meta} {...props} />;

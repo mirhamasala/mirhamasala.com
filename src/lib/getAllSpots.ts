@@ -12,6 +12,7 @@ async function importFile(file: string): Promise<Spot[]> {
 export async function getAllSpots(): Promise<Spot[]> {
   const fileNames = await glob("*.ts", {
     cwd: path.join(process.cwd(), "src/data/spots"),
+    ignore: ["ericeira-city.ts", "ericeira-around.ts"],
   });
 
   const spotsArrays = await Promise.all(fileNames.map(importFile));

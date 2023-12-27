@@ -41,7 +41,7 @@ export default function postsIndex({ posts }) {
         <meta name="description" content="All my newsletters in one place." />
       </Head>
       <SimpleLayout
-        title="Flying paper planes bimonthly."
+        title="Flying paper planes."
         intro={
           <>
             Some say it&apos;s their favorite newsletter. Leave your e-mail
