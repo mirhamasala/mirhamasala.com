@@ -1,294 +1,14 @@
 [
   {
     "path": "/",
-    "score": 1,
-    "performance": 1,
+    "score": 0.96,
+    "performance": 0.92,
     "accessibility": 1,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/about",
-    "score": 1,
-    "performance": 1,
-    "accessibility": 0.98,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/letters",
-    "score": 0.97,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 0.9
-  },
-  {
-    "path": "/letters/0818",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/letters/black-hole-0522",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/letters/courage-again-091022",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/letters/courage-for-sale-1221",
-    "score": 0.97,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 0.9
-  },
-  {
-    "path": "/letters/dead-time-010223",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/letters/doing-nothing-0121",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/letters/four-day-workweeks-0821",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/letters/heal-111222",
-    "score": 1,
-    "performance": 1,
-    "accessibility": 0.98,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/map",
-    "score": 0.97,
-    "performance": 1,
-    "accessibility": 0.96,
     "best-practices": 0.92,
     "seo": 1
   },
   {
-    "path": "/moments",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/moments/when-we-were-young",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/posts",
-    "score": 1,
-    "performance": 1,
-    "accessibility": 0.98,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/posts/10-things-melbourne",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/posts/all-my-amsterdam-memories-gather-round-food",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.96,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/posts/beautiful-stranger",
-    "score": 1,
-    "performance": 1,
-    "accessibility": 0.98,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/posts/best-friends",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/posts/choosing-parenthood-and-my-pregnancy-notes",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/posts/favorite-things-2022",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/posts/the-fear-list",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/posts/the-making-of-slow-retreats",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/recipes/folded-sweet-eggs",
-    "score": 1,
-    "performance": 1,
-    "accessibility": 0.98,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/recipes/honey-butter-milk",
-    "score": 1,
-    "performance": 1,
-    "accessibility": 0.98,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/travel-archives",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/tsop",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/tsop/contact",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/tsop/faqs",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/tsop/posts/30-days-photography",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/tsop/posts/30-days-traveling",
-    "score": 1,
-    "performance": 1,
-    "accessibility": 0.98,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/tsop/posts/dancer-month",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/tsop/posts/entrepreneur-month",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/tsop/posts/meditator-month",
-    "score": 0.97,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 0.9
-  },
-  {
-    "path": "/tsop/posts/photographer-month",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/tsop/posts/read-business-books",
-    "score": 0.99,
-    "performance": 1,
-    "accessibility": 0.97,
-    "best-practices": 1,
-    "seo": 1
-  },
-  {
-    "path": "/tsop/posts/surfer-month",
+    "path": "/about",
     "score": 0.98,
     "performance": 1,
     "accessibility": 0.98,
@@ -296,11 +16,315 @@
     "seo": 1
   },
   {
+    "path": "/dropbox",
+    "score": 0.94,
+    "performance": 0.86,
+    "accessibility": 0.98,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/letters",
+    "score": 0.95,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 0.91
+  },
+  {
+    "path": "/letters/0818",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/letters/black-hole-0522",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/letters/courage-again-091022",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/letters/courage-for-sale-1221",
+    "score": 0.95,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 0.91
+  },
+  {
+    "path": "/letters/dead-time-010223",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/letters/doing-nothing-0121",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/letters/four-day-workweeks-0821",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/letters/heal-111222",
+    "score": 0.98,
+    "performance": 1,
+    "accessibility": 0.98,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/map",
+    "score": 0.94,
+    "performance": 0.95,
+    "accessibility": 0.96,
+    "best-practices": 0.83,
+    "seo": 1
+  },
+  {
+    "path": "/moments",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/moments/when-we-were-young",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/posts",
+    "score": 0.98,
+    "performance": 1,
+    "accessibility": 0.98,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/posts/10-things-melbourne",
+    "score": 0.95,
+    "performance": 0.92,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/posts/all-my-amsterdam-memories-gather-round-food",
+    "score": 0.97,
+    "performance": 0.99,
+    "accessibility": 0.96,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/posts/beautiful-stranger",
+    "score": 0.98,
+    "performance": 1,
+    "accessibility": 0.98,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/posts/favorite-things-2022",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/posts/goodbye-little-red-dot",
+    "score": 0.98,
+    "performance": 1,
+    "accessibility": 0.98,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/posts/morphing-into-motherhood",
+    "score": 0.98,
+    "performance": 1,
+    "accessibility": 0.98,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/posts/the-fear-list",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/posts/the-making-of-slow-retreats",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/recipes/banana-bread",
+    "score": 0.98,
+    "performance": 1,
+    "accessibility": 0.98,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/recipes/folded-sweet-eggs",
+    "score": 0.98,
+    "performance": 1,
+    "accessibility": 0.98,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/recipes/honey-butter-milk",
+    "score": 0.98,
+    "performance": 1,
+    "accessibility": 0.98,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/travel-archives",
+    "score": 0.97,
+    "performance": 0.99,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/tsop",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/tsop/about",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.96,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/tsop/contact",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/tsop/faqs",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/tsop/posts/30-days-photography",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/tsop/posts/30-days-traveling",
+    "score": 0.98,
+    "performance": 1,
+    "accessibility": 0.98,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/tsop/posts/dancer-month",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/tsop/posts/entrepreneur-month",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/tsop/posts/meditator-month",
+    "score": 0.95,
+    "performance": 0.99,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 0.91
+  },
+  {
+    "path": "/tsop/posts/photographer-month",
+    "score": 0.97,
+    "performance": 0.97,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/tsop/posts/read-business-books",
+    "score": 0.97,
+    "performance": 1,
+    "accessibility": 0.97,
+    "best-practices": 0.92,
+    "seo": 1
+  },
+  {
+    "path": "/tsop/posts/surfer-month",
+    "score": 0.95,
+    "performance": 0.97,
+    "accessibility": 0.98,
+    "best-practices": 0.83,
+    "seo": 1
+  },
+  {
     "path": "/tsop/resources",
-    "score": 0.99,
+    "score": 0.97,
     "performance": 1,
     "accessibility": 0.95,
-    "best-practices": 1,
+    "best-practices": 0.92,
     "seo": 1
   }
 ]
