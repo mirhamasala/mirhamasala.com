@@ -13,13 +13,19 @@ The only intentional compatibility requirement: articles are served at `/posts/[
 - TypeScript in strict mode
 - Tailwind CSS v4 with CSS-first configuration in `app/globals.css` (no JS config file)
 - `@tailwindcss/typography` for article prose
-- Node.js Active LTS and pnpm
+- Node.js Active LTS, declared in both `.node-version` and `engines` in `package.json`
+- pnpm, pinned with `packageManager` and run through Corepack (`corepack enable pnpm`). Dependency install scripts are blocked unless allowed in `pnpm-workspace.yaml`.
 - ESLint via `eslint-config-next`. Prettier, with the Tailwind plugin, for formatting.
 - Deployed on Vercel. `main` is production.
 
 Exact versions live in `package.json` and the lockfile, not here.
 
-TypeScript stays on 6.x for now. `typescript-eslint`, which `eslint-config-next` depends on, does not yet support TypeScript 7. Move to 7 when it does.
+Temporary version holds, both caused by lint tooling lagging behind:
+
+- TypeScript stays on 6.x. `typescript-eslint`, which `eslint-config-next` depends on, does not yet support TypeScript 7.
+- ESLint stays on 9.x. Plugins bundled in `eslint-config-next` do not yet support ESLint 10.
+
+Lift each hold when `eslint-config-next` supports the newer version.
 
 ## Rendering
 
@@ -27,23 +33,22 @@ TypeScript stays on 6.x for now. `typescript-eslint`, which `eslint-config-next`
 - There is no runtime data fetching and no server-side state.
 - Caching is not configured. Add it only if the implementation shows a need.
 
-
-
 ## Content
 
 - Articles are plain Markdown at `content/posts/<slug>.md`. MDX is deliberately not used: articles don't need embedded components, and plain Markdown stays portable and avoids coupling article content to JSX or React components.
 - The slug is the filename. It is never set in frontmatter.
 - Frontmatter is YAML. It is parsed with `yaml` and validated with a `zod` schema at build time, and invalid content fails the build.
-- Schema: `title`, `description`, `date`, optional `draft`, optional `featured`. Add fields only when a page needs them.
+- Schema: `title`, `description`, `date` (`YYYY-MM-DD`), optional `draft`, optional `featured`. Unknown fields fail the build. Add fields only when a page needs them.
 - `featured: true` marks an article for Featured writing. Selection is always explicit, never inferred from recency.
 - `draft: true` articles are excluded from every generated page and from the sitemap.
 - Markdown is rendered to React elements with `react-markdown` and `remark-gfm` (GFM, mainly for footnotes and tables). There is no HTML-string rendering, and raw HTML inside Markdown is not rendered.
-
-
+- `content/posts/pipeline-fixture.md` is a temporary fixture that only proves the pipeline and the `/posts/[slug]` route. Delete it in the same change that migrates the first real article.
 
 ## Metadata
 
 Use the built-in Next.js features: the `metadata` export and `generateMetadata`, `app/sitemap.ts`, `app/robots.ts`, and `next/font`.
+
+Absolute URLs (canonical links, sitemap, robots) come from the `SITE_URL` environment variable, falling back to `http://localhost:3000`. It must be set in Vercel's production environment before launch.
 
 ## Structure
 
@@ -86,8 +91,6 @@ Any new runtime dependency or significant tooling dependency should have a concr
 - Syntax highlighting
 - Middleware, the React Compiler, and Cache Components
 
-
-
 ## Undecided
 
 Technical questions only. Product-level open questions live in `docs/PRODUCT.md` under "Not yet decided". Decide these against real pages and content, not in advance:
@@ -99,4 +102,3 @@ Technical questions only. Product-level open questions live in `docs/PRODUCT.md`
 - Feed format, URL, and full text or excerpts, if a feed is added
 - Social preview images: static files or generated with `next/og`
 - A test runner
-
