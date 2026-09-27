@@ -1,0 +1,163 @@
+# Product
+
+## What mirhamasala.com is
+
+mirhamasala.com is a **one-person publication built around curiosity**.
+
+It is personal, but it is not intended to function primarily as a diary, portfolio, or conventional personal blog. The aim is to make something worth reading in its own right: a place for following ideas, subjects, places, objects, questions, and experiences simply because they are interesting.
+
+The subject matter can move between technology, design, food, travel, family life, books, places, observations, and other interests. That range is intentional.
+
+The coherence comes from the author rather than from a narrow topic. Over time, the reader should come to recognize and trust Mirha's taste, curiosity, and way of looking at things.
+
+The reading experience comes first.
+
+## Editorial principles
+
+- Curiosity is the organizing principle.
+- Mixed subject matter is a feature, not a problem to solve with excessive categorization.
+- The site should feel authored, selective, and considered rather than optimized for publishing volume.
+- Writing should be specific and concrete rather than vague or personal-brand-like.
+- The site should make room for following an idea simply because it is interesting.
+- Not every piece needs to fit an established theme or content category.
+
+A central idea behind the rebuild is:
+
+> I miss following an idea simply because I'm curious about it.
+
+## Writing
+
+- Writing is the site's main editorial area.
+- It is called **Writing** in navigation, headings, and reader-facing copy.
+- Its URLs remain `/posts` and `/posts/<slug>`.
+- A migrated article keeps its original slug so existing links to `/posts/<slug>` continue to work.
+- The Writing index should be primarily typography-led rather than a grid of image cards.
+- Articles should prioritize excellent reading typography and minimal surrounding interface.
+- Images should be used deliberately; an article does not need an image merely to fit a template.
+- Related writing may appear at the end of an article.
+- Previous/next navigation should not be added merely because it is conventional on blogs.
+
+## Information architecture
+
+The primary areas currently envisioned are:
+
+- Home
+- About
+- Writing
+- Collections
+  - Books
+  - Recipes
+  - Map
+- Archive
+  - Letters
+  - TSOP
+  - Travel Archives
+
+### Home
+
+The home page should introduce the publication's point of view rather than simply act as a reverse-chronological blog index.
+
+The exact composition is still to be designed.
+
+When writing is selected for prominence, use **Featured writing** rather than assuming the newest posts are necessarily the most important.
+
+### About
+
+The About page is a central editorial page, not boilerplate biography.
+
+Its current direction is about rediscovering what to make next, following curiosity again, and creating work that belongs to the author.
+
+It should feel specific and human rather than like a résumé, creator bio, or personal-brand statement.
+
+### Collections
+
+Collections are curated groupings of work rather than necessarily formal categories.
+
+They should feel editorial and intentional.
+
+### Archive
+
+The Archive holds writing the author has deliberately moved out of Writing. Moving a piece there is a manual editorial decision, never an automatic rule based on age.
+
+Writing shows whatever is currently in Writing.
+
+The Archive should be useful and typography-led rather than presented as a large grid of interchangeable cards.
+
+## Experience and visual direction
+
+The site should feel:
+
+- minimalist, but not generic
+- editorial rather than app-like
+- design-forward without being decorative
+- warm and human, but restrained
+- confident in its use of typography, scale, rhythm, and whitespace
+- distinctive enough to feel like a publication rather than a blog template
+
+Avoid:
+
+- generic WordPress/blog-template aesthetics
+- SaaS-style UI
+- mandatory thumbnails for every post
+- interchangeable card grids
+- excessive pills, badges, borders, shadows, and interface chrome
+- decorative systems that create ongoing asset requirements for every new article
+- visual effects that compete with the writing
+
+There is a subtle coastal/ocean influence in the current direction, but it should not become literal seaside branding.
+
+Exact fonts, colors, type scale, and other visual-system decisions remain part of the design process.
+
+## Copy
+
+The voice should be:
+
+- intelligent
+- curious
+- concrete
+- personal without becoming diary-like
+- confident without sounding promotional
+- specific rather than abstract
+
+Avoid generic creator-site language such as:
+
+- "thoughts on life, design, and everything in between"
+- "exploring ideas at the intersection of..."
+- inflated mission statements without concrete meaning
+
+## Authoring
+
+- Articles are plain text files in the repository, written and edited by the author.
+- There is no CMS, admin interface, or database.
+- An article can be kept as a draft. Drafts are never published.
+
+## The 2026 rebuild
+
+- The site is being rebuilt from scratch.
+- The previous implementation is archived in Git and is not the basis for the new product or design.
+- Existing material returns selectively, one piece at a time. Not everything needs to return.
+- Migrated articles may be adapted to the new content format without preserving their old implementation.
+- Old sections such as Letters, Recipes, Moments, TSOP, Map, travel archives, and résumé have no automatic commitment to return.
+- Books, Recipes, Map, or similar future areas should not automatically become primary navigation items.
+- Until content is migrated, some old URLs may return 404. This is accepted.
+
+## Product test
+
+When evaluating a page, component, or feature, ask:
+
+**Does this make mirhamasala.com feel more like a distinctive publication someone would choose to return to, or more like a generic blog or application?**
+
+Prefer the former.
+
+## Not yet decided
+
+- The exact composition of the home page
+- Fonts and final type scale
+- Exact color system
+- Dark mode
+- Whether there is a feed
+- Social preview image strategy
+- Analytics
+- Tags, categories, or other additional ways to browse Writing
+- The canonical domain (`www` or bare)
+- Redirect policy for legacy URLs other than `/posts/<slug>`
