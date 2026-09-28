@@ -14,6 +14,29 @@ It should not feel like:
 
 Typography, proportion, whitespace, rhythm, and composition should do most of the visual work.
 
+### Visual character
+
+The visual language takes cues from contemporary editorial and independent
+magazine design rather than conventional web-product design.
+
+Favor:
+
+- strong contrast in typographic scale
+- oversized serif display type used as composition
+- restrained italic serif for expressive emphasis
+- fine rules where structural separation is useful
+- asymmetric editorial layouts where appropriate
+- generous negative space
+- small amounts of deliberately placed photography
+- quiet sans-serif metadata and navigation
+- predominantly flat surfaces without artificial depth
+
+The site should feel art-directed and typeset rather than assembled from UI
+components.
+
+These are directional qualities, not requirements that every page reproduce
+the same composition.
+
 ## Typography
 
 - Instrument Serif is the display / expressive serif.
@@ -32,7 +55,7 @@ Exact type sizes, line heights, and responsive scales live in the implementation
 - Override any default styles that set text below 1rem, including those from the typography plugin (code, captions, tables, footnotes).
 - Do not create hierarchy by shrinking metadata or labels below 1rem. Body text sits well above 1rem, so 1rem is already a clear step down.
 - Show that text matters less through typeface (sans serif next to serif), a lighter Slate shade that stays comfortably readable, letter-spacing or uppercase for labels, and spacing and position.
-- Footnote markers are raised but not shrunk. Allow them as the one exception only if full-size markers prove visually wrong.
+- Superscript characters may use normal typographic superscript positioning provided they remain legible.
 - Code blocks and tables that overflow on small screens scroll horizontally rather than shrinking.
 
 ## Color
@@ -72,10 +95,23 @@ Exact widths and spacing values live in the implementation.
 - Avoid excessive UI chrome: pills, badges, shadows, bordered cards, and decorative controls.
 - Interactive states should be clear but restrained.
 
+## Styling
+
+- Tailwind CSS is the primary styling system.
+- Prefer Tailwind utilities in JSX over page-specific CSS.
+- Prefer Tailwind's built-in values before using arbitrary values such as
+  `mt-[37px]` or `text-[22px]`.
+- Arbitrary values are acceptable when deliberate visual refinement requires
+  them, but should not become the default way of styling the site.
+- Do not introduce CSS abstractions merely to replace groups of Tailwind
+  utilities.
+
 ## Components and tokens
 
-- Prefer React components for genuine repeated patterns.
-- Do not create abstractions before a pattern has appeared more than once.
+- Prefer React components for genuine UI concepts and repeated patterns.
+- Extract components when they have a clear responsibility or when repetition
+  demonstrates that an abstraction is useful.
+- Do not extract components solely to reduce the number of lines in a page.
 - Use Tailwind values directly wherever practical.
 - Create a custom design token only when it represents a meaningful site-wide design decision that Tailwind does not already express well.
 - Do not build a generic design system or component library for its own sake.
@@ -93,6 +129,16 @@ Exact widths and spacing values live in the implementation.
 - Do not solve mobile by shrinking everything.
 - The 1rem minimum text-size rule applies at every breakpoint.
 - Responsive changes should preserve the editorial character of the page.
+
+## Accessibility
+
+- Use semantic HTML before adding ARIA.
+- All interactive elements must be keyboard accessible.
+- Focus states must remain clearly visible.
+- Maintain WCAG AA contrast for text and interactive elements.
+- Do not rely on color alone to communicate meaning or interaction.
+- Respect `prefers-reduced-motion`.
+- Decorative motion must never be required to understand or navigate content.
 
 ## About page
 
