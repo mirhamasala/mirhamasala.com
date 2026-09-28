@@ -85,28 +85,13 @@ The Archive should be useful and typography-led rather than presented as a large
 
 ## Experience and visual direction
 
-The site should feel:
+The site should feel like a distinctive publication rather than a blog template or an app: minimalist but not generic, design-forward without being decorative, and warm and human but restrained.
 
-- minimalist, but not generic
-- editorial rather than app-like
-- design-forward without being decorative
-- warm and human, but restrained
-- confident in its use of typography, scale, rhythm, and whitespace
-- distinctive enough to feel like a publication rather than a blog template
-
-Avoid:
-
-- generic WordPress/blog-template aesthetics
-- SaaS-style UI
-- mandatory thumbnails for every post
-- interchangeable card grids
-- excessive pills, badges, borders, shadows, and interface chrome
-- decorative systems that create ongoing asset requirements for every new article
-- visual effects that compete with the writing
+Avoid decorative systems that create ongoing asset requirements for every new article, and visual effects that compete with the writing.
 
 There is a subtle coastal/ocean influence in the current direction, but it should not become literal seaside branding.
 
-Exact fonts, colors, type scale, and other visual-system decisions remain part of the design process.
+Visual principles (typography, color, layout, spacing, UI, and imagery) live in `docs/DESIGN.md`.
 
 ## Copy
 
@@ -152,9 +137,8 @@ Prefer the former.
 ## Not yet decided
 
 - The exact composition of the home page
-- Fonts and final type scale
-- Exact color system
-- Dark mode
+- Final type scale
+- Exact color shades and the accent color
 - Whether there is a feed
 - Social preview image strategy
 - Analytics

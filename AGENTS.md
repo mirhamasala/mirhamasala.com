@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Read `docs/PRODUCT.md` and `docs/ARCHITECTURE.md` before making changes.
+Read `docs/PRODUCT.md`, `docs/ARCHITECTURE.md`, and `docs/DESIGN.md` before making changes.
 
 ## Legacy code
 
