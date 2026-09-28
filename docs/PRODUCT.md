@@ -159,5 +159,4 @@ Prefer the former.
 - Social preview image strategy
 - Analytics
 - Tags, categories, or other additional ways to browse Writing
-- The canonical domain (`www` or bare)
 - Redirect policy for legacy URLs other than `/posts/<slug>`

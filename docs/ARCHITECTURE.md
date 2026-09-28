@@ -48,7 +48,7 @@ Lift each hold when `eslint-config-next` supports the newer version.
 
 Use the built-in Next.js features: the `metadata` export and `generateMetadata`, `app/sitemap.ts`, `app/robots.ts`, and `next/font`.
 
-Absolute URLs (canonical links, sitemap, robots) come from the `SITE_URL` environment variable, falling back to `http://localhost:3000`. It must be set in Vercel's production environment before launch.
+Absolute URLs (canonical links, sitemap, robots) come from the `SITE_URL` environment variable, falling back to `http://localhost:3000`. The canonical domain is `www.mirhamasala.com`; the bare domain redirects to it. In Vercel's production environment, set `SITE_URL=https://www.mirhamasala.com` before launch. It is not hard-coded, so previews and local development don't claim to be production.
 
 ## Structure
 
