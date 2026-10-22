@@ -16,6 +16,7 @@ next-env.d.ts
 
 # testing
 /coverage
+/test-results/
 
 # logs
 npm-debug.log*

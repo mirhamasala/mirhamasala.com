@@ -1,2 +1,33 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@theme inline {
+  --font-sans: var(--font-instrument-sans);
+  --font-serif: var(--font-newsreader);
+  --font-display: var(--font-instrument-serif);
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    background: var(--color-stone-50);
+    font-size: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    min-width: 20rem;
+    overflow-x: clip;
+    background: var(--color-stone-50);
+    color: var(--color-slate-950);
+  }
+
+  :where(a, summary) {
+    text-underline-offset: 0.18em;
+  }
+
+  :where(a, button, summary):focus-visible {
+    outline: 0.125rem solid var(--color-slate-950);
+    outline-offset: 0.25rem;
+  }
+}

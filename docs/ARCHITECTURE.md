@@ -42,7 +42,7 @@ Lift each hold when `eslint-config-next` supports the newer version.
 - `featured: true` marks an article for Featured writing. Selection is always explicit, never inferred from recency.
 - `draft: true` articles are excluded from every generated page and from the sitemap.
 - Markdown is rendered to React elements with `react-markdown` and `remark-gfm` (GFM, mainly for footnotes and tables). There is no HTML-string rendering, and raw HTML inside Markdown is not rendered.
-- `content/posts/pipeline-fixture.md` is a temporary fixture that only proves the pipeline and the `/posts/[slug]` route. Delete it in the same change that migrates the first real article.
+- `content/posts/pipeline-fixture.md` is a temporary fixture that only proves the pipeline and the `/posts/[slug]` route. Delete it in the same change that migrates the first real article, and point `e2e/smoke.spec.ts` at that article.
 
 ## Metadata
 
@@ -70,6 +70,9 @@ lib/
   markdown.tsx        # Markdown rendering and element mapping
   site.ts             # site name, URL, navigation labels
 public/
+e2e/
+  smoke.spec.ts       # Playwright smoke and axe checks
+playwright.config.ts
 ```
 
 There is no `src/` folder. A `components/` folder gets added once a second page needs something shared.
@@ -77,9 +80,19 @@ There is no `src/` folder. A `components/` folder gets added once a second page 
 ## Dependencies
 
 - Runtime: `next`, `react`, `react-dom`, `react-markdown`, `remark-gfm`, `yaml`, `zod`
-- Dev: `typescript`, `@types/node`, `@types/react`, `@types/react-dom`, `tailwindcss`, `@tailwindcss/postcss`, `@tailwindcss/typography`, `eslint`, `eslint-config-next`, `prettier`, `prettier-plugin-tailwindcss`
+- Dev: `typescript`, `@types/node`, `@types/react`, `@types/react-dom`, `tailwindcss`, `@tailwindcss/postcss`, `@tailwindcss/typography`, `eslint`, `eslint-config-next`, `prettier`, `prettier-plugin-tailwindcss`, `@playwright/test`, `@axe-core/playwright`
 
 Any new runtime dependency or significant tooling dependency should have a concrete requirement, with the decision and rationale recorded here in the same change.
+
+## Verification
+
+Playwright and axe check the rendered site so the verifier can test it after implementation. They are dev dependencies: they are not part of the published application. This is not a unit-test runner, a visual-regression suite, or a performance audit.
+
+- `@playwright/test` drives Chromium. `pnpm test:e2e` builds the app and starts `next start` on `127.0.0.1:4173`, so the run does not depend on a dev server already listening on port 3000.
+- Projects are desktop Chromium (`Desktop Chrome`) and mobile Chromium (`Pixel 5`). Add another browser only when there is a concrete need.
+- `@axe-core/playwright` scans those same pages inside the Playwright suite. Serious and critical violations fail the run. Moderate and minor results do not.
+- A failure keeps a screenshot and a trace under `test-results/`. Nothing compares screenshots.
+- Chromium is installed with `pnpm exec playwright install chromium`. `pnpm install` does not download it, because dependency install scripts stay blocked.
 
 ## Deliberately excluded
 
@@ -101,4 +114,4 @@ Technical questions only. Product-level open questions live in `docs/PRODUCT.md`
 - How related writing and Collections are represented in content
 - Feed format, URL, and full text or excerpts, if a feed is added
 - Social preview images: static files or generated with `next/og`
-- A test runner
+- A unit-test runner. Browser and accessibility verification is Playwright and axe, recorded under Verification.
