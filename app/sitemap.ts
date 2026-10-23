@@ -1,15 +1,16 @@
 import type { MetadataRoute } from "next";
 import { getPosts } from "@/lib/posts";
-import { site } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getPosts();
 
   return [
-    { url: site.url },
-    { url: `${site.url}/posts` },
+    { url: absoluteUrl("/") },
+    { url: absoluteUrl("/about") },
+    { url: absoluteUrl("/posts") },
     ...posts.map((post) => ({
-      url: `${site.url}/posts/${post.slug}`,
+      url: absoluteUrl(`/posts/${post.slug}`),
       lastModified: post.date,
     })),
   ];

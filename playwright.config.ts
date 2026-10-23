@@ -17,6 +17,7 @@ export default defineConfig({
   webServer: {
     command: `pnpm build && exec ./node_modules/.bin/next start --hostname 127.0.0.1 --port ${port}`,
     url: baseURL,
+    env: { SITE_URL: baseURL },
     reuseExistingServer: false,
     timeout: 180_000,
   },
@@ -28,6 +29,8 @@ export default defineConfig({
     {
       name: "mobile-chromium",
       use: { ...devices["Pixel 5"] },
+      // Crawler checks don't depend on the viewport, so they run once.
+      testIgnore: "crawling.spec.ts",
     },
   ],
 });

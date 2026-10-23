@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "About Mirha Masala, a personal publication about following curiosity again.",
+    "Mirha is a front-end engineer and tech lead in Ericeira, Portugal, writing again and following ideas simply because she’s curious about them.",
   alternates: { canonical: "/about" },
 };
 

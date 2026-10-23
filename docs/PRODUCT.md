@@ -110,6 +110,19 @@ Avoid generic creator-site language such as:
 - "exploring ideas at the intersection of..."
 - inflated mission statements without concrete meaning
 
+## Discoverability
+
+Search visibility should help people discover writing worth reading without shaping the publication around search-engine algorithms. It is a benefit of publishing worthwhile, accessible work, not a separate editorial objective.
+
+- Every public, indexable page has a specific, truthful title and description that accurately represent its content.
+- Titles, descriptions, and headings are written for readers, not keyword targets.
+- No generic SEO copy, keyword-driven categories, or artificial content sections.
+- Article URLs are descriptive and stable.
+- Pages and articles link to each other where the connection is natural.
+- Existing URLs are preserved wherever possible. When a URL must change, it permanently redirects to its equivalent content.
+- Drafts, private previews, and intentionally unpublished content are never publicly discoverable.
+- Technical SEO never compromises editorial design, typography, or content structure.
+
 ## Authoring
 
 - Articles are plain text files in the repository, written and edited by the author.
@@ -143,4 +156,4 @@ Prefer the former.
 - Social preview image strategy
 - Analytics
 - Tags, categories, or other additional ways to browse Writing
-- Redirect policy for legacy URLs other than `/posts/<slug>`
+- Which legacy sections outside Writing return, and therefore which of their URLs get redirects (see "URL migration" in `docs/ARCHITECTURE.md`)

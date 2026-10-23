@@ -33,6 +33,7 @@ const newsreader = Newsreader({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: site.name, template: `%s · ${site.name}` },
+  robots: site.isIndexable ? undefined : { index: false, follow: false },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

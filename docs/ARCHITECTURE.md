@@ -43,12 +43,54 @@ Lift each hold when `eslint-config-next` supports the newer version.
 - `draft: true` articles are excluded from every generated page and from the sitemap.
 - Markdown is rendered to React elements with `react-markdown` and `remark-gfm` (GFM, mainly for footnotes and tables). There is no HTML-string rendering, and raw HTML inside Markdown is not rendered.
 - `content/posts/pipeline-fixture.md` is a temporary fixture that only proves the pipeline and the `/posts/[slug]` route. Delete it in the same change that migrates the first real article, and point `e2e/smoke.spec.ts` at that article.
+- `content/posts/draft-fixture.md` is a permanent `draft: true` fixture. It gives the browser suite a known draft to prove drafts stay unpublished.
 
-## Metadata
+## Metadata and indexing
 
-Use the built-in Next.js features: the `metadata` export and `generateMetadata`, `app/sitemap.ts`, `app/robots.ts`, and `next/font`.
+Use the built-in Next.js features: the `metadata` export and `generateMetadata`, `metadataBase`, `app/sitemap.ts`, `app/robots.ts`, and `next/font`. No SEO libraries.
 
-Absolute URLs (canonical links, sitemap, robots) come from the `SITE_URL` environment variable, falling back to `http://localhost:3000`. The canonical domain is `www.mirhamasala.com`; the bare domain redirects to it. In Vercel's production environment, set `SITE_URL=https://www.mirhamasala.com` before launch. It is not hard-coded, so previews and local development don't claim to be production.
+Every indexable route class (`/`, `/about`, `/posts`, `/posts/[slug]`) provides:
+
+- a meaningful title (the root layout's title template adds the site name)
+- a description specific to that page and drawn from its content (articles use their frontmatter `description`)
+- a self-referencing canonical URL, set with `alternates.canonical`
+- exactly one visible `h1` naming the page's subject
+- no `noindex` directive
+
+The root layout sets no default description, so a page without one is caught by the browser suite rather than inheriting a duplicate.
+
+Absolute URLs (`metadataBase`, canonical links, sitemap, robots) come from `site.url` in `lib/site.ts`, which is the origin of the `SITE_URL` environment variable, falling back to `http://localhost:3000`. The canonical domain is `www.mirhamasala.com`, which the legacy site also used; the bare domain redirects to it. In Vercel's production environment, set `SITE_URL=https://www.mirhamasala.com`. A production build (`VERCEL_ENV=production`) without `SITE_URL` fails, so production can never publish localhost canonicals. It is not hard-coded, so previews and local development don't claim to be production.
+
+Vercel preview and development deployments (`VERCEL_ENV` other than `production`) render `noindex, nofollow` from the root layout. Keep Vercel deployment protection enabled for previews as the primary guard; the directive covers any preview that is publicly reachable. `robots.txt` stays permissive there so crawlers can see the directive.
+
+## Sitemap and robots
+
+- `sitemap.xml` lists every indexable canonical URL: the static pages and every published article.
+- Drafts, unknown routes, redirects, and noncanonical URLs are never listed.
+- Unknown and draft article slugs return 404. Next.js adds `noindex` to 404 responses.
+- `robots.txt` allows all crawling and references the absolute sitemap URL.
+
+## URL migration
+
+Legacy URLs are preserved where the content returns. When a URL changes, it gets a permanent redirect (`permanent: true`, a 308) in `next.config.ts`, straight to the equivalent page with no chains. Nothing redirects indiscriminately to the home page.
+
+Inventory of the legacy site's public URLs (tag `pre-redesign-2026`):
+
+- `/`, `/about`, `/posts`, and `/posts/<slug>` keep their paths. Legacy articles return at their original slug as they are migrated; until then they 404.
+- `/all-posts` redirects to `/posts`, as it did on the legacy site.
+- The legacy site redirected root-level article slugs (`/<slug>`) to `/posts/<slug>`. Restore each of these, pointing directly at `/posts/<slug>`, in the same change that migrates that article.
+- One legacy slug, `the-knitting-club-%c2%b7-the-ladies-we-need-to-talk-chapter`, contains an encoded middle dot. Decide whether it keeps that slug when it is migrated.
+- Letters (`/letters`, `/letters/<slug>`, `/paper-planes-packets`, and root-level letter slugs), TSOP (`/tsop/...`), Recipes (`/recipes/...`), Moments (`/moments/...`), `/map`, `/resume`, `/travel-archives`, and `/dropbox` return 404 until `docs/PRODUCT.md` decides whether each section returns.
+- The legacy feeds at `/rss/feed.xml` and `/rss/feed.json` return 404 until a feed is decided.
+
+## Launch checks
+
+These are operational checks, not Playwright tests. Before or immediately after the first production deployment:
+
+- Confirm `SITE_URL` is set in Vercel's production environment, and that production metadata, canonical links, sitemap, and `robots.txt` use `https://www.mirhamasala.com`.
+- Confirm the bare domain redirects permanently to `www`, and that deployment protection is enabled for preview deployments.
+- Verify Google Search Console ownership, submit the production sitemap, and inspect representative pages.
+- Check representative legacy URLs and redirects, then monitor indexing and crawl issues after the migration.
 
 ## Structure
 
@@ -68,10 +110,14 @@ content/
 lib/
   posts.ts            # read, parse, validate, sort, exclude drafts
   markdown.tsx        # Markdown rendering and element mapping
-  site.ts             # site name, URL, navigation labels
+  site.ts             # site name, URL, indexability, navigation labels
 public/
 e2e/
+  routes.ts           # indexable route inventory, including published articles
   smoke.spec.ts       # Playwright smoke and axe checks
+  metadata.spec.ts    # per-page metadata, canonical, indexing, h1
+  crawling.spec.ts    # sitemap, robots, unpublished routes, redirects
+next.config.ts        # redirects
 playwright.config.ts
 ```
 
@@ -88,8 +134,9 @@ Any new runtime dependency or significant tooling dependency should have a concr
 
 Playwright and axe check the rendered site so the verifier can test it after implementation. They are dev dependencies: they are not part of the published application. This is not a unit-test runner, a visual-regression suite, or a performance audit.
 
-- `@playwright/test` drives Chromium. `pnpm test:e2e` builds the app and starts `next start` on `127.0.0.1:4173`, so the run does not depend on a dev server already listening on port 3000.
-- Projects are desktop Chromium (`Desktop Chrome`) and mobile Chromium (`Pixel 5`). Add another browser only when there is a concrete need.
+- `@playwright/test` drives Chromium. `pnpm test:e2e` builds the app and starts `next start` on `127.0.0.1:4173`, so the run does not depend on a dev server already listening on port 3000. The build gets `SITE_URL=http://127.0.0.1:4173`, so generated absolute URLs are deterministic.
+- Projects are desktop Chromium (`Desktop Chrome`) and mobile Chromium (`Pixel 5`). Add another browser only when there is a concrete need. `crawling.spec.ts` doesn't depend on the viewport, so it runs on desktop only.
+- Discoverability checks cover the contract under "Metadata and indexing" and "Sitemap and robots": title, description, canonical, indexing directives, and a single visible `h1` for every indexable route; distinct descriptions; sitemap contents compared with the published article inventory from `lib/posts.ts`; `robots.txt`; 404 and `noindex` for the draft fixture and an unknown slug; and redirects. They don't assert description wording (except that articles use their frontmatter), character limits, keywords, rankings, or Lighthouse scores.
 - `@axe-core/playwright` scans those same pages inside the Playwright suite. Serious and critical violations fail the run. Moderate and minor results do not.
 - A failure keeps a screenshot and a trace under `test-results/`. Nothing compares screenshots.
 - Chromium is installed with `pnpm exec playwright install chromium`. `pnpm install` does not download it, because dependency install scripts stay blocked.
