@@ -9,9 +9,14 @@ export const site = {
   url: new URL(process.env.SITE_URL ?? "http://localhost:3000").origin,
   /** Vercel preview and development deployments must never be indexed. */
   isIndexable: !vercelEnv || vercelEnv === "production",
+  since: 2012,
   nav: [
     { href: "/posts", label: "Writing" },
     { href: "/about", label: "About" },
+  ],
+  profiles: [
+    { href: "https://github.com/mirhamasala", label: "GitHub" },
+    { href: "https://www.linkedin.com/in/mirhamasala", label: "LinkedIn" },
   ],
 } as const;
 

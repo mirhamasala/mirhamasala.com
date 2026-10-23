@@ -148,6 +148,9 @@ test.describe("smoke", () => {
     await expect(
       page.getByRole("heading", { level: 1, name: "Pipeline fixture" }),
     ).toBeVisible();
+    const externalLink = page.getByRole("link", { name: "external link" });
+    await expect(externalLink).toHaveAttribute("href", "https://nextjs.org");
+    await expect(externalLink.locator('[aria-hidden="true"]')).toHaveText("↗");
 
     await page.getByRole("link", { name: "Mirha Masala" }).click();
     await expect(page).toHaveURL(/\/$/);

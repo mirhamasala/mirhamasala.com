@@ -105,12 +105,15 @@ app/
   posts/
     page.tsx          # Writing index
     [slug]/page.tsx   # article
+components/
+  external-link.tsx
+  site-footer.tsx
 content/
   posts/<slug>.md
 lib/
   posts.ts            # read, parse, validate, sort, exclude drafts
   markdown.tsx        # Markdown rendering and element mapping
-  site.ts             # site name, URL, indexability, navigation labels
+  site.ts             # site name, URL, indexability, navigation, profiles
 public/
 e2e/
   routes.ts           # indexable route inventory, including published articles
@@ -121,7 +124,7 @@ next.config.ts        # redirects
 playwright.config.ts
 ```
 
-There is no `src/` folder. A `components/` folder gets added once a second page needs something shared.
+There is no `src/` folder. Shared chrome lives in `components/`.
 
 ## Dependencies
 

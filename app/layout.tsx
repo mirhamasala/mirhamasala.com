@@ -5,6 +5,7 @@ import {
   Newsreader,
 } from "next/font/google";
 import Link from "next/link";
+import { SiteFooter } from "@/components/site-footer";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -89,20 +90,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </details>
         </header>
         <main>{children}</main>
-        <footer className="mx-auto flex w-full max-w-[96rem] justify-between px-4 pt-16 pb-8 text-[1rem] leading-snug text-slate-600 md:px-8 md:pb-10">
-          <p>{site.name}</p>
-          <nav aria-label="Footer navigation">
-            <ul className="flex gap-5">
-              {site.nav.map(({ href, label }) => (
-                <li key={href}>
-                  <Link href={href} className="underline">
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </footer>
+        <SiteFooter />
       </body>
     </html>
   );
