@@ -34,13 +34,13 @@ export default async function RecipePage({
   const hasDetails = recipe.serves || recipe.time;
 
   return (
-    <article className="mx-auto max-w-[96rem] px-4 pt-12 pb-8 md:px-8 md:pt-20">
+    <article className="mx-auto max-w-[96rem] overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
       <header>
-        <h1 className="max-w-[92rem] font-display text-[clamp(4.5rem,13vw,13rem)] leading-[0.78] tracking-[-0.045em] md:tracking-[-0.055em]">
+        <h1 className="pb-[0.28em] font-display text-[clamp(5.7rem,21vw,20rem)] leading-[0.76] tracking-[-0.045em] text-slate-950 md:text-[clamp(10rem,17.4vw,20rem)] md:tracking-[-0.055em]">
           {recipe.title}
         </h1>
 
-        <div className="mt-8 md:grid md:grid-cols-12 md:gap-8">
+        <div className="mt-6 md:mt-10 md:grid md:grid-cols-12 md:gap-8">
           <div className="max-w-[44rem] md:col-span-7 md:col-start-3">
             <p className="font-serif text-[1.2rem] leading-[1.35] text-slate-700 italic md:text-[1.35rem]">
               {recipe.description}

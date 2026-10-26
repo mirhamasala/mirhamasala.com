@@ -51,13 +51,9 @@ const recipeComponents: Components = {
     void node;
     return (
       <table
-        className="mt-6 w-full table-fixed border-collapse font-serif text-[1.05rem] leading-[1.45] md:text-[1.15rem]"
+        className="mt-6 w-full border-collapse font-serif text-[1.05rem] leading-[1.45] md:text-[1.15rem]"
         {...props}
       >
-        <colgroup>
-          <col className="w-[5rem] sm:w-[7.5rem]" />
-          <col />
-        </colgroup>
         {children}
       </table>
     );
@@ -68,18 +64,13 @@ const recipeComponents: Components = {
   },
   th: ({ node, ...props }) => {
     void node;
-    return (
-      <th
-        className="text-left font-normal first:w-[5rem] sm:first:w-[7.5rem]"
-        {...props}
-      />
-    );
+    return <th className="text-left font-normal" {...props} />;
   },
   td: ({ node, ...props }) => {
     void node;
     return (
       <td
-        className="py-2 align-top first:w-[5rem] first:pr-4 first:font-sans first:font-medium sm:first:w-[7.5rem] [&_em]:mt-1 [&_em]:block [&_em]:text-slate-600"
+        className="py-2 align-top first:w-[1%] first:pr-8 first:font-sans first:font-medium first:whitespace-nowrap [&_em]:mt-1 [&_em]:block [&_em]:text-slate-600"
         {...props}
       />
     );

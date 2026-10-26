@@ -27,7 +27,11 @@ export async function getIndexableRoutes(): Promise<IndexableRoute[]> {
       heading: post.title,
       description: post.description,
     })),
-    { path: "/recipes", title: `Recipes · ${site.name}`, heading: "Recipes" },
+    {
+      path: "/recipes",
+      title: `Recipes · ${site.name}`,
+      heading: "What I keep making.",
+    },
     ...recipes.map((recipe) => ({
       path: `/recipes/${recipe.slug}`,
       title: `${recipe.title} · ${site.name}`,

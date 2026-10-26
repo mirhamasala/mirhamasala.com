@@ -13,7 +13,7 @@ const pages = [
     status: 200,
     heading: "Pipeline fixture",
   },
-  { path: "/recipes", status: 200, heading: "Recipes" },
+  { path: "/recipes", status: 200, heading: "What I keep making." },
   ...recipes.map((recipe) => ({
     path: `/recipes/${recipe.slug}`,
     status: 200,
