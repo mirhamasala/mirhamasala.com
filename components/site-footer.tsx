@@ -5,12 +5,30 @@ import { site } from "@/lib/site";
 const linkClassName =
   "underline decoration-transparent hover:decoration-current focus-visible:decoration-current motion-safe:transition";
 
+const footerLinks = [...site.nav, site.archive];
+
+// Pages that are not built yet must not be prefetched. A prefetched 404
+// logs a console error on every page that includes the footer.
+const publishedPaths = new Set<string>(["/posts", "/about", "/recipes"]);
+
+function FooterLink({ href, label }: { href: string; label: string }) {
+  return (
+    <Link
+      href={href}
+      prefetch={publishedPaths.has(href) ? undefined : false}
+      className={linkClassName}
+    >
+      {label}
+    </Link>
+  );
+}
+
 export function SiteFooter() {
   return (
     <footer className="mx-auto mt-16 w-full max-w-[96rem] px-4 md:mt-20 md:px-8">
       <div className="flex flex-col border-t border-slate-300 pt-10 pb-8 md:min-h-[19rem] md:pb-10">
-        <div className="grid gap-10 md:grid-cols-12 md:gap-8">
-          <div className="md:col-span-7">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+          <div>
             <p className="font-display text-[1.9rem] leading-[0.96] tracking-[-0.03em] text-slate-950 sm:text-[2.4rem] md:text-[2.85rem] lg:text-[3rem]">
               <span className="block">From Ericeira,</span>
               <em className="mt-[0.08em] block font-normal text-slate-500 italic">
@@ -21,21 +39,34 @@ export function SiteFooter() {
               38.96°&nbsp;N, 9.42°&nbsp;W
             </p>
           </div>
-          <nav
-            aria-label="Footer"
-            className="md:col-span-4 md:col-start-9 md:pt-1"
-          >
-            <div className="grid w-fit grid-cols-2 gap-x-14 sm:gap-x-16">
-              <ul className="grid gap-3 text-[1rem] leading-snug text-slate-950">
-                {site.nav.map(({ href, label }) => (
+          <nav aria-label="Footer" className="lg:pt-1">
+            <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-x-14 lg:gap-x-16">
+              <ul className="grid w-32 shrink-0 gap-3 text-[1rem] leading-snug text-slate-950">
+                {footerLinks.map(({ href, label }) => (
                   <li key={href}>
-                    <Link href={href} className={linkClassName}>
-                      {label}
-                    </Link>
+                    <FooterLink href={href} label={label} />
                   </li>
                 ))}
               </ul>
-              <ul className="grid gap-3 text-[1rem] leading-snug text-slate-950">
+              <div className="w-32 shrink-0 text-[1rem] leading-snug">
+                <p
+                  id="footer-collections"
+                  className="font-medium tracking-wide text-slate-600 uppercase"
+                >
+                  Collections
+                </p>
+                <ul
+                  aria-labelledby="footer-collections"
+                  className="mt-5 grid gap-3 text-slate-950"
+                >
+                  {site.collections.map(({ href, label }) => (
+                    <li key={href}>
+                      <FooterLink href={href} label={label} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <ul className="grid w-32 shrink-0 gap-3 text-[1rem] leading-snug text-slate-950">
                 {site.profiles.map(({ href, label }) => (
                   <li key={href}>
                     <ExternalLink href={href} className={linkClassName}>

@@ -8,11 +8,11 @@ My mom always made this when I had a cold as a kid. Nowadays, G and I have it fo
 
 ## Ingredients
 
-| Amount     | Ingredient       |
-| ---------- | ---------------- |
-| 200 ml     | raw milk         |
-| 30 grams   | grass-fed butter |
-| 1 teaspoon | raw honey        |
+| Amount | Ingredient       |
+| ------ | ---------------- |
+| 200 ml | raw milk         |
+| 30 g   | grass-fed butter |
+| 1 tsp  | raw honey        |
 
 ## Method
 

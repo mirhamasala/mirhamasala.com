@@ -14,6 +14,12 @@ export const site = {
     { href: "/posts", label: "Writing" },
     { href: "/about", label: "About" },
   ],
+  archive: { href: "/archive", label: "Archive" },
+  collections: [
+    { href: "/books", label: "Books" },
+    { href: "/recipes", label: "Recipes" },
+    { href: "/places", label: "Places" },
+  ],
   profiles: [
     { href: "https://github.com/mirhamasala", label: "GitHub" },
     { href: "https://www.linkedin.com/in/mirhamasala", label: "LinkedIn" },

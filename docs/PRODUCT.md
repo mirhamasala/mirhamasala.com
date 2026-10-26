@@ -47,7 +47,7 @@ The primary areas currently envisioned are:
 - Collections
   - Books
   - Recipes
-  - Map
+  - Places
 - Archive
   - Letters
   - TSOP
@@ -75,12 +75,14 @@ Collections are curated groupings of work rather than necessarily formal categor
 
 They should feel editorial and intentional.
 
+Books, Recipes, and Places are listed in the footer. Collections is a label for that group, not a page, and these links stay out of the primary navigation.
+
 ### Recipes
 
 Recipes is a small, permanent collection at `/recipes`. It contains recipes
 the author makes often enough to want to keep and share. The index and
 individual recipe pages are typography-led, practical, and free of card-grid
-or food-blog chrome.
+or food-blog chrome. Conventions for writing one are in `docs/recipe-style.md`.
 
 ### Archive
 
@@ -144,7 +146,7 @@ Search visibility should help people discover writing worth reading without shap
 - Existing material returns selectively, one piece at a time. Not everything needs to return.
 - Migrated articles may be adapted to the new content format without preserving their old implementation.
 - Recipes returns as a deliberately small collection. Other old sections such as Letters, Moments, TSOP, Map, travel archives, and résumé have no automatic commitment to return.
-- Books, Recipes, Map, or similar collection areas should not automatically become primary navigation items.
+- Books, Recipes, Places, or similar collection areas should not automatically become primary navigation items.
 - Until content is migrated, some old URLs may return 404. This is accepted.
 
 ## Product test

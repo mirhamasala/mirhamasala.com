@@ -33,7 +33,7 @@ const recipeComponents: Components = {
     void node;
     return (
       <h2
-        className="mt-14 font-display text-[2.8rem] leading-none tracking-[-0.02em] first-of-type:border-t first-of-type:border-slate-300 first-of-type:pt-10 md:mt-16 md:text-[3.25rem]"
+        className="mt-14 font-display text-[3rem] leading-none tracking-[-0.02em] md:mt-16 [&:first-of-type:not(:first-child)]:border-t [&:first-of-type:not(:first-child)]:border-slate-300 [&:first-of-type:not(:first-child)]:pt-10"
         {...props}
       />
     );
@@ -42,7 +42,7 @@ const recipeComponents: Components = {
     void node;
     return (
       <p
-        className="mt-5 font-serif text-[1.1rem] leading-[1.55] first:mt-0 md:text-[1.2rem]"
+        className="mt-5 font-serif text-[1.25rem] leading-[1.5] first:mt-0"
         {...props}
       />
     );
@@ -51,7 +51,7 @@ const recipeComponents: Components = {
     void node;
     return (
       <table
-        className="mt-6 w-full border-collapse font-serif text-[1.05rem] leading-[1.45] md:text-[1.15rem]"
+        className="mt-6 w-full border-collapse font-serif text-[1.25rem] leading-[1.45]"
         {...props}
       >
         {children}
@@ -70,7 +70,7 @@ const recipeComponents: Components = {
     void node;
     return (
       <td
-        className="py-2 align-top first:w-[1%] first:pr-8 first:font-sans first:font-medium first:whitespace-nowrap [&_em]:mt-1 [&_em]:block [&_em]:text-slate-600"
+        className="py-2 align-top first:w-[1%] first:pr-4 first:font-sans first:text-[1rem] first:font-medium first:whitespace-nowrap md:first:text-[1.125rem] [&_em]:mt-1 [&_em]:block [&_em]:text-[1.125rem] [&_em]:text-slate-500"
         {...props}
       />
     );
@@ -79,7 +79,7 @@ const recipeComponents: Components = {
     void node;
     return (
       <ol
-        className="mt-6 list-decimal space-y-3 pl-7 font-serif text-[1.1rem] leading-[1.55] marker:font-sans marker:text-slate-600 md:text-[1.2rem]"
+        className="mt-6 list-decimal space-y-3 pl-7 font-serif text-[1.25rem] leading-[1.5] marker:font-sans marker:text-slate-600"
         {...props}
       />
     );

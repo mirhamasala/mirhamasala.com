@@ -10,13 +10,13 @@ Last week, while triumphantly unwinding in front of our already-lit Christmas tr
 
 ## Ingredients
 
-| Amount | Ingredient                                                                                                                                                 |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 175 ml | hot water _If you have a temperature-regulated kettle, set it to 90°C. Without one, you’ll have to wait longer until you can start drinking — that’s all._ |
-| 45 ml  | rum _I like Zacapa No. 23. The better the quality of the rum, the better the drink._                                                                       |
-| 10 ml  | honey (opt for raw, if available)                                                                                                                          |
-| 20 ml  | fresh lemon juice                                                                                                                                          |
-| 1      | lemon wheel                                                                                                                                                |
+| Amount | Ingredient                                                                                                                                                  |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 175 ml | hot water _If you have a temperature-regulated kettle, set it to 90 °C. Without one, you’ll have to wait longer until you can start drinking — that’s all._ |
+| 45 ml  | rum _I like Zacapa No. 23. The better the quality of the rum, the better the drink._                                                                        |
+| 10 ml  | honey (opt for raw, if available)                                                                                                                           |
+| 20 ml  | fresh lemon juice                                                                                                                                           |
+| 1      | lemon wheel                                                                                                                                                 |
 
 ## Method
 

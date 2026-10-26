@@ -10,12 +10,12 @@ _Adapted from [Sweet Breakfast Omelet](https://www.amummytoo.co.uk/sweet-breakfa
 
 ## Ingredients
 
-| Amount        | Ingredient             |
-| ------------- | ---------------------- |
-| 4             | pastured eggs          |
-| 2 tablespoons | Greek yogurt (10% fat) |
-| 1 tablespoon  | honey                  |
-| 2 tablespoons | coconut oil            |
+| Amount | Ingredient             |
+| ------ | ---------------------- |
+| 4      | pastured eggs          |
+| 2 tbsp | Greek yogurt (10% fat) |
+| 1 tbsp | honey                  |
+| 2 tbsp | coconut oil            |
 
 ## Method
 
@@ -23,7 +23,7 @@ _Adapted from [Sweet Breakfast Omelet](https://www.amummytoo.co.uk/sweet-breakfa
 2. Beat egg whites to firmish peaks.
 3. Beat yolks with yogurt and honey.
 4. Pour the yolk mixture into the whites and fold through until combined.
-5. Heat coconut oil in a 20 cm frying pan over medium heat and make sure to coat the edges of the pan too.
+5. Heat coconut oil in a 20 cm frying pan over medium heat and make sure to coat the edges of the pan too.
 6. Pour the mix into the pan.
 7. Once the eggs start to set, push the edges to the center and repeat until there’s not much raw egg left to move.
 8. Remove the pan from the heat once most of the raw egg has set and let the folded sweet eggs cool down on a plate.

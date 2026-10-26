@@ -8,20 +8,21 @@ Pretty much the only cake we make once in a while. An operation made plenty swee
 
 ## Ingredients
 
-| Amount     | Ingredient                                                                     |
-| ---------- | ------------------------------------------------------------------------------ |
-| 60 ml      | coconut oil, molten                                                            |
-| 80 ml      | honey (or less)                                                                |
-| 4          | large eggs                                                                     |
-| 3          | medium bananas, very ripe, mashed (plus one extra for garnish, sliced in half) |
-| 1 teaspoon | baking powder                                                                  |
-| 1 teaspoon | vanilla powder (or extract)                                                    |
-| ½ teaspoon | baking soda                                                                    |
-| 200 grams  | almond flour, extra fine (plus extra to flour the pan)                         |
+| Amount | Ingredient                                             |
+| ------ | ------------------------------------------------------ |
+| 60 ml  | coconut oil, molten                                    |
+| 80 ml  | honey (or less)                                        |
+| 4      | large eggs                                             |
+| 3      | medium bananas, very ripe, mashed                      |
+| 1      | banana, halved lengthwise, for garnish                 |
+| 1 tsp  | baking powder                                          |
+| 1 tsp  | vanilla powder (or extract)                            |
+| ½ tsp  | baking soda                                            |
+| 200 g  | almond flour, extra fine (plus extra to flour the pan) |
 
 ## Method
 
-1. Preheat the oven to 165°C. Grease a loaf pan with coconut oil, and flour it with almond flour.
+1. Preheat the oven to 165 °C. Grease a loaf pan with coconut oil, and flour it with almond flour.
 2. In a large bowl, combine the oil and honey. Whisk until blended. Add the eggs, and whisk again until the mixture is combined.
 3. Add the mashed bananas, baking powder, vanilla, and baking soda, and stir to combine.
 4. Add the almond flour and stir again.
