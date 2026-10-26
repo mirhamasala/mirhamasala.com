@@ -1,4 +1,5 @@
 import { getPosts } from "@/lib/posts";
+import { getRecipes } from "@/lib/recipes";
 import { site } from "@/lib/site";
 
 export type IndexableRoute = {
@@ -10,7 +11,7 @@ export type IndexableRoute = {
 
 /** Every indexable route: the static pages plus every published article. */
 export async function getIndexableRoutes(): Promise<IndexableRoute[]> {
-  const posts = await getPosts();
+  const [posts, recipes] = await Promise.all([getPosts(), getRecipes()]);
 
   return [
     { path: "/", title: site.name, heading: site.name },
@@ -25,6 +26,13 @@ export async function getIndexableRoutes(): Promise<IndexableRoute[]> {
       title: `${post.title} · ${site.name}`,
       heading: post.title,
       description: post.description,
+    })),
+    { path: "/recipes", title: `Recipes · ${site.name}`, heading: "Recipes" },
+    ...recipes.map((recipe) => ({
+      path: `/recipes/${recipe.slug}`,
+      title: `${recipe.title} · ${site.name}`,
+      heading: recipe.title,
+      description: recipe.description,
     })),
   ];
 }

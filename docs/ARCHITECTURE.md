@@ -44,12 +44,17 @@ Lift each hold when `eslint-config-next` supports the newer version.
 - Markdown is rendered to React elements with `react-markdown` and `remark-gfm` (GFM, mainly for footnotes and tables). There is no HTML-string rendering, and raw HTML inside Markdown is not rendered.
 - `content/posts/pipeline-fixture.md` is a temporary fixture that only proves the pipeline and the `/posts/[slug]` route. Delete it in the same change that migrates the first real article, and point `e2e/smoke.spec.ts` at that article.
 - `content/posts/draft-fixture.md` is a permanent `draft: true` fixture. It gives the browser suite a known draft to prove drafts stay unpublished.
+- Recipes are plain Markdown at `content/recipes/<slug>.md`, with the filename
+  as the slug. Their strict YAML schema is `title`, `description`, `date`
+  (`YYYY-MM-DD`), optional `serves`, and optional `time`. Ingredient tables
+  use portable GFM table syntax; recipe prose does not contain JSX or raw HTML.
 
 ## Metadata and indexing
 
 Use the built-in Next.js features: the `metadata` export and `generateMetadata`, `metadataBase`, `app/sitemap.ts`, `app/robots.ts`, and `next/font`. No SEO libraries.
 
-Every indexable route class (`/`, `/about`, `/posts`, `/posts/[slug]`) provides:
+Every indexable route class (`/`, `/about`, `/posts`, `/posts/[slug]`,
+`/recipes`, `/recipes/[slug]`) provides:
 
 - a meaningful title (the root layout's title template adds the site name)
 - a description specific to that page and drawn from its content (articles use their frontmatter `description`)
@@ -80,7 +85,8 @@ Inventory of the legacy site's public URLs (tag `pre-redesign-2026`):
 - `/all-posts` redirects to `/posts`, as it did on the legacy site.
 - The legacy site redirected root-level article slugs (`/<slug>`) to `/posts/<slug>`. Restore each of these, pointing directly at `/posts/<slug>`, in the same change that migrates that article.
 - One legacy slug, `the-knitting-club-%c2%b7-the-ladies-we-need-to-talk-chapter`, contains an encoded middle dot. Decide whether it keeps that slug when it is migrated.
-- Letters (`/letters`, `/letters/<slug>`, `/paper-planes-packets`, and root-level letter slugs), TSOP (`/tsop/...`), Recipes (`/recipes/...`), Moments (`/moments/...`), `/map`, `/resume`, `/travel-archives`, and `/dropbox` return 404 until `docs/PRODUCT.md` decides whether each section returns.
+- Recipes keep their legacy `/recipes` and `/recipes/<slug>` URLs.
+- Letters (`/letters`, `/letters/<slug>`, `/paper-planes-packets`, and root-level letter slugs), TSOP (`/tsop/...`), Moments (`/moments/...`), `/map`, `/resume`, `/travel-archives`, and `/dropbox` return 404 until `docs/PRODUCT.md` decides whether each section returns.
 - The legacy feeds at `/rss/feed.xml` and `/rss/feed.json` return 404 until a feed is decided.
 
 ## Launch checks
@@ -105,6 +111,9 @@ app/
   posts/
     page.tsx          # Writing index
     [slug]/page.tsx   # article
+  recipes/
+    page.tsx          # recipe index
+    [slug]/page.tsx   # recipe
 components/
   external-link.tsx
   site-footer.tsx
@@ -112,8 +121,10 @@ components/
   mobile-navigation.tsx
 content/
   posts/<slug>.md
+  recipes/<slug>.md
 lib/
   posts.ts            # read, parse, validate, sort, exclude drafts
+  recipes.ts          # read, parse, validate, sort
   markdown.tsx        # Markdown rendering and element mapping
   site.ts             # site name, URL, indexability, navigation, profiles
 public/

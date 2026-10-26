@@ -139,7 +139,7 @@ export default function AboutPage() {
           </p>
           <p>
             I miss making things that are{" "}
-            <em className="font-normal text-slate-500 italic">mine</em>.
+            <em className="font-normal text-slate-500 italic">mine.</em>
           </p>
           <p>And I miss writing things down.</p>
         </div>

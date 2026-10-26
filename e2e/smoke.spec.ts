@@ -1,5 +1,8 @@
 import { AxeBuilder } from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { getRecipes } from "@/lib/recipes";
+
+const recipes = await getRecipes();
 
 const pages = [
   { path: "/", status: 200 },
@@ -10,6 +13,12 @@ const pages = [
     status: 200,
     heading: "Pipeline fixture",
   },
+  { path: "/recipes", status: 200, heading: "Recipes" },
+  ...recipes.map((recipe) => ({
+    path: `/recipes/${recipe.slug}`,
+    status: 200,
+    heading: recipe.title,
+  })),
   {
     // Unknown slugs are not pre-rendered. Next logs NoFallbackError and still
     // responds with this not-found page.
@@ -171,6 +180,29 @@ test.describe("accessibility", () => {
       await expectNoSeriousAccessibilityViolations(page);
     });
   }
+});
+
+test.describe("recipe pages", () => {
+  for (const path of ["/recipes", "/recipes/rum-hot-toddy"]) {
+    test(`${path} has no horizontal overflow or undersized text`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+
+      await expectNoHorizontalOverflow(page);
+      await expectNoTextBelowOneRem(page);
+    });
+  }
+
+  test("the recipe index links to an individual recipe", async ({ page }) => {
+    await page.goto("/recipes");
+    await page.getByRole("link", { name: /Rum Hot Toddy/ }).click();
+
+    await expect(page).toHaveURL(/\/recipes\/rum-hot-toddy$/);
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Rum Hot Toddy" }),
+    ).toBeVisible();
+  });
 });
 
 test.describe("about page constraints", () => {
