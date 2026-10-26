@@ -108,6 +108,8 @@ app/
 components/
   external-link.tsx
   site-footer.tsx
+  site-header.tsx
+  mobile-navigation.tsx
 content/
   posts/<slug>.md
 lib/

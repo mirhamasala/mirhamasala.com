@@ -193,7 +193,32 @@ test.describe("about page constraints", () => {
     const focusedTagName = await page.evaluate(
       () => document.activeElement?.tagName,
     );
-    expect(["A", "SUMMARY"]).toContain(focusedTagName);
+    expect(["A", "BUTTON"]).toContain(focusedTagName);
+  });
+
+  test("mobile navigation opens, closes, and follows links", async ({
+    page,
+  }) => {
+    await page.goto("/about");
+
+    const openMenuButton = page.getByRole("button", {
+      name: "Open main menu",
+    });
+    test.skip(
+      !(await openMenuButton.isVisible()),
+      "Mobile navigation is hidden at this viewport.",
+    );
+
+    await openMenuButton.click();
+    const dialog = page.getByRole("dialog", { name: "Main navigation" });
+    await expect(dialog).toBeVisible();
+
+    await page.keyboard.press("Escape");
+    await expect(dialog).not.toBeVisible();
+
+    await openMenuButton.click();
+    await dialog.getByRole("link", { name: "Writing" }).click();
+    await expect(page).toHaveURL(/\/posts$/);
   });
 
   test("renders with reduced motion preference", async ({ page }) => {
