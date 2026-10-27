@@ -49,9 +49,9 @@ The primary areas currently envisioned are:
   - Recipes
   - Places
 - Archive
+  - The Spin-Off Project
+  - Travel Stories
   - Letters
-  - TSOP
-  - Travel Archives
 
 ### Home
 
@@ -94,7 +94,9 @@ includes one line on why it stuck, shown under the title on the index.
 
 ### Archive
 
-The Archive page at `/archive` lists sections that have returned outside Writing. It starts with Letters. Moving an individual article out of Writing is still a manual editorial decision, never an automatic rule based on age, and that mechanism is not built yet.
+The Spin-Off Project (`/tsop`), Travel Stories (`/travel-archives`), and Letters are listed in the footer, in that order. Archive is a label for that group, like Collections, and these links stay out of the primary navigation.
+
+The Archive page at `/archive` presents three groups, in the order they began: The Spin-Off Project, Travel Archives, and Letters. Letters links to `/letters`. The Spin-Off Project and Travel Archives are shown on this page; `/tsop` and `/travel-archives` still return 404 until those sections are built. Moving an individual article out of Writing is still a manual editorial decision, never an automatic rule based on age, and that mechanism is not built yet.
 
 Writing shows whatever is currently in Writing.
 
@@ -180,4 +182,4 @@ Prefer the former.
 - Social preview image strategy
 - Analytics
 - Tags, categories, or other additional ways to browse Writing
-- Which remaining legacy sections outside Writing, Recipes, Books, and Letters return, and therefore which of their URLs get redirects (see "URL migration" in `docs/ARCHITECTURE.md`)
+- Which remaining legacy sections outside Writing, Recipes, Books, and Letters return, including The Spin-Off Project and Travel Stories named in the footer, and therefore which of their URLs get redirects (see "URL migration" in `docs/ARCHITECTURE.md`)

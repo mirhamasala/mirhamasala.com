@@ -103,7 +103,7 @@ Inventory of the legacy site's public URLs (tag `pre-redesign-2026`):
 - Recipes keep their legacy `/recipes` and `/recipes/<slug>` URLs.
 - `/books` and `/books/<slug>` are new. The reading-list essay stays at `/posts/read-100-books` when that article is migrated. It does not redirect to `/books`.
 - Letters keep `/letters` and `/letters/<slug>`. `/paper-planes-packets` redirects to `/letters`. Each legacy root-level letter slug redirects to `/letters/<slug>`. Four letters never had a root alias (`here-comes-the-hulk-050623`, `jobless-but-balanced-070823`, `life-escaping-life-091023`, `lost-on-mars-111223`) and get none. The photograph that was at `/pages/letters/life-escaping-life-091023/parents-dylan-g-walking-beach-sunset.jpg` redirects to `/letters/life-escaping-life-091023/parents-dylan-g-walking-beach-sunset.jpg`.
-- `/archive` lists archive sections that have returned. It currently lists Letters. TSOP (`/tsop/...`), Moments (`/moments/...`), `/map`, `/resume`, `/travel-archives`, and `/dropbox` return 404 until `docs/PRODUCT.md` decides whether each section returns.
+- `/archive` presents The Spin-Off Project, Travel Archives, and Letters, in the order they began. Letters links to `/letters`, and a few letters link to `/letters/<slug>`. The Spin-Off Project and Travel Archives are shown on that page. TSOP (`/tsop/...`), Moments (`/moments/...`), `/map`, `/resume`, `/travel-archives`, and `/dropbox` return 404 until `docs/PRODUCT.md` decides whether each section returns.
 - The legacy feeds at `/rss/feed.xml` and `/rss/feed.json` return 404 until a feed is decided.
 
 ## Launch checks
@@ -205,7 +205,7 @@ Technical questions only. Product-level open questions live in `docs/PRODUCT.md`
 
 - Article images: where they live, how their dimensions are known, and whether to use `next/image` optimization or plain pre-sized images
 - Whether the typography plugin stays or is replaced by custom styles
-- How an article moves out of Writing, and how that article is represented. `/archive` is the index of returned archive sections, starting with Letters. Links to an archived article's `/posts/<slug>` URL must keep working.
+- How an article moves out of Writing, and how that article is represented. `/archive` presents The Spin-Off Project, Travel Archives, and Letters. Links to an archived article's `/posts/<slug>` URL must keep working.
 - How related writing, and collections other than Recipes and Books, are represented in content
 - Feed format, URL, and full text or excerpts, if a feed is added
 - Social preview images: static files or generated with `next/og`

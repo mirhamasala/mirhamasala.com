@@ -14,15 +14,20 @@ export const site = {
     { href: "/posts", label: "Writing" },
     { href: "/about", label: "About" },
   ],
-  archive: { href: "/archive", label: "Archive" },
   collections: [
     { href: "/books", label: "Books" },
     { href: "/recipes", label: "Recipes" },
     { href: "/places", label: "Places" },
   ],
+  archive: [
+    { href: "/tsop", label: "The Spin-Off Project" },
+    { href: "/travel-archives", label: "Travel Stories" },
+    { href: "/letters", label: "Letters" },
+  ],
   profiles: [
     { href: "https://github.com/mirhamasala", label: "GitHub" },
     { href: "https://www.linkedin.com/in/mirhamasala", label: "LinkedIn" },
+    { href: "https://www.instagram.com/mirhamasala", label: "Instagram" },
   ],
 } as const;
 

@@ -244,7 +244,10 @@ test.describe("letter pages", () => {
 
   test("the archive links to a letter", async ({ page }) => {
     await page.goto("/archive");
-    await page.getByRole("link", { name: "Letters" }).click();
+    await page
+      .getByRole("main")
+      .getByRole("link", { name: "Letters" })
+      .click();
 
     await expect(page).toHaveURL(/\/letters$/);
     await expect(
