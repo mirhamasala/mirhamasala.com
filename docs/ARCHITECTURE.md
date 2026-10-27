@@ -48,13 +48,22 @@ Lift each hold when `eslint-config-next` supports the newer version.
   as the slug. Their strict YAML schema is `title`, `description`, `date`
   (`YYYY-MM-DD`), optional `serves`, and optional `time`. Ingredient tables
   use portable GFM table syntax; recipe prose does not contain JSX or raw HTML.
+- Books are plain Markdown at `content/books/<slug>.md`, with the filename as
+  the slug. Schema: `title`, `author`, `description`, `topic`, `number`,
+  `url`, optional `subtitle`, optional `recommend`, optional `why`, and
+  optional `format`. `topic` is one of the groups in `bookTopics` in
+  `lib/books.ts`, which is also the order of the index. `number` is the
+  book's place in the finished-reads list; a higher number is more recent.
+  `recommend: true` marks a book for the opening "Start with these" list.
+  `why`, when present, is one line on why it stuck. `format: audio` records an
+  audiobook. Unknown fields fail the build. The body is the notes.
 
 ## Metadata and indexing
 
 Use the built-in Next.js features: the `metadata` export and `generateMetadata`, `metadataBase`, `app/sitemap.ts`, `app/robots.ts`, and `next/font`. No SEO libraries.
 
 Every indexable route class (`/`, `/about`, `/posts`, `/posts/[slug]`,
-`/recipes`, `/recipes/[slug]`) provides:
+`/recipes`, `/recipes/[slug]`, `/books`, `/books/[slug]`) provides:
 
 - a meaningful title (the root layout's title template adds the site name)
 - a description specific to that page and drawn from its content (articles use their frontmatter `description`)
@@ -70,7 +79,7 @@ Vercel preview and development deployments (`VERCEL_ENV` other than `production`
 
 ## Sitemap and robots
 
-- `sitemap.xml` lists every indexable canonical URL: the static pages and every published article.
+- `sitemap.xml` lists every indexable canonical URL: the static pages and every published article, recipe, and book.
 - Drafts, unknown routes, redirects, and noncanonical URLs are never listed.
 - Unknown and draft article slugs return 404. Next.js adds `noindex` to 404 responses.
 - `robots.txt` allows all crawling and references the absolute sitemap URL.
@@ -86,6 +95,7 @@ Inventory of the legacy site's public URLs (tag `pre-redesign-2026`):
 - The legacy site redirected root-level article slugs (`/<slug>`) to `/posts/<slug>`. Restore each of these, pointing directly at `/posts/<slug>`, in the same change that migrates that article.
 - One legacy slug, `the-knitting-club-%c2%b7-the-ladies-we-need-to-talk-chapter`, contains an encoded middle dot. Decide whether it keeps that slug when it is migrated.
 - Recipes keep their legacy `/recipes` and `/recipes/<slug>` URLs.
+- `/books` and `/books/<slug>` are new. The reading-list essay stays at `/posts/read-100-books` when that article is migrated. It does not redirect to `/books`.
 - Letters (`/letters`, `/letters/<slug>`, `/paper-planes-packets`, and root-level letter slugs), TSOP (`/tsop/...`), Moments (`/moments/...`), `/map`, `/resume`, `/travel-archives`, and `/dropbox` return 404 until `docs/PRODUCT.md` decides whether each section returns.
 - The legacy feeds at `/rss/feed.xml` and `/rss/feed.json` return 404 until a feed is decided.
 
@@ -114,6 +124,9 @@ app/
   recipes/
     page.tsx          # recipe index
     [slug]/page.tsx   # recipe
+  books/
+    page.tsx          # book index
+    [slug]/page.tsx   # book
 components/
   external-link.tsx
   site-footer.tsx
@@ -122,9 +135,11 @@ components/
 content/
   posts/<slug>.md
   recipes/<slug>.md
+  books/<slug>.md
 lib/
   posts.ts            # read, parse, validate, sort, exclude drafts
   recipes.ts          # read, parse, validate, sort
+  books.ts            # read, parse, validate, sort
   markdown.tsx        # Markdown rendering and element mapping
   site.ts             # site name, URL, indexability, navigation, profiles
 public/
@@ -174,7 +189,7 @@ Technical questions only. Product-level open questions live in `docs/PRODUCT.md`
 - Article images: where they live, how their dimensions are known, and whether to use `next/image` optimization or plain pre-sized images
 - Whether the typography plugin stays or is replaced by custom styles
 - How archived articles are represented and the Archive's URL. Links to an archived article's `/posts/<slug>` URL must keep working.
-- How related writing and Collections are represented in content
+- How related writing, and collections other than Recipes and Books, are represented in content
 - Feed format, URL, and full text or excerpts, if a feed is added
 - Social preview images: static files or generated with `next/og`
 - A unit-test runner. Browser and accessibility verification is Playwright and axe, recorded under Verification.

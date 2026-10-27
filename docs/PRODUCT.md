@@ -84,6 +84,14 @@ the author makes often enough to want to keep and share. The index and
 individual recipe pages are typography-led, practical, and free of card-grid
 or food-blog chrome. Conventions for writing one are in `docs/recipe-style.md`.
 
+### Books
+
+Books is a collection at `/books`. It keeps quotes, notes, and ideas from
+books the author has read, and it is not a complete reading list. The index
+groups every book by topic, most recent first, and opens with a short list of
+books to start with. Each book is one Markdown file. A recommended book
+includes one line on why it stuck, shown under the title on the index.
+
 ### Archive
 
 The Archive holds writing the author has deliberately moved out of Writing. Moving a piece there is a manual editorial decision, never an automatic rule based on age.
@@ -136,6 +144,7 @@ Search visibility should help people discover writing worth reading without shap
 
 - Articles are plain text files in the repository, written and edited by the author.
 - Recipes are also plain text files in the repository.
+- Books are also plain text files in the repository.
 - There is no CMS, admin interface, or database.
 - An article can be kept as a draft. Drafts are never published.
 
@@ -145,7 +154,7 @@ Search visibility should help people discover writing worth reading without shap
 - The previous implementation is archived in Git and is not the basis for the new product or design.
 - Existing material returns selectively, one piece at a time. Not everything needs to return.
 - Migrated articles may be adapted to the new content format without preserving their old implementation.
-- Recipes returns as a deliberately small collection. Other old sections such as Letters, Moments, TSOP, Map, travel archives, and résumé have no automatic commitment to return.
+- Recipes returns as a deliberately small collection. Books returns as the notes kept from the reading list. Other old sections such as Letters, Moments, TSOP, Map, travel archives, and résumé have no automatic commitment to return.
 - Books, Recipes, Places, or similar collection areas should not automatically become primary navigation items.
 - Until content is migrated, some old URLs may return 404. This is accepted.
 
@@ -166,4 +175,4 @@ Prefer the former.
 - Social preview image strategy
 - Analytics
 - Tags, categories, or other additional ways to browse Writing
-- Which remaining legacy sections outside Writing and Recipes return, and therefore which of their URLs get redirects (see "URL migration" in `docs/ARCHITECTURE.md`)
+- Which remaining legacy sections outside Writing, Recipes, and Books return, and therefore which of their URLs get redirects (see "URL migration" in `docs/ARCHITECTURE.md`)

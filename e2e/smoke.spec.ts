@@ -1,8 +1,10 @@
 import { AxeBuilder } from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { getBooks } from "@/lib/books";
 import { getRecipes } from "@/lib/recipes";
 
 const recipes = await getRecipes();
+const books = await getBooks();
 
 const pages = [
   { path: "/", status: 200 },
@@ -18,6 +20,12 @@ const pages = [
     path: `/recipes/${recipe.slug}`,
     status: 200,
     heading: recipe.title,
+  })),
+  { path: "/books", status: 200, heading: "What I wanted to keep." },
+  ...books.map((book) => ({
+    path: `/books/${book.slug}`,
+    status: 200,
+    heading: book.title,
   })),
   {
     // Unknown slugs are not pre-rendered. Next logs NoFallbackError and still
@@ -180,6 +188,32 @@ test.describe("accessibility", () => {
       await expectNoSeriousAccessibilityViolations(page);
     });
   }
+});
+
+test.describe("book pages", () => {
+  for (const path of ["/books", "/books/four-thousand-weeks"]) {
+    test(`${path} has no horizontal overflow or undersized text`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+
+      await expectNoHorizontalOverflow(page);
+      await expectNoTextBelowOneRem(page);
+    });
+  }
+
+  test("the book index links to an individual book", async ({ page }) => {
+    await page.goto("/books");
+    await page
+      .getByRole("link", { name: "Four Thousand Weeks" })
+      .first()
+      .click();
+
+    await expect(page).toHaveURL(/\/books\/four-thousand-weeks$/);
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Four Thousand Weeks" }),
+    ).toBeVisible();
+  });
 });
 
 test.describe("recipe pages", () => {

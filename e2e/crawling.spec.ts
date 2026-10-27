@@ -8,6 +8,7 @@ const unpublishedPaths = [
   "/posts/draft-fixture",
   "/posts/not-a-real-article",
   "/recipes/not-a-real-recipe",
+  "/books/not-a-real-book",
 ] as const;
 
 /** Permanent redirects from legacy URLs to their equivalent pages. */

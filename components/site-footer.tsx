@@ -9,7 +9,12 @@ const footerLinks = [...site.nav, site.archive];
 
 // Pages that are not built yet must not be prefetched. A prefetched 404
 // logs a console error on every page that includes the footer.
-const publishedPaths = new Set<string>(["/posts", "/about", "/recipes"]);
+const publishedPaths = new Set<string>([
+  "/posts",
+  "/about",
+  "/recipes",
+  "/books",
+]);
 
 function FooterLink({ href, label }: { href: string; label: string }) {
   return (
