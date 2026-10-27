@@ -49,7 +49,7 @@ snowboarding // kiteboarding // surfing // early morning walks // long lunches /
 
 ## 🏝 Favorite Cities
 
-[Havana](https://www.instagram.com/explore/tags/mirhaxhavana/), [Tokyo](/travel-archives#tokyo), and [Tel Aviv](/travel-archives#tel-aviv)
+[Havana](https://www.instagram.com/explore/tags/mirhaxhavana/), [Tokyo](/travel-stories#tokyo), and [Tel Aviv](/travel-stories#tel-aviv)
 
 _Related reading: [Found in Nothing (And My Latest Tokyo favorites)](/posts/found-in-nothing/)_
 

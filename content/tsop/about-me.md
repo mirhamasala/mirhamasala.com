@@ -4,7 +4,7 @@ description: Born in Sarajevo, Bosnia and Herzegovina. Grown in Delft, The Nethe
 date: 2016-03-18
 ---
 
-Born in [Sarajevo](/travel-archives#sarajevo), Bosnia and Herzegovina. Grown in Delft, The Netherlands.
+Born in [Sarajevo](/travel-stories#sarajevo), Bosnia and Herzegovina. Grown in Delft, The Netherlands.
 
 Fled the small Dutch town as soon as I reached the age of 18 and moved to glorious Amsterdam for European Studies and parties.
 

@@ -2,14 +2,16 @@ import { AxeBuilder } from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 import { getBooks } from "@/lib/books";
 import { getLetters } from "@/lib/letters";
-import { getTsopPages, getTsopPosts } from "@/lib/tsop";
 import { getPosts } from "@/lib/posts";
 import { getRecipes } from "@/lib/recipes";
+import { getTravelStories } from "@/lib/travel-stories";
+import { getTsopPages, getTsopPosts } from "@/lib/tsop";
 
 const recipes = await getRecipes();
 const books = await getBooks();
 const letters = await getLetters();
 const posts = await getPosts();
+const stories = await getTravelStories();
 const tsopPosts = await getTsopPosts();
 const tsopPages = await getTsopPages();
 
@@ -40,6 +42,12 @@ const pages = [
     path: `/letters/${letter.slug}`,
     status: 200,
     heading: letter.title,
+  })),
+  { path: "/travel-stories", status: 200, heading: "What I brought home." },
+  ...stories.map((story) => ({
+    path: `/travel-stories/${story.slug}`,
+    status: 200,
+    heading: `#${story.number}`,
   })),
   { path: "/tsop", status: 200, heading: "The Spin-Off Project" },
   ...tsopPosts.map((post) => ({

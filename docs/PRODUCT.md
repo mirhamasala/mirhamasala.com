@@ -97,9 +97,9 @@ includes one line on why it stuck, shown under the title on the index.
 
 ### Archive
 
-The Spin-Off Project (`/tsop`), Travel Stories (`/travel-archives`), and Letters are listed in the footer, in that order. Archive is a label for that group, like Collections, and these links stay out of the primary navigation.
+The Spin-Off Project (`/tsop`), Travel Stories (`/travel-stories`), and Letters are listed in the footer, in that order. Archive is a label for that group, like Collections, and these links stay out of the primary navigation.
 
-The Archive page at `/archive` presents three groups, in the order they began: The Spin-Off Project, Travel Archives, and Letters. Letters links to `/letters`. The Spin-Off Project links to `/tsop`. Travel Archives is shown on this page; `/travel-archives` still returns 404 until that section is built. Moving an individual article out of Writing is still a manual editorial decision, never an automatic rule based on age, and that mechanism is not built yet.
+The Archive page at `/archive` presents three groups, in the order they began: The Spin-Off Project, Travel Stories, and Letters. Letters links to `/letters`. The Spin-Off Project links to `/tsop`. Travel Stories links to `/travel-stories`. Moving an individual article out of Writing is still a manual editorial decision, never an automatic rule based on age, and that mechanism is not built yet.
 
 ### The Spin-Off Project
 
@@ -112,6 +112,10 @@ The Archive should be useful and typography-led rather than presented as a large
 ### Letters
 
 Letters is the archive of letters sent from 2018 to 2023. The URLs are `/letters` and `/letters/<slug>`. The index is a reading list grouped by year, with a title, date, and short description. There is no signup.
+
+### Travel Stories
+
+Travel Stories is the archive of stories, photographs, and recommendations originally published on Instagram. The URLs are `/travel-stories` and `/travel-stories/<number>`. The index is grouped by country, then city. Each story keeps its number. `/travel-archives` redirects to `/travel-stories`.
 
 ## Experience and visual direction
 
@@ -159,6 +163,7 @@ Search visibility should help people discover writing worth reading without shap
 - Recipes are also plain text files in the repository.
 - Books are also plain text files in the repository.
 - Letters are also plain text files in the repository.
+- Travel stories are also plain text files in the repository.
 - Spin-Off Project posts and section pages are also plain text files in the repository.
 - There is no CMS, admin interface, or database.
 - An article can be kept as a draft. Drafts are never published.
@@ -169,7 +174,7 @@ Search visibility should help people discover writing worth reading without shap
 - The previous implementation is archived in Git and is not the basis for the new product or design.
 - Existing material returns selectively, one piece at a time. Not everything needs to return.
 - Migrated articles may be adapted to the new content format without preserving their old implementation.
-- Recipes returns as a deliberately small collection. Books returns as the notes kept from the reading list. Letters returns as the letters sent from 2018 to 2023, at `/letters`. The Spin-Off Project returns at `/tsop`. Other old sections such as Moments, Map, travel archives, and résumé have no automatic commitment to return.
+- Recipes returns as a deliberately small collection. Books returns as the notes kept from the reading list. Letters returns as the letters sent from 2018 to 2023, at `/letters`. The Spin-Off Project returns at `/tsop`. Travel Stories returns at `/travel-stories`. Other old sections such as Moments, Map, and résumé have no automatic commitment to return.
 - Books, Recipes, Places, or similar collection areas should not automatically become primary navigation items.
 - Until content is migrated, some old URLs may return 404. This is accepted.
 
@@ -190,5 +195,5 @@ Prefer the former.
 - Social preview image strategy
 - Analytics
 - Tags, categories, or other additional ways to browse Writing
-- Which remaining legacy sections outside Writing, Recipes, Books, Letters, and The Spin-Off Project return, including Travel Stories named in the footer, and therefore which of their URLs get redirects (see "URL migration" in `docs/ARCHITECTURE.md`)
+- Which remaining legacy sections outside Writing, Recipes, Books, Letters, The Spin-Off Project, and Travel Stories return, and therefore which of their URLs get redirects (see "URL migration" in `docs/ARCHITECTURE.md`)
 - Whether any Spin-Off Project section page (`/tsop/about`, `/tsop/about-me`, `/tsop/faqs`, `/tsop/resources`, `/tsop/now`, `/tsop/contact`) is later removed or redirected

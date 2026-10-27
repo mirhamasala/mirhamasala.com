@@ -114,4 +114,4 @@ _From the [Q&A with Tetsu Kasuya](https://kurasu.kyoto/blogs/kurasu-journal/2016
 
 ## You Might Also Like
 
-🪴 [Other stories from my hometown Sarajevo](/travel-archives#sarajevo)
+🪴 [Other stories from my hometown Sarajevo](/travel-stories#sarajevo)

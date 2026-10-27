@@ -533,4 +533,360 @@ export const legacyRedirects = [
     source: "/pages/posts/the-story-of-us/gm_wedding_day-scaled.jpg",
     destination: "/posts/the-story-of-us/gm_wedding_day-scaled.jpg",
   },
+  {
+    source: "/travel-archives",
+    destination: "/travel-stories",
+  },
+  {
+    source: "/pages/469_instagram_archives.jpg",
+    destination: "/travel-stories/469/photo.jpg",
+  },
+  {
+    source: "/pages/427_instagram_archives.jpg",
+    destination: "/travel-stories/427/photo.jpg",
+  },
+  {
+    source: "/pages/426_instagram_archives.jpg",
+    destination: "/travel-stories/426/photo.jpg",
+  },
+  {
+    source: "/pages/425_instagram_archives.jpg",
+    destination: "/travel-stories/425/photo.jpg",
+  },
+  {
+    source: "/pages/424_instagram_archives.jpg",
+    destination: "/travel-stories/424/photo.jpg",
+  },
+  {
+    source: "/pages/423_instagram_archives.jpg",
+    destination: "/travel-stories/423/photo.jpg",
+  },
+  {
+    source: "/pages/422_instagram_archives.jpg",
+    destination: "/travel-stories/422/photo.jpg",
+  },
+  {
+    source: "/pages/421_instagram_archives.jpg",
+    destination: "/travel-stories/421/photo.jpg",
+  },
+  {
+    source: "/pages/420_instagram_archives.jpg",
+    destination: "/travel-stories/420/photo.jpg",
+  },
+  {
+    source: "/pages/419_instagram_archives.jpg",
+    destination: "/travel-stories/419/photo.jpg",
+  },
+  {
+    source: "/pages/418_instagram_archives.jpg",
+    destination: "/travel-stories/418/photo.jpg",
+  },
+  {
+    source: "/pages/417_instagram_archives.jpg",
+    destination: "/travel-stories/417/photo.jpg",
+  },
+  {
+    source: "/pages/450_instagram_archives.jpg",
+    destination: "/travel-stories/450/photo.jpg",
+  },
+  {
+    source: "/pages/449_instagram_archives.jpg",
+    destination: "/travel-stories/449/photo.jpg",
+  },
+  {
+    source: "/pages/448_instagram_archives.jpg",
+    destination: "/travel-stories/448/photo.jpg",
+  },
+  {
+    source: "/pages/447_instagram_archives.jpg",
+    destination: "/travel-stories/447/photo.jpg",
+  },
+  {
+    source: "/pages/443_instagram_archives.jpg",
+    destination: "/travel-stories/443/photo.jpg",
+  },
+  {
+    source: "/pages/432_instagram_archives.jpeg",
+    destination: "/travel-stories/432/photo.jpeg",
+  },
+  {
+    source: "/pages/431_instagram_archives.jpeg",
+    destination: "/travel-stories/431/photo.jpeg",
+  },
+  {
+    source: "/pages/430_instagram_archives.jpeg",
+    destination: "/travel-stories/430/photo.jpeg",
+  },
+  {
+    source: "/pages/441_instagram_archives.jpeg",
+    destination: "/travel-stories/441/photo.jpeg",
+  },
+  {
+    source: "/pages/440_instagram_archives.jpeg",
+    destination: "/travel-stories/440/photo.jpeg",
+  },
+  {
+    source: "/pages/437_instagram_archives.jpeg",
+    destination: "/travel-stories/437/photo.jpeg",
+  },
+  {
+    source: "/pages/436_instagram_archives.jpg",
+    destination: "/travel-stories/436/photo.jpg",
+  },
+  {
+    source: "/pages/435_instagram_archives.jpeg",
+    destination: "/travel-stories/435/photo.jpeg",
+  },
+  {
+    source: "/pages/434_instagram_archives.jpeg",
+    destination: "/travel-stories/434/photo.jpeg",
+  },
+  {
+    source: "/pages/324_instagram_archive.jpg",
+    destination: "/travel-stories/325/photo.jpg",
+  },
+  {
+    source: "/pages/325_instagram_archive.jpg",
+    destination: "/travel-stories/324/photo.jpg",
+  },
+  {
+    source: "/pages/326_instagram_archive.jpg",
+    destination: "/travel-stories/326/photo.jpg",
+  },
+  {
+    source: "/pages/323_instagram_archive.jpg",
+    destination: "/travel-stories/323/photo.jpg",
+  },
+  {
+    source: "/pages/322_instagram_archive.jpg",
+    destination: "/travel-stories/322/photo.jpg",
+  },
+  {
+    source: "/pages/321_instagram_archive.jpg",
+    destination: "/travel-stories/321/photo.jpg",
+  },
+  {
+    source: "/pages/320_instagram_archive.jpg",
+    destination: "/travel-stories/320/photo.jpg",
+  },
+  {
+    source: "/pages/319_instagram_archive.jpg",
+    destination: "/travel-stories/319/photo.jpg",
+  },
+  {
+    source: "/pages/318_instagram_archive.jpg",
+    destination: "/travel-stories/318/photo.jpg",
+  },
+  {
+    source: "/pages/317_instagram_archive.jpg",
+    destination: "/travel-stories/317/photo.jpg",
+  },
+  {
+    source: "/pages/316_instagram_archive.jpg",
+    destination: "/travel-stories/316/photo.jpg",
+  },
+  {
+    source: "/pages/315_instagram_archive.jpg",
+    destination: "/travel-stories/315/photo.jpg",
+  },
+  {
+    source: "/pages/314_instagram_archive.jpg",
+    destination: "/travel-stories/314/photo.jpg",
+  },
+  {
+    source: "/pages/313_instagram_archive.jpg",
+    destination: "/travel-stories/313/photo.jpg",
+  },
+  {
+    source: "/pages/312_instagram_archive.jpg",
+    destination: "/travel-stories/312/photo.jpg",
+  },
+  {
+    source: "/pages/311_instagram_archive.jpg",
+    destination: "/travel-stories/311/photo.jpg",
+  },
+  {
+    source: "/pages/310_instagram_archive.jpg",
+    destination: "/travel-stories/310/photo.jpg",
+  },
+  {
+    source: "/pages/309_instagram_archive.jpg",
+    destination: "/travel-stories/309/photo.jpg",
+  },
+  {
+    source: "/pages/308_instagram_archive.jpg",
+    destination: "/travel-stories/308/photo.jpg",
+  },
+  {
+    source: "/pages/307_instagram_archive.jpg",
+    destination: "/travel-stories/307/photo.jpg",
+  },
+  {
+    source: "/pages/306_instagram_archive.jpg",
+    destination: "/travel-stories/306/photo.jpg",
+  },
+  {
+    source: "/pages/305_instagram_archive.jpg",
+    destination: "/travel-stories/305/photo.jpg",
+  },
+  {
+    source: "/pages/304_instagram_archive.jpg",
+    destination: "/travel-stories/304/photo.jpg",
+  },
+  {
+    source: "/pages/303_instagram_archive.jpg",
+    destination: "/travel-stories/303/photo.jpg",
+  },
+  {
+    source: "/pages/302_instagram_archive.jpg",
+    destination: "/travel-stories/302/photo.jpg",
+  },
+  {
+    source: "/pages/301_instagram_archive.jpg",
+    destination: "/travel-stories/301/photo.jpg",
+  },
+  {
+    source: "/pages/300_instagram_archive.jpg",
+    destination: "/travel-stories/300/photo.jpg",
+  },
+  {
+    source: "/pages/299_instagram_archive.jpg",
+    destination: "/travel-stories/299/photo.jpg",
+  },
+  {
+    source: "/pages/298_instagram_archive.jpg",
+    destination: "/travel-stories/298/photo.jpg",
+  },
+  {
+    source: "/pages/297_instagram_archive.jpg",
+    destination: "/travel-stories/297/photo.jpg",
+  },
+  {
+    source: "/pages/296_instagram_archive.jpg",
+    destination: "/travel-stories/296/photo.jpg",
+  },
+  {
+    source: "/pages/295_instagram_archive.jpg",
+    destination: "/travel-stories/295/photo.jpg",
+  },
+  {
+    source: "/pages/294_instagram_archive.jpg",
+    destination: "/travel-stories/294/photo.jpg",
+  },
+  {
+    source: "/pages/293_instagram_archive.jpg",
+    destination: "/travel-stories/293/photo.jpg",
+  },
+  {
+    source: "/pages/292_instagram_archive.jpg",
+    destination: "/travel-stories/292/photo.jpg",
+  },
+  {
+    source: "/pages/291_instagram_archive.jpg",
+    destination: "/travel-stories/291/photo.jpg",
+  },
+  {
+    source: "/pages/290_instagram_archive.jpg",
+    destination: "/travel-stories/290/photo.jpg",
+  },
+  {
+    source: "/pages/289_instagram_archive.jpg",
+    destination: "/travel-stories/289/photo.jpg",
+  },
+  {
+    source: "/pages/288_instagram_archive.jpg",
+    destination: "/travel-stories/288/photo.jpg",
+  },
+  {
+    source: "/pages/287_instagram_archive.jpg",
+    destination: "/travel-stories/287/photo.jpg",
+  },
+  {
+    source: "/pages/286_instagram_archive.jpg",
+    destination: "/travel-stories/286/photo.jpg",
+  },
+  {
+    source: "/pages/285_instagram_archive.jpg",
+    destination: "/travel-stories/285/photo.jpg",
+  },
+  {
+    source: "/pages/284_instagram_archive.jpg",
+    destination: "/travel-stories/284/photo.jpg",
+  },
+  {
+    source: "/pages/283_instagram_archive.jpg",
+    destination: "/travel-stories/283/photo.jpg",
+  },
+  {
+    source: "/pages/282_instagram_archive.jpg",
+    destination: "/travel-stories/282/photo.jpg",
+  },
+  {
+    source: "/pages/281_instagram_archive.jpg",
+    destination: "/travel-stories/281/photo.jpg",
+  },
+  {
+    source: "/pages/280_instagram_archive.jpg",
+    destination: "/travel-stories/280/photo.jpg",
+  },
+  {
+    source: "/pages/279_instagram_archive.jpg",
+    destination: "/travel-stories/279/photo.jpg",
+  },
+  {
+    source: "/pages/278_instagram_archive.jpg",
+    destination: "/travel-stories/278/photo.jpg",
+  },
+  {
+    source: "/pages/277_instagram_archive.jpg",
+    destination: "/travel-stories/277/photo.jpg",
+  },
+  {
+    source: "/pages/465_instagram_archives.jpg",
+    destination: "/travel-stories/465/photo.jpg",
+  },
+  {
+    source: "/pages/461_instagram_archives.jpg",
+    destination: "/travel-stories/461/photo.jpg",
+  },
+  {
+    source: "/pages/460_instagram_archives.jpg",
+    destination: "/travel-stories/460/photo.jpg",
+  },
+  {
+    source: "/pages/459_instagram_archives.jpg",
+    destination: "/travel-stories/459/photo.jpg",
+  },
+  {
+    source: "/pages/458_instagram_archives.jpg",
+    destination: "/travel-stories/458/photo.jpg",
+  },
+  {
+    source: "/pages/457_instagram_archives.jpg",
+    destination: "/travel-stories/457/photo.jpg",
+  },
+  {
+    source: "/pages/456_instagram_archives.jpg",
+    destination: "/travel-stories/456/photo.jpg",
+  },
+  {
+    source: "/pages/455_instagram_archives.jpg",
+    destination: "/travel-stories/455/photo.jpg",
+  },
+  {
+    source: "/pages/454_instagram_archives.jpg",
+    destination: "/travel-stories/454/photo.jpg",
+  },
+  {
+    source: "/pages/453_instagram_archives.jpg",
+    destination: "/travel-stories/453/photo.jpg",
+  },
+  {
+    source: "/pages/452_instagram_archives.jpg",
+    destination: "/travel-stories/452/photo.jpg",
+  },
+  {
+    source: "/pages/451_instagram_archives.jpg",
+    destination: "/travel-stories/451/photo.jpg",
+  },
 ] as const;

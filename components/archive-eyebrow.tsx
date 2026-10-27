@@ -6,6 +6,7 @@ const linkClassName =
 const sections = {
   letters: { href: "/letters", label: "Letters" },
   tsop: { href: "/tsop", label: "The Spin-Off Project" },
+  "travel-stories": { href: "/travel-stories", label: "Travel Stories" },
 } as const;
 
 export function ArchiveEyebrow({

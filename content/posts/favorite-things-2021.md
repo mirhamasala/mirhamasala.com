@@ -6,7 +6,7 @@ date: 2022-01-23
 
 In 2021,
 
-I moved to Europe, splitting my days between [Singapore](/posts/goodbye-little-red-dot/), [Sarajevo](/travel-archives#sarajevo), Ericeira, and Amsterdam.
+I moved to Europe, splitting my days between [Singapore](/posts/goodbye-little-red-dot/), [Sarajevo](/travel-stories#sarajevo), Ericeira, and Amsterdam.
 
 I swam and strolled between skyscrapers, mounted pine tree forests, surfed buttery waters, and traced rugged coastlines.
 

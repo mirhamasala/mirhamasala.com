@@ -1,8 +1,9 @@
 import { getBooks } from "@/lib/books";
 import { getLetters } from "@/lib/letters";
-import { getTsopPages, getTsopPosts } from "@/lib/tsop";
 import { getPosts } from "@/lib/posts";
 import { getRecipes } from "@/lib/recipes";
+import { getTravelStories } from "@/lib/travel-stories";
+import { getTsopPages, getTsopPosts } from "@/lib/tsop";
 import { site } from "@/lib/site";
 
 export type IndexableRoute = {
@@ -14,12 +15,13 @@ export type IndexableRoute = {
 
 /** Every indexable route: the static pages plus every published article. */
 export async function getIndexableRoutes(): Promise<IndexableRoute[]> {
-  const [posts, recipes, books, letters, tsopPosts, tsopPages] =
+  const [posts, recipes, books, letters, stories, tsopPosts, tsopPages] =
     await Promise.all([
       getPosts(),
       getRecipes(),
       getBooks(),
       getLetters(),
+      getTravelStories(),
       getTsopPosts(),
       getTsopPages(),
     ]);
@@ -75,6 +77,17 @@ export async function getIndexableRoutes(): Promise<IndexableRoute[]> {
       title: `${letter.title} · ${site.name}`,
       heading: letter.title,
       description: letter.description,
+    })),
+    {
+      path: "/travel-stories",
+      title: `Travel Stories · ${site.name}`,
+      heading: "What I brought home.",
+    },
+    ...stories.map((story) => ({
+      path: `/travel-stories/${story.slug}`,
+      title: `#${story.number} · ${story.location} · ${site.name}`,
+      heading: `#${story.number}`,
+      description: story.description,
     })),
     {
       path: "/tsop",

@@ -11,6 +11,7 @@ const unpublishedPaths = [
   "/recipes/not-a-real-recipe",
   "/books/not-a-real-book",
   "/letters/not-a-real-letter",
+  "/travel-stories/not-a-real-story",
   "/tsop/posts/not-a-real-post",
   "/tsop/not-a-real-page",
 ] as const;

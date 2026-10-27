@@ -58,4 +58,4 @@ Coffee at [Koffee Mameya](https://goo.gl/maps/xAxQWENXRt5uB7Qw7), tea experience
 
 ## You Might Also Like
 
-🗾 [More recommendations and stories from Japan & Tokyo](/travel-archives#japan)
+🗾 [More recommendations and stories from Japan & Tokyo](/travel-stories#japan)

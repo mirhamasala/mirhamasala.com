@@ -64,7 +64,7 @@ I regularly update this list, adding new challenges and ticking off completed 
 11. ~~[Do a Photoshop course](/tsop/posts/30-days-photography/)~~
 12. ~~[Learn HTML + CSS](/posts/leap-of-code)~~
 13. Bring Mr. G to the Maldives - _Initially, I wanted to take Mr. G to India, but [he beat me to it](https://www.instagram.com/p/BQSO7a1DTTx3i3TvKakXqUmbUGjltc1Ghk9jNM0/)_
-14. Go back to Jordan with my mom and find [the falafel of my childhood memories](/travel-archives#294)
+14. Go back to Jordan with my mom and find [the falafel of my childhood memories](/travel-stories/294)
 15. Watch all the Star Wars movies
 16. ~~Pick up longboarding again~~
 17. ~~[Learn to draw anything](/posts/kill-your-monsters/)~~

@@ -42,6 +42,7 @@ Lift each hold when `eslint-config-next` supports the newer version.
 - `featured: true` marks an article for Featured writing. Selection is always explicit, never inferred from recency.
 - `draft: true` articles are excluded from every generated page and from the sitemap.
 - Markdown is rendered to React elements with `react-markdown` and `remark-gfm` (GFM, mainly for footnotes and tables). There is no HTML-string rendering, and raw HTML inside Markdown is not rendered.
+- GFM collects footnote definitions and renders them at the end of the document. The footnote section draws the rule above the notes, so a Markdown rule that only introduced those definitions is not rendered again. A closing "You Might Also Like" section is placed after the notes: the notes finish the piece, and the suggestion comes last.
 - Article and letter headings get ids from `github-slugger` 2.0.0, the version the legacy site used, so existing in-article links still land.
 - Article images and the knitting-club PDF are static files at `public/posts/<slug>/`, referenced from Markdown, the same way the letter photograph is. This does not decide image dimensions or whether articles use `next/image`.
 - Place lists inside articles are Markdown. The legacy map is not part of this migration, and Places stays undecided.
@@ -74,6 +75,18 @@ Lift each hold when `eslint-config-next` supports the newer version.
   `date`, and no `spinOff`. Unknown fields fail the build. Images are static
   files at `public/tsop/`, referenced from Markdown. This does not decide
   image dimensions or whether those images use `next/image`.
+- Travel stories are plain Markdown at `content/travel-stories/<number>.md`,
+  with the filename as the number. Schema: `number`, `country`, `location`,
+  `date` (`YYYY-MM-DD`), `instagram`, `description`, and optional `city`.
+  `instagram` is the original post URL from the old page heading. `country`
+  is one of the groups in `travelPlaces` in `lib/travel-stories.ts`, which is also
+  the order of the index. `city`, when present, is one of that country's city
+  headings: Sydney, Sarajevo, Colombo, Tel Aviv, or Tokyo. Stories that sat
+  directly under a country omit `city`. `number` is the story's name and its
+  URL. `location` is the place line. Unknown fields fail the build. The body
+  is the story and opens with its photograph, a static file at
+  `public/travel-stories/<number>/`. This does not decide image dimensions or
+  whether those images use `next/image`.
 
 ## Metadata and indexing
 
@@ -81,7 +94,8 @@ Use the built-in Next.js features: the `metadata` export and `generateMetadata`,
 
 Every indexable route class (`/`, `/about`, `/posts`, `/posts/[slug]`,
 `/recipes`, `/recipes/[slug]`, `/books`, `/books/[slug]`, `/archive`,
-`/letters`, `/letters/[slug]`, `/tsop`, `/tsop/posts/[slug]`, `/tsop/[slug]`)
+`/letters`, `/letters/[slug]`, `/travel-stories`, `/travel-stories/[slug]`,
+`/tsop`, `/tsop/posts/[slug]`, `/tsop/[slug]`)
 provides:
 
 - a meaningful title (the root layout's title template adds the site name)
@@ -98,7 +112,7 @@ Vercel preview and development deployments (`VERCEL_ENV` other than `production`
 
 ## Sitemap and robots
 
-- `sitemap.xml` lists every indexable canonical URL: the static pages and every published article, recipe, book, letter, and Spin-Off Project post and section page.
+- `sitemap.xml` lists every indexable canonical URL: the static pages and every published article, recipe, book, letter, travel story, and Spin-Off Project post and section page.
 - Drafts, unknown routes, redirects, and noncanonical URLs are never listed.
 - Unknown and draft article slugs return 404. Next.js adds `noindex` to 404 responses.
 - `robots.txt` allows all crawling and references the absolute sitemap URL.
@@ -117,9 +131,10 @@ Inventory of the legacy site's public URLs (tag `pre-redesign-2026`):
 - Recipes keep their legacy `/recipes` and `/recipes/<slug>` URLs.
 - `/books` and `/books/<slug>` are new. The reading-list essay stays at `/posts/read-100-books` when that article is migrated. It does not redirect to `/books`.
 - Letters keep `/letters` and `/letters/<slug>`. `/paper-planes-packets` redirects to `/letters`. Each legacy root-level letter slug redirects to `/letters/<slug>`. Four letters never had a root alias (`here-comes-the-hulk-050623`, `jobless-but-balanced-070823`, `life-escaping-life-091023`, `lost-on-mars-111223`) and get none. The photograph that was at `/pages/letters/life-escaping-life-091023/parents-dylan-g-walking-beach-sunset.jpg` redirects to `/letters/life-escaping-life-091023/parents-dylan-g-walking-beach-sunset.jpg`.
-- `/archive` presents The Spin-Off Project, Travel Archives, and Letters, in the order they began. Letters links to `/letters`, and a few letters link to `/letters/<slug>`. The Spin-Off Project links to `/tsop`, and each of the twelve names links to that spin-off on the index. Travel Archives is shown on that page.
+- `/archive` presents The Spin-Off Project, Travel Stories, and Letters, in the order they began. Letters links to `/letters`, and a few letters link to `/letters/<slug>`. The Spin-Off Project links to `/tsop`, and each of the twelve names links to that spin-off on the index. Travel Stories links to `/travel-stories`, and the places link to that index's country and city ids.
 - The Spin-Off Project keeps `/tsop`, `/tsop/posts/<slug>`, and the section pages `/tsop/about`, `/tsop/about-me`, `/tsop/faqs`, `/tsop/resources`, `/tsop/now`, and `/tsop/contact`. Those section-page URLs are not redirected away; removing or redirecting one is still open in `docs/PRODUCT.md`. Images that were at `/pages/tsop/<path>` redirect to `/tsop/<path>`.
-- Moments (`/moments/...`), `/map`, `/resume`, `/travel-archives`, and `/dropbox` return 404 until `docs/PRODUCT.md` decides whether each section returns.
+- `/travel-archives` redirects to `/travel-stories`. Each story is `/travel-stories/<number>`. Browsers keep the fragment across that redirect, and the index keeps the old ids (`australia`, `melbourne`, `sydney`, `bosnia-and-herzegovina`, `sarajevo`, `sri-lanka`, `colombo`, `israel`, `tel-aviv`, `japan`, `tokyo`, and each story number), so `/travel-archives#294` lands on `/travel-stories#294`. Photographs that were at `/pages/<number>_instagram_archive.jpg`, `/pages/<number>_instagram_archives.jpg`, or `/pages/<number>_instagram_archives.jpeg` redirect to `/travel-stories/<number>/photo.jpg` or `photo.jpeg`.
+- Moments (`/moments/...`), `/map`, `/resume`, and `/dropbox` return 404 until `docs/PRODUCT.md` decides whether each section returns.
 - The legacy feeds at `/rss/feed.xml` and `/rss/feed.json` return 404 until a feed is decided.
 
 ## Launch checks
@@ -155,6 +170,9 @@ app/
   letters/
     page.tsx          # letter index
     [slug]/page.tsx   # letter
+  travel-stories/
+    page.tsx          # travel story index
+    [slug]/page.tsx   # travel story
   tsop/
     page.tsx          # Spin-Off Project index
     [slug]/page.tsx   # section page
@@ -172,6 +190,7 @@ content/
   recipes/<slug>.md
   books/<slug>.md
   letters/<slug>.md
+  travel-stories/<number>.md
   tsop/<slug>.md
   tsop/posts/<slug>.md
 lib/
@@ -179,6 +198,7 @@ lib/
   recipes.ts          # read, parse, validate, sort
   books.ts            # read, parse, validate, sort
   letters.ts          # read, parse, validate, sort
+  travel-stories.ts   # read, parse, validate, group
   tsop.ts             # read, parse, validate, sort, group by spin-off
   format-date.ts      # long calendar dates
   redirects.ts        # legacy URLs that permanently redirect
@@ -230,7 +250,7 @@ Technical questions only. Product-level open questions live in `docs/PRODUCT.md`
 
 - Article images: how their dimensions are known, and whether to use `next/image` optimization or plain pre-sized images. This migration uses static files at `public/posts/<slug>/`.
 - Whether the typography plugin stays or is replaced by custom styles
-- How an article moves out of Writing, and how that article is represented. `/archive` presents The Spin-Off Project, Travel Archives, and Letters. Links to an archived article's `/posts/<slug>` URL must keep working.
+- How an article moves out of Writing, and how that article is represented. `/archive` presents The Spin-Off Project, Travel Stories, and Letters. Links to an archived article's `/posts/<slug>` URL must keep working.
 - How related writing, and collections other than Recipes and Books, are represented in content
 - Feed format, URL, and full text or excerpts, if a feed is added
 - Social preview images: static files or generated with `next/og`

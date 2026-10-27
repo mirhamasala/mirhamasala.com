@@ -77,7 +77,7 @@ Since last summer, I have had a dedicated virtual assistant. Her name is Jenny, 
 
 Most of the time, I ask Jenny to find and research things on the wide ol’ web, fight customer services, and place orders.
 
-Right now, she’s also helping me to archive my [travel posts](/travel-archives/). And, indirectly, Jenny is teaching me what it means to be an employer, and with that, how to be a better employee.
+Right now, she’s also helping me to archive my [travel posts](/travel-stories). And, indirectly, Jenny is teaching me what it means to be an employer, and with that, how to be a better employee.
 
 ### Words of a Poem I’m Pondering
 

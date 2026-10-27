@@ -21,7 +21,7 @@ export const site = {
   ],
   archive: [
     { href: "/tsop", label: "The Spin-Off Project" },
-    { href: "/travel-archives", label: "Travel Stories" },
+    { href: "/travel-stories", label: "Travel Stories" },
     { href: "/letters", label: "Letters" },
   ],
   profiles: [

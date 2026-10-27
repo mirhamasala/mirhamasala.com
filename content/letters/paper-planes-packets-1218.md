@@ -46,9 +46,9 @@ Along with the past year review, [artist dates](/letters/paper-planes-packets-10
 
 ## Words
 
-I updated my [Travel Archives](/travel-archives) with stories and recommendations for [Japan](/travel-archives#japan) · [Tokyo](/travel-archives#tokyo) and [Sri Lanka](/travel-archives#sri-lanka) · [Colombo](/travel-archives#colombo).
+I updated my [Travel Archives](/travel-stories) with stories and recommendations for [Japan](/travel-stories#japan) · [Tokyo](/travel-stories#tokyo) and [Sri Lanka](/travel-stories#sri-lanka) · [Colombo](/travel-stories#colombo).
 
-If you only have time for one story, make it [#456](/travel-archives#456) or [#437](/travel-archives#437).
+If you only have time for one story, make it [#456](/travel-stories/456) or [#437](/travel-stories/437).
 
 And, if you missed last month’s letter, you can now also catch it on the blog [Self-Care](/letters/paper-planes-packets-1118).
 

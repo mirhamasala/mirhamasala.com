@@ -18,32 +18,32 @@ const places = [
   {
     name: "Tel Aviv and Jerusalem",
     when: "June – July 2015",
-    href: "/travel-archives#israel",
+    href: "/travel-stories#israel",
   },
   {
     name: "Sydney",
     when: "May 2016, August 2017",
-    href: "/travel-archives#sydney",
+    href: "/travel-stories#sydney",
   },
   {
     name: "Kalpitiya and Colombo, Sri Lanka",
     when: "June – August 2016",
-    href: "/travel-archives#sri-lanka",
+    href: "/travel-stories#sri-lanka",
   },
   {
     name: "Sarajevo",
     when: "October – November 2016",
-    href: "/travel-archives#sarajevo",
+    href: "/travel-stories#sarajevo",
   },
   {
     name: "Tokyo",
     when: "November – December 2016",
-    href: "/travel-archives#tokyo",
+    href: "/travel-stories#tokyo",
   },
   {
     name: "Rusutsu, Japan",
     when: "February 2017",
-    href: "/travel-archives#japan",
+    href: "/travel-stories#japan",
   },
 ];
 
@@ -106,8 +106,8 @@ export default async function ArchivePage() {
         </ArchiveEntry>
 
         <ArchiveEntry years="2015 – 2017" titleId="travel">
-          <SectionTitle href="/travel-archives" id="travel">
-            Travel Archives
+          <SectionTitle href="/travel-stories" id="travel" published>
+            Travel Stories
           </SectionTitle>
           <p className="mt-6 max-w-[36rem] font-serif text-[1.3125rem] leading-[1.55] text-pretty text-slate-600">
             Travel stories, photographs and recommendations originally published
@@ -124,7 +124,6 @@ export default async function ArchivePage() {
               <li key={place.href}>
                 <Link
                   href={place.href}
-                  prefetch={false}
                   className="grid grid-cols-1 gap-x-6 py-[0.45rem] no-underline min-[30rem]:grid-cols-[minmax(0,1fr)_auto] min-[30rem]:items-baseline"
                 >
                   <span className="font-serif text-[1.375rem] text-slate-950 underline decoration-slate-300 decoration-[2px] underline-offset-[8px] hover:decoration-slate-950 focus-visible:decoration-slate-950">
