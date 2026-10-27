@@ -1,3 +1,4 @@
+import GithubSlugger from "github-slugger";
 import Link from "next/link";
 import Markdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -247,6 +248,15 @@ const letterComponents: Components = {
       />
     );
   },
+  h4: ({ node, ...props }) => {
+    void node;
+    return (
+      <h4
+        className="mt-8 font-serif text-[1.2rem] leading-snug md:text-[1.3rem]"
+        {...props}
+      />
+    );
+  },
   hr: ({ node, ...props }) => {
     void node;
     return (
@@ -258,10 +268,62 @@ const letterComponents: Components = {
   },
 };
 
+type MarkdownTree = {
+  type: string;
+  value?: string;
+  children?: MarkdownTree[];
+  data?: { hProperties?: { id?: string } };
+};
+
+function markdownText(node: MarkdownTree): string {
+  if (node.type === "text" || node.type === "inlineCode") {
+    return node.value ?? "";
+  }
+  return (node.children ?? []).map(markdownText).join("");
+}
+
+/** Heading ids match the legacy site, so existing in-article links still land. */
+function remarkHeadingIds() {
+  return (tree: MarkdownTree) => {
+    const slugger = new GithubSlugger();
+
+    const walk = (node: MarkdownTree) => {
+      if (node.type === "heading") {
+        const explicit = markdownText(node).match(/ \{#([A-Za-z0-9-]+)\}$/);
+        let id: string;
+        if (explicit?.[1]) {
+          id = explicit[1];
+          const children = node.children ?? [];
+          for (let index = children.length - 1; index >= 0; index -= 1) {
+            const child = children[index];
+            if (child?.type === "text" && child.value) {
+              child.value = child.value.replace(/ \{#[A-Za-z0-9-]+\}$/, "");
+              break;
+            }
+          }
+          slugger.occurrences[id] = 0;
+        } else {
+          id = slugger.slug(markdownText(node));
+        }
+        node.data ??= {};
+        node.data.hProperties ??= {};
+        node.data.hProperties.id = id;
+      }
+
+      for (const child of node.children ?? []) walk(child);
+    };
+
+    walk(tree);
+  };
+}
+
 export function LetterMarkdownContent({ source }: { source: string }) {
   return (
     <div className="[&_.footnotes]:mt-16 [&_.footnotes]:border-t [&_.footnotes]:border-slate-300 [&_.footnotes]:pt-8 [&_hr+*]:mt-0 [&_img]:h-auto [&_img]:w-full [&_sup]:text-[1rem]">
-      <Markdown remarkPlugins={[remarkGfm]} components={letterComponents}>
+      <Markdown
+        remarkPlugins={[remarkGfm, remarkHeadingIds]}
+        components={letterComponents}
+      >
         {source}
       </Markdown>
     </div>

@@ -2,21 +2,23 @@ import { AxeBuilder } from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 import { getBooks } from "@/lib/books";
 import { getLetters } from "@/lib/letters";
+import { getPosts } from "@/lib/posts";
 import { getRecipes } from "@/lib/recipes";
 
 const recipes = await getRecipes();
 const books = await getBooks();
 const letters = await getLetters();
+const posts = await getPosts();
 
 const pages = [
   { path: "/", status: 200 },
   { path: "/about", status: 200, heading: /Hi, I’m Mirha\./ },
   { path: "/posts", status: 200, heading: "Writing" },
-  {
-    path: "/posts/pipeline-fixture",
+  ...posts.map((post) => ({
+    path: `/posts/${post.slug}`,
     status: 200,
-    heading: "Pipeline fixture",
-  },
+    heading: post.title,
+  })),
   { path: "/recipes", status: 200, heading: "What I keep making." },
   ...recipes.map((recipe) => ({
     path: `/recipes/${recipe.slug}`,
@@ -169,13 +171,18 @@ test.describe("smoke", () => {
 
     await page.getByRole("link", { name: "Writing" }).last().click();
     await expect(page).toHaveURL(/\/posts$/);
-    await page.getByRole("link", { name: "Pipeline fixture" }).click();
-    await expect(page).toHaveURL(/\/posts\/pipeline-fixture$/);
+    await page.getByRole("link", { name: "Slow Coffee" }).click();
+    await expect(page).toHaveURL(/\/posts\/slow-coffee$/);
     await expect(
-      page.getByRole("heading", { level: 1, name: "Pipeline fixture" }),
+      page.getByRole("heading", { level: 1, name: "Slow Coffee" }),
     ).toBeVisible();
-    const externalLink = page.getByRole("link", { name: "external link" });
-    await expect(externalLink).toHaveAttribute("href", "https://nextjs.org");
+    const externalLink = page.getByRole("link", {
+      name: "The New Rules of Coffee",
+    });
+    await expect(externalLink).toHaveAttribute(
+      "href",
+      "https://www.amazon.com/dp/0399581626/",
+    );
     await expect(externalLink.locator('[aria-hidden="true"]')).toHaveText("↗");
 
     await page.getByRole("link", { name: "Mirha Masala" }).click();
@@ -244,10 +251,7 @@ test.describe("letter pages", () => {
 
   test("the archive links to a letter", async ({ page }) => {
     await page.goto("/archive");
-    await page
-      .getByRole("main")
-      .getByRole("link", { name: "Letters" })
-      .click();
+    await page.getByRole("main").getByRole("link", { name: "Letters" }).click();
 
     await expect(page).toHaveURL(/\/letters$/);
     await expect(

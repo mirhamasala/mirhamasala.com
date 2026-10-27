@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArchiveEyebrow } from "@/components/archive-eyebrow";
 import { DisplayTitle } from "@/components/display-title";
-import { formatLetterDate, getLetter, getLetters } from "@/lib/letters";
+import { formatLongDate } from "@/lib/format-date";
+import { getLetter, getLetters } from "@/lib/letters";
 import { LetterMarkdownContent } from "@/lib/markdown";
 
 export const dynamicParams = false;
@@ -45,7 +46,7 @@ export default async function LetterPage({
               dateTime={letter.date}
               className="text-[1rem] leading-snug text-slate-950"
             >
-              {formatLetterDate(letter.date)}
+              {formatLongDate(letter.date)}
             </time>
           </div>
         </div>

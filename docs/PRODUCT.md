@@ -32,6 +32,8 @@ A central idea behind the rebuild is:
 - Its URLs remain `/posts` and `/posts/<slug>`.
 - A migrated article keeps its original slug so existing links to `/posts/<slug>` continue to work.
 - The Writing index should be primarily typography-led rather than a grid of image cards.
+- The index is a reading list grouped by year, with a title, date, and short description.
+- An article uses the same reading layout as a letter for now.
 - Articles should prioritize excellent reading typography and minimal surrounding interface.
 - Images should be used deliberately; an article does not need an image merely to fit a template.
 - Related writing may appear at the end of an article.

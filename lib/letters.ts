@@ -17,11 +17,6 @@ export type Letter = z.infer<typeof frontmatterSchema> & {
   body: string;
 };
 
-const letterDateFormat = new Intl.DateTimeFormat("en-US", {
-  dateStyle: "long",
-  timeZone: "UTC",
-});
-
 function parseLetter(slug: string, source: string): Letter {
   const file = `content/letters/${slug}.md`;
   const match = FRONTMATTER.exec(source);
@@ -61,9 +56,4 @@ export async function getLetters(): Promise<Letter[]> {
 
 export async function getLetter(slug: string): Promise<Letter | undefined> {
   return (await getLetters()).find((letter) => letter.slug === slug);
-}
-
-/** Long date in UTC, so a `YYYY-MM-DD` value stays on that calendar day. */
-export function formatLetterDate(date: string): string {
-  return letterDateFormat.format(new Date(`${date}T00:00:00Z`));
 }

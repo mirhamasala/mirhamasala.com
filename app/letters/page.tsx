@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArchiveEyebrow } from "@/components/archive-eyebrow";
-import { formatLetterDate, getLetters, type Letter } from "@/lib/letters";
+import { formatLongDate } from "@/lib/format-date";
+import { getLetters, type Letter } from "@/lib/letters";
 
 export const metadata: Metadata = {
   title: "Letters",
@@ -50,7 +51,7 @@ export default async function LettersPage() {
                           dateTime={letter.date}
                           className="mt-3 block text-[1rem] leading-snug text-slate-600"
                         >
-                          {formatLetterDate(letter.date)}
+                          {formatLongDate(letter.date)}
                         </time>
                         <p className="mt-3 font-serif text-[1.05rem] leading-[1.45] text-slate-600 md:mt-4 md:text-[1.15rem]">
                           {letter.description}

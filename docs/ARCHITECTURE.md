@@ -42,7 +42,9 @@ Lift each hold when `eslint-config-next` supports the newer version.
 - `featured: true` marks an article for Featured writing. Selection is always explicit, never inferred from recency.
 - `draft: true` articles are excluded from every generated page and from the sitemap.
 - Markdown is rendered to React elements with `react-markdown` and `remark-gfm` (GFM, mainly for footnotes and tables). There is no HTML-string rendering, and raw HTML inside Markdown is not rendered.
-- `content/posts/pipeline-fixture.md` is a temporary fixture that only proves the pipeline and the `/posts/[slug]` route. Delete it in the same change that migrates the first real article, and point `e2e/smoke.spec.ts` at that article.
+- Article and letter headings get ids from `github-slugger` 2.0.0, the version the legacy site used, so existing in-article links still land.
+- Article images and the knitting-club PDF are static files at `public/posts/<slug>/`, referenced from Markdown, the same way the letter photograph is. This does not decide image dimensions or whether articles use `next/image`.
+- Place lists inside articles are Markdown. The legacy map is not part of this migration, and Places stays undecided.
 - `content/posts/draft-fixture.md` is a permanent `draft: true` fixture. It gives the browser suite a known draft to prove drafts stay unpublished.
 - Recipes are plain Markdown at `content/recipes/<slug>.md`, with the filename
   as the slug. Their strict YAML schema is `title`, `description`, `date`
@@ -96,10 +98,11 @@ Legacy URLs are preserved where the content returns. When a URL changes, it gets
 
 Inventory of the legacy site's public URLs (tag `pre-redesign-2026`):
 
-- `/`, `/about`, `/posts`, and `/posts/<slug>` keep their paths. Legacy articles return at their original slug as they are migrated; until then they 404.
+- `/`, `/about`, `/posts`, and `/posts/<slug>` keep their paths. The legacy Writing articles are at their original slugs.
 - `/all-posts` redirects to `/posts`, as it did on the legacy site.
-- The legacy site redirected root-level article slugs (`/<slug>`) to `/posts/<slug>`. Restore each of these, pointing directly at `/posts/<slug>`, in the same change that migrates that article.
-- One legacy slug, `the-knitting-club-%c2%b7-the-ladies-we-need-to-talk-chapter`, contains an encoded middle dot. Decide whether it keeps that slug when it is migrated.
+- Published articles restore their legacy root aliases (`/<slug>` → `/posts/<slug>`). Drafts are not given root aliases, including `/we-need-to-talk-about-me`. `/amsterdam-favorites` has no article and is not redirected. Two published articles never had a root alias (`all-my-amsterdam-memories-gather-round-food`, `morphing-into-motherhood`) and still do not.
+- The legacy slug `the-knitting-club-%c2%b7-the-ladies-we-need-to-talk-chapter` keeps that encoded middle dot. The article is a draft.
+- Article files that were at `/pages/posts/<slug>/<file>` redirect to `/posts/<slug>/<file>`.
 - Recipes keep their legacy `/recipes` and `/recipes/<slug>` URLs.
 - `/books` and `/books/<slug>` are new. The reading-list essay stays at `/posts/read-100-books` when that article is migrated. It does not redirect to `/books`.
 - Letters keep `/letters` and `/letters/<slug>`. `/paper-planes-packets` redirects to `/letters`. Each legacy root-level letter slug redirects to `/letters/<slug>`. Four letters never had a root alias (`here-comes-the-hulk-050623`, `jobless-but-balanced-070823`, `life-escaping-life-091023`, `lost-on-mars-111223`) and get none. The photograph that was at `/pages/letters/life-escaping-life-091023/parents-dylan-g-walking-beach-sunset.jpg` redirects to `/letters/life-escaping-life-091023/parents-dylan-g-walking-beach-sunset.jpg`.
@@ -156,6 +159,7 @@ lib/
   recipes.ts          # read, parse, validate, sort
   books.ts            # read, parse, validate, sort
   letters.ts          # read, parse, validate, sort
+  format-date.ts      # long calendar dates
   redirects.ts        # legacy URLs that permanently redirect
   markdown.tsx        # Markdown rendering and element mapping
   site.ts             # site name, URL, indexability, navigation, profiles
@@ -173,7 +177,7 @@ There is no `src/` folder. Shared chrome lives in `components/`.
 
 ## Dependencies
 
-- Runtime: `next`, `react`, `react-dom`, `react-markdown`, `remark-gfm`, `yaml`, `zod`
+- Runtime: `next`, `react`, `react-dom`, `react-markdown`, `remark-gfm`, `github-slugger`, `yaml`, `zod`
 - Dev: `typescript`, `@types/node`, `@types/react`, `@types/react-dom`, `tailwindcss`, `@tailwindcss/postcss`, `@tailwindcss/typography`, `eslint`, `eslint-config-next`, `prettier`, `prettier-plugin-tailwindcss`, `@playwright/test`, `@axe-core/playwright`
 
 Any new runtime dependency or significant tooling dependency should have a concrete requirement, with the decision and rationale recorded here in the same change.
@@ -203,7 +207,7 @@ Playwright and axe check the rendered site so the verifier can test it after imp
 
 Technical questions only. Product-level open questions live in `docs/PRODUCT.md` under "Not yet decided". Decide these against real pages and content, not in advance:
 
-- Article images: where they live, how their dimensions are known, and whether to use `next/image` optimization or plain pre-sized images
+- Article images: how their dimensions are known, and whether to use `next/image` optimization or plain pre-sized images. This migration uses static files at `public/posts/<slug>/`.
 - Whether the typography plugin stays or is replaced by custom styles
 - How an article moves out of Writing, and how that article is represented. `/archive` presents The Spin-Off Project, Travel Archives, and Letters. Links to an archived article's `/posts/<slug>` URL must keep working.
 - How related writing, and collections other than Recipes and Books, are represented in content
