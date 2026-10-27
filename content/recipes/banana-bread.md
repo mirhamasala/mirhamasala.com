@@ -2,6 +2,7 @@
 title: Banana Bread
 description: A simple banana bread recipe with just the right amount of sweetness.
 date: 2023-03-14
+category: Bakes
 ---
 
 Pretty much the only cake we make once in a while. An operation made plenty sweeter now that Dylan mashes the bananas.

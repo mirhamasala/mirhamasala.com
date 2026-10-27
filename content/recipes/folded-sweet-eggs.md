@@ -2,6 +2,7 @@
 title: Folded Sweet Eggs
 description: Turning eggs into fluffy, folded sweet eggs. For breakfast or whenever.
 date: 2021-11-19
+category: Breakfast
 ---
 
 G and I tried this recipe for the first time in Ericeira, Portugal. We liked it so much that we immediately made it again. It reminds me of the Japanese rolled omelet, called _tamagoyaki_, often served over sushi rice. Best with a glass of cold, raw milk.

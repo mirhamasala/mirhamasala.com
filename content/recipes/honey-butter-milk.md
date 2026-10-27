@@ -2,6 +2,7 @@
 title: Honey Butter Milk
 description: A drink that I used to look forward to when I was sick as a kid turned into a breakfast staple.
 date: 2021-11-19
+category: Drinks
 ---
 
 My mom always made this when I had a cold as a kid. Nowadays, G and I have it for breakfast and sometimes after a light dinner. I like mine hot. G prefers his warm to preserve more of the nutrients in raw milk.

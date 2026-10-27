@@ -82,9 +82,10 @@ Books, Recipes, and Places are listed in the footer. Collections is a label for 
 ### Recipes
 
 Recipes is a small, permanent collection at `/recipes`. It contains recipes
-the author makes often enough to want to keep and share. The index and
-individual recipe pages are typography-led, practical, and free of card-grid
-or food-blog chrome. Conventions for writing one are in `docs/recipe-style.md`.
+the author makes often enough to want to keep and share. Each recipe belongs
+to one category. The index and individual recipe pages are typography-led,
+practical, and free of card-grid or food-blog chrome. Conventions for writing
+one are in `docs/recipe-style.md`.
 
 ### Books
 

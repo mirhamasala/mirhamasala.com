@@ -2,6 +2,7 @@
 title: Rum Hot Toddy
 description: A winter warmer with rum, honey, and lemon. Add more rum if you still feel cold.
 date: 2023-11-27
+category: Drinks
 serves: "1"
 time: 5 minutes
 ---

@@ -67,6 +67,7 @@ A garnish or a second use that is its own amount gets its own row. A substitutio
 
 - `title` is the name of the dish.
 - `description` is a sentence or two in the recipe's own voice. It sits under the title.
+- `category` is one of Breakfast, Mains, Soups, Sides, Bakes, Desserts, Drinks, Kitchen Basics, or Home & Body.
 - `serves`, when the recipe actually states a count, is a numeral: `1`, `4`.
 - `time`, when the recipe actually states one, is a short phrase: `5 minutes`.
 

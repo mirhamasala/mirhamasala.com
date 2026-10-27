@@ -6,10 +6,24 @@ import { z } from "zod";
 const RECIPES_DIR = path.join(process.cwd(), "content", "recipes");
 const FRONTMATTER = /^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/;
 
+/** Closed set of recipe categories, in index order. */
+export const recipeCategories = [
+  "Breakfast",
+  "Mains",
+  "Soups",
+  "Sides",
+  "Bakes",
+  "Desserts",
+  "Drinks",
+  "Kitchen Basics",
+  "Home & Body",
+] as const;
+
 const frontmatterSchema = z.strictObject({
   title: z.string().min(1),
   description: z.string().min(1),
   date: z.iso.date(),
+  category: z.enum(recipeCategories),
   serves: z.string().min(1).optional(),
   time: z.string().min(1).optional(),
 });

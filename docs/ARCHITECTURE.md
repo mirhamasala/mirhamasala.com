@@ -48,8 +48,10 @@ Lift each hold when `eslint-config-next` supports the newer version.
 - `content/posts/draft-fixture.md` is a permanent `draft: true` fixture. It gives the browser suite a known draft to prove drafts stay unpublished.
 - Recipes are plain Markdown at `content/recipes/<slug>.md`, with the filename
   as the slug. Their strict YAML schema is `title`, `description`, `date`
-  (`YYYY-MM-DD`), optional `serves`, and optional `time`. Ingredient tables
-  use portable GFM table syntax; recipe prose does not contain JSX or raw HTML.
+  (`YYYY-MM-DD`), `category`, optional `serves`, and optional `time`.
+  `category` is one of the groups in `recipeCategories` in `lib/recipes.ts`.
+  Unknown fields fail the build. Ingredient tables use portable GFM table
+  syntax; recipe prose does not contain JSX or raw HTML.
 - Books are plain Markdown at `content/books/<slug>.md`, with the filename as
   the slug. Schema: `title`, `author`, `description`, `topic`, `number`,
   `url`, optional `subtitle`, optional `recommend`, optional `why`, and
