@@ -1,0 +1,58 @@
+---
+title: Home Stretch
+description: I’m back in Singapore, easing into my days with mini yoga sessions and home-brewed slow coffees.
+date: 2019-09-30
+---
+
+Hi, All!
+
+**How are you?** 🐼
+
+I’m back in Singapore, easing into my days with mini yoga sessions and home-brewed [slow coffees](/posts/slow-coffee/).
+
+Three months until the new year, the home stretch feeling has kicked in.
+
+Now is the time that I revisit my decisions and goals for 2019 and look to complete what’s left.
+
+As I tend to gravitate towards new pursuits, I set a rule to keep me from sabotaging myself.
+
+It’s a simple rule: _Anything new goes on the 2020 wishlist._
+
+_Focus_ is the word I’ll be meditating on.
+
+Focus, and slow down. Focus, to slow down.
+
+## Birthday Reflections
+
+As promised, here are my answers to the questions I asked you in my [previous letter](/letters/paper-planes-packets-0819/).
+
+### What I’m Grateful for
+
+☕️ For rediscovering lazy Sundays and breakfasts in bed.
+
+### What I Fear
+
+🐚 I fear spending too little time doing nothing and not enough time in nature and with the people I love.
+
+### What I’ve Been Putting off
+
+📱 Ever since I did my [photography spin-off](/tsop/posts/photographer-month), I’ve meant to improve my Photoshop skills and use my DSLR camera more often. This _wanting_ has been going on for two years. And it’s not happening. What I’ve been putting off is not taking photos, though–but accepting that I can’t _also_ be a professional photographer. Thus, I decided it was time to sell my gear and own up being an iPhone photographer. I’m both relieved and ecstatic.
+
+### What I’m Reading
+
+📓 [The New Rules of Coffee](/posts/slow-coffee#-books-and-guides) by Jordan Michelman & Zachary Carlsen and [Invisible Women](/posts/favorite-things-2019#the-book-i-recommended-most-often) by Caroline Criado Perez. I’m reading the latter for the second time, and I’m quite sure it’ll earn a spot on my [Favorite Things of 2019](/posts/favorite-things-2019) list.
+
+I also just started listening to [Radical Self-Acceptance](https://www.amazon.com/dp/B001N0OZUW/) by Tara Brach. It’s a book that I’ve abandoned at least twice in print form. It’s also a persistent book that keeps knocking on. Well, I’m listening now.
+
+### What Inspires Me
+
+🖋 For the past few weeks, I’ve been using my iPad and Apple Pencil to write, take notes, keep a gratitude journal, and some. The act of doodling and scribbling and watching my handwriting appear on an electronic screen (and the realization of the technology behind it) has been fueling my creativity.
+
+### Quote That’s Been On My Mind
+
+> Almost everything will work again if you unplug it for a few minutes, including you. –Anne Lamott
+
+Stand tall,\
+With love,\
+Mirha\
+⛰

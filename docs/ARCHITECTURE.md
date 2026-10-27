@@ -57,13 +57,19 @@ Lift each hold when `eslint-config-next` supports the newer version.
   `recommend: true` marks a book for the opening "Start with these" list.
   `why`, when present, is one line on why it stuck. `format: audio` records an
   audiobook. Unknown fields fail the build. The body is the notes.
+- Letters are plain Markdown at `content/letters/<slug>.md`, with the filename
+  as the slug. Schema: `title`, `description`, and `date` (`YYYY-MM-DD`).
+  Unknown fields fail the build. The body is the letter. One letter includes a
+  static photograph at `public/letters/`; that does not decide how article
+  images work.
 
 ## Metadata and indexing
 
 Use the built-in Next.js features: the `metadata` export and `generateMetadata`, `metadataBase`, `app/sitemap.ts`, `app/robots.ts`, and `next/font`. No SEO libraries.
 
 Every indexable route class (`/`, `/about`, `/posts`, `/posts/[slug]`,
-`/recipes`, `/recipes/[slug]`, `/books`, `/books/[slug]`) provides:
+`/recipes`, `/recipes/[slug]`, `/books`, `/books/[slug]`, `/archive`,
+`/letters`, `/letters/[slug]`) provides:
 
 - a meaningful title (the root layout's title template adds the site name)
 - a description specific to that page and drawn from its content (articles use their frontmatter `description`)
@@ -79,7 +85,7 @@ Vercel preview and development deployments (`VERCEL_ENV` other than `production`
 
 ## Sitemap and robots
 
-- `sitemap.xml` lists every indexable canonical URL: the static pages and every published article, recipe, and book.
+- `sitemap.xml` lists every indexable canonical URL: the static pages and every published article, recipe, book, and letter.
 - Drafts, unknown routes, redirects, and noncanonical URLs are never listed.
 - Unknown and draft article slugs return 404. Next.js adds `noindex` to 404 responses.
 - `robots.txt` allows all crawling and references the absolute sitemap URL.
@@ -96,7 +102,8 @@ Inventory of the legacy site's public URLs (tag `pre-redesign-2026`):
 - One legacy slug, `the-knitting-club-%c2%b7-the-ladies-we-need-to-talk-chapter`, contains an encoded middle dot. Decide whether it keeps that slug when it is migrated.
 - Recipes keep their legacy `/recipes` and `/recipes/<slug>` URLs.
 - `/books` and `/books/<slug>` are new. The reading-list essay stays at `/posts/read-100-books` when that article is migrated. It does not redirect to `/books`.
-- Letters (`/letters`, `/letters/<slug>`, `/paper-planes-packets`, and root-level letter slugs), TSOP (`/tsop/...`), Moments (`/moments/...`), `/map`, `/resume`, `/travel-archives`, and `/dropbox` return 404 until `docs/PRODUCT.md` decides whether each section returns.
+- Letters keep `/letters` and `/letters/<slug>`. `/paper-planes-packets` redirects to `/letters`. Each legacy root-level letter slug redirects to `/letters/<slug>`. Four letters never had a root alias (`here-comes-the-hulk-050623`, `jobless-but-balanced-070823`, `life-escaping-life-091023`, `lost-on-mars-111223`) and get none. The photograph that was at `/pages/letters/life-escaping-life-091023/parents-dylan-g-walking-beach-sunset.jpg` redirects to `/letters/life-escaping-life-091023/parents-dylan-g-walking-beach-sunset.jpg`.
+- `/archive` lists archive sections that have returned. It currently lists Letters. TSOP (`/tsop/...`), Moments (`/moments/...`), `/map`, `/resume`, `/travel-archives`, and `/dropbox` return 404 until `docs/PRODUCT.md` decides whether each section returns.
 - The legacy feeds at `/rss/feed.xml` and `/rss/feed.json` return 404 until a feed is decided.
 
 ## Launch checks
@@ -127,7 +134,13 @@ app/
   books/
     page.tsx          # book index
     [slug]/page.tsx   # book
+  archive/
+    page.tsx          # archive section index
+  letters/
+    page.tsx          # letter index
+    [slug]/page.tsx   # letter
 components/
+  archive-eyebrow.tsx
   display-title.tsx
   external-link.tsx
   site-footer.tsx
@@ -137,10 +150,13 @@ content/
   posts/<slug>.md
   recipes/<slug>.md
   books/<slug>.md
+  letters/<slug>.md
 lib/
   posts.ts            # read, parse, validate, sort, exclude drafts
   recipes.ts          # read, parse, validate, sort
   books.ts            # read, parse, validate, sort
+  letters.ts          # read, parse, validate, sort
+  redirects.ts        # legacy URLs that permanently redirect
   markdown.tsx        # Markdown rendering and element mapping
   site.ts             # site name, URL, indexability, navigation, profiles
 public/
@@ -189,7 +205,7 @@ Technical questions only. Product-level open questions live in `docs/PRODUCT.md`
 
 - Article images: where they live, how their dimensions are known, and whether to use `next/image` optimization or plain pre-sized images
 - Whether the typography plugin stays or is replaced by custom styles
-- How archived articles are represented and the Archive's URL. Links to an archived article's `/posts/<slug>` URL must keep working.
+- How an article moves out of Writing, and how that article is represented. `/archive` is the index of returned archive sections, starting with Letters. Links to an archived article's `/posts/<slug>` URL must keep working.
 - How related writing, and collections other than Recipes and Books, are represented in content
 - Feed format, URL, and full text or excerpts, if a feed is added
 - Social preview images: static files or generated with `next/og`

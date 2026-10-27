@@ -1,5 +1,6 @@
 import { existsSync } from "node:fs";
 import { expect, test, type APIRequestContext } from "@playwright/test";
+import { legacyRedirects } from "@/lib/redirects";
 import { absoluteUrl, getIndexableRoutes } from "./routes";
 
 const routes = await getIndexableRoutes();
@@ -9,10 +10,11 @@ const unpublishedPaths = [
   "/posts/not-a-real-article",
   "/recipes/not-a-real-recipe",
   "/books/not-a-real-book",
+  "/letters/not-a-real-letter",
 ] as const;
 
 /** Permanent redirects from legacy URLs to their equivalent pages. */
-const redirects = [{ source: "/all-posts", destination: "/posts" }] as const;
+const redirects = legacyRedirects;
 
 async function getSitemapUrls(request: APIRequestContext) {
   const response = await request.get("/sitemap.xml");

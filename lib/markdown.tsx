@@ -10,7 +10,11 @@ function isExternalHref(href: string): href is `http${string}` {
 const components: Components = {
   a: ({ node, href = "", ...props }) => {
     void node;
-    if (href.startsWith("/")) return <Link href={href} {...props} />;
+    // Content still links to sections that have not returned. Prefetching
+    // those URLs logs a 404 on every page that renders the link.
+    if (href.startsWith("/")) {
+      return <Link href={href} {...props} prefetch={false} />;
+    }
     if (isExternalHref(href)) {
       return <ExternalLink href={href} {...props} />;
     }
@@ -133,11 +137,15 @@ const bookComponents: Components = {
 
     return <a href={href} className={bookLinkClassName} {...props} />;
   },
-  h2: ({ node, ...props }) => {
+  h2: ({ node, className, ...props }) => {
     void node;
     return (
       <h2
-        className="mt-16 font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase first:mt-0"
+        className={
+          className === "sr-only"
+            ? "sr-only"
+            : "mt-16 font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase first:mt-0"
+        }
         {...props}
       />
     );
@@ -225,6 +233,38 @@ export function BookMarkdownContent({ source }: { source: string }) {
     <Markdown remarkPlugins={[remarkGfm]} components={bookComponents}>
       {source}
     </Markdown>
+  );
+}
+
+const letterComponents: Components = {
+  ...bookComponents,
+  h3: ({ node, ...props }) => {
+    void node;
+    return (
+      <h3
+        className="mt-8 font-serif text-[1.35rem] leading-snug md:text-[1.5rem]"
+        {...props}
+      />
+    );
+  },
+  hr: ({ node, ...props }) => {
+    void node;
+    return (
+      <hr
+        className="my-12 border-0 border-t border-slate-300 md:my-16"
+        {...props}
+      />
+    );
+  },
+};
+
+export function LetterMarkdownContent({ source }: { source: string }) {
+  return (
+    <div className="[&_.footnotes]:mt-16 [&_.footnotes]:border-t [&_.footnotes]:border-slate-300 [&_.footnotes]:pt-8 [&_hr+*]:mt-0 [&_img]:h-auto [&_img]:w-full [&_sup]:text-[1rem]">
+      <Markdown remarkPlugins={[remarkGfm]} components={letterComponents}>
+        {source}
+      </Markdown>
+    </div>
   );
 }
 

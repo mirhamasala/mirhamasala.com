@@ -1,4 +1,5 @@
 import { getBooks } from "@/lib/books";
+import { getLetters } from "@/lib/letters";
 import { getPosts } from "@/lib/posts";
 import { getRecipes } from "@/lib/recipes";
 import { site } from "@/lib/site";
@@ -12,10 +13,11 @@ export type IndexableRoute = {
 
 /** Every indexable route: the static pages plus every published article. */
 export async function getIndexableRoutes(): Promise<IndexableRoute[]> {
-  const [posts, recipes, books] = await Promise.all([
+  const [posts, recipes, books, letters] = await Promise.all([
     getPosts(),
     getRecipes(),
     getBooks(),
+    getLetters(),
   ]);
 
   return [
@@ -53,6 +55,22 @@ export async function getIndexableRoutes(): Promise<IndexableRoute[]> {
       title: `${book.title} · ${site.name}`,
       heading: book.title,
       description: book.description,
+    })),
+    {
+      path: "/archive",
+      title: `Archive · ${site.name}`,
+      heading: "Archive",
+    },
+    {
+      path: "/letters",
+      title: `Letters · ${site.name}`,
+      heading: "Flying paper planes.",
+    },
+    ...letters.map((letter) => ({
+      path: `/letters/${letter.slug}`,
+      title: `${letter.title} · ${site.name}`,
+      heading: letter.title,
+      description: letter.description,
     })),
   ];
 }

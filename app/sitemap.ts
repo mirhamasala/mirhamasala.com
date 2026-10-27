@@ -1,14 +1,16 @@
 import type { MetadataRoute } from "next";
 import { getBooks } from "@/lib/books";
+import { getLetters } from "@/lib/letters";
 import { getPosts } from "@/lib/posts";
 import { getRecipes } from "@/lib/recipes";
 import { absoluteUrl } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [posts, recipes, books] = await Promise.all([
+  const [posts, recipes, books, letters] = await Promise.all([
     getPosts(),
     getRecipes(),
     getBooks(),
+    getLetters(),
   ]);
 
   return [
@@ -27,6 +29,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: absoluteUrl("/books") },
     ...books.map((book) => ({
       url: absoluteUrl(`/books/${book.slug}`),
+    })),
+    { url: absoluteUrl("/archive") },
+    { url: absoluteUrl("/letters") },
+    ...letters.map((letter) => ({
+      url: absoluteUrl(`/letters/${letter.slug}`),
+      lastModified: letter.date,
     })),
   ];
 }

@@ -1,10 +1,12 @@
 import { AxeBuilder } from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 import { getBooks } from "@/lib/books";
+import { getLetters } from "@/lib/letters";
 import { getRecipes } from "@/lib/recipes";
 
 const recipes = await getRecipes();
 const books = await getBooks();
+const letters = await getLetters();
 
 const pages = [
   { path: "/", status: 200 },
@@ -26,6 +28,13 @@ const pages = [
     path: `/books/${book.slug}`,
     status: 200,
     heading: book.title,
+  })),
+  { path: "/archive", status: 200, heading: "Archive" },
+  { path: "/letters", status: 200, heading: "Flying paper planes." },
+  ...letters.map((letter) => ({
+    path: `/letters/${letter.slug}`,
+    status: 200,
+    heading: letter.title,
   })),
   {
     // Unknown slugs are not pre-rendered. Next logs NoFallbackError and still
@@ -212,6 +221,40 @@ test.describe("book pages", () => {
     await expect(page).toHaveURL(/\/books\/four-thousand-weeks$/);
     await expect(
       page.getByRole("heading", { level: 1, name: "Four Thousand Weeks" }),
+    ).toBeVisible();
+  });
+});
+
+test.describe("letter pages", () => {
+  for (const path of [
+    "/archive",
+    "/letters",
+    "/letters/courage-again-091022",
+    "/letters/life-escaping-life-091023",
+  ]) {
+    test(`${path} has no horizontal overflow or undersized text`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+
+      await expectNoHorizontalOverflow(page);
+      await expectNoTextBelowOneRem(page);
+    });
+  }
+
+  test("the archive links to a letter", async ({ page }) => {
+    await page.goto("/archive");
+    await page.getByRole("link", { name: "Letters" }).click();
+
+    await expect(page).toHaveURL(/\/letters$/);
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Flying paper planes." }),
+    ).toBeVisible();
+
+    await page.getByRole("link", { name: /Courage Again/ }).click();
+    await expect(page).toHaveURL(/\/letters\/courage-again-091022$/);
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Courage Again" }),
     ).toBeVisible();
   });
 });

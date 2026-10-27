@@ -94,11 +94,15 @@ includes one line on why it stuck, shown under the title on the index.
 
 ### Archive
 
-The Archive holds writing the author has deliberately moved out of Writing. Moving a piece there is a manual editorial decision, never an automatic rule based on age.
+The Archive page at `/archive` lists sections that have returned outside Writing. It starts with Letters. Moving an individual article out of Writing is still a manual editorial decision, never an automatic rule based on age, and that mechanism is not built yet.
 
 Writing shows whatever is currently in Writing.
 
 The Archive should be useful and typography-led rather than presented as a large grid of interchangeable cards.
+
+### Letters
+
+Letters is the archive of letters sent from 2018 to 2023. The URLs are `/letters` and `/letters/<slug>`. The index is a reading list grouped by year, with a title, date, and short description. There is no signup.
 
 ## Experience and visual direction
 
@@ -145,6 +149,7 @@ Search visibility should help people discover writing worth reading without shap
 - Articles are plain text files in the repository, written and edited by the author.
 - Recipes are also plain text files in the repository.
 - Books are also plain text files in the repository.
+- Letters are also plain text files in the repository.
 - There is no CMS, admin interface, or database.
 - An article can be kept as a draft. Drafts are never published.
 
@@ -154,7 +159,7 @@ Search visibility should help people discover writing worth reading without shap
 - The previous implementation is archived in Git and is not the basis for the new product or design.
 - Existing material returns selectively, one piece at a time. Not everything needs to return.
 - Migrated articles may be adapted to the new content format without preserving their old implementation.
-- Recipes returns as a deliberately small collection. Books returns as the notes kept from the reading list. Other old sections such as Letters, Moments, TSOP, Map, travel archives, and résumé have no automatic commitment to return.
+- Recipes returns as a deliberately small collection. Books returns as the notes kept from the reading list. Letters returns as the letters sent from 2018 to 2023, at `/letters`. Other old sections such as Moments, TSOP, Map, travel archives, and résumé have no automatic commitment to return.
 - Books, Recipes, Places, or similar collection areas should not automatically become primary navigation items.
 - Until content is migrated, some old URLs may return 404. This is accepted.
 
@@ -175,4 +180,4 @@ Prefer the former.
 - Social preview image strategy
 - Analytics
 - Tags, categories, or other additional ways to browse Writing
-- Which remaining legacy sections outside Writing, Recipes, and Books return, and therefore which of their URLs get redirects (see "URL migration" in `docs/ARCHITECTURE.md`)
+- Which remaining legacy sections outside Writing, Recipes, Books, and Letters return, and therefore which of their URLs get redirects (see "URL migration" in `docs/ARCHITECTURE.md`)

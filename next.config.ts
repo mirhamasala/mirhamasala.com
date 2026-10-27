@@ -1,8 +1,12 @@
 import type { NextConfig } from "next";
+import { legacyRedirects } from "./lib/redirects";
 
 const nextConfig: NextConfig = {
   async redirects() {
-    return [{ source: "/all-posts", destination: "/posts", permanent: true }];
+    return legacyRedirects.map((redirect) => ({
+      ...redirect,
+      permanent: true,
+    }));
   },
 };
 

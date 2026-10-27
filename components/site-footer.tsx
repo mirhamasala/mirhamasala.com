@@ -5,8 +5,6 @@ import { site } from "@/lib/site";
 const linkClassName =
   "underline decoration-transparent hover:decoration-current focus-visible:decoration-current motion-safe:transition";
 
-const footerLinks = [...site.nav, site.archive];
-
 // Pages that are not built yet must not be prefetched. A prefetched 404
 // logs a console error on every page that includes the footer.
 const publishedPaths = new Set<string>([
@@ -14,6 +12,7 @@ const publishedPaths = new Set<string>([
   "/about",
   "/recipes",
   "/books",
+  "/letters",
 ]);
 
 function FooterLink({ href, label }: { href: string; label: string }) {
@@ -25,6 +24,34 @@ function FooterLink({ href, label }: { href: string; label: string }) {
     >
       {label}
     </Link>
+  );
+}
+
+function FooterGroup({
+  id,
+  label,
+  links,
+}: {
+  id: string;
+  label: string;
+  links: readonly { href: string; label: string }[];
+}) {
+  return (
+    <div className="shrink-0 text-[1rem] leading-snug">
+      <p
+        id={id}
+        className="font-medium tracking-wide text-slate-600 uppercase"
+      >
+        {label}
+      </p>
+      <ul aria-labelledby={id} className="mt-5 grid gap-3 text-slate-950">
+        {links.map(({ href, label: linkLabel }) => (
+          <li key={href}>
+            <FooterLink href={href} label={linkLabel} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

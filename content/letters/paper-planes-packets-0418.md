@@ -1,0 +1,42 @@
+---
+title: Fear
+description: I just came back home from two weeks of yoga and surfing in Sri Lanka.
+date: 2018-04-01
+---
+
+Hi, All!
+
+**How have you been?**
+
+I just came back home from two weeks of yoga and surfing in Sri Lanka. It was precisely what I wished for after two months of coding: a shitty internet connection and a focus on my body rather than my brain.
+
+Tomorrow though, I’m getting back to coding. And I won’t lie. I’m scared. Scared of being overwhelmed. Afraid to find out I know nothing.
+
+Fear seems to be following me around lately.
+
+Right after the coding bootcamp, I had to dare myself to shoot street portraits again. One stranger in and my fear disappeared, at least for an afternoon.
+
+In Sri Lanka, I faced my old fear of waves. And I started chasing the bigger ones at the end of my trip. I still hear myself saying to another surfer: “Just because I’m afraid, doesn’t mean I’m not brave.”
+
+I’ll hold on to that tomorrow. I’ll let myself be afraid and then do what I need to do anyway. But it doesn’t mean I’m not scared.
+
+## Words
+
+I have a new post up: [Beautiful Stranger](/posts/beautiful-stranger). It’s a story about facing fear, inspired by my dare to ask strangers in Canggu (Bali) if I could take their portrait. Here’s how it starts:
+
+> I saw him from a distance. His amber-blonde curls and sun-painted face drew me in. His freckles made him look older than he was, I observed. Australian, I guessed.
+
+In the same post, you’ll also find a before and after version of a photograph that I edited following a photo retouching class.
+
+## Code
+
+The final coding project I did with my team during the bootcamp: ~~Waterfall~~. It’s an app that allows you to create charts simply.
+
+## Quote I’m Pondering
+
+> The scariest moment is always just before you start. –Stephen King, [On Writing](/posts/read-100-books#44-on-writing)
+
+Much love,\
+Mirha
+
+P.S. You can now also [forward this email to a friend](http://us3.forward-to-friend.com/forward?u=b39d94447fc443788a5295725&id=6102c2d73c&e=[UNIQID]) 🚀
