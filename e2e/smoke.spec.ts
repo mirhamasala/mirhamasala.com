@@ -65,7 +65,7 @@ const pages = [
     // responds with this not-found page.
     path: "/posts/not-a-real-article",
     status: 404,
-    heading: "Page not found",
+    heading: "Nothing here.",
   },
 ] as const;
 
