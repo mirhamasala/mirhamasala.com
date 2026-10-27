@@ -95,6 +95,15 @@ Exact widths and spacing values live in the implementation.
 - Avoid excessive UI chrome: pills, badges, shadows, bordered cards, and decorative controls.
 - Interactive states should be clear but restrained.
 
+## Links
+
+- Links in prose are underlined. Navigation and index links may rely on context, with clear hover and focus states, and never on colour alone.
+- Link text describes the destination. Avoid "here", "this" or bare URLs.
+- All links open in the same tab, internal or external.
+- External links get no special icon or arrow.
+- A link that deliberately opens a new tab must say so, visually and to assistive technology (e.g. visually hidden "(opens in new tab)"). Decorative icons are hidden from screen readers.
+- Download links name the file type, e.g. "Reading list (PDF)".
+
 ## Styling
 
 - Tailwind CSS is the primary styling system.

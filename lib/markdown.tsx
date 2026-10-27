@@ -2,11 +2,13 @@ import GithubSlugger from "github-slugger";
 import Link from "next/link";
 import Markdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { ExternalLink } from "@/components/external-link";
 
 function isExternalHref(href: string): href is `http${string}` {
   return href.startsWith("http://") || href.startsWith("https://");
 }
+
+export const proseLinkClassName =
+  "not-italic underline decoration-1 decoration-slate-500 underline-offset-[0.22em] hover:decoration-current motion-safe:transition-[text-decoration-color] motion-safe:duration-150";
 
 const components: Components = {
   a: ({ node, href = "", ...props }) => {
@@ -17,7 +19,7 @@ const components: Components = {
       return <Link href={href} {...props} prefetch={false} />;
     }
     if (isExternalHref(href)) {
-      return <ExternalLink href={href} {...props} />;
+      return <a href={href} {...props} />;
     }
 
     return <a href={href} {...props} />;
@@ -91,17 +93,21 @@ const recipeComponents: Components = {
   },
   a: ({ node, href = "", ...props }) => {
     void node;
-    const className =
-      "underline decoration-slate-400 underline-offset-[0.18em] hover:decoration-current";
-
     if (href.startsWith("/")) {
-      return <Link href={href} className={className} {...props} />;
+      return (
+        <Link
+          href={href}
+          prefetch={false}
+          className={proseLinkClassName}
+          {...props}
+        />
+      );
     }
     if (isExternalHref(href)) {
-      return <ExternalLink href={href} className={className} {...props} />;
+      return <a href={href} className={proseLinkClassName} {...props} />;
     }
 
-    return <a href={href} className={className} {...props} />;
+    return <a href={href} className={proseLinkClassName} {...props} />;
   },
 };
 
@@ -113,9 +119,6 @@ export function RecipeMarkdownContent({ source }: { source: string }) {
   );
 }
 
-const bookLinkClassName =
-  "underline decoration-slate-400 underline-offset-[0.18em] hover:decoration-current";
-
 const bookComponents: Components = {
   ...components,
   a: ({ node, href = "", ...props }) => {
@@ -125,18 +128,16 @@ const bookComponents: Components = {
         <Link
           href={href}
           prefetch={false}
-          className={bookLinkClassName}
+          className={proseLinkClassName}
           {...props}
         />
       );
     }
     if (isExternalHref(href)) {
-      return (
-        <ExternalLink href={href} className={bookLinkClassName} {...props} />
-      );
+      return <a href={href} className={proseLinkClassName} {...props} />;
     }
 
-    return <a href={href} className={bookLinkClassName} {...props} />;
+    return <a href={href} className={proseLinkClassName} {...props} />;
   },
   h2: ({ node, className, ...props }) => {
     void node;

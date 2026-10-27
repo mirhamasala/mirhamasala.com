@@ -183,7 +183,8 @@ test.describe("smoke", () => {
       "href",
       "https://www.amazon.com/dp/0399581626/",
     );
-    await expect(externalLink.locator('[aria-hidden="true"]')).toHaveText("↗");
+    await expect(externalLink).not.toContainText("↗");
+    await expect(externalLink.locator('[aria-hidden="true"]')).toHaveCount(0);
 
     await page.getByRole("link", { name: "Mirha Masala" }).click();
     await expect(page).toHaveURL(/\/$/);

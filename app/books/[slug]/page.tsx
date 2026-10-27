@@ -3,7 +3,11 @@ import { notFound } from "next/navigation";
 import { DisplayTitle } from "@/components/display-title";
 import { ExternalLink } from "@/components/external-link";
 import { getBook, getBooks, splitLeadQuote } from "@/lib/books";
-import { BookLeadQuote, BookMarkdownContent } from "@/lib/markdown";
+import {
+  BookLeadQuote,
+  BookMarkdownContent,
+  proseLinkClassName,
+} from "@/lib/markdown";
 
 export const dynamicParams = false;
 
@@ -58,7 +62,7 @@ export default async function BookPage({ params }: PageProps<"/books/[slug]">) {
               <p className="mt-3">
                 <ExternalLink
                   href={book.url}
-                  className="text-[1rem] leading-snug underline decoration-slate-400 underline-offset-[0.15em] hover:decoration-slate-950"
+                  className={`text-[1rem] leading-snug ${proseLinkClassName}`}
                 >
                   Find this book
                 </ExternalLink>
