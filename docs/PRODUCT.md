@@ -99,7 +99,11 @@ includes one line on why it stuck, shown under the title on the index.
 
 The Spin-Off Project (`/tsop`), Travel Stories (`/travel-archives`), and Letters are listed in the footer, in that order. Archive is a label for that group, like Collections, and these links stay out of the primary navigation.
 
-The Archive page at `/archive` presents three groups, in the order they began: The Spin-Off Project, Travel Archives, and Letters. Letters links to `/letters`. The Spin-Off Project and Travel Archives are shown on this page; `/tsop` and `/travel-archives` still return 404 until those sections are built. Moving an individual article out of Writing is still a manual editorial decision, never an automatic rule based on age, and that mechanism is not built yet.
+The Archive page at `/archive` presents three groups, in the order they began: The Spin-Off Project, Travel Archives, and Letters. Letters links to `/letters`. The Spin-Off Project links to `/tsop`. Travel Archives is shown on this page; `/travel-archives` still returns 404 until that section is built. Moving an individual article out of Writing is still a manual editorial decision, never an automatic rule based on age, and that mechanism is not built yet.
+
+### The Spin-Off Project
+
+The Spin-Off Project is the archive of the twelve lifestyle experiments from 2012 to 2017, at `/tsop`. Posts stay at `/tsop/posts/<slug>`. About, the short bio, frequently asked questions, resources, now, and contact stay at `/tsop/<slug>`. The index is a reading list grouped by spin-off, then the bucket list. Whether to remove or redirect one of those section pages is not decided yet.
 
 Writing shows whatever is currently in Writing.
 
@@ -155,6 +159,7 @@ Search visibility should help people discover writing worth reading without shap
 - Recipes are also plain text files in the repository.
 - Books are also plain text files in the repository.
 - Letters are also plain text files in the repository.
+- Spin-Off Project posts and section pages are also plain text files in the repository.
 - There is no CMS, admin interface, or database.
 - An article can be kept as a draft. Drafts are never published.
 
@@ -164,7 +169,7 @@ Search visibility should help people discover writing worth reading without shap
 - The previous implementation is archived in Git and is not the basis for the new product or design.
 - Existing material returns selectively, one piece at a time. Not everything needs to return.
 - Migrated articles may be adapted to the new content format without preserving their old implementation.
-- Recipes returns as a deliberately small collection. Books returns as the notes kept from the reading list. Letters returns as the letters sent from 2018 to 2023, at `/letters`. Other old sections such as Moments, TSOP, Map, travel archives, and résumé have no automatic commitment to return.
+- Recipes returns as a deliberately small collection. Books returns as the notes kept from the reading list. Letters returns as the letters sent from 2018 to 2023, at `/letters`. The Spin-Off Project returns at `/tsop`. Other old sections such as Moments, Map, travel archives, and résumé have no automatic commitment to return.
 - Books, Recipes, Places, or similar collection areas should not automatically become primary navigation items.
 - Until content is migrated, some old URLs may return 404. This is accepted.
 
@@ -185,4 +190,5 @@ Prefer the former.
 - Social preview image strategy
 - Analytics
 - Tags, categories, or other additional ways to browse Writing
-- Which remaining legacy sections outside Writing, Recipes, Books, and Letters return, including The Spin-Off Project and Travel Stories named in the footer, and therefore which of their URLs get redirects (see "URL migration" in `docs/ARCHITECTURE.md`)
+- Which remaining legacy sections outside Writing, Recipes, Books, Letters, and The Spin-Off Project return, including Travel Stories named in the footer, and therefore which of their URLs get redirects (see "URL migration" in `docs/ARCHITECTURE.md`)
+- Whether any Spin-Off Project section page (`/tsop/about`, `/tsop/about-me`, `/tsop/faqs`, `/tsop/resources`, `/tsop/now`, `/tsop/contact`) is later removed or redirected

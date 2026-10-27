@@ -66,6 +66,14 @@ Lift each hold when `eslint-config-next` supports the newer version.
   Unknown fields fail the build. The body is the letter. One letter includes a
   static photograph at `public/letters/`; that does not decide how article
   images work.
+- Spin-Off Project posts are plain Markdown at `content/tsop/posts/<slug>.md`,
+  with the filename as the slug. Schema: `title`, `description`, `date`
+  (`YYYY-MM-DD`), and `spinOff`. `spinOff` is one of the twelve ids in
+  `spinOffs` in `lib/tsop.ts`, or `bucket-list`. Section pages are plain
+  Markdown at `content/tsop/<slug>.md`, with `title`, `description`, and
+  `date`, and no `spinOff`. Unknown fields fail the build. Images are static
+  files at `public/tsop/`, referenced from Markdown. This does not decide
+  image dimensions or whether those images use `next/image`.
 
 ## Metadata and indexing
 
@@ -73,7 +81,8 @@ Use the built-in Next.js features: the `metadata` export and `generateMetadata`,
 
 Every indexable route class (`/`, `/about`, `/posts`, `/posts/[slug]`,
 `/recipes`, `/recipes/[slug]`, `/books`, `/books/[slug]`, `/archive`,
-`/letters`, `/letters/[slug]`) provides:
+`/letters`, `/letters/[slug]`, `/tsop`, `/tsop/posts/[slug]`, `/tsop/[slug]`)
+provides:
 
 - a meaningful title (the root layout's title template adds the site name)
 - a description specific to that page and drawn from its content (articles use their frontmatter `description`)
@@ -89,7 +98,7 @@ Vercel preview and development deployments (`VERCEL_ENV` other than `production`
 
 ## Sitemap and robots
 
-- `sitemap.xml` lists every indexable canonical URL: the static pages and every published article, recipe, book, and letter.
+- `sitemap.xml` lists every indexable canonical URL: the static pages and every published article, recipe, book, letter, and Spin-Off Project post and section page.
 - Drafts, unknown routes, redirects, and noncanonical URLs are never listed.
 - Unknown and draft article slugs return 404. Next.js adds `noindex` to 404 responses.
 - `robots.txt` allows all crawling and references the absolute sitemap URL.
@@ -108,7 +117,9 @@ Inventory of the legacy site's public URLs (tag `pre-redesign-2026`):
 - Recipes keep their legacy `/recipes` and `/recipes/<slug>` URLs.
 - `/books` and `/books/<slug>` are new. The reading-list essay stays at `/posts/read-100-books` when that article is migrated. It does not redirect to `/books`.
 - Letters keep `/letters` and `/letters/<slug>`. `/paper-planes-packets` redirects to `/letters`. Each legacy root-level letter slug redirects to `/letters/<slug>`. Four letters never had a root alias (`here-comes-the-hulk-050623`, `jobless-but-balanced-070823`, `life-escaping-life-091023`, `lost-on-mars-111223`) and get none. The photograph that was at `/pages/letters/life-escaping-life-091023/parents-dylan-g-walking-beach-sunset.jpg` redirects to `/letters/life-escaping-life-091023/parents-dylan-g-walking-beach-sunset.jpg`.
-- `/archive` presents The Spin-Off Project, Travel Archives, and Letters, in the order they began. Letters links to `/letters`, and a few letters link to `/letters/<slug>`. The Spin-Off Project and Travel Archives are shown on that page. TSOP (`/tsop/...`), Moments (`/moments/...`), `/map`, `/resume`, `/travel-archives`, and `/dropbox` return 404 until `docs/PRODUCT.md` decides whether each section returns.
+- `/archive` presents The Spin-Off Project, Travel Archives, and Letters, in the order they began. Letters links to `/letters`, and a few letters link to `/letters/<slug>`. The Spin-Off Project links to `/tsop`, and each of the twelve names links to that spin-off on the index. Travel Archives is shown on that page.
+- The Spin-Off Project keeps `/tsop`, `/tsop/posts/<slug>`, and the section pages `/tsop/about`, `/tsop/about-me`, `/tsop/faqs`, `/tsop/resources`, `/tsop/now`, and `/tsop/contact`. Those section-page URLs are not redirected away; removing or redirecting one is still open in `docs/PRODUCT.md`. Images that were at `/pages/tsop/<path>` redirect to `/tsop/<path>`.
+- Moments (`/moments/...`), `/map`, `/resume`, `/travel-archives`, and `/dropbox` return 404 until `docs/PRODUCT.md` decides whether each section returns.
 - The legacy feeds at `/rss/feed.xml` and `/rss/feed.json` return 404 until a feed is decided.
 
 ## Launch checks
@@ -144,6 +155,11 @@ app/
   letters/
     page.tsx          # letter index
     [slug]/page.tsx   # letter
+  tsop/
+    page.tsx          # Spin-Off Project index
+    [slug]/page.tsx   # section page
+    posts/
+      [slug]/page.tsx # spin-off post
 components/
   archive-eyebrow.tsx
   display-title.tsx
@@ -156,11 +172,14 @@ content/
   recipes/<slug>.md
   books/<slug>.md
   letters/<slug>.md
+  tsop/<slug>.md
+  tsop/posts/<slug>.md
 lib/
   posts.ts            # read, parse, validate, sort, exclude drafts
   recipes.ts          # read, parse, validate, sort
   books.ts            # read, parse, validate, sort
   letters.ts          # read, parse, validate, sort
+  tsop.ts             # read, parse, validate, sort, group by spin-off
   format-date.ts      # long calendar dates
   redirects.ts        # legacy URLs that permanently redirect
   markdown.tsx        # Markdown rendering and element mapping
