@@ -1,0 +1,96 @@
+---
+title: Salsa Dancing in Havana, Cuba - Review
+description: There isn’t an awesome social dancing scene in Havana. However, if you don’t get your expectations up too high, or if you just want to practice by night what you learn in your salsa school by day, then there are a few places you can go to. Here’s a review of Havana’s salsa scene including video material of the most popular places for salsa dancing in Havana.
+date: 2013-05-27
+spinOff: dancer
+---
+
+There isn’t an awesome social dancing scene in Havana. However, if you don’t get your expectations up too high, or if you just want to practice by night what you learn in your salsa school by day, then there are a few places you can go to. Here’s a review of Havana’s salsa scene including video material of the most popular places for salsa dancing in Havana.
+
+![Sign from Salsa Club Casa De La Música in Havana](/tsop/posts/salsa-dancing-havana/habana-sign_2.jpg)
+
+The salsa scene in Havana is mostly frequented by tourists. They come to the city to learn to dance Cuban-style salsa. Locals, on the other hand, are more into reggaeton music and other music styles.
+
+It’s difficult to find a dance club that has a healthy mix of locals and foreigners dancing salsa. This contributes to a rather strange atmosphere.
+
+The prevailing image that comes to my mind when I think of the salsa scene in Havana, isn’t pretty. It’s one where middle-aged foreign women dance salsa with young local guys and neither of them is just in it for the dance.
+
+Befriended locals told us that the sad reality is that some foreigners are also looking for sex (or attention or love in the best-case scenario) besides a casual dance. Locals only encourage this, hoping to get money out of “the relationship.”
+
+The fact that salsa schools allow you to rent a salsa instructor who will go dancing with you all night long, doesn’t help the situation either.
+
+If you’re used to salsa events and congresses in The States or Europe, the salsa scene in Havana will be undoubtedly disappointing. Don’t go to Havana for social dancing, but instead go there to learn to dance Cuban-style salsa. _(Related reading: [So You Think You Want to Take Salsa Classes in Havana](/tsop/posts/salsa-classes-havana/))_
+
+Consider taking more salsa classes and using the dance clubs only occasionally to practice your newly-attained moves. Go dancing when popular bands are playing and stay away from depressing places.
+
+Lastly, always check the program beforehand: it’s not uncommon for venues to follow up a salsa evening with reggaeton music around midnight. Then again, after a couple of mojitos, it doesn’t matter anymore if you’re dancing to salsa, merengue or reggaeton.
+
+_Please note: the following venues have been reviewed during my visit to Havana in April 2013. By the time you read this, clubs may have shut down, entry fees have changed, etc._
+
+## Hotel Florida
+
+If there’s no famous band playing elsewhere (like in Casa de la Música), I recommend you practice your day-to-day moves in Hotel Florida.
+
+The entrance fee is cheaper than at Casa de la Música and it’s conveniently situated in the center of Havana (likely the hood where you’ll be staying) while other venues are further away.
+
+That being said, the dance floor is small and the dance room nothing overly special. However, the atmosphere is far better than, for example, in Hotel Lincoln or La Gruta.
+
+Hotel Florida has salsa music playing every night. The entrance fee is 5 CUC ($5) and includes two consumptions.
+
+_Note: Unfortunately, I don’t have a video of Hotel Florida to share._
+
+## Casa de la Música
+
+Casa de la Música is the most up-scale place for salsa dancing in Havana. It’s also my favorite club of the bunch and the one where most locals go, especially when big names are playing.
+
+The dance floor in Casa de la Música is big and there’s a professional stage for salsa bands and other performers.
+
+Depending on the band that’s playing, entrance tickets range from 10 CUC ($10) to 25 CUC ($25) per person. Agenda changes every week.
+
+_Note: There are two branches of Casa de la Música: one in Centro and one in Miramar. I am referring here to Casa de la Música in Centro. I haven’t been to the other one, but if I am to believe the rumors, the atmosphere there isn’t all that. It’s infamous for being the place where foreign men come to “pick up” local girls._
+
+[Video of salsa dancing at Casa de la Música in Havana, Cuba](https://www.youtube.com/watch?v=xEF-tdjFk6g)
+
+[Video of salsa dancing at Casa de la Música in Havana, Cuba](https://www.youtube.com/watch?v=RcryySda5FI)
+
+## Hotel Lincoln
+
+Old glory on the top floor with not much space to move around. Admission tickets are 5 CUC ($5) per person including one consumption.
+
+[Video of salsa dancing at Hotel Lincoln in Havana, Cuba](https://www.youtube.com/watch?v=-mVuPexwDbE)
+
+## 1830
+
+Think white plastic chairs and a tiny slippery dance floor, but also: an outside dance floor with views over the Malecón. The atmosphere isn’t too bad despite the ruling majority on the dance floor being foreigners.
+
+It’s on Saturday nights when all head out to 1830. Depending on the program, the entrance fee is 5 CUC ($5) to 10 CUC ($10) per person.
+
+[Video of salsa dancing at 1830 in Havana, Cuba](https://www.youtube.com/watch?v=JI8YQj1qquw)
+
+[Video of salsa dancing at 1830 in Havana, Cuba](https://www.youtube.com/watch?v=Q2h5b9CMgP0)
+
+## La Gruta
+
+La Gruta is dark and smelly: a grotto, literally. The atmosphere is depressing, but compared to other places, there’s enough space for beginners to practice their moves.
+
+Thursday is the day to go to La Gruta. Admission tickets: 5 CUC ($5) per person.
+
+[Video of salsa dancing at La Gruta in Havana, Cuba](https://www.youtube.com/watch?v=dKywbI6_3Yk)
+
+[Video of salsa dancing at La Gruta in Havana, Cuba](https://www.youtube.com/watch?v=mOK_DvQJjTQ)
+
+[Video of salsa dancing at La Gruta in Havana, Cuba](https://www.youtube.com/watch?v=S775tj-uz9o)
+
+//
+
+**Tell me what you think.** Connect with me on [Facebook](https://www.facebook.com/thespinoffproject/photos/a.848930185138868.1073741832.443190319046192/862977247067495/), [Twitter](https://twitter.com/mirhamasala/status/545592265465671681) or [Instagram](http://instagram.com/p/yH6jx2kyDI/) (links match discussion pages for this post) and let me know: If you’ve been to Havana, what do you think of the salsa scene there? Do you know other (better) places for salsa dancing in Havana or Cuba?
+
+---
+
+LAST TIP
+
+If you want to know where the salsa party at, pass by the salsa school [La Casa del Son](/tsop/posts/casa-son/). They’ll have the information you need.
+
+FURTHER READING
+
+If you’re considering taking salsa classes in Havana, here are 4 things you need to know before you jump on that plane to Cuba: [So You Think You Want to Take Salsa Classes in Havana](/tsop/posts/salsa-classes-havana/).

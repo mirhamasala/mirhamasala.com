@@ -1,0 +1,94 @@
+---
+title: Polyglot for a Month
+description: Curious to know what my life as a polyglot would be like, I immersed myself, day in, and day out, for one month in learning a foreign language. These are my stories and experiences from my month as a polyglot told through a series of questions.
+date: 2012-08-08
+spinOff: polyglot
+---
+
+Curious to know what my life as a polyglot would be like, I immersed myself, day in, and day out, for one month in learning a foreign language. These are my stories and experiences from my month as a polyglot told through a series of questions.
+
+![Mirha Masala seated at a table, gazing at a wall with the phrase 'How are you' written in four languages: Bosnian, Dutch, English, and Spanish.](/tsop/posts/polyglot-month/sitting-table_1b.jpg)
+
+_To Mr. G: For your patience, thank you._
+
+## 1. Why did you want to be a polyglot for a month?
+
+I am fluent in 3 languages: Dutch, Bosnian and English. Unfortunately, however, the first two are pretty useless across the globe and English can only take you so far.
+
+Someday, I would like to work and live abroad again, moving around from one place to another. Knowing how to learn languages fast and being able to speak a couple of more widely spoken languages would be useful.
+
+## 2. What language did you choose to learn and why?
+
+My family-in-law is from Spain and most of them don’t speak English. I chose to learn Spanish because I couldn’t imagine not getting to know Mr. G’s culture and the people closest to him.
+
+Taking into account that Spanish is the 2nd most widely spoken language in the world, I consider it a win-win situation overall.
+
+## 3. What was it like to be learning a language every day for a month?
+
+In the beginning, it was overwhelming. I wanted to know and understand everything right from the start. However, once I acquired a decent foundation, learning Spanish became something I was looking forward to doing.
+
+Studying every day became deeply rewarding because every new word, verb conjugation or grammar rule that I learned, meant a great deal in terms of my progress.
+
+## 4. If you could do this month over, what would you do differently?
+
+Instead of jumping straight into grammar and vocabulary, I would first take the time to research the best and fastest way to learn a language is.
+
+Recently I discovered [Fluent Forever](http://amzn.to/1xBHTA6), a guide to rapid language learning, by Gabriel Wyner. Had this book existed when I was doing my polyglot spin-off, I would have certainly used it as my primary guide to learning Spanish.
+
+## 5. What are your favorite tools and resources for learning languages?
+
+- [Linguee](http://www.linguee.com) is an online dictionary and a great tool for finding example sentences that contain your search term.
+- [WordReference](http://www.wordreference.com/) is an online dictionary that shows you a list of words that are closely related to your search term. It gives only one example sentence per word though.
+- Using recordings from native speakers, [Forvo](http://www.forvo.com/) shows you how a word should be pronounced.
+- [Google Translate](https://translate.google.com/) is a machine translator. The translations aren’t perfect, but sufficient for informal use, such as when texting with a foreign friend.
+- [Readlang](http://readlang.com) is a web reader that makes it super easy to read web pages in any language. With the help of a browser extension, you can simply hover over words and sentences that you don’t know and Readlang will instantly translate them for you.
+
+_Sidenote: for learning Spanish in specific, I like to listen to the podcast [Notes in Spanish](http://www.notesinspanish.com/) and to use Mark Davies’ frequency dictionary, [A Frequency Dictionary of Spanish](http://amzn.to/1w6LKUy)._
+
+## 6. What lesson did you take away from this month?
+
+To become fluent in a language, we need to immerse ourselves in it as much as possible.
+
+At the moment I am setting apart 45 minutes a day to go through the language-learning methods as outlined in _Fluent Forever_.
+
+I need to purposely schedule these 45 minutes because I work from home and I don’t have any commute time to use for learning Spanish.
+
+If you do have commute time, excellent. Use it to learn a new language. 30 minutes a day will get you there.
+
+However, even if you need to make time, it isn’t that difficult if you’re only willing to give up some TV and social media time.
+
+More importantly, language immersion is all about squeezing in moments of language learning throughout the day. This is how I do it:
+
+**I listen to Spanish music and podcasts..**
+
+- In the car, on the bike and on the plane
+- Every day when I go jogging
+- While I brush my teeth, curl my hair, put on my make-up
+- When walking and shopping
+- While making the bed, cleaning the house and doing the dishes
+- When preparing and eating breakfast, lunch and dinner
+- Whenever I am waiting for somebody while standing
+
+**I watch TV Series and YouTube videos, and read blogs and magazines in Spanish..**
+
+- On the plane
+- Whenever I am waiting for someone while sitting (for example, in a restaurant, at the doctor, dentist and beautician)
+- In bed in the weekends when I want to relax
+
+In addition to the above, I talk once a week with Mr. G’s parents on Skype; Mondays I text with his sister, and I try to speak with Mr. G himself in Spanish as much as possible.
+
+This is definitely a time when a Spanish family-in-law comes in handy, but chances are that you don’t have one so try [italki.com](http://www.italki.com/). I haven’t used it myself because I don’t need to, but I do keep hearing that is a great website for finding a conversation partner.
+
+## 7. What do you like best about learning languages?
+
+How a language transforms from being unreadable code to being a tool that we can use to open new doors, hearts and life stories.
+
+//
+
+**Tell me what you think.** Connect with me on [Facebook](https://www.facebook.com/thespinoffproject/photos/a.829870537044833.1073741830.443190319046192/829870543711499/), [Twitter](https://twitter.com/mirhamasala/status/522370336047005696) or [Instagram](http://instagram.com/p/vqGhsuEyIJ/) (links match discussion pages for this post) and let me know: Would you like to be a polyglot? What tools and resources do you use for learning languages?
+
+---
+
+BOOK TIP
+
+For the next 2-4 months, studying only 45 minutes a day, I hope to become an advanced Spanish speaker using Wyner’s language-learning methods. I would recommend you join me. Get a copy of [Fluent Forever](http://amzn.to/1xBHTA6) and start learning a foreign language today.

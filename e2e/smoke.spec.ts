@@ -2,6 +2,7 @@ import { AxeBuilder } from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 import { getBooks } from "@/lib/books";
 import { getLetters } from "@/lib/letters";
+import { getTsopPages, getTsopPosts } from "@/lib/tsop";
 import { getPosts } from "@/lib/posts";
 import { getRecipes } from "@/lib/recipes";
 
@@ -9,6 +10,8 @@ const recipes = await getRecipes();
 const books = await getBooks();
 const letters = await getLetters();
 const posts = await getPosts();
+const tsopPosts = await getTsopPosts();
+const tsopPages = await getTsopPages();
 
 const pages = [
   { path: "/", status: 200 },
@@ -37,6 +40,17 @@ const pages = [
     path: `/letters/${letter.slug}`,
     status: 200,
     heading: letter.title,
+  })),
+  { path: "/tsop", status: 200, heading: "The Spin-Off Project" },
+  ...tsopPosts.map((post) => ({
+    path: `/tsop/posts/${post.slug}`,
+    status: 200,
+    heading: post.title,
+  })),
+  ...tsopPages.map((page) => ({
+    path: `/tsop/${page.slug}`,
+    status: 200,
+    heading: page.title,
   })),
   {
     // Unknown slugs are not pre-rendered. Next logs NoFallbackError and still
@@ -239,6 +253,13 @@ test.describe("letter pages", () => {
     "/letters",
     "/letters/courage-again-091022",
     "/letters/life-escaping-life-091023",
+    "/tsop",
+    "/tsop/posts/polyglot-month",
+    "/tsop/posts/30-days-photography",
+    "/tsop/posts/cuban-style-salsa-lessons",
+    "/tsop/about",
+    "/tsop/resources",
+    "/tsop/contact",
   ]) {
     test(`${path} has no horizontal overflow or undersized text`, async ({
       page,
@@ -249,6 +270,32 @@ test.describe("letter pages", () => {
       await expectNoTextBelowOneRem(page);
     });
   }
+
+  test("the archive links to a spin-off", async ({ page }) => {
+    await page.goto("/archive");
+    await page
+      .getByRole("main")
+      .getByRole("link", { name: "The Spin-Off Project" })
+      .click();
+
+    await expect(page).toHaveURL(/\/tsop$/);
+    await expect(
+      page.getByRole("heading", { level: 1, name: "The Spin-Off Project" }),
+    ).toBeVisible();
+
+    await page.goto("/archive");
+    await page
+      .getByRole("main")
+      .getByRole("link", { name: "Polyglot", exact: true })
+      .click();
+    await expect(page).toHaveURL(/\/tsop#polyglot$/);
+    await expect(
+      page.getByRole("heading", { level: 2, name: "Polyglot" }),
+    ).toBeVisible();
+
+    await page.getByRole("link", { name: "Polyglot for a Month" }).click();
+    await expect(page).toHaveURL(/\/tsop\/posts\/polyglot-month$/);
+  });
 
   test("the archive links to a letter", async ({ page }) => {
     await page.goto("/archive");

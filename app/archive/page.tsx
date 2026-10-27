@@ -6,27 +6,13 @@ import {
   type ArchiveLetter,
 } from "@/components/archive-letter-pick";
 import { getLetters } from "@/lib/letters";
+import { spinOffs } from "@/lib/tsop";
 
 export const metadata: Metadata = {
   title: "Archive",
   description: "Earlier work that lives outside Writing.",
   alternates: { canonical: "/archive" },
 };
-
-const spinOffs = [
-  "Polyglot",
-  "Artist",
-  "Kiteboarder",
-  "Philanthropist",
-  "Dancer",
-  "Entrepreneur",
-  "Reader",
-  "Snowboarder",
-  "Traveler",
-  "Meditator",
-  "Surfer",
-  "Photographer",
-];
 
 const places = [
   {
@@ -80,7 +66,7 @@ export default async function ArchivePage() {
 
       <div className="flex flex-col">
         <ArchiveEntry years="2012 – 2017" titleId="tsop">
-          <SectionTitle href="/tsop" id="tsop">
+          <SectionTitle href="/tsop" id="tsop" published>
             The Spin-Off Project
           </SectionTitle>
           <p className="mt-6 max-w-[36rem] font-serif text-[1.3125rem] leading-[1.55] text-pretty text-slate-600">
@@ -97,9 +83,9 @@ export default async function ArchivePage() {
             aria-labelledby="tsop-list"
             className="mt-4 grid max-w-[44rem] grid-cols-2 gap-x-8 min-[40rem]:grid-cols-3"
           >
-            {spinOffs.map((name, index) => (
+            {spinOffs.map((spinOff, index) => (
               <li
-                key={name}
+                key={spinOff.id}
                 className="flex items-baseline gap-3 py-[0.35rem] font-serif text-[1.25rem] text-slate-800"
               >
                 <span
@@ -108,7 +94,12 @@ export default async function ArchivePage() {
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                {name}
+                <Link
+                  href={`/tsop#${spinOff.id}`}
+                  className="underline decoration-slate-300 decoration-[2px] underline-offset-[6px] hover:decoration-slate-950 focus-visible:decoration-slate-950"
+                >
+                  {spinOff.title}
+                </Link>
               </li>
             ))}
           </ol>

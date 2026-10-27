@@ -17,7 +17,7 @@ export default async function LettersPage() {
   return (
     <article className="pt-7 pb-8 md:pt-10">
       <header className="mx-auto max-w-[96rem] px-4 md:px-8">
-        <ArchiveEyebrow current="letters" />
+        <ArchiveEyebrow current />
         <h1 className="pb-[0.28em] font-display text-[clamp(5.7rem,21vw,20rem)] leading-[0.76] tracking-[-0.045em] text-slate-950 md:text-[clamp(10rem,17.4vw,20rem)] md:tracking-[-0.055em]">
           Flying paper planes.
         </h1>

@@ -1,0 +1,92 @@
+---
+title: What Mirha Masala Reads and Some
+description: This post is inspired by a talk I had with my good friend, Andy. Over a couple of wines, he was shocked to hear that I stopped reading fiction altogether. This is my sober plea for his response. I’ll explain why I don’t read fiction anymore, and I’ll let you in on what I do read and on some of my reading habits.
+date: 2014-03-20
+spinOff: reader
+---
+
+This post is inspired by a talk I had with my good friend, Andy. Over a couple of wines, he was shocked to hear that I stopped reading fiction altogether. This is my sober plea for his response. I’ll explain why I don’t read fiction anymore, and I’ll let you in on what I do read and on some of my reading habits.
+
+![Woman sitting on stairs with book](/tsop/posts/reading-habits/woman-book-stairs_1.jpg)
+
+The last novel I read was [Shantaram](http://amzn.to/1O9e2Z2) by Gregory David Roberts.
+
+It took me two years to read it.
+
+My friends made fun of me all the time, for my version of Shantaram must have been the most-traveled edition of all.
+
+I took it with me all over the world in the hope that I would get to it, somewhere.
+
+In the end, I had to lock myself up to finish reading the damn thing–and I did, back home in Amsterdam.
+
+It’s the best novel I read, but also the last for the time being.
+
+## Why I Don’t Read Fiction
+
+Three years ago I didn’t know anything about blogging. One blog later, I feel like I’m only scratching the surface of what’s possible in this [fantastic world of online journaling](/tsop/posts/start-blogging/).
+
+For The Spin-Off Project to become the source of inspiration I’d like it to be, I still have a lot to learn about blogging and everything that goes with it. This means I have a great deal of reading to do.
+
+At the moment, non-fiction [books related to my business endeavors](/tsop/posts/read-business-books/) are far more likely to provide me with the insights and answers that I’m looking for than fiction is.
+
+Moreover, spoiled by dozens of assignments in university and high school, I seem nowadays unable to read fiction solely for leisure and pleasure.
+
+Reading in my classes wasn’t about letting one’s imagination run free. It was about analyzing context, characters, themes, motifs, symbolism, and so on.
+
+It’s a way of reading books that I’ve grown accustomed to. Thus, when I read these days, I’m still scanning content for something of “importance,” looking for those big life lessons.
+
+However, these lessons, if present whatsoever, are usually “hidden” in fiction. Without having the student assignments to guide me, it takes a lot of effort to find them.
+
+I’m too impatient for this now. Unwilling to search for significance when I can pick up a non-fiction book that will provide all the nuts and bolts from page one.
+
+## What I Do Read
+
+### Self- and life-improvement books, lifestyle blogs and philosophical works
+
+Books like [The 7 Habits of Highly Effective People](http://amzn.to/1APH8DF) by Stephen Covey or [Make Every Man Want You](http://amzn.to/1MQGCwX) by Marie Forleo changed my life.
+
+Insights from the blogs of [Mark Manson](http://markmanson.net), [James Altucher](http://jamesaltucher.com), [Leo Babauta](http://zenhabits.net) and [The Minimalists](http://www.theminimalists.com) helped me to create a set of habits and way of thinking and living that is essential to my overall success and happiness.
+
+Philosophical works, like [Letters from a Stoic](http://amzn.to/1I5Fq6b) by Seneca, offer profound daily inspirations on how to live a more balanced and honorable life.
+
+### Books and articles related to running a blog and a successful online business
+
+With topics ranging from writing and photography to SEO and marketing.
+
+For my booklist on these topics, check out my bucket list challenge: [Read 100 Business Books](/tsop/posts/read-business-books/).
+
+I share the most useful articles I find about writing, blogging, entrepreneurship, social media management, etc. on [Twitter](http://www.twitter.com/mirhamasala/).
+
+### Books and blogs related to the topics of my spin-offs and bucket list challenges
+
+With each new [spin-off](/tsop) or [bucket list challenge](/tsop/posts/bucket-list/), I’ll read a book or two related to whatever it is that I’ll be doing next and dig into some blogs too.
+
+For example, in preparation for the upcoming spin-off _Be a Traveler_, I read the book [Vagabonding: An Uncommon Guide to the Art of Long-Term World Travel](http://amzn.to/19F4R38) by Rolf Potts.
+
+And, before I started writing my testament, which is an item on my bucket list, I read [How to Deal with Adversity](http://amzn.to/19F4Zzv) by Christopher Hamilton.
+
+Getting deeper into the topics of my spin-offs and bucket list challenges allows for more fulfilling experiences.
+
+## Some reading habits
+
+Not too long ago, I threw away my complete and considerable collection of physical books (if you must ask: I was going minimal), and nowadays I’m the ecstatically happy owner of a Kindle on which I read most of my books. *(Related reading: [6 Tips for a Better Reading Experience](/tsop/posts/reading-tips/))*
+
+Each morning, except on the weekends, I spend 1,5 hours reading business-related books and articles.
+
+Deciding what I’ll read exactly is quite a random process and my must-read list changes more often than some people’s underwear.
+
+I pick up titles from other blogs, book references or by exhausting the customers-who-bought-this-item-also-bought feature on Amazon.
+
+For a long time, I was struggling with how to order notes and highlights that I take while reading until I recently found out about[ Ryan Holiday’s notecard system](http://ryanholiday.net/how-and-why-to-keep-a-commonplace-book/) *(big thanks to [@addiemakes](https://twitter.com/addiemakes) for the hat tip)*. Now, I use a similar but digitalized system.
+
+Lastly, I’m likely to be reading two books at the same time (a business-related book in the morning, and something lighter before bed) and I try to prevent myself from reading crap at all times. *(Related reading: [How to Make More Time for Reading Books](/tsop/posts/reading-time/))*
+
+//
+
+**Tell me what you think.** Connect with me on [Facebook](https://www.facebook.com/thespinoffproject/photos/a.909992835699269.1073741836.443190319046192/922453064453246/), [Twitter](https://twitter.com/mirhamasala/status/586484785293459456) or [Instagram](https://instagram.com/p/0xvGSAkyN7/) (links match discussion pages for this post) and let me know: Have I got this fiction thing all wrong? What’s on your reading list? And, what are some of your reading habits? Also, if you’d like me to elaborate on any of my reading habits, I’ll be happy to do so.
+
+---
+
+FURTHER READING
+
+If you’re wondering what I’m reading at the moment, chances are I’m working my way through my bucket list challenge: [Read 100 Business Books](/tsop/posts/read-business-books/).

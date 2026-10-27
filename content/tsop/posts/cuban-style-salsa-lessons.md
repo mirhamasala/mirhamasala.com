@@ -1,0 +1,101 @@
+---
+title: 9 + 1 Cuban-Style Salsa Lessons
+description: Below you’ll find video clips of the 10 Cuban-style salsa lessons that I took with salsa school La Casa del Son in Havana, Cuba. These videos are intended as an introduction to Cuban-style salsa and as a reference for those who are considering taking salsa classes with La Casa del Son.
+date: 2013-05-14
+spinOff: dancer
+---
+
+Below you’ll find video clips of the 10 Cuban-style salsa lessons that I took with salsa school La Casa del Son in Havana, Cuba. These videos are intended as an introduction to Cuban-style salsa and as a reference for those who are considering taking salsa classes with La Casa del Son.
+
+![Two young women practicing Cuban salsa](/tsop/posts/cuban-style-salsa-lessons/cuban-salsa-lesson_1.jpg)
+
+Please note that all instructions (f.e. go forward, back, left, right) are given from the man’s perspective. And, as far as possible, I have added English translations to otherwise Spanish names for the steps, turns and combinations.
+
+## Cuban-Style Salsa Lesson 1
+
+- Basic Step #0 – Paso de Caminar (Walking Step) with the variations: in place, forward, to the right, back, to the left, rotate
+- Basic Step #1 – Paso de Lateral (side step)
+- Basic Step #2 – Paso delante/delante (forward/forward step)
+- Basic Step #3 – Paso delante/detras (forward/back step)
+- Los Amigos (Friends)
+  Basic Step #4 – Pa Ti Pa Mi or Paso de Casino (For You For - Me or Casino Step)
+- Dile Que No (Tell Her No)
+- Paso de Casino & El Dedo (Casino Step & The Finger)
+- Paso de Casino & Vacilala (Casino Step & Look at Her)
+  Paso de Casino & Manos Paralelas (Casino Step & Parallel Hands)
+
+[Video of Cuban-Style Salsa Lesson 1 at La Casa del Son in Havana, Cuba](https://www.youtube.com/watch?v=kBEsgaiDEp0)
+
+## Cuban-Style Salsa Lesson 2
+
+- El Dedo (The Finger)
+- Vacilala (Look at Her)
+- Manos Paralelas (Parallel Hands)
+- Manos Cruzadas (Crossed Hands)
+- El Dedo & Tu y Yo (The Finger & You and Me)
+- Vacilala & Tu y Yo (Look at Her & You and Me)
+- El Dedo & Setenta (The Finger and 70)
+- Manos Cruzadas & Tu y Yo (Crossed Hands & You and Me)
+
+[Video of Cuban-Style Salsa Lesson 2 at La Casa del Son in Havana, Cuba](https://www.youtube.com/watch?v=wtgvSr6Lci4)
+
+## Cuban-Style Salsa Lesson 3
+
+- Setenta (70)
+- Setenta y Uno (71)
+- Setenta y Dos (72)
+- Setenta Por La Tres (70 “for the three”)
+
+[Video of Cuban-Style Salsa Lesson 3 at La Casa del Son in Havana, Cuba](https://www.youtube.com/watch?v=zJjaKc5RymI)
+
+## Cuban-Style Salsa Lesson 4
+
+- America Para El Hombre (America for the Man)
+- Mariposa (Butterfly)
+
+[Video of Cuban-Style Salsa Lesson 4 at La Casa del Son in Havana, Cuba](https://www.youtube.com/watch?v=LDR2FQCVkV0)
+
+## Cuban-Style Salsa Lesson 5
+
+- Setenta Complicado (70 Complicated)
+- Habana Loco (Crazy Habanero)
+
+[Video of Cuban-Style Salsa Lesson 5 at La Casa del Son in Havana, Cuba](https://www.youtube.com/watch?v=M9wkKlI_m0o)
+
+## Cuban-Style Salsa Lesson 6
+
+- Sombrero
+- Sombrero Complicado
+
+[Video of Cuban-Style Salsa Lesson 6 at La Casa del Son in Havana, Cuba](https://www.youtube.com/watch?v=x8ACnHBghoQ)
+
+## Cuban-Style Salsa Lessons 7, 8 and 9
+
+- Setenta y Uno y Medio with Mariposa (71,5 with Butterfly)
+- Ochenta y Ocho – (88)
+- Setenta y Uno y Medio (71.5)
+- Paseala
+
+Lessons 8 and 9 were used to repeat and perfect all the previously taught steps, turns and combinations. Additionally, the instructor added one more turn for the female: Coca-Cola.
+
+[Video of Cuban-Style Salsa Lesson 7, 8, and 9 at La Casa del Son in Havana, Cuba](https://www.youtube.com/watch?v=Fz8EFKlXgQM)
+
+## Cuban-Style Salsa Lesson 10
+
+Body movement class for women.
+
+[Video of Cuban-Style Salsa Lesson 10 at La Casa del Son in Havana, Cuba](https://www.youtube.com/watch?v=r4Tc7S3ztps)
+
+//
+
+**Tell me what you think.** Connect with me on [Facebook](https://www.facebook.com/thespinoffproject/photos/a.848930185138868.1073741832.443190319046192/861800153851871/), [Twitter](https://twitter.com/mirhamasala/status/544765038834102272) or [Instagram](http://instagram.com/p/xjhJq2EyGQ/) (links match discussion pages for this post) and let me know: What do you think of Cuban-style salsa? And what’s your favorite combination?
+
+---
+
+SPECIAL THANKS
+
+To La Casa del Son for letting me record and publish the videos.
+
+FURTHER READING
+
+[Reviewing Salsa School La Casa del Son](/tsop/posts/casa-son/) in Havana, Cuba.

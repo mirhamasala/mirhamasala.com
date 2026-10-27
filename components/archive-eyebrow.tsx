@@ -3,7 +3,20 @@ import Link from "next/link";
 const linkClassName =
   "underline decoration-transparent underline-offset-[0.18em] hover:decoration-current focus-visible:decoration-current";
 
-export function ArchiveEyebrow({ current }: { current?: "letters" }) {
+const sections = {
+  letters: { href: "/letters", label: "Letters" },
+  tsop: { href: "/tsop", label: "The Spin-Off Project" },
+} as const;
+
+export function ArchiveEyebrow({
+  section = "letters",
+  current = false,
+}: {
+  section?: keyof typeof sections;
+  current?: boolean;
+}) {
+  const item = sections[section];
+
   return (
     // The display title's line-height reaches up over this label.
     <nav aria-label="Breadcrumb" className="relative z-10 mb-4 md:mb-6">
@@ -17,11 +30,11 @@ export function ArchiveEyebrow({ current }: { current?: "letters" }) {
           /
         </li>
         <li>
-          {current === "letters" ? (
-            <span aria-current="page">Letters</span>
+          {current ? (
+            <span aria-current="page">{item.label}</span>
           ) : (
-            <Link href="/letters" className={linkClassName}>
-              Letters
+            <Link href={item.href} className={linkClassName}>
+              {item.label}
             </Link>
           )}
         </li>

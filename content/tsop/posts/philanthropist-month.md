@@ -1,0 +1,88 @@
+---
+title: Philanthropist for a Month
+description: Curious to know what my life as a philanthropist would be like, I dedicated one month of my life to helping someone. These are my stories and experiences from my month as a philanthropist told through a series of questions.
+date: 2013-01-11
+spinOff: philanthropist
+---
+
+Curious to know what my life as a philanthropist would be like, I dedicated one month of my life to helping someone. These are my stories and experiences from my month as a philanthropist told through a series of questions.
+
+![Mirha Masala and her friend seated across from each other, each working on a laptop.](/tsop/posts/philanthropist-month/laptops-globe-table_1b.png)
+
+## 1. Why did you want to be a philanthropist for a month?
+
+When I told an acquaintance about The Spin-Off Project and the 12 different lifestyles that I wanted to experience, he suggested that I also dedicate one month of my project to pursuing a career I had no interest in whatsoever and to do one month of charity.
+
+I liked the idea and so I decided to add [Be a Dancer](/tsop/posts/dancer-month/) (the career I never wanted) to my [spin-off list](/tsop/about#my-spin-off-list) and to dedicate one month of my project to helping someone.
+
+At first, it felt strange, almost irresponsible, to try to help someone while I was clearly struggling to figure out what my life was about.
+
+Then I realized that I was often approached by people (strangers and close friends) who wanted to talk to me when they felt stuck and needed advice.
+
+And not only that, but I usually also managed to help them and give them the courage they needed to pursue their dreams and be happier.
+
+All of sudden, I couldn’t shake the thought that helping others to live a better life was perhaps what I was supposed to do with mine.
+
+I decided to help one person, for one month, and to share with him everything I knew in the hope that it would spark the change in his life that we all, in one way or another, are looking for.
+
+## 2. Who did you choose to help and why?
+
+There are many “wrong reasons” for helping people: guilt, social pressure, practical rewards, to show off, or to feed one’s ego. I wanted to make sure that whoever I helped, I did so for the right reasons.
+
+After going through many options, the only one that felt right was to choose my good friend, Arjen Calter.
+
+## 3. What did you help Arjen with?
+
+At the time Arjen graduated, the economy had hit rock bottom. It was impossible for him to find a job that he loved.
+
+He refused to spend the rest of his life doing crappy office jobs, so he decided to work seasonally and travel the rest of the year. Until recently this way of living made him happy. Now, he was ready to move on.
+
+Still not convinced of a life spent in an office, he started thinking about what he could do with his talents and experience.
+
+Eventually, he decided that he wanted to do 2 projects and make a website for each. The first would be a blog about his personal journey to living life without office, fears and compromise. The second is a photography website on which he would be able to share his work.
+
+During this month, I helped him to set up both websites and the accompanying social media channels; shared all my knowledge about blogging and internet marketing; and provided the emotional support that one needs when taking such a leap.
+
+## 4. What was it like to be helping someone for a month?
+
+A year before Arjen decided to find out if he could make a living out of his passions, I had made a similar choice. I decided to not look for a job until I figured out what I loved doing most in life.
+
+Because of my decision, I went through a hell of inner battles and the process of creating 2 websites. Arjen would now have to go through the same.
+
+Being able to guide him through this challenging beginning was tremendously fulfilling. I was able to recognize the difficulties he was facing, rise him above any insecurities and help him concentrate on the important things.
+
+It made me happy that Arjen didn’t have to go through the same fight as I did. Or, better said, that he did but that I was there to watch his back.
+
+At the same time, helping Arjen helped me to let go of my overwhelming first year working for myself. Doing everything for a second time, but being much more experienced now, was empowering.
+
+## 5. What lessons did you take away from this month?
+
+**Don’t underestimate the power of helping.**
+
+Just a little effort from our side can cause a great and much-longed-for change in the lives of others. You can _really_ help someone.
+
+**Don’t forget to help the people closest to you.**
+
+They are unlikely to ask for your help, so think about what you could do for them and insist on helping out.
+
+**You don’t need to be rich to be able to help**
+
+Share your skills, knowledge or free time. In most cases, it’s far more valuable than giving money. Also, don’t think that only financially poor people need help. Poverty comes in many different forms, like unhappiness.
+
+**We should all get help on how to live and work better.**
+
+We hire people, and teachers, to help us learn to snowboard and to play the piano, so why not ask someone we know and admire, or hire a coach or mentor, to help us with our lives and businesses? It’s crazy powerful what an expert or someone who has already been there can do to help us struggle less.
+
+## 6. What do you like best about philanthropy?
+
+That all the clichés are true. Helping someone else is the coolest thing that we can do in our lives. It’s the one thing that is easy and natural to do.
+
+//
+
+**Tell me what you think.** Connect with me on [Facebook](https://www.facebook.com/thespinoffproject/photos/pb.443190319046192.-2207520000.1414425629./836156086416278/), [Twitter](https://twitter.com/mirhamasala/status/526763455261732865) or [Instagram](http://instagram.com/p/vVmxN7kyAX/) (links match discussion pages for this post) and let me know: Would you like to be a philanthropist? Who would you help?
+
+---
+
+FURTHER READING
+
+[Interview with Arjen Calter](/tsop/posts/arjen-calter-feedback) in which he shares how he experienced this month.

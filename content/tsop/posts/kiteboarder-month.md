@@ -1,0 +1,80 @@
+---
+title: Kiteboarder for a Month
+description: Curious to know what my life as a kiteboarder would be like, I immersed myself, day in, and day out, for one month in kiteboarding. These are my stories and experiences from my month as a kiteboarder.
+date: 2012-11-19
+spinOff: kiteboarder
+---
+
+Curious to know what my life as a kiteboarder would be like, I immersed myself, day in, and day out, for one month in kiteboarding. These are my stories and experiences from my month as a kiteboarder.
+
+![Mirha Masala standing on a beach in Cumbuco, Brazil, holding a kiteboard with a kite in the background.](/tsop/posts/kiteboarder-month/kiteboarding-cumbuco-brazil.jpg)
+
+_To Mr. G: For the never-ending support; for watching out for me; for being excited about my bits of progress; and for shouting out your lungs with me when things didn’t work: thank you._
+
+## Why I Wanted to Be a Kiteboarder for a Month
+
+When Mr. G introduced me to kiteboarding, the whole thing didn’t appeal much to me. All that gear that you had to carry along and strap yourself into seemed too much of a hassle.
+
+It also didn’t look cool to me, not like surfing. Plus you had to spend your days in windy places, which was something I normally avoided.
+
+But Mr. G was convinced that I would fall in love with kiteboarding. There was no reason not to: I already liked to longboard, snowboard and surf. Kiteboarding was just another board sport to add to my list.
+
+In time, I figured, if Mr. G loved it so much, and if he was going to drag me to windy places for the rest of our lives, I’d better give it a shot.
+
+After my first kiteboard lesson, I was hooked. It was a 3-hour long zen experience. The sun made me feel mellow, the sight and sound of the Caribbean sea elated, the repetitive instructions aware, and the power of the wind humble.
+
+It was love at first sight. All I wanted from that moment on was to go kiteboard.
+
+## The Place I Chose for My Month of Kiteboarding 
+
+After weeks of research on the internet, trying to fit in all our needs and wishes, Mr. G and I decided to go to Playa del Carmen in Mexico to live, travel and work for 5 months.
+
+It was also in Playa del Carmen where I would do a full-time month of kiteboarding including the beginner's course.
+
+Unfortunately, [Playa del Carmen turned out to be a horrible kiteboard destination](/tsop/posts/kiteboarding-playa-del-carmen). With an average of 5 kiteable wind days per month, I wasn’t able to immerse myself daily in kiteboarding at all.
+
+For months I hoped that the wind would pick up, but it never did. In the end, I had to accept the situation and wait for 6 months until we would go to Cumbuco in Brazil.
+
+It’s in Cumbuco that I experienced what it means to dedicate every day of your week to kiteboarding.
+
+## What It Was Like to Learn to Kiteboard
+
+Trying to learn to kiteboard in Playa del Carmen was frustrating. The wind conditions were so bad that I barely managed to finish my kiteboard course.
+
+This obviously made for somewhat of a depressing learning experience. However, if I erase Playa del Carmen from the experience, I would say that:
+
+[Learning to kiteboard comes with its own set of struggles](/tsop/posts/5-things-nobody-tells-you-about-kiteboarding/). It is not easy and being dependent on the wind can be frustrating.
+
+However, seeing yourself progress with each lesson, doing things you couldn’t imagine yourself doing, makes learning to kiteboard such an amazing experience. That and [10 more reasons](/tsop/posts/10-reasons-why-every-girl-should-learn-to-kiteboard/) why learning to kiteboard is something everyone should do.
+
+The following video, which is a compilation of my kiteboard course, always brings a smile to my face. It reminds me of my first interactions with kiteboarding and how much I loved every part of learning to kiteboard.
+
+[Video compilation of Mirha Masala's kiteboard course in Mexico](https://www.youtube.com/watch?v=6rQuOY3UYq0)
+
+## What It Was Like to Kiteboard Every Day for a Month
+
+Life feels quite right when I dedicate my days to a sole purpose. Like with every spin-off so far, I experienced that immersion brings a profound feeling of satisfaction to everyday life.
+
+Kiteboarding every day also increased my awareness because it forced me to be present and to get out of my head.
+
+This calmness within was only reinforced by the time I spent on the beach. The power and beauty of nature caused me to step away from myself. Life became less about me, and my needs and longings. It became less egocentric.
+
+Kiteboarding every day also made me quite mellow. I was physically beaten after a day of kiteing. All I could think of was what to eat and how to get the most rest out of the day so I would be strong enough to kiteboard again the next day.
+
+Emotionally I was on a high. Learning new tricks, pushing myself out of my comfort zone, and progressing each day, did a lot for my self-esteem and overall happiness.
+
+Of course, I can’t deny that getting one hell of a toned body in the process does a lot for one’s self-image too.
+
+## What I Like Best about Kiteboarding
+
+That it’s all-encompassing. Out on the sea, kiteboarding swallows my worries, goals and insecurities. It’s all about the present moment and about letting go of everything else.
+
+//
+
+**Tell me what you think.** Connect with me on [Facebook](https://www.facebook.com/thespinoffproject/photos/pb.443190319046192.-2207520000.1412420110./814826481882572/?type=3&theater), [Twitter](https://twitter.com/mirhamasala/status/512559500688359424) or [Instagram](http://instagram.com/p/tHf4JnEyIz/) (links match discussion pages for this post) and let me know: Would you like to live the kiteboarding lifestyle for a month or longer? What appeals most to you about being a kiteboarder?
+
+---
+
+FURTHER READING
+
+Find more articles on kiteboarding in the [Be a Kiteboarder](/tsop#kiteboarder) collection.

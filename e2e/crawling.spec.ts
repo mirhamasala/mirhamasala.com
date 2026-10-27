@@ -11,6 +11,8 @@ const unpublishedPaths = [
   "/recipes/not-a-real-recipe",
   "/books/not-a-real-book",
   "/letters/not-a-real-letter",
+  "/tsop/posts/not-a-real-post",
+  "/tsop/not-a-real-page",
 ] as const;
 
 /** Permanent redirects from legacy URLs to their equivalent pages. */
@@ -102,6 +104,22 @@ test.describe("crawling", () => {
       );
     });
   }
+
+  test("/pages/tsop/posts/artist-month/memory-bytes_2b.jpg permanently redirects to /tsop/posts/artist-month/memory-bytes_2b.jpg", async ({
+    request,
+    baseURL,
+  }) => {
+    const source = "/pages/tsop/posts/artist-month/memory-bytes_2b.jpg";
+    const destination = "/tsop/posts/artist-month/memory-bytes_2b.jpg";
+    const response = await request.get(source, { maxRedirects: 0 });
+    expect(response.status()).toBe(308);
+    expect(absoluteUrl(response.headers().location, baseURL)).toBe(
+      absoluteUrl(destination, baseURL),
+    );
+
+    const target = await request.get(destination, { maxRedirects: 0 });
+    expect(target.status()).toBe(200);
+  });
 
   for (const { source, destination } of redirects) {
     test(`${source} permanently redirects to ${destination}`, async ({
