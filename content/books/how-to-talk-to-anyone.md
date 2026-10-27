@@ -8,7 +8,7 @@ url: "https://www.amazon.com/How-to-Talk-to-Anyone-audiobook/dp/B013GXDRKC/"
 number: 80
 ---
 
-**Few favorite tips:**
+## Few favorite tips
 
 **1. Never the naked thank you** – “Never let the words _thank you_ stand naked and alone. Always make it thank you _for_ something.”
 

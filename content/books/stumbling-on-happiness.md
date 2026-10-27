@@ -9,4 +9,6 @@ number: 30
 
 > If you are like most people, then like most people, you don’t know you’re like most people.
 
-**A takeaway that I’ve (unsuccessfully) shared with friends:** The best way to predict if something will make you happy is to talk to people who already have what you want (or are who/where you want to be) and ask them if it’s making them happy. (“The Myth of Fingerprints”)
+## A takeaway that I’ve (unsuccessfully) shared with friends
+
+The best way to predict if something will make you happy is to talk to people who already have what you want (or are who/where you want to be) and ask them if it’s making them happy. (“The Myth of Fingerprints”)

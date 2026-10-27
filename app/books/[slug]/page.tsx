@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { DisplayTitle } from "@/components/display-title";
 import { ExternalLink } from "@/components/external-link";
 import { getBook, getBooks, splitLeadQuote } from "@/lib/books";
 import { BookLeadQuote, BookMarkdownContent } from "@/lib/markdown";
@@ -37,19 +38,20 @@ export default async function BookPage({ params }: PageProps<"/books/[slug]">) {
   const { quote, rest } = splitLeadQuote(book.body);
 
   return (
-    <>
-      <article className="mx-auto max-w-[96rem] px-4 pt-7 md:px-8 md:pt-10">
-        <header className="md:grid md:grid-cols-12 md:gap-8">
+    <article className="mx-auto max-w-[96rem] overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
+      <header>
+        <DisplayTitle title={book.title} />
+
+        <div className="mt-4 md:mt-6 md:grid md:grid-cols-12 md:gap-8">
           <div className="max-w-[44rem] md:col-span-7 md:col-start-3">
-            <h1 className="pb-[0.08em] font-display text-[clamp(3.8rem,10vw,7.5rem)] leading-[0.88] tracking-[-0.04em] text-slate-950 md:text-[clamp(4.75rem,6.5vw,7.5rem)]">
-              {book.title}
-            </h1>
             {book.subtitle ? (
-              <p className="mt-4 font-serif text-[1.35rem] leading-[1.3] text-slate-700 italic md:mt-5 md:text-[1.6rem]">
+              <p className="font-serif text-[1.2rem] leading-[1.35] text-slate-700 italic md:text-[1.35rem]">
                 {book.subtitle}
               </p>
             ) : null}
-            <p className="mt-5 text-[1rem] leading-snug text-slate-950">
+            <p
+              className={`text-[1rem] leading-snug text-slate-950 ${book.subtitle ? "mt-5" : ""}`}
+            >
               {book.author}
             </p>
             {isHttpUrl(book.url) ? (
@@ -63,28 +65,26 @@ export default async function BookPage({ params }: PageProps<"/books/[slug]">) {
               </p>
             ) : null}
           </div>
-        </header>
-      </article>
+        </div>
+      </header>
 
       {quote ? (
-        <div className="mt-14 bg-slate-900 md:mt-20">
-          <div className="mx-auto max-w-[96rem] px-4 py-12 md:grid md:grid-cols-12 md:gap-8 md:px-8 md:py-16">
-            <div className="max-w-[62rem] md:col-span-8 md:col-start-3">
-              <BookLeadQuote source={quote} />
-            </div>
+        <div className="mt-16 md:mt-24 md:grid md:grid-cols-12 md:gap-8">
+          <div className="max-w-[62rem] md:col-span-8 md:col-start-3">
+            <BookLeadQuote source={quote} />
           </div>
         </div>
       ) : null}
 
       {rest ? (
         <div
-          className={`mx-auto max-w-[96rem] px-4 pb-8 md:grid md:grid-cols-12 md:gap-8 md:px-8 ${quote ? "pt-14 md:pt-20" : "pt-12 md:pt-16"}`}
+          className={`md:grid md:grid-cols-12 md:gap-8 ${quote ? "mt-12 md:mt-16" : "mt-10 md:mt-12"}`}
         >
           <div className="max-w-[44rem] md:col-span-7 md:col-start-3">
             <BookMarkdownContent source={rest} />
           </div>
         </div>
       ) : null}
-    </>
+    </article>
   );
 }

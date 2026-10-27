@@ -12,13 +12,17 @@ number: 68
 
 Although I know the basics of Git well, I still like reading tutorials like these. They round out my existing hands-on knowledge, and there’s always something new I learn.
 
-**New commands I learned:**
+## New commands I learned
 
 - `git commit -am` to both stage and commit changes with a message
 - git log -p to show both the commit messages and full diffs
 - git diff –staged to see the difference between staged changes and the previous version of the repo
 - git checkout -f to force checkout, discarding changes
 
-**Stack Overflow question I followed:** [Difference between `git add -A` and `git add .`](https://stackoverflow.com/questions/572549/difference-between-git-add-a-and-git-add)
+## Stack Overflow question I followed
 
-**Small talk topic I picked up:** Linus Torvalds, the creator of Linux, also developed Git.
+[Difference between `git add -A` and `git add .`](https://stackoverflow.com/questions/572549/difference-between-git-add-a-and-git-add)
+
+## Small talk topic I picked up
+
+Linus Torvalds, the creator of Linux, also developed Git.

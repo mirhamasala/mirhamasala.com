@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { DisplayTitle } from "@/components/display-title";
 import { RecipeMarkdownContent } from "@/lib/markdown";
 import { getRecipe, getRecipes } from "@/lib/recipes";
 
@@ -43,9 +44,7 @@ export default async function RecipePage({
   return (
     <article className="mx-auto max-w-[96rem] overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
       <header>
-        <h1 className="pb-[0.18em] font-display text-[clamp(5.7rem,21vw,20rem)] leading-[0.76] tracking-[-0.045em] text-slate-950 md:text-[clamp(10rem,17.4vw,20rem)] md:tracking-[-0.055em]">
-          {recipe.title}
-        </h1>
+        <DisplayTitle title={recipe.title} />
 
         <div className="mt-4 md:mt-6 md:grid md:grid-cols-12 md:gap-8">
           <div className="max-w-[44rem] md:col-span-7 md:col-start-3">

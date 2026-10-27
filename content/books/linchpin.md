@@ -13,6 +13,8 @@ format: audio
 
 Every time I hesitate to ship, that’s, to [publish a post](/posts), [send my newsletter](/letters), or [share a coding project](/posts/leap-of-code#the-curriculum), I remember Seth’s advice on the importance of shipping. Then I squeeze my eyes, hold my breath, and hit that publish or send button.
 
-**Cheeky fact:** Seth’s books tend to make me uneasy. I suspect this is so because they leave no room for my excuses.
+## Cheeky fact
+
+Seth’s books tend to make me uneasy. I suspect this is so because they leave no room for my excuses.
 
 _Recommended to me by Silvia, my sister from another mother, peanut butter addict, and [photographer](https://www.silviafalcomer.com/)_

@@ -13,14 +13,26 @@ format: audio
 
 Inspired by a missed chance to turn a job offer into a lead, move leadership to set diversity objectives, and [Rich Dad Poor Dad](/books/rich-dad-poor-dad), I resolved to learn more about sales. _To Sell is Human_ is the first book I picked up to help me with this goal.
 
-**Insight I’m implementing:** Using interrogative self-talk to prepare for and deal with challenges by turning affirmations into questions. For example, instead of simply stating “I can do this,” I answer the question, “Can I do this?”
+## Insight I’m implementing
 
-**An idea I already implemented _before_ reading this book:** When I negotiated my latest salary bonus, I highlighted what I had achieved thus far _and_ what I planned to accomplish in the coming three months. Apparently, “people often find potential more interesting than accomplishment.”
+Using interrogative self-talk to prepare for and deal with challenges by turning affirmations into questions. For example, instead of simply stating “I can do this,” I answer the question, “Can I do this?”
 
-**Unexpected confirmation:** Mimicking people’s gestures actually does make them like you more. I first read about this “trick” in [How to Win Friends and Influence People](/books/how-to-win-friends-and-influence-people).
+## An idea I already implemented _before_ reading this book
 
-**Book recommendation I followed:** [Learned Optimism](https://www.amazon.com/Learned-Optimism-Change-Your-Mind/dp/1400078393) by Martin E. P. Seligman
+When I negotiated my latest salary bonus, I highlighted what I had achieved thus far _and_ what I planned to accomplish in the coming three months. Apparently, “people often find potential more interesting than accomplishment.”
 
-**Listening memory:** From atop a cliff, I’m watching G surfing at Ribeira d’Ilhas with a winter sunset as backdrop and pastel blues all around.
+## Unexpected confirmation
 
-**Pair with:** Daniel Pink’s MasterClass [Sales & Persuasion](https://www.masterclass.com/classes/daniel-pink-teaches-sales-and-persuasion)
+Mimicking people’s gestures actually does make them like you more. I first read about this “trick” in [How to Win Friends and Influence People](/books/how-to-win-friends-and-influence-people).
+
+## Book recommendation I followed
+
+[Learned Optimism](https://www.amazon.com/Learned-Optimism-Change-Your-Mind/dp/1400078393) by Martin E. P. Seligman
+
+## Listening memory
+
+From atop a cliff, I’m watching G surfing at Ribeira d’Ilhas with a winter sunset as backdrop and pastel blues all around.
+
+## Pair with
+
+Daniel Pink’s MasterClass [Sales & Persuasion](https://www.masterclass.com/classes/daniel-pink-teaches-sales-and-persuasion)

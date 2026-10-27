@@ -128,6 +128,7 @@ app/
     page.tsx          # book index
     [slug]/page.tsx   # book
 components/
+  display-title.tsx
   external-link.tsx
   site-footer.tsx
   site-header.tsx

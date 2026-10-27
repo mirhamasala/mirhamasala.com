@@ -20,10 +20,11 @@ export const bookTopics = [
 
 /** Order of the "Start with these" list. */
 const recommendedSlugs = [
-  "four-thousand-weeks",
   "the-artists-way",
-  "range",
-  "atomic-habits",
+  "the-art-of-gathering",
+  "designing-your-life",
+  "what-i-wish-i-knew-when-i-was-20",
+  "refactoring-ui",
 ] as const;
 
 const frontmatterSchema = z.strictObject({

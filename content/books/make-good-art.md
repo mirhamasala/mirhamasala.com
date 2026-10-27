@@ -9,11 +9,17 @@ number: 57
 
 > A freelance life, a life in the arts, is sometimes like putting messages in bottles, on a desert island, and hoping that someone will find one of your bottles and open it and read it, and put something in a bottle that will wash its way back to you: appreciation, or a commission, or money, or love. And you have to accept that you may put out a hundred things for every bottle that winds up coming back.
 
-**A takeaway I remind myself of often:** To keep making art and living life the only way I can–my way.
+## A takeaway I remind myself of often
 
-**Advice I’m going to follow:** When I need to do something that I think is going to be difficult, I’ll pretend that I’m someone who can do it.
+To keep making art and living life the only way I can–my way.
 
-**Pair with:** Neil Gaiman’s MasterClass: [Neil Gaiman Teaches The Art of Storytelling](https://www.masterclass.com/classes/neil-gaiman-teaches-the-art-of-storytelling)
+## Advice I’m going to follow
+
+When I need to do something that I think is going to be difficult, I’ll pretend that I’m someone who can do it.
+
+## Pair with
+
+Neil Gaiman’s MasterClass: [Neil Gaiman Teaches The Art of Storytelling](https://www.masterclass.com/classes/neil-gaiman-teaches-the-art-of-storytelling)
 
 In the story [Poppy](/posts/poppy/), I refer to a part of Neil’s speech. Can you find which part?
 

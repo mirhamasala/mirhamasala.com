@@ -10,14 +10,14 @@ number: 86
 
 > One of the biggest mistakes investors make, including everyone from amateurs to professionals, is trying to beat the market by buying and selling.
 
-**Lessons I shared with friends:**
+## Lessons I shared with friends
 
 - Live below your means
 - Save 10 percent of your income if you can
 - Build your financial future with mutual funds
 - Diversify your investments across many asset classes
 
-**Merriman’s equity class recommendations that I try to follow:**
+## Merriman’s equity class recommendations that I try to follow
 
 | Asset Class               | Recommended |
 | ------------------------- | ----------- |

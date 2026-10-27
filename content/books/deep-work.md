@@ -22,6 +22,10 @@ number: 60
 > \
 > To produce at your peak level you need to work for extended periods with full concentration on a single task free from distraction.
 
-**Most important takeaway:** The ability to focus and learn hard things is becoming scarce. If you want to differentiate yourself and get ahead professionally, nurture your skill to concentrate.
+## Most important takeaway
 
-**Paradigm shift:** The remote work knife cuts both ways. Yes, it makes it easier for everyone to find more interesting jobs, but at the same time, it also ups the competition, since everyone, including the best of the best, can apply.
+The ability to focus and learn hard things is becoming scarce. If you want to differentiate yourself and get ahead professionally, nurture your skill to concentrate.
+
+## Paradigm shift
+
+The remote work knife cuts both ways. Yes, it makes it easier for everyone to find more interesting jobs, but at the same time, it also ups the competition, since everyone, including the best of the best, can apply.

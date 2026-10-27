@@ -10,9 +10,11 @@ number: 40
 
 > Strike all the adjectives from your bio. If you take photos, you’re not an ‘aspiring’ photographer, you’re not an ‘amazing’ photographer either. You’re a photographer. Don’t get cute. Don’t brag. Just state the facts.
 
-**A detail I learned:** In French, the word _amateur_, which comes from the Latin _amator,_ means _lover_. (“Be an Amateur”)
+## A detail I learned
 
-**Two ideas I already implemented _before_ reading this book:**
+In French, the word _amateur_, which comes from the Latin _amator,_ means _lover_. (“Be an Amateur”)
+
+## Two ideas I already implemented _before_ reading this book
 
 1. **Turning off comments on my blog** (“Don’t Feed the Trolls”)\
    I did this around the time that my post [10 Reasons Why Every Girl Should Learn to Kiteboard](/tsop/posts/10-reasons-why-every-girl-should-learn-to-kiteboard/) went viral, which was rather early in my blogging career.
@@ -24,4 +26,6 @@ number: 40
 2. **Properly attributing the work of others** (“Credit Is Always Due”)\
    I go all the way with this one: crediting the original creator and linking to the source where I found the work itself. Also, whenever I share a friend’s recommendation, I always include a hat tip.
 
-**Cheeky fact:** I think it’s bad style to pass on a recommendation as a discovery of one’s own.
+## Cheeky fact
+
+I think it’s bad style to pass on a recommendation as a discovery of one’s own.

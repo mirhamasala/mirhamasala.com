@@ -21,7 +21,7 @@ const pages = [
     status: 200,
     heading: recipe.title,
   })),
-  { path: "/books", status: 200, heading: "What I wanted to keep." },
+  { path: "/books", status: 200, heading: "What I’ve taken from the pages." },
   ...books.map((book) => ({
     path: `/books/${book.slug}`,
     status: 200,

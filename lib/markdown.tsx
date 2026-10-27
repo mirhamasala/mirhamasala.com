@@ -137,7 +137,7 @@ const bookComponents: Components = {
     void node;
     return (
       <h2
-        className="mt-12 font-display text-[2.25rem] leading-none tracking-[-0.02em] first:mt-0"
+        className="mt-16 font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase first:mt-0"
         {...props}
       />
     );
@@ -147,15 +147,6 @@ const bookComponents: Components = {
     return (
       <p
         className="mt-5 font-serif text-[1.2rem] leading-[1.55] first:mt-0 md:text-[1.25rem]"
-        {...props}
-      />
-    );
-  },
-  strong: ({ node, ...props }) => {
-    void node;
-    return (
-      <strong
-        className="font-sans text-[1rem] font-medium tracking-wide text-slate-800"
         {...props}
       />
     );
@@ -243,7 +234,7 @@ const quoteComponents: Components = {
     void node;
     return (
       <p
-        className="font-display text-[clamp(2.25rem,3.6vw,3.35rem)] leading-[1.12] font-normal tracking-[-0.02em] text-stone-50 before:content-['“'] after:content-['”']"
+        className="font-display text-[clamp(2.25rem,3.6vw,3.35rem)] leading-[1.12] font-normal tracking-[-0.02em] text-slate-950 before:text-slate-500 before:content-['“'] after:text-slate-500 after:content-['”']"
         {...props}
       />
     );
@@ -261,26 +252,11 @@ const quoteComponents: Components = {
       />
     );
   },
-  a: ({ node, href = "", ...props }) => {
-    void node;
-    const className =
-      "underline decoration-stone-400 underline-offset-[0.15em] hover:decoration-stone-50";
-    if (href.startsWith("/")) {
-      return (
-        <Link href={href} prefetch={false} className={className} {...props} />
-      );
-    }
-    if (isExternalHref(href)) {
-      return <ExternalLink href={href} className={className} {...props} />;
-    }
-
-    return <a href={href} className={className} {...props} />;
-  },
 };
 
 export function BookLeadQuote({ source }: { source: string }) {
   return (
-    <blockquote className="text-stone-50 [&_[aria-hidden=true]]:text-stone-300">
+    <blockquote>
       <Markdown remarkPlugins={[remarkGfm]} components={quoteComponents}>
         {source}
       </Markdown>

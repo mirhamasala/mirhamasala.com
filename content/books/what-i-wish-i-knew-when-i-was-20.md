@@ -4,6 +4,7 @@ subtitle: "A Crash Course on Making Your Place in the World"
 author: "Tina Seelig"
 description: "The well-worn path is there for everyone to trample. But the interesting things often occur when you are open to taking an unexpected turn, to trying something different, and when you are willing to question the rules others have made for you."
 topic: "Career & life"
+recommend: true
 url: "https://www.amazon.com/dp/B07QPBXY3L"
 number: 59
 format: audio

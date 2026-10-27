@@ -25,7 +25,7 @@ export default async function BooksPage() {
           Books
         </p>
         <h1 className="pb-[0.28em] font-display text-[clamp(5.7rem,21vw,20rem)] leading-[0.76] tracking-[-0.045em] text-slate-950 md:text-[clamp(10rem,17.4vw,20rem)] md:tracking-[-0.055em]">
-          What I wanted to keep.
+          What I’ve taken from the pages.
         </h1>
         <p className="mt-6 max-w-[34rem] font-serif text-[1.2rem] leading-[1.45] text-slate-600 md:mt-8 md:text-[1.3rem]">
           Quotes, notes, and ideas from books I’ve read.
@@ -58,32 +58,39 @@ export default async function BooksPage() {
           </div>
         </div>
         <div className="mt-8">
-          {bookTopics.map((topic) => {
-            const inTopic = books.filter((book) => book.topic === topic);
-            if (inTopic.length === 0) return null;
-
-            return (
-              <section key={topic} className="border-t border-slate-300">
-                <div className="mx-auto max-w-[96rem] px-4 pt-9 pb-8 md:px-8">
-                  <div className="max-w-[44rem]">
-                    <h3 className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase">
-                      {topic}
-                    </h3>
-                    <ul className="mt-7 space-y-3">
-                      {inTopic.map((book) => (
-                        <li
-                          key={book.slug}
-                          className="flex flex-wrap items-baseline gap-x-3"
-                        >
-                          <BookLink book={book} />
-                        </li>
-                      ))}
-                    </ul>
+          {bookTopics
+            .flatMap((topic) => {
+              const inTopic = books.filter((book) => book.topic === topic);
+              return inTopic.length === 0 ? [] : [{ topic, inTopic }];
+            })
+            .map(({ topic, inTopic }, index) => {
+              return (
+                <section
+                  key={topic}
+                  className={
+                    index === 0 ? undefined : "border-t border-slate-300"
+                  }
+                >
+                  <div className="mx-auto max-w-[96rem] px-4 pt-9 pb-8 md:px-8">
+                    <div className="max-w-[44rem]">
+                      <h3 className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase">
+                        {topic}
+                      </h3>
+                      <ul className="mt-7 space-y-3">
+                        {inTopic.map((book) => (
+                          <li
+                            key={book.slug}
+                            className="flex flex-wrap items-baseline gap-x-3"
+                          >
+                            <BookLink book={book} />
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              </section>
-            );
-          })}
+                </section>
+              );
+            })}
         </div>
       </section>
     </article>

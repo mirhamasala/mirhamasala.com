@@ -13,7 +13,7 @@ format: audio
 
 While amid a tough work week and not enough sleep, _No Hard Feelings_ reminded me to take care of myself first. I took a day off, invested in rest, reached out to friends, spent time with family, and reinstated good habits of not checking work email and Slack messages in the early mornings and after-work times.
 
-**Inspired me to:**
+## Inspired me to
 
 - Edit my [Manual of Me](https://my.manualof.me/) at work
 - Learn more about physlogical safety in groups

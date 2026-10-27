@@ -11,4 +11,6 @@ format: audio
 
 > Emotion is contagious.
 
-**A word I learned more about:** [Maven](https://en.wikipedia.org/wiki/Maven)
+## A word I learned more about
+
+[Maven](https://en.wikipedia.org/wiki/Maven)

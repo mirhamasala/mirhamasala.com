@@ -10,7 +10,7 @@ number: 35
 
 > Clear, well-thought-out navigation is one of the best opportunities a site has to create a good impression.
 
-**Changes I implemented to this website after reading the book:**
+## Changes I implemented to this website after reading the book
 
 1.  Added a hover effect to the links to emphasize that they’re clickable. (“Make it obvious what’s clickable”)
 2.  Changed the line height of the headings so that they don’t float anymore. (“Format text to support scanning”)
