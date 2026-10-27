@@ -33,7 +33,7 @@ Like that, I swapped my negative delusions, the “can’ts and not-good-enoughs
 🌊 [The Making of Slow Retreats](/posts/the-making-of-slow-retreats/)\
 Sharing the little bets that led to Slow Retreats, the choices I made for the program of the Reset Edition, a look behind-the-scenes, including all the daily practices, workshops, and tools revealed. Basically, everything you need to replicate the retreat at home if you want.
 
-✨ [When We Were Young](/moments/when-we-were-young)\
+✨ [When We Were Young](/posts/when-we-were-young)\
 Inspired by long dinner conversations on the retreat, a missing for Instagram as it used to be, to share, write, connect with like-minded people, and a weekend away, alone, in Lisbon, words came flooding, and I decided to put them down. The first of what may be more good ol’ short travel observations to come.
 
 ## Quote That’s On My Mind

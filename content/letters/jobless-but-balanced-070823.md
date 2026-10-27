@@ -34,7 +34,7 @@ In Amsterdam, perusing the local scene and sharing my finds with friends, I cons
 
 ## Code
 
-I added a map feature to this site, which I can use to show my favorite spots in city posts like the one about [Singapore](/posts/goodbye-little-red-dot#singapore-favorites) or on this [map page](/map) that will show all my favorites in one place.
+I added a map feature to this site, which I can use to show my favorite spots in city posts like the one about [Singapore](/posts/goodbye-little-red-dot#singapore-favorites) or on this [map page](/places) that will show all my favorites in one place.
 
 It's a feature that I've wanted for a while and makes my entry into web development, which started with me hiring an agency in 2012 to create TGWTB, now coming full circle with my own integrated city guide.
 

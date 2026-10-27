@@ -5,12 +5,18 @@ import { formatLongDate } from "@/lib/format-date";
 import { proseLinkClassName } from "@/lib/markdown";
 import {
   getTravelStories,
+  storiesByNumber,
   storiesInPlace,
   travelPlaces,
   type TravelCity,
   type TravelCountry,
   type TravelStory,
 } from "@/lib/travel-stories";
+
+type TravelStoriesView = "list" | "photographs";
+
+const viewLinkClassName =
+  "underline decoration-transparent underline-offset-[0.18em] hover:decoration-current focus-visible:decoration-current aria-[current=page]:text-slate-950 aria-[current=page]:decoration-current";
 
 export const metadata: Metadata = {
   title: "Travel Stories",
@@ -19,8 +25,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/travel-stories" },
 };
 
-export default async function TravelStoriesPage() {
+export default async function TravelStoriesPage({
+  searchParams,
+}: PageProps<"/travel-stories">) {
   const stories = await getTravelStories();
+  const { view: requestedView } = await searchParams;
+  const view: TravelStoriesView =
+    requestedView === "photographs" ? "photographs" : "list";
 
   return (
     <article className="pt-7 pb-8 md:pt-10">
@@ -33,53 +44,120 @@ export default async function TravelStoriesPage() {
           Stories, photographs, and recommendations originally published on
           Instagram.
         </p>
+        <ViewSwitch view={view} />
       </header>
 
-      <div className="mt-16 md:mt-24">
-        {travelPlaces.map((place, index) => {
-          const countryStories = storiesInPlace(stories, place.country);
-
-          return (
-            <section
-              key={place.country}
-              aria-labelledby={place.id}
-              className={index === 0 ? undefined : "border-t border-slate-300"}
-            >
-              <div className="mx-auto max-w-[96rem] px-4 pt-9 pb-8 md:px-8">
-                <div className="max-w-[44rem]">
-                  <h2
-                    id={place.id}
-                    className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase"
-                  >
-                    {place.country}
-                  </h2>
-
-                  {place.country === "Australia" ? <MelbourneNote /> : null}
-
-                  {countryStories.length > 0 ? (
-                    <StoryList stories={countryStories} />
-                  ) : null}
-
-                  {place.cities.map((city) => (
-                    <CityGroup
-                      key={city.id}
-                      country={place.country}
-                      city={city.city}
-                      id={city.id}
-                      stories={storiesInPlace(
-                        stories,
-                        place.country,
-                        city.city,
-                      )}
-                    />
-                  ))}
-                </div>
-              </div>
-            </section>
-          );
-        })}
-      </div>
+      {view === "photographs" ? (
+        <PhotographGrid stories={stories} />
+      ) : (
+        <PlaceList stories={stories} />
+      )}
     </article>
+  );
+}
+
+function ViewSwitch({ view }: { view: TravelStoriesView }) {
+  return (
+    <nav
+      aria-label="View"
+      className="mt-8 font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase md:mt-10"
+    >
+      <ul className="flex gap-x-6">
+        <li>
+          <Link
+            href="/travel-stories"
+            aria-current={view === "list" ? "page" : undefined}
+            className={viewLinkClassName}
+          >
+            By place
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/travel-stories?view=photographs"
+            aria-current={view === "photographs" ? "page" : undefined}
+            className={viewLinkClassName}
+          >
+            Photographs
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  );
+}
+
+function PhotographGrid({ stories }: { stories: TravelStory[] }) {
+  return (
+    <ul
+      aria-label="Photographs"
+      className="mx-auto mt-16 grid max-w-[96rem] grid-cols-3 gap-1 px-4 md:mt-24 md:grid-cols-6 md:px-8"
+    >
+      {storiesByNumber(stories).map((story) => (
+        <li key={story.slug}>
+          <Link
+            href={`/travel-stories/${story.slug}`}
+            className="block aspect-square"
+          >
+            <span className="relative block h-full overflow-hidden">
+              {/* Photographs stay plain img elements until image optimization is decided. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={story.photo.src}
+                alt={`#${story.number}, ${story.location} ${story.photo.alt}`}
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover hover:opacity-90 motion-safe:transition-opacity"
+              />
+            </span>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function PlaceList({ stories }: { stories: TravelStory[] }) {
+  return (
+    <div className="mt-16 md:mt-24">
+      {travelPlaces.map((place, index) => {
+        const countryStories = storiesInPlace(stories, place.country);
+
+        return (
+          <section
+            key={place.country}
+            aria-labelledby={place.id}
+            className={index === 0 ? undefined : "border-t border-slate-300"}
+          >
+            <div className="mx-auto max-w-[96rem] px-4 pt-9 pb-8 md:px-8">
+              <div className="max-w-[44rem]">
+                <h2
+                  id={place.id}
+                  className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase"
+                >
+                  {place.country}
+                </h2>
+
+                {place.country === "Australia" ? <MelbourneNote /> : null}
+
+                {countryStories.length > 0 ? (
+                  <StoryList stories={countryStories} />
+                ) : null}
+
+                {place.cities.map((city) => (
+                  <CityGroup
+                    key={city.id}
+                    country={place.country}
+                    city={city.city}
+                    id={city.id}
+                    stories={storiesInPlace(stories, place.country, city.city)}
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })}
+    </div>
   );
 }
 

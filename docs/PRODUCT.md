@@ -95,6 +95,12 @@ groups every book by topic, most recent first, and opens with a short list of
 books to start with. Each book is one Markdown file. A recommended book
 includes one line on why it stuck, shown under the title on the index.
 
+### Places
+
+Places is a collection at `/places`, and it is the new address of the old map.
+`/map` redirects there. The page is not the old map. How the spots from that
+map are represented is still open.
+
 ### Archive
 
 The Spin-Off Project (`/tsop`), Travel Stories (`/travel-stories`), and Letters are listed in the footer, in that order. Archive is a label for that group, like Collections, and these links stay out of the primary navigation.
@@ -115,7 +121,7 @@ Letters is the archive of letters sent from 2018 to 2023. The URLs are `/letters
 
 ### Travel Stories
 
-Travel Stories is the archive of stories, photographs, and recommendations originally published on Instagram. The URLs are `/travel-stories` and `/travel-stories/<number>`. The index is grouped by country, then city. Each story keeps its number. `/travel-archives` redirects to `/travel-stories`.
+Travel Stories is the archive of stories, photographs, and recommendations originally published on Instagram. The URLs are `/travel-stories` and `/travel-stories/<number>`. The index has two views. By place, the default, groups stories by country, then city, and keeps the place and story anchors. Photographs, at `/travel-stories?view=photographs`, is a square grid of every photograph, ordered by story number with the highest number first. Each photograph links to its story. That query is the same page: the canonical URL stays `/travel-stories`. Each story keeps its number. `/travel-archives` redirects to `/travel-stories`.
 
 ## Experience and visual direction
 
@@ -165,6 +171,7 @@ Search visibility should help people discover writing worth reading without shap
 - Letters are also plain text files in the repository.
 - Travel stories are also plain text files in the repository.
 - Spin-Off Project posts and section pages are also plain text files in the repository.
+- The résumé and Dropbox are also plain text files in the repository.
 - There is no CMS, admin interface, or database.
 - An article can be kept as a draft. Drafts are never published.
 
@@ -174,7 +181,7 @@ Search visibility should help people discover writing worth reading without shap
 - The previous implementation is archived in Git and is not the basis for the new product or design.
 - Existing material returns selectively, one piece at a time. Not everything needs to return.
 - Migrated articles may be adapted to the new content format without preserving their old implementation.
-- Recipes returns as a deliberately small collection. Books returns as the notes kept from the reading list. Letters returns as the letters sent from 2018 to 2023, at `/letters`. The Spin-Off Project returns at `/tsop`. Travel Stories returns at `/travel-stories`. Other old sections such as Moments, Map, and résumé have no automatic commitment to return.
+- Recipes returns as a deliberately small collection. Books returns as the notes kept from the reading list. Letters returns as the letters sent from 2018 to 2023, at `/letters`. The Spin-Off Project returns at `/tsop`. Travel Stories returns at `/travel-stories`. The one published Moment returns as a Writing article. The résumé returns at `/resume`. Dropbox returns at `/dropbox`. The map's address is `/places`.
 - Books, Recipes, Places, or similar collection areas should not automatically become primary navigation items.
 - Until content is migrated, some old URLs may return 404. This is accepted.
 
@@ -195,5 +202,5 @@ Prefer the former.
 - Social preview image strategy
 - Analytics
 - Tags, categories, or other additional ways to browse Writing
-- Which remaining legacy sections outside Writing, Recipes, Books, Letters, The Spin-Off Project, and Travel Stories return, and therefore which of their URLs get redirects (see "URL migration" in `docs/ARCHITECTURE.md`)
+- How the spots from the old map are represented on Places
 - Whether any Spin-Off Project section page (`/tsop/about`, `/tsop/about-me`, `/tsop/faqs`, `/tsop/resources`, `/tsop/now`, `/tsop/contact`) is later removed or redirected

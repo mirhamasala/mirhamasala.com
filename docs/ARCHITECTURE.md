@@ -45,7 +45,8 @@ Lift each hold when `eslint-config-next` supports the newer version.
 - GFM collects footnote definitions and renders them at the end of the document. The footnote section draws the rule above the notes, so a Markdown rule that only introduced those definitions is not rendered again. A closing "You Might Also Like" section is placed after the notes: the notes finish the piece, and the suggestion comes last.
 - Article and letter headings get ids from `github-slugger` 2.0.0, the version the legacy site used, so existing in-article links still land.
 - Article images and the knitting-club PDF are static files at `public/posts/<slug>/`, referenced from Markdown, the same way the letter photograph is. This does not decide image dimensions or whether articles use `next/image`.
-- Place lists inside articles are Markdown. The legacy map is not part of this migration, and Places stays undecided.
+- Place lists inside articles are Markdown. `/map` redirects to `/places`. The legacy map application is not carried over. How its spots are represented on Places is still open.
+- A paragraph whose only content is a link to an `.mp4` renders as a video with controls. Dropbox uses this for the two bucket-list clips.
 - `content/posts/draft-fixture.md` is a permanent `draft: true` fixture. It gives the browser suite a known draft to prove drafts stay unpublished.
 - Recipes are plain Markdown at `content/recipes/<slug>.md`, with the filename
   as the slug. Their strict YAML schema is `title`, `description`, `date`
@@ -80,22 +81,31 @@ Lift each hold when `eslint-config-next` supports the newer version.
   `date` (`YYYY-MM-DD`), `instagram`, `description`, and optional `city`.
   `instagram` is the original post URL from the old page heading. `country`
   is one of the groups in `travelPlaces` in `lib/travel-stories.ts`, which is also
-  the order of the index. `city`, when present, is one of that country's city
+  the order of the place list. `city`, when present, is one of that country's city
   headings: Sydney, Sarajevo, Colombo, Tel Aviv, or Tokyo. Stories that sat
   directly under a country omit `city`. `number` is the story's name and its
   URL. `location` is the place line. Unknown fields fail the build. The body
   is the story and opens with its photograph, a static file at
-  `public/travel-stories/<number>/`. This does not decide image dimensions or
-  whether those images use `next/image`.
+  `public/travel-stories/<number>/photo.jpg` or `photo.jpeg`. The index reads
+  that opening image. The default view is the place list and keeps the anchor
+  ids. `?view=photographs` is the same index as a square grid ordered by story
+  number, highest first. Reading that query renders the index on demand. Its
+  canonical URL remains `/travel-stories`. This
+  does not decide image dimensions or whether those images use `next/image`.
+- The résumé and Dropbox are plain Markdown at `content/pages/resume.md` and
+  `content/pages/dropbox.md`. Schema: `title`, `description`, and `date`
+  (`YYYY-MM-DD`). Unknown fields fail the build. The résumé PDF is a static
+  file at `public/resume/`. Dropbox images and videos are static files at
+  `public/dropbox/`.
 
 ## Metadata and indexing
 
 Use the built-in Next.js features: the `metadata` export and `generateMetadata`, `metadataBase`, `app/sitemap.ts`, `app/robots.ts`, and `next/font`. No SEO libraries.
 
-Every indexable route class (`/`, `/about`, `/posts`, `/posts/[slug]`,
-`/recipes`, `/recipes/[slug]`, `/books`, `/books/[slug]`, `/archive`,
-`/letters`, `/letters/[slug]`, `/travel-stories`, `/travel-stories/[slug]`,
-`/tsop`, `/tsop/posts/[slug]`, `/tsop/[slug]`)
+Every indexable route class (`/`, `/about`, `/resume`, `/dropbox`, `/posts`,
+`/posts/[slug]`, `/recipes`, `/recipes/[slug]`, `/books`, `/books/[slug]`,
+`/places`, `/archive`, `/letters`, `/letters/[slug]`, `/travel-stories`,
+`/travel-stories/[slug]`, `/tsop`, `/tsop/posts/[slug]`, `/tsop/[slug]`)
 provides:
 
 - a meaningful title (the root layout's title template adds the site name)
@@ -112,7 +122,7 @@ Vercel preview and development deployments (`VERCEL_ENV` other than `production`
 
 ## Sitemap and robots
 
-- `sitemap.xml` lists every indexable canonical URL: the static pages and every published article, recipe, book, letter, travel story, and Spin-Off Project post and section page.
+- `sitemap.xml` lists every indexable canonical URL: the static pages and every published article, recipe, book, letter, travel story, and Spin-Off Project post and section page. That includes `/places`, `/resume`, and `/dropbox`.
 - Drafts, unknown routes, redirects, and noncanonical URLs are never listed.
 - Unknown and draft article slugs return 404. Next.js adds `noindex` to 404 responses.
 - `robots.txt` allows all crawling and references the absolute sitemap URL.
@@ -134,7 +144,9 @@ Inventory of the legacy site's public URLs (tag `pre-redesign-2026`):
 - `/archive` presents The Spin-Off Project, Travel Stories, and Letters, in the order they began. Letters links to `/letters`, and a few letters link to `/letters/<slug>`. The Spin-Off Project links to `/tsop`, and each of the twelve names links to that spin-off on the index. Travel Stories links to `/travel-stories`, and the places link to that index's country and city ids.
 - The Spin-Off Project keeps `/tsop`, `/tsop/posts/<slug>`, and the section pages `/tsop/about`, `/tsop/about-me`, `/tsop/faqs`, `/tsop/resources`, `/tsop/now`, and `/tsop/contact`. Those section-page URLs are not redirected away; removing or redirecting one is still open in `docs/PRODUCT.md`. Images that were at `/pages/tsop/<path>` redirect to `/tsop/<path>`.
 - `/travel-archives` redirects to `/travel-stories`. Each story is `/travel-stories/<number>`. Browsers keep the fragment across that redirect, and the index keeps the old ids (`australia`, `melbourne`, `sydney`, `bosnia-and-herzegovina`, `sarajevo`, `sri-lanka`, `colombo`, `israel`, `tel-aviv`, `japan`, `tokyo`, and each story number), so `/travel-archives#294` lands on `/travel-stories#294`. Photographs that were at `/pages/<number>_instagram_archive.jpg`, `/pages/<number>_instagram_archives.jpg`, or `/pages/<number>_instagram_archives.jpeg` redirect to `/travel-stories/<number>/photo.jpg` or `photo.jpeg`.
-- Moments (`/moments/...`), `/map`, `/resume`, and `/dropbox` return 404 until `docs/PRODUCT.md` decides whether each section returns.
+- `/map` redirects to `/places`. Places is the collection page at that URL. The spots from the legacy map are not on it yet.
+- `/moments` redirects to `/posts`. The one published Moment is the article `/posts/when-we-were-young`, and `/moments/when-we-were-young` redirects there. It never had a root alias. The photograph that was at `/pages/moments/portugal-lisbon-musa-da-bica.jpeg` redirects to `/posts/when-we-were-young/portugal-lisbon-musa-da-bica.jpeg`.
+- `/resume` and `/dropbox` keep their paths. The résumé PDF that was at `/pages/cv_mirha_masala_2020.pdf` redirects to `/resume/cv_mirha_masala_2020.pdf`. Dropbox files that were at `/pages/begin_again.png`, `/pages/coconut_flour_flatbreads_recipe.jpg`, `/pages/bucket_list_cartwheels.mp4`, `/pages/bucket_list_juggling.mp4`, and `/pages/mirha_masala_tokyo.jpg` redirect to `/dropbox/<file>`. Heading ids on Dropbox still match the old anchors (`bucket-list-18-learn-to-do-a-cartwheel`, `bucket-list-19-learn-to-juggle-limes`, `in-tokyo`).
 - The legacy feeds at `/rss/feed.xml` and `/rss/feed.json` return 404 until a feed is decided.
 
 ## Launch checks
@@ -156,6 +168,12 @@ app/
   globals.css
   sitemap.ts
   robots.ts
+  places/
+    page.tsx          # Places collection
+  resume/
+    page.tsx
+  dropbox/
+    page.tsx
   posts/
     page.tsx          # Writing index
     [slug]/page.tsx   # article
@@ -171,7 +189,7 @@ app/
     page.tsx          # letter index
     [slug]/page.tsx   # letter
   travel-stories/
-    page.tsx          # travel story index
+    page.tsx          # place list and photograph grid
     [slug]/page.tsx   # travel story
   tsop/
     page.tsx          # Spin-Off Project index
@@ -187,6 +205,8 @@ components/
   mobile-navigation.tsx
 content/
   posts/<slug>.md
+  pages/resume.md
+  pages/dropbox.md
   recipes/<slug>.md
   books/<slug>.md
   letters/<slug>.md
@@ -195,10 +215,11 @@ content/
   tsop/posts/<slug>.md
 lib/
   posts.ts            # read, parse, validate, sort, exclude drafts
+  pages.ts            # résumé and Dropbox
   recipes.ts          # read, parse, validate, sort
   books.ts            # read, parse, validate, sort
   letters.ts          # read, parse, validate, sort
-  travel-stories.ts   # read, parse, validate, group
+  travel-stories.ts   # read, parse, validate, group, photograph order
   tsop.ts             # read, parse, validate, sort, group by spin-off
   format-date.ts      # long calendar dates
   redirects.ts        # legacy URLs that permanently redirect
@@ -251,7 +272,7 @@ Technical questions only. Product-level open questions live in `docs/PRODUCT.md`
 - Article images: how their dimensions are known, and whether to use `next/image` optimization or plain pre-sized images. This migration uses static files at `public/posts/<slug>/`.
 - Whether the typography plugin stays or is replaced by custom styles
 - How an article moves out of Writing, and how that article is represented. `/archive` presents The Spin-Off Project, Travel Stories, and Letters. Links to an archived article's `/posts/<slug>` URL must keep working.
-- How related writing, and collections other than Recipes and Books, are represented in content
+- How related writing, and the spots on Places, are represented in content. `/places` is the page; `/map` redirects there. The legacy map application is not carried over.
 - Feed format, URL, and full text or excerpts, if a feed is added
 - Social preview images: static files or generated with `next/og`
 - A unit-test runner. Browser and accessibility verification is Playwright and axe, recorded under Verification.

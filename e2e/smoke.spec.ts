@@ -18,6 +18,8 @@ const tsopPages = await getTsopPages();
 const pages = [
   { path: "/", status: 200 },
   { path: "/about", status: 200, heading: /Hi, I’m Mirha\./ },
+  { path: "/resume", status: 200, heading: "Resume" },
+  { path: "/dropbox", status: 200, heading: "Dropbox" },
   { path: "/posts", status: 200, heading: "Writing" },
   ...posts.map((post) => ({
     path: `/posts/${post.slug}`,
@@ -31,6 +33,7 @@ const pages = [
     heading: recipe.title,
   })),
   { path: "/books", status: 200, heading: "What I’ve taken from the pages." },
+  { path: "/places", status: 200, heading: "Places I’d recommend." },
   ...books.map((book) => ({
     path: `/books/${book.slug}`,
     status: 200,
@@ -319,6 +322,72 @@ test.describe("letter pages", () => {
     await expect(
       page.getByRole("heading", { level: 1, name: "Courage Again" }),
     ).toBeVisible();
+  });
+});
+
+test.describe("travel stories", () => {
+  const newest = stories.reduce((current, story) =>
+    story.number > current.number ? story : current,
+  );
+  const newestPhotograph = `#${newest.number}, ${newest.location} ${newest.photo.alt}`;
+
+  test("an unknown view shows the place list", async ({ page }) => {
+    await page.goto("/travel-stories?view=nope");
+
+    await expect(
+      page.getByRole("heading", { level: 2, name: "Australia" }),
+    ).toBeVisible();
+    await expect(page.getByRole("link", { name: "By place" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
+  });
+
+  test("a story anchor still opens the place list", async ({ page }) => {
+    await page.goto("/travel-stories#294");
+
+    await expect(page.locator('[id="294"]')).toBeInViewport();
+  });
+
+  test("the photograph view opens its first story", async ({ page }) => {
+    await page.goto("/travel-stories");
+    await expect(
+      page.getByRole("heading", { level: 2, name: "Australia" }),
+    ).toBeVisible();
+
+    await page.getByRole("link", { name: "Photographs" }).click();
+    await expect(page).toHaveURL(/\/travel-stories\?view=photographs$/);
+    await expect(
+      page.getByRole("heading", { level: 1, name: "What I brought home." }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { level: 2, name: "Australia" }),
+    ).toHaveCount(0);
+    await expect(
+      page.getByRole("link", { name: "Photographs" }),
+    ).toHaveAttribute("aria-current", "page");
+
+    const firstPhotograph = page
+      .getByRole("list", { name: "Photographs" })
+      .getByRole("link")
+      .first();
+    await expect(firstPhotograph).toHaveAccessibleName(newestPhotograph);
+    await firstPhotograph.click();
+
+    await expect(page).toHaveURL(new RegExp(`/travel-stories/${newest.slug}$`));
+    await expect(
+      page.getByRole("heading", { level: 1, name: `#${newest.number}` }),
+    ).toBeVisible();
+  });
+
+  test("the photograph view has no serious or critical violations", async ({
+    page,
+  }) => {
+    const response = await page.goto("/travel-stories?view=photographs");
+    if (!response) throw new Error("No response for the photograph view");
+
+    expect(response.status()).toBe(200);
+    await expectNoSeriousAccessibilityViolations(page);
   });
 });
 

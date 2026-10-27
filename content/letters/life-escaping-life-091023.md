@@ -39,7 +39,7 @@ I added six books with the usual takeaways to my old bucket list challenge [Rea
 
 ## Code
 
-On my [site](/), I added a loading state to the Map feature and session storage to keep users' city selection as they navigate to and from the [Map page](/map). [Slightly messy PR](https://github.com/mirhamasala/mirhamasala.com/pull/148).
+On my [site](/), I added a loading state to the Map feature and session storage to keep users' city selection as they navigate to and from the [Map page](/places). [Slightly messy PR](https://github.com/mirhamasala/mirhamasala.com/pull/148).
 
 ## Quote I'm Pondering
 

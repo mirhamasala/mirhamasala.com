@@ -10,7 +10,7 @@ I moved to Europe, splitting my days between [Singapore](/posts/goodbye-little-r
 
 I swam and strolled between skyscrapers, mounted pine tree forests, surfed buttery waters, and traced rugged coastlines.
 
-Still possessed by two alter egos, I sealed a front-end role that allowed me to descend into JavaScript at last, and I untangled my thoughts into [goodbyes](/posts/goodbye-little-red-dot/), [personal revelations](/posts/everything-i-never-told-you/), [The Story of Us](/posts/the-story-of-us/), a single [travel moment](/moments/when-we-were-young), and [eleven paper planes](/letters).
+Still possessed by two alter egos, I sealed a front-end role that allowed me to descend into JavaScript at last, and I untangled my thoughts into [goodbyes](/posts/goodbye-little-red-dot/), [personal revelations](/posts/everything-i-never-told-you/), [The Story of Us](/posts/the-story-of-us/), a single [travel moment](/posts/when-we-were-young), and [eleven paper planes](/letters).
 
 I made my first investment, began learning Portuguese, took up a 30-day writing challenge, and ticked off my most precious [bucket list wish](#slow-retreats) yet.
 
@@ -92,7 +92,7 @@ A note appeared, included in a belated birthday gift, that ended with “Happy t
 
 📌 [Little Rabbit’s Room](https://goo.gl/maps/XsABnXUJJuby7rnE7), Munich – Germany
 
-🚂 **Plus, the Beginning of** [Moments](/moments)
+🚂 **Plus, the Beginning of** [Moments](/posts)
 
 ## The One Big Thing That Defined the Year
 

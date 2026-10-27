@@ -71,9 +71,7 @@ export default function NotFound() {
             <p className="mt-2 max-w-[34rem] font-serif text-[1.05rem] leading-[1.45] text-slate-600 md:text-[1.15rem]">
               <ContentLink href="/books">Books I’ve read</ContentLink>,{" "}
               <ContentLink href="/recipes">recipes I make</ContentLink>, and{" "}
-              <ContentLink href="/places" prefetch={false}>
-                places I’d recommend
-              </ContentLink>.
+              <ContentLink href="/places">places I’d recommend</ContentLink>.
             </p>
           </div>
         </li>
@@ -91,9 +89,7 @@ export default function NotFound() {
               Older projects and parts of the site, including{" "}
               <ContentLink href="/tsop">TSOP</ContentLink>,{" "}
               <ContentLink href="/letters">the letters</ContentLink>, and{" "}
-              <ContentLink href="/travel-stories">
-                travel stories
-              </ContentLink>.
+              <ContentLink href="/travel-stories">travel stories</ContentLink>.
             </p>
           </div>
         </li>

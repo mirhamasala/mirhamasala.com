@@ -9,6 +9,8 @@ const TRAVEL_STORIES_DIR = path.join(
   "travel-stories",
 );
 const FRONTMATTER = /^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/;
+const OPENING_PHOTO =
+  /^!\[([^\]]*)\]\((\/travel-stories\/(\d+)\/photo\.jpe?g)\)/;
 
 /** Index order. Cities are the headings the old page used. */
 export const travelPlaces = [
@@ -86,6 +88,10 @@ const frontmatterSchema = z
 export type TravelStory = z.infer<typeof frontmatterSchema> & {
   slug: string;
   body: string;
+  photo: {
+    src: string;
+    alt: string;
+  };
 };
 
 function parseTravelStory(slug: string, source: string): TravelStory {
@@ -106,10 +112,37 @@ function parseTravelStory(slug: string, source: string): TravelStory {
     );
   }
 
-  return { ...result.data, slug, body: source.slice(match[0].length) };
+  const body = source.slice(match[0].length);
+
+  return {
+    ...result.data,
+    slug,
+    body,
+    photo: openingPhotograph(slug, body),
+  };
 }
 
-/** All travel stories. Group and sort them with `storiesInPlace`. */
+/** The story opens with its photograph, used by the index grid. */
+function openingPhotograph(slug: string, body: string): TravelStory["photo"] {
+  const file = `content/travel-stories/${slug}.md`;
+  const match = OPENING_PHOTO.exec(body.trimStart());
+  const alt = match?.[1].trim();
+  const src = match?.[2];
+  const number = match?.[3];
+
+  if (!src || number !== slug || !alt) {
+    throw new Error(
+      `${file}: body must open with a described /travel-stories/${slug}/photo.jpg or .jpeg`,
+    );
+  }
+
+  return { src, alt };
+}
+
+/**
+ * All travel stories. Group them with `storiesInPlace`, or order the
+ * photograph grid with `storiesByNumber`.
+ */
 export async function getTravelStories(): Promise<TravelStory[]> {
   const files = (await readdir(TRAVEL_STORIES_DIR)).filter((file) =>
     file.endsWith(".md"),
@@ -158,4 +191,9 @@ export function storiesInPlace(
         : story.country === country && story.city === undefined,
     )
     .sort((a, b) => b.date.localeCompare(a.date) || b.number - a.number);
+}
+
+/** Highest story number first. This is the photograph grid's order. */
+export function storiesByNumber(stories: TravelStory[]): TravelStory[] {
+  return [...stories].sort((a, b) => b.number - a.number);
 }

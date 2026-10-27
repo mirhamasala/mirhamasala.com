@@ -5,11 +5,25 @@
  * life-escaping-life-091023, and lost-on-mars-111223.
  * Published articles keep their legacy root aliases. Drafts do not,
  * including /we-need-to-talk-about-me. /amsterdam-favorites has no article.
+ * /map goes to /places. /moments goes to Writing. The one published
+ * Moment keeps its slug under /posts.
  */
 export const legacyRedirects = [
   {
     source: "/all-posts",
     destination: "/posts",
+  },
+  {
+    source: "/map",
+    destination: "/places",
+  },
+  {
+    source: "/moments",
+    destination: "/posts",
+  },
+  {
+    source: "/moments/when-we-were-young",
+    destination: "/posts/when-we-were-young",
   },
   {
     source: "/10-things-melbourne",
@@ -888,5 +902,33 @@ export const legacyRedirects = [
   {
     source: "/pages/451_instagram_archives.jpg",
     destination: "/travel-stories/451/photo.jpg",
+  },
+  {
+    source: "/pages/begin_again.png",
+    destination: "/dropbox/begin_again.png",
+  },
+  {
+    source: "/pages/coconut_flour_flatbreads_recipe.jpg",
+    destination: "/dropbox/coconut_flour_flatbreads_recipe.jpg",
+  },
+  {
+    source: "/pages/bucket_list_cartwheels.mp4",
+    destination: "/dropbox/bucket_list_cartwheels.mp4",
+  },
+  {
+    source: "/pages/bucket_list_juggling.mp4",
+    destination: "/dropbox/bucket_list_juggling.mp4",
+  },
+  {
+    source: "/pages/mirha_masala_tokyo.jpg",
+    destination: "/dropbox/mirha_masala_tokyo.jpg",
+  },
+  {
+    source: "/pages/cv_mirha_masala_2020.pdf",
+    destination: "/resume/cv_mirha_masala_2020.pdf",
+  },
+  {
+    source: "/pages/moments/portugal-lisbon-musa-da-bica.jpeg",
+    destination: "/posts/when-we-were-young/portugal-lisbon-musa-da-bica.jpeg",
   },
 ] as const;

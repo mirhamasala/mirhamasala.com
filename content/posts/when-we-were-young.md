@@ -1,0 +1,11 @@
+---
+title: When We Were Young
+description: Reminiscing about the endless days with friends over drinks and laughter of my youth.
+date: 2021-11-20
+---
+
+![Friends drinking beers on a hilly beer terrace called Musa da Bica in Lisbon, Portugal](/posts/when-we-were-young/portugal-lisbon-musa-da-bica.jpeg)
+
+I can watch people having drinks for long without getting bored. An activity especially well suited when traveling alone, providing a decent amount of voyeurism and nostalgia–a longing for my own friends and favorite pastime: meeting them for drinks without an end time in mind. We, too, would be ordering different specialty beers until the sun would get trampled by the more chill dusk. There’d be so much nonsense talk. And laughter. Nobody would even think of going home, or if at some point we did, it was just for a second, a thought, involuntarily unfixed from our minds, as if when forgetting what you just wanted to say but realizing it couldn’t have been important anyway. No phones. No selfies. Just us, settling into the hours in front of us. Our obligations and deadlines shelved for an unknown time in the future. Pure idleness, lost, I find it, to a time when we were young.
+
+[Musa da Bica](https://g.page/musa-da-bica), Lisbon, Portugal.

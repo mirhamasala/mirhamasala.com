@@ -78,11 +78,17 @@ _If you only read one book from the list below, make it [To Have and to Hold](/p
 ---
 
 [^1]: I selected a few scents to mark the birth experience, choosing Marie-Stella-Maris Room Spray No.12 Objets d'Amsterdam and Byredo's Gypsy Water body cream. The former was a tribute to where I met G and the city where our boy was born. The latter served as [a beloved reminder of my travels](/posts/favorite-things-2019#most-memorable-travel-experience).
+
 [^2]: Meaning that if you want to give birth in a hospital, you have to make a case for it (or finance it yourself). Be that as it may, more women are choosing to give birth in hospitals nowadays, with only [13.85% homebirths in 2021](https://www.staatvenz.nl/kerncijfers/bevallingen).
+
 [^3]: Gaskin, Ina May. [Ina May's Guide to Childbirth](https://www.amazon.com/Ina-Mays-Guide-Childbirth-Gaskin-ebook/dp/B003QHXLKA) Chapter 4, "Sphincter Law," Section: "Sphincters May Suddenly Close When Their Owner Is Startled or Frightened," p. 304.
+
 [^4]: (a) Synthetic **oxytocin**, a hormone, is often administered in medical settings to stimulate contractions during labor. It mimics the natural hormone's role in childbirth. (b) An **episiotomy** is a surgical cut made in the perineum (the area between the vaginal opening and the anus). It is performed to enlarge the vaginal opening for childbirth. (c) A **vacuum-assisted** delivery involves attaching a soft cup to the baby's head with a vacuum to help guide the baby through the birth canal during contractions.
+
 [^5]: By _like that_, I mean _like that after_ experiencing the most intense phase known as crowning (where the baby's head fully stretches the vaginal opening). Although I had read about crowning, I hadn't grasped that I'd need to maintain that position for one or two contractions.
+
 [^6]: Dylan weighed 2946 grams at birth and was born on G's parents' wedding anniversary.
+
 [^7]: Despite the transfer to the hospital, my delivery was as natural as possible. I had a vaginal birth without pain relief, episiotomy, or the use of a vacuum. Each intervention required explicit consent, though we had to fight hard for our wishes. Nevertheless, we had to concede several other birth preferences, such as having a home birth, a water birth, the option not to break my waters, freedom of movement, not being directed when to push, avoiding the use of oxytocin, and not undergoing continuous monitoring.
 
 ---

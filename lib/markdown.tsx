@@ -238,8 +238,57 @@ export function BookMarkdownContent({ source }: { source: string }) {
   );
 }
 
+/** A paragraph whose only content is a link to an mp4 is that video. */
+function standaloneVideoHref(node: HastNode | undefined): string | undefined {
+  const children = node?.children ?? [];
+  const meaningful = children.filter((child) => {
+    if (child.type === "text") return Boolean(child.value?.trim());
+    return child.type === "element";
+  });
+  const link = meaningful[0];
+  if (meaningful.length !== 1 || link?.tagName !== "a") return;
+
+  const href = link.properties?.href;
+  if (typeof href !== "string" || !href.endsWith(".mp4")) return;
+  return href;
+}
+
+function standaloneVideoLabel(node: HastNode | undefined): string | undefined {
+  const link = node?.children?.find((child) => child.tagName === "a");
+  const label = link?.children
+    ?.filter((child) => child.type === "text")
+    .map((child) => child.value ?? "")
+    .join("")
+    .trim();
+  return label || undefined;
+}
+
 const letterComponents: Components = {
   ...bookComponents,
+  p: ({ node, children, ...props }) => {
+    const href = standaloneVideoHref(node as HastNode | undefined);
+    if (href) {
+      return (
+        <video
+          className="mt-8 w-full"
+          controls
+          preload="metadata"
+          aria-label={standaloneVideoLabel(node as HastNode | undefined)}
+        >
+          <source src={href} type="video/mp4" />
+        </video>
+      );
+    }
+
+    return (
+      <p
+        className="mt-5 font-serif text-[1.2rem] leading-[1.55] first:mt-0 md:text-[1.25rem]"
+        {...props}
+      >
+        {children}
+      </p>
+    );
+  },
   h3: ({ node, ...props }) => {
     void node;
     return (
@@ -283,6 +332,103 @@ function markdownText(node: MarkdownTree): string {
   return (node.children ?? []).map(markdownText).join("");
 }
 
+type HastNode = {
+  type: string;
+  tagName?: string;
+  value?: string;
+  properties?: {
+    className?: string | Array<string | number>;
+    dataFootnotes?: boolean | string;
+    href?: unknown;
+  };
+  children?: HastNode[];
+};
+
+function hastText(node: HastNode): string {
+  if (node.type === "text") return node.value ?? "";
+  return (node.children ?? []).map(hastText).join("");
+}
+
+function isHastElement(node: HastNode, tagName: string): boolean {
+  return node.type === "element" && node.tagName === tagName;
+}
+
+function isFootnotesSection(node: HastNode): boolean {
+  if (!isHastElement(node, "section")) return false;
+  const properties = node.properties;
+  if (properties?.dataFootnotes === true || properties?.dataFootnotes === "") {
+    return true;
+  }
+  const className = properties?.className;
+  const classes = Array.isArray(className)
+    ? className
+    : typeof className === "string"
+      ? className.split(" ")
+      : [];
+  return classes.includes("footnotes");
+}
+
+function isRelatedHeading(node: HastNode): boolean {
+  return (
+    (isHastElement(node, "h2") || isHastElement(node, "h3")) &&
+    hastText(node).trim() === "You Might Also Like"
+  );
+}
+
+function previousContentIndex(children: HastNode[], index: number): number {
+  for (let cursor = index - 1; cursor >= 0; cursor -= 1) {
+    const child = children[cursor];
+    if (child && !(child.type === "text" && !child.value?.trim()))
+      return cursor;
+  }
+  return -1;
+}
+
+/**
+ * GFM prints footnote definitions at the end of the document, so a rule
+ * written around them collapses onto the suggestion that follows. Keep the
+ * notes with the piece, then the suggestion.
+ */
+function rehypeArticleEnding() {
+  return (tree: HastNode) => {
+    const children = tree.children;
+    if (!children) return;
+
+    const footnotesIndex = children.findIndex(isFootnotesSection);
+    if (footnotesIndex === -1) return;
+
+    const relatedIndex = children.findIndex(
+      (node, index) => index < footnotesIndex && isRelatedHeading(node),
+    );
+    const hasLaterHeading =
+      relatedIndex !== -1 &&
+      children
+        .slice(relatedIndex + 1, footnotesIndex)
+        .some((node) => isHastElement(node, "h2") || isHastElement(node, "h3"));
+
+    if (relatedIndex !== -1 && !hasLaterHeading) {
+      let start = relatedIndex;
+      const before = previousContentIndex(children, relatedIndex);
+      const preceding = before === -1 ? undefined : children[before];
+      if (preceding && isHastElement(preceding, "hr")) start = before;
+
+      const block = children.splice(start, footnotesIndex - start);
+      const notesAt = children.findIndex(isFootnotesSection);
+      children.splice(notesAt + 1, 0, ...block);
+    }
+
+    let notesAt = children.findIndex(isFootnotesSection);
+    let beforeNotes = previousContentIndex(children, notesAt);
+    while (beforeNotes !== -1) {
+      const preceding = children[beforeNotes];
+      if (!preceding || !isHastElement(preceding, "hr")) break;
+      children.splice(beforeNotes, 1);
+      notesAt = children.findIndex(isFootnotesSection);
+      beforeNotes = previousContentIndex(children, notesAt);
+    }
+  };
+}
+
 /** Heading ids match the legacy site, so existing in-article links still land. */
 function remarkHeadingIds() {
   return (tree: MarkdownTree) => {
@@ -323,6 +469,7 @@ export function LetterMarkdownContent({ source }: { source: string }) {
     <div className="[&_.footnotes]:mt-16 [&_.footnotes]:border-t [&_.footnotes]:border-slate-300 [&_.footnotes]:pt-8 [&_hr+*]:mt-0 [&_img]:h-auto [&_img]:w-full [&_sup]:text-[1rem]">
       <Markdown
         remarkPlugins={[remarkGfm, remarkHeadingIds]}
+        rehypePlugins={[rehypeArticleEnding]}
         components={letterComponents}
       >
         {source}

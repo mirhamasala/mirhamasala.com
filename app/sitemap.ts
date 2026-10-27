@@ -22,6 +22,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     { url: absoluteUrl("/") },
     { url: absoluteUrl("/about") },
+    { url: absoluteUrl("/resume") },
+    { url: absoluteUrl("/dropbox") },
     { url: absoluteUrl("/posts") },
     ...posts.map((post) => ({
       url: absoluteUrl(`/posts/${post.slug}`),
@@ -33,6 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: recipe.date,
     })),
     { url: absoluteUrl("/books") },
+    { url: absoluteUrl("/places") },
     ...books.map((book) => ({
       url: absoluteUrl(`/books/${book.slug}`),
     })),

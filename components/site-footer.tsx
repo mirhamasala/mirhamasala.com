@@ -15,6 +15,7 @@ const publishedPaths = new Set<string>([
   "/letters",
   "/tsop",
   "/travel-stories",
+  "/places",
 ]);
 
 function FooterLink({ href, label }: { href: string; label: string }) {
