@@ -214,6 +214,8 @@ app/
 components/
   breadcrumbs.tsx     # Archive trail
   eyebrow.tsx
+  index-entry.tsx     # Linked title, date, and description on an index
+  year-index.tsx      # Year sections for Letters and Writing
   page-header.tsx     # Index header for section pages
   page-lede.tsx
   page-title.tsx

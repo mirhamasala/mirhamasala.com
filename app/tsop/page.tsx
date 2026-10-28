@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { archiveCrumbs } from "@/components/breadcrumbs";
+import { IndexEntry } from "@/components/index-entry";
 import { PageHeader } from "@/components/page-header";
-import { formatLongDate } from "@/lib/format-date";
-import { getTsopPosts, groupTsopPosts, type TsopPost } from "@/lib/tsop";
+import { getTsopPosts, groupTsopPosts } from "@/lib/tsop";
 
 const contentLinkClassName =
   "underline decoration-slate-300 decoration-[2px] underline-offset-[6px] hover:decoration-slate-950 focus-visible:decoration-slate-950";
@@ -60,7 +60,13 @@ export default async function SpinOffProjectPage() {
                 </h2>
                 <ul className="mt-8 space-y-10 md:mt-10 md:space-y-12">
                   {group.posts.map((post) => (
-                    <PostItem key={post.slug} post={post} />
+                    <IndexEntry
+                      key={post.slug}
+                      href={`/tsop/posts/${post.slug}`}
+                      title={post.title}
+                      description={post.description}
+                      date={post.date}
+                    />
                   ))}
                 </ul>
               </div>
@@ -69,29 +75,5 @@ export default async function SpinOffProjectPage() {
         ))}
       </div>
     </article>
-  );
-}
-
-function PostItem({ post }: { post: TsopPost }) {
-  return (
-    <li>
-      <Link
-        href={`/tsop/posts/${post.slug}`}
-        className="group block w-fit max-w-[44rem] no-underline"
-      >
-        <h3 className="font-display text-[2rem] leading-none tracking-[-0.02em] underline decoration-slate-300 decoration-[2px] underline-offset-[8px] group-hover:decoration-slate-950 group-focus-visible:decoration-slate-950 md:text-[2.65rem]">
-          {post.title}
-        </h3>
-        <time
-          dateTime={post.date}
-          className="mt-3 block text-[1rem] leading-snug text-slate-600"
-        >
-          {formatLongDate(post.date)}
-        </time>
-        <p className="mt-3 font-serif text-[1.05rem] leading-[1.45] text-slate-600 md:mt-4 md:text-[1.15rem]">
-          {post.description}
-        </p>
-      </Link>
-    </li>
   );
 }
