@@ -57,9 +57,9 @@ The primary areas currently envisioned are:
 
 ### Home
 
-The home page should introduce the publication's point of view rather than simply act as a reverse-chronological blog index.
+The home page introduces the publication's point of view rather than simply acting as a reverse-chronological blog index.
 
-The exact composition is still to be designed.
+It opens with "I write about the things I get unusually interested in," a short introduction, and one photograph. Featured writing follows, without a date. Latest shows a few more pieces and a way through to all of Writing. Also here points to Books, Recipes, Places, and Archive.
 
 When writing is selected for prominence, use **Featured writing** rather than assuming the newest posts are necessarily the most important.
 
@@ -199,7 +199,6 @@ Prefer the former.
 
 ## Not yet decided
 
-- The exact composition of the home page
 - Final type scale
 - Exact color shades and the accent color
 - Whether there is a feed

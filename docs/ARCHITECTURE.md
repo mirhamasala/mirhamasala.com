@@ -40,6 +40,7 @@ Lift each hold when `eslint-config-next` supports the newer version.
 - Frontmatter is YAML. It is parsed with `yaml` and validated with a `zod` schema at build time, and invalid content fails the build.
 - Schema: `title`, `description`, `date` (`YYYY-MM-DD`), optional `draft`, optional `featured`. Unknown fields fail the build. Add fields only when a page needs them.
 - `featured: true` marks an article for Featured writing. Selection is always explicit, never inferred from recency.
+- The homepage shows the newest published article with `featured: true`. If several are featured, the newest is the feature and the others may appear in Latest. If none are featured, that section is omitted. Latest is up to four published articles, newest first, excluding the feature. The homepage photograph is `public/home/ericeira.jpg`, rendered with `next/image` at a known size. The image links to its Unsplash page, which is the credit; there is no visible caption. That does not decide article images.
 - `draft: true` articles are excluded from every generated page and from the sitemap.
 - Markdown is rendered to React elements with `react-markdown` and `remark-gfm` (GFM, mainly for footnotes and tables). There is no HTML-string rendering, and raw HTML inside Markdown is not rendered.
 - GFM collects footnote definitions and renders them at the end of the document. The footnote section draws the rule above the notes, so a Markdown rule that only introduced those definitions is not rendered again. A closing "You Might Also Like" section is placed after the notes: the notes finish the piece, and the suggestion comes last.
@@ -292,7 +293,7 @@ Playwright and axe check the rendered site so the verifier can test it after imp
 
 Technical questions only. Product-level open questions live in `docs/PRODUCT.md` under "Not yet decided". Decide these against real pages and content, not in advance:
 
-- Article images: how their dimensions are known, and whether to use `next/image` optimization or plain pre-sized images. This migration uses static files at `public/posts/<slug>/`.
+- Article images: how their dimensions are known, and whether to use `next/image` optimization or plain pre-sized images. This migration uses static files at `public/posts/<slug>/`. The homepage photograph uses `next/image`; that choice stays local to that one file.
 - Whether the typography plugin stays or is replaced by custom styles
 - How an article moves out of Writing, and how that article is represented. `/archive` presents The Spin-Off Project, Travel Stories, and Letters. Links to an archived article's `/posts/<slug>` URL must keep working.
 - How related writing is represented in content. Spots live in `content/places/`. `/places` is the page; `/map` redirects there.
