@@ -161,6 +161,7 @@ export default async function PlacesPage({
                 <li key={item.id} className="mr-[0.28em]">
                   <Link
                     href={cityHref(item)}
+                    scroll={false}
                     aria-current={selected ? "true" : undefined}
                     className={
                       selected
@@ -220,9 +221,12 @@ export default async function PlacesPage({
         </div>
       </section>
 
-      <div className="mt-10 border-t border-slate-300 md:mt-12">
-        {groups.map((group) => (
-          <section key={group.label} className="border-b border-slate-300">
+      <div className="mt-10 md:mt-12">
+        {groups.map((group, index) => (
+          <section
+            key={group.label}
+            className={index === 0 ? undefined : "border-t border-slate-300"}
+          >
             <div className="mx-auto max-w-[96rem] px-4 py-8 md:px-8 md:py-10">
               <div className="max-w-[40rem]">
                 <h3 className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase">
