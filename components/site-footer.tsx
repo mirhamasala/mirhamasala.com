@@ -5,6 +5,11 @@ import { site } from "@/lib/site";
 const linkClassName =
   "underline decoration-transparent hover:decoration-current focus-visible:decoration-current motion-safe:transition";
 
+const labelClassName = "font-medium tracking-[0.14em] text-slate-600 uppercase";
+
+const emailLinkClassName =
+  "font-medium underline decoration-1 underline-offset-[0.18em]";
+
 // Pages that are not built yet must not be prefetched. A prefetched 404
 // logs a console error on every page that includes the footer.
 const publishedPaths = new Set<string>([
@@ -42,10 +47,8 @@ function FooterGroup({
   href?: string;
   links: readonly { href: string; label: string }[];
 }) {
-  const labelClassName = "font-medium tracking-wide text-slate-600 uppercase";
-
   return (
-    <div className="shrink-0 text-[1rem] leading-snug">
+    <div className="text-[1rem] leading-snug">
       {href ? (
         <Link
           id={id}
@@ -60,7 +63,7 @@ function FooterGroup({
           {label}
         </p>
       )}
-      <ul aria-labelledby={id} className="mt-5 grid gap-3 text-slate-950">
+      <ul aria-labelledby={id} className="mt-3 grid gap-3 text-slate-950">
         {links.map(({ href, label: linkLabel }) => (
           <li key={href}>
             <FooterLink href={href} label={linkLabel} />
@@ -74,22 +77,25 @@ function FooterGroup({
 export function SiteFooter() {
   return (
     <footer className="mx-auto mt-16 w-full max-w-[96rem] px-4 md:mt-20 md:px-8">
-      <div className="flex flex-col border-t border-slate-300 pt-10 pb-8 md:min-h-[19rem] md:pb-10">
-        <div className="flex flex-col gap-10 xl:flex-row xl:items-start xl:justify-between xl:gap-16">
-          <div>
-            <p className="font-display text-[1.9rem] leading-[0.96] tracking-[-0.03em] text-slate-950 sm:text-[2.4rem] md:text-[2.85rem] lg:text-[3rem]">
-              <span className="block">From Ericeira,</span>
-              <em className="mt-[0.08em] block font-normal text-slate-500 italic">
-                with salt in the air.
-              </em>
-            </p>
-            <p className="mt-5 text-[1rem] leading-snug text-slate-600 md:mt-7">
-              38.96°&nbsp;N, 9.42°&nbsp;W
-            </p>
-          </div>
-          <nav aria-label="Footer" className="xl:pt-1">
-            <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-x-14 lg:gap-x-16">
-              <ul className="grid w-32 shrink-0 gap-3 text-[1rem] leading-snug text-slate-950">
+      <div className="grid border-t border-slate-300 pt-10 pb-8 md:pt-12 md:pb-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start">
+        <p className="font-display text-[clamp(2.5rem,4.6vw,4rem)] leading-[0.96] tracking-[-0.03em] text-slate-950 lg:col-span-2 lg:row-start-1">
+          <span className="block">From Ericeira,</span>
+          <em className="mt-[0.06em] block font-normal text-slate-500 italic">
+            with salt in the air.
+          </em>
+        </p>
+
+        <p className="mt-12 text-[1rem] leading-snug text-slate-950 md:mt-16 lg:col-start-1 lg:row-start-2">
+          38.96°&nbsp;N, 9.42°&nbsp;W
+        </p>
+
+        <nav
+          aria-label="Footer"
+          className="mt-12 md:mt-16 lg:col-span-2 lg:row-start-3 lg:mt-16"
+        >
+          <div className="grid grid-cols-1 items-start gap-y-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 md:grid-cols-4 md:gap-x-10 lg:flex lg:items-start lg:justify-between lg:gap-16">
+            <div className="contents lg:flex lg:w-max lg:max-w-[70%] lg:shrink-0 lg:items-start lg:gap-x-16">
+              <ul className="grid gap-3 text-[1rem] leading-snug text-slate-950">
                 {site.nav.map(({ href, label }) => (
                   <li key={href}>
                     <FooterLink href={href} label={label} />
@@ -107,20 +113,30 @@ export function SiteFooter() {
                 href="/archive"
                 links={site.archive}
               />
-              <ul className="grid w-32 shrink-0 gap-3 text-[1rem] leading-snug text-slate-950">
-                {site.profiles.map(({ href, label }) => (
-                  <li key={href}>
-                    <ExternalLink href={href} className={linkClassName}>
-                      {label}
-                    </ExternalLink>
-                  </li>
-                ))}
-              </ul>
             </div>
-          </nav>
+            <ul className="grid gap-3 text-[1rem] leading-snug text-slate-950 lg:shrink-0 lg:text-right">
+              {site.profiles.map(({ href, label }) => (
+                <li key={href}>
+                  <ExternalLink href={href} className={linkClassName}>
+                    {label}
+                  </ExternalLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </nav>
+
+        <div className="mt-14 max-w-[28rem] lg:col-start-2 lg:row-start-2 lg:mt-16 lg:max-w-none lg:justify-self-end lg:text-right">
+          <a href={`mailto:${site.email}`} className={emailLinkClassName}>
+            {site.email}
+          </a>
+          <p className="mt-1.5 text-[1rem] leading-snug text-slate-600">
+            I read every email, even if replies take a while.
+          </p>
         </div>
-        <p className="mt-auto pt-12 text-[1rem] leading-snug text-slate-600">
-          {site.name} · since{" "}
+
+        <p className="mt-12 border-t border-slate-300 pt-6 text-[1rem] leading-snug text-slate-600 lg:col-span-2 lg:row-start-4 lg:mt-16">
+          {site.name} · Est.{" "}
           <time dateTime={String(site.since)}>{site.since}</time>
         </p>
       </div>

@@ -6,6 +6,7 @@ if (vercelEnv === "production" && !process.env.SITE_URL) {
 
 export const site = {
   name: "Mirha Masala",
+  email: "hello@mirhamasala.com",
   url: new URL(process.env.SITE_URL ?? "http://localhost:3000").origin,
   /** Vercel preview and development deployments must never be indexed. */
   isIndexable: !vercelEnv || vercelEnv === "production",
