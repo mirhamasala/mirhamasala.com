@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink } from "@/components/external-link";
+import { SplitIntro } from "@/components/split-intro";
 import { formatMonthYear } from "@/lib/format-date";
+import { proseLinkClassName } from "@/lib/markdown";
 import { getPosts, type Post } from "@/lib/posts";
 
 export const metadata: Metadata = {
@@ -21,9 +23,6 @@ const textLinkClassName =
 
 const entryTitleClassName =
   "font-display leading-none tracking-[-0.02em] underline decoration-slate-300 decoration-[2px] underline-offset-[0.15em] hover:decoration-slate-950 focus-visible:decoration-slate-950 group-hover:decoration-slate-950 group-focus-visible:decoration-slate-950";
-
-const proseLinkClassName =
-  "underline decoration-slate-400 decoration-1 underline-offset-[0.18em] hover:decoration-slate-950 focus-visible:decoration-slate-950";
 
 const alsoHere = [
   {
@@ -72,24 +71,23 @@ export default async function HomePage() {
           I write about the things I get unusually interested in.
         </h1>
 
-        <div className="mt-8 grid md:mt-12 md:grid-cols-12 md:gap-x-8">
-          <p className="order-2 mt-6 max-w-[20rem] text-[1rem] leading-snug text-slate-700 md:order-1 md:col-span-4 md:mt-0 md:max-w-[18rem]">
-            Hi, I’m Mirha, a front-end engineer and tech lead, writing again
-            from Ericeira, Portugal.
-          </p>
-          <p className="order-1 max-w-[24rem] font-serif text-[1.15rem] leading-[1.4] text-slate-950 md:order-2 md:col-span-5 md:col-start-7 md:max-w-[28rem] md:text-[1.35rem]">
-            What I’ve learned, what worked, what didn’t, and what I think is
-            worth passing on.
-          </p>
-          <p className="order-3 mt-5 flex flex-wrap gap-x-6 gap-y-2 text-[1rem] md:col-span-5 md:col-start-7">
-            <Link href="/posts" className={textLinkClassName}>
-              Read the writing
-            </Link>
-            <Link href="/about" className={textLinkClassName}>
-              More about me
-            </Link>
-          </p>
-        </div>
+        <SplitIntro
+          className="mt-8 md:mt-12"
+          aside="Hi, I’m Mirha, a front-end engineer and tech lead, writing again from Ericeira, Portugal."
+          trailing={
+            <p className="flex flex-wrap gap-x-6 gap-y-2 text-[1rem]">
+              <Link href="/posts" className={proseLinkClassName}>
+                Read the writing
+              </Link>
+              <Link href="/about" className={proseLinkClassName}>
+                More about me
+              </Link>
+            </p>
+          }
+        >
+          What I’ve learned, what worked, what didn’t, and what I think is worth
+          passing on.
+        </SplitIntro>
 
         <ExternalLink
           href="https://unsplash.com/photos/birds-eye-view-of-people-surfing-sea-waves-Eqjse2H-dak?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Eyebrow } from "@/components/eyebrow";
+import { SplitIntro } from "@/components/split-intro";
 
 export const metadata: Metadata = {
   title: "About",
@@ -82,18 +83,20 @@ export default function AboutPage() {
           </em>
         </h1>
 
-        <div className="mt-6 border-t border-slate-300 pt-3 md:mt-10 md:grid md:grid-cols-12 md:gap-8 md:pt-5">
-          <p className="max-w-[23rem] text-[1rem] leading-snug text-slate-700 sm:max-w-[34rem] md:col-span-4">
-            Front-end engineer and tech lead.
-            <br />
-            Writing again from Ericeira, Portugal.
-          </p>
-          <p className="mt-6 max-w-[22rem] font-serif text-[1.18rem] leading-[1.22] text-slate-950 sm:max-w-[34rem] md:col-span-5 md:col-start-7 md:mt-0 md:max-w-none md:text-[1.45rem] lg:text-[1.65rem]">
-            For a long time, this website followed whatever I was curious about.
-            I wrote about learning new things, building projects, travelling,
-            food, books, work, and eventually becoming a mother.
-          </p>
-        </div>
+        <SplitIntro
+          className="mt-6 border-t border-slate-300 pt-3 md:mt-10 md:pt-5"
+          aside={
+            <>
+              Front-end engineer and tech lead.
+              <br />
+              Writing again from Ericeira, Portugal.
+            </>
+          }
+        >
+          For a long time, this website followed whatever I was curious about. I
+          wrote about learning new things, building projects, travelling, food,
+          books, work, and eventually becoming a mother.
+        </SplitIntro>
       </section>
 
       <section className="mx-auto mt-16 grid max-w-[96rem] gap-12 px-4 md:mt-24 md:grid-cols-12 md:gap-8 md:px-8">

@@ -217,6 +217,7 @@ components/
   page-header.tsx     # Index header for section pages
   page-lede.tsx
   page-title.tsx
+  split-intro.tsx     # Two-column introduction under a page title
   places-map.tsx      # Google map for the selected city
   display-title.tsx
   external-link.tsx
