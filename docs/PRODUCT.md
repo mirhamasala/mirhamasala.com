@@ -106,7 +106,7 @@ Essays that already list these spots stay as they are.
 
 ### Archive
 
-The Spin-Off Project (`/tsop`), Travel Stories (`/travel-stories`), and Letters are listed in the footer, in that order. Archive is a label for that group, like Collections, and these links stay out of the primary navigation.
+The Spin-Off Project (`/tsop`), Travel Stories (`/travel-stories`), and Letters are listed in the footer, in that order. Archive links to `/archive`. These links stay out of the primary navigation.
 
 The Archive page at `/archive` presents three groups, in the order they began: The Spin-Off Project, Travel Stories, and Letters. Letters links to `/letters`. The Spin-Off Project links to `/tsop`. Travel Stories links to `/travel-stories`. Moving an individual article out of Writing is still a manual editorial decision, never an automatic rule based on age, and that mechanism is not built yet.
 

@@ -10,6 +10,7 @@ const linkClassName =
 const publishedPaths = new Set<string>([
   "/posts",
   "/about",
+  "/archive",
   "/recipes",
   "/books",
   "/letters",
@@ -33,17 +34,32 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 function FooterGroup({
   id,
   label,
+  href,
   links,
 }: {
   id: string;
   label: string;
+  href?: string;
   links: readonly { href: string; label: string }[];
 }) {
+  const labelClassName = "font-medium tracking-wide text-slate-600 uppercase";
+
   return (
     <div className="shrink-0 text-[1rem] leading-snug">
-      <p id={id} className="font-medium tracking-wide text-slate-600 uppercase">
-        {label}
-      </p>
+      {href ? (
+        <Link
+          id={id}
+          href={href}
+          prefetch={publishedPaths.has(href) ? undefined : false}
+          className={`${labelClassName} ${linkClassName}`}
+        >
+          {label}
+        </Link>
+      ) : (
+        <p id={id} className={labelClassName}>
+          {label}
+        </p>
+      )}
       <ul aria-labelledby={id} className="mt-5 grid gap-3 text-slate-950">
         {links.map(({ href, label: linkLabel }) => (
           <li key={href}>
@@ -88,6 +104,7 @@ export function SiteFooter() {
               <FooterGroup
                 id="footer-archive"
                 label="Archive"
+                href="/archive"
                 links={site.archive}
               />
               <ul className="grid w-32 shrink-0 gap-3 text-[1rem] leading-snug text-slate-950">
