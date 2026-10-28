@@ -1,64 +1,103 @@
 ---
 title: Resume
-description: Frontend work from 2020 back through teaching at Le Wagon, Clever Age, and The Spin-Off Project.
-date: 2020-01-31
+description: Frontend work from Filecoin Foundation and Subvisual back through TourHero, teaching at Le Wagon, and The Spin-Off Project.
+date: 2026-10-28
 ---
-
-[Résumé (PDF)](/resume/cv_mirha_masala_2020.pdf)
 
 ## Profile
 
-I’m a frontend developer who likes to dabble in the deep, dark back. I’m oddly interested in best coding practices and refactoring. In my free time, I work on [Neo’s Tree](https://www.neostree.com). And I also [write](https://www.mirhamasala.com).
+I’m a frontend engineer focused on building durable, user-facing web applications. I care deeply about code quality, maintainability, and design systems that scale across products and teams.
 
 ## Experience
 
-### Frontend Web Developer, TourHero (startup), Apr 2020 – Present
+### Filecoin Foundation
 
-Developing in Vue.js for [Project Travel Reopening](https://www.tourhero.com/en/ultimate-guide-covid19-travel-restrictions-reopening/) · Developing frontend for [core product](https://www.tourhero.com) in vanilla JS, Vue components, and Rails · Creating design mockups\
-\
-JavaScript · Vue.js · Ruby on Rails · Tailwind · CSS · SASS · BEM · SMACSS · Git · GitHub · Sketch
+Contract · 2 yrs 9 mos · Remote
 
-### Blogger, [mirhamasala.com](https://www.mirhamasala.com), Aug 2017 – Present
+#### Tech Lead · User Experience
 
-WordPress · CSS · HTML · Writing · Newsletter (MailChimp) · Photoshop
+Mar 2024 – Apr 2026 · 2 yrs 2 mos
 
-### Web Developer, [Wagon City Guides](https://github.com/mirhamasala/lw_city_guide), Oct 2019 – Apr 2020
+- Led frontend engineering and UX across Filecoin Foundation web properties, focusing on consistency, accessibility, and long-term maintainability
+- Set technical direction for frontend architecture, design systems, and shared UI patterns across teams and repositories
+- Partnered with design, product, and stakeholders
+- Drove code quality through reviews, refactoring, and best practices
 
-Defined and developed frontend and backend features · Worked with designer · Reviewed issues and pull requests
+#### Frontend Developer
 
-Ruby · Rails · JavaScript · CSS · SASS · BEM · HTML · SQL · Git · Heroku · Figma · Cloudinary
+Aug 2023 – Apr 2026 · 2 yrs 9 mos
 
-### Teaching Assistant, Le Wagon – Bali, Barcelona & Singapore, Apr 2019 – Mar 2020
+### Frontend Developer
 
-Taught JavaScript, Rails, OOP, HTML, and CSS, and assisted during project weeks when students are required to build a Rails app in ten days
+Subvisual · Contract · Remote
 
-### Frontend Web Developer, Clever Age – Singapore, Mar 2018 – Jul 2018
+May 2021 – Aug 2023 · 2 yrs 4 mos
 
-Worked on an internal app for DFS Singapore
+- Built and shipped production React applications for Web3 and fintech products, with designers and backend engineers
+- Integrated smart contracts and payment flows for crypto and financial platforms
+- Launched customer-facing products, including DeFi vaults and payment systems
+- Mentored junior developers through Subvisual’s Academy
 
-JavaScript · Symfony · Atomic CSS · Twig · GitLab · Confluence · Jira · InVision
+### Frontend Developer
 
-### Freelance Frontend Web Developer, Fastgardener, Mar 2018 – Jul 2018
+TourHero · Singapore · Remote
 
-JavaScript · jQuery · Ruby on Rails · CSS · Bootstrap · HTML · Git · Heroku
+Apr 2020 – Mar 2021 · 1 yr
 
-### Creator and Blogger, [The Spin-Off Project](/tsop), Aug 2012 – Aug 2017
+- Developed frontend features for the [core product](https://www.tourhero.com) in Vue.js and Ruby on Rails
+- Contributed to the launch of [Project Travel Reopening](https://www.tourhero.com/en/ultimate-guide-covid19-travel-restrictions-reopening/)
+- Worked with product and design on UI components and early product iterations
 
-WordPress · CSS · Photoshop · Canva · MailChimp · SEO · Google Analytics · Amazon Associates · Rakuten
+### Coding Teaching Assistant
 
-### Founder and Content Creator, [The Girl With The Blueprint](https://www.thegirlwiththeblueprint.com), Dec 2012 – Aug 2014
+Le Wagon · Bali, Barcelona & Singapore
 
-Defined features and requirements · Worked with designers and developers from concept to final product · Authored content
+Apr 2019 – Mar 2020 · 1 yr
+
+- Assisted in teaching frontend, Ruby on Rails, and object-oriented programming across Le Wagon campuses
+- Supported students during lectures, exercises, and project weeks with technical guidance and code reviews
+
+### Frontend Developer
+
+Clever Age · Singapore · Remote
+
+Aug 2018 – Mar 2019 · 8 mos
+
+- Built and maintained frontend features for an internal application used by Duty Free Shop Singapore
+- Implemented UI components with Symfony (Twig), JavaScript, and CSS
+
+### Creator and Writer
+
+[The Spin-Off Project](/tsop)
+
+Aug 2012 – Aug 2017 · 5 yrs 1 mo
+
+- Founded and ran a publishing project focused on experimentation, learning, and long-form writing
+- Produced written, visual, and newsletter content
+- Built an audience through SEO, social distribution, and partnerships
+- Managed the publishing workflow, including WordPress, analytics, and early monetization experiments
+
+### Intern
+
+Embassy of Bosnia and Herzegovina · The Hague
+
+Oct 2010 – Mar 2011 · 6 mos
+
+- Supported the Ambassador and embassy staff with research, briefings, and day-to-day operations
+- Represented the embassy at international meetings, lectures, and policy institutions
+- Prepared reports on political and social developments and assisted with diplomatic events
 
 ## Education
 
-**Le Wagon Coding Bootcamp – Bali, Mar 2018.** Designed, implemented, and shipped an Airbnb clone and Rails project.
+Le Wagon Coding Bootcamp – Bali, 2018.
 
-**Masters of European Studies – The University of Amsterdam, The Netherlands, 2010.**
+Masters of European Studies – The University of Amsterdam, The Netherlands, 2010.
+
+BA European Studies – The University of Amsterdam, The Netherlands, 2009.
 
 ## Skills
 
-JavaScript, Vue.js, Ruby, Ruby on Rails, CSS, SASS, BEM, HTML, Bootstrap, Tailwind, SQL, command line, Git, GitHub, Heroku, Figma, Photoshop, Cloudinary
+React, TypeScript, JavaScript, CSS, design systems, accessibility, Vue.js, Ruby on Rails, Tailwind, Figma
 
 ## Websites
 
@@ -66,4 +105,4 @@ JavaScript, Vue.js, Ruby, Ruby on Rails, CSS, SASS, BEM, HTML, Bootstrap, Tailwi
 
 [LinkedIn](https://www.linkedin.com/in/mirhamasala/)
 
-[Blog](https://www.mirhamasala.com)
+[Blog](/)
