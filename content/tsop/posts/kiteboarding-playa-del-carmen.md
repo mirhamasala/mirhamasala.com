@@ -53,7 +53,7 @@ As such, I see no further reason to explain anything about the location, atmo
 
 FURTHER QUESTIONS
 
-If you have any further questions about kiteboarding in Playa del Carmen, please don’t hesitate to contact me: [send me a message](/tsop/contact), or [book a Skype talk](http://www.plansify.com/mirhamasala) with me.
+If you have any further questions about kiteboarding in Playa del Carmen, please don’t hesitate to contact me: [send me a message](mailto:hello@mirhamasala.com), or [book a Skype talk](http://www.plansify.com/mirhamasala) with me.
 
 FURTHER READING
 

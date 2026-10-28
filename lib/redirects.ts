@@ -6,7 +6,8 @@
  * Published articles keep their legacy root aliases. Drafts do not,
  * including /we-need-to-talk-about-me. /amsterdam-favorites has no article.
  * /map goes to /places. /moments goes to Writing. The one published
- * Moment keeps its slug under /posts.
+ * Moment keeps its slug under /posts. /tsop/contact, /tsop/about-me,
+ * /tsop/now, /pages/tsop/about-me, and /pages/tsop/now go to /about.
  */
 export const legacyRedirects = [
   {
@@ -16,6 +17,26 @@ export const legacyRedirects = [
   {
     source: "/map",
     destination: "/places",
+  },
+  {
+    source: "/tsop/contact",
+    destination: "/about",
+  },
+  {
+    source: "/tsop/about-me",
+    destination: "/about",
+  },
+  {
+    source: "/tsop/now",
+    destination: "/about",
+  },
+  {
+    source: "/pages/tsop/about-me",
+    destination: "/about",
+  },
+  {
+    source: "/pages/tsop/now",
+    destination: "/about",
   },
   {
     source: "/moments",

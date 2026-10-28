@@ -113,7 +113,7 @@ The Archive page at `/archive` presents three groups, in the order they began: T
 
 ### The Spin-Off Project
 
-The Spin-Off Project is the archive of the twelve lifestyle experiments from 2012 to 2017, at `/tsop`. Posts stay at `/tsop/posts/<slug>`. About, the short bio, frequently asked questions, resources, now, and contact stay at `/tsop/<slug>`. The index is a reading list grouped by spin-off, then the bucket list. Whether to remove or redirect one of those section pages is not decided yet.
+The Spin-Off Project is the archive of the twelve lifestyle experiments from 2012 to 2017, at `/tsop`. Posts stay at `/tsop/posts/<slug>`. About, frequently asked questions, and resources stay at `/tsop/<slug>`. `/tsop/contact`, `/tsop/about-me`, and `/tsop/now` redirect to `/about`. The index is a reading list grouped by spin-off, then the bucket list. Whether to remove or redirect one of the remaining section pages is not decided yet.
 
 Writing shows whatever is currently in Writing.
 
@@ -205,4 +205,4 @@ Prefer the former.
 - Social preview image strategy
 - Analytics
 - Tags, categories, or other additional ways to browse Writing
-- Whether any Spin-Off Project section page (`/tsop/about`, `/tsop/about-me`, `/tsop/faqs`, `/tsop/resources`, `/tsop/now`, `/tsop/contact`) is later removed or redirected
+- Whether any remaining Spin-Off Project section page (`/tsop/about`, `/tsop/faqs`, `/tsop/resources`) is later removed or redirected

@@ -32,14 +32,7 @@ const spinOffIds = [
   bucketList.id,
 ] as const;
 
-const sectionPageOrder = [
-  "about",
-  "about-me",
-  "faqs",
-  "resources",
-  "now",
-  "contact",
-] as const;
+const sectionPageOrder = ["about", "faqs", "resources"] as const;
 
 const pageFrontmatterSchema = z.strictObject({
   title: z.string().min(1),

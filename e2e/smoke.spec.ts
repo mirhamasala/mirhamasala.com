@@ -281,7 +281,6 @@ test.describe("letter pages", () => {
     "/tsop/posts/cuban-style-salsa-lessons",
     "/tsop/about",
     "/tsop/resources",
-    "/tsop/contact",
   ]) {
     test(`${path} has no horizontal overflow or undersized text`, async ({
       page,

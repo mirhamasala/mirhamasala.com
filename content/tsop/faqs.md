@@ -139,4 +139,4 @@ Since the summer of 2014, I’ve been using the [Sony Cybershot DSC-RX100M II
 
 ## This page doesn’t answer my question. How do I contact you?
 
-Use the [contact form](/tsop/contact/) and I will get back to you as soon as possible. Or, get in touch with me on [Facebook](http://www.facebook.com/thespinoffproject), [Twitter](http://www.twitter.com/mirhamasala/) or [Instagram](http://www.instagram.com/mirhamasala/).
+Email [hello@mirhamasala.com](mailto:hello@mirhamasala.com) and I will get back to you as soon as possible. Or, get in touch with me on [Facebook](http://www.facebook.com/thespinoffproject), [Twitter](http://www.twitter.com/mirhamasala/) or [Instagram](http://www.instagram.com/mirhamasala/).
