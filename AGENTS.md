@@ -22,6 +22,10 @@ Read `docs/PRODUCT.md`, `docs/ARCHITECTURE.md`, and `docs/DESIGN.md` before maki
 - When a durable architectural decision is made, record it in `docs/ARCHITECTURE.md` in the same change.
 - Use pnpm. Before finishing, `pnpm lint`, `pnpm typecheck`, and `pnpm build` must pass.
 
+## Component reuse
+
+Before adding UI, check the component list in `docs/ARCHITECTURE.md` and "Components and tokens" in `docs/DESIGN.md`.
+
 ## Git and deployment
 
 - Never rewrite history or force-push.
