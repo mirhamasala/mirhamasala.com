@@ -33,7 +33,7 @@ const pages = [
     heading: recipe.title,
   })),
   { path: "/books", status: 200, heading: "What I’ve taken from the pages." },
-  { path: "/places", status: 200, heading: "Places I’d recommend." },
+  { path: "/places", status: 200, heading: "Where I’d go." },
   ...books.map((book) => ({
     path: `/books/${book.slug}`,
     status: 200,
@@ -80,6 +80,8 @@ function collectUnexpectedConsoleErrors(page: Page, documentPath?: string) {
 
     const text = message.text();
     const url = message.location().url;
+    // Google's script reports account problems, such as billing, on its own.
+    if (text.startsWith("Google Maps JavaScript API error")) return;
     // Chromium also logs the document's own 404. The status assertion covers it.
     if (
       documentPath &&
@@ -99,8 +101,13 @@ function collectUnexpectedConsoleErrors(page: Page, documentPath?: string) {
   return errors;
 }
 
-async function expectNoSeriousAccessibilityViolations(page: Page) {
-  const results = await new AxeBuilder({ page }).analyze();
+async function expectNoSeriousAccessibilityViolations(
+  page: Page,
+  exclude?: string,
+) {
+  const builder = new AxeBuilder({ page });
+  if (exclude) builder.exclude(exclude);
+  const results = await builder.analyze();
   const violations = results.violations.filter(
     (violation) =>
       violation.impact === "serious" || violation.impact === "critical",
@@ -227,7 +234,11 @@ test.describe("accessibility", () => {
       if (!response) throw new Error(`No response for ${route.path}`);
 
       expect(response.status()).toBe(route.status);
-      await expectNoSeriousAccessibilityViolations(page);
+      // The map widget is Google's. Its controls are not our markup.
+      await expectNoSeriousAccessibilityViolations(
+        page,
+        route.path === "/places" ? "#places-map" : undefined,
+      );
     });
   }
 });

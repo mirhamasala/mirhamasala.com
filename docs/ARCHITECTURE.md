@@ -45,7 +45,21 @@ Lift each hold when `eslint-config-next` supports the newer version.
 - GFM collects footnote definitions and renders them at the end of the document. The footnote section draws the rule above the notes, so a Markdown rule that only introduced those definitions is not rendered again. A closing "You Might Also Like" section is placed after the notes: the notes finish the piece, and the suggestion comes last.
 - Article and letter headings get ids from `github-slugger` 2.0.0, the version the legacy site used, so existing in-article links still land.
 - Article images and the knitting-club PDF are static files at `public/posts/<slug>/`, referenced from Markdown, the same way the letter photograph is. This does not decide image dimensions or whether articles use `next/image`.
-- Place lists inside articles are Markdown. `/map` redirects to `/places`. The legacy map application is not carried over. How its spots are represented on Places is still open.
+- Place lists inside articles are Markdown. `/map` redirects to `/places`.
+- Spots are plain Markdown at `content/places/<city>/<slug>.md`. The folder
+  is the city id from `placeCities` in `lib/places.ts`, and the filename is
+  the slug. Schema: `title`, `city`, `category`, optional `locality`,
+  optional `url`, optional `map`, optional `latitude` and `longitude` (both or
+  neither), and optional `draft`. `city` is one of the labels in `placeCities`
+  in `lib/places.ts`, which is also the order of the city list. `category` is
+  one of the labels in `placeCategories`, which is also the order of a city's
+  category groups. Within a category, spots are alphabetical. `locality` is
+  the town, for a spot grouped under a wider city. `url` is the place's own
+  site. `map` is a Google Maps link. Coordinates are for the map pin. Unknown
+  fields fail the build. `draft: true` spots stay in the files and off the
+  page. The body is the note, and it may be empty. `/places?city=<id>` is the
+  same page with that city selected. Its canonical URL remains `/places`.
+  Reading that query renders the page on demand.
 - A paragraph whose only content is a link to an `.mp4` renders as a video with controls. Dropbox uses this for the two bucket-list clips.
 - `content/posts/draft-fixture.md` is a permanent `draft: true` fixture. It gives the browser suite a known draft to prove drafts stay unpublished.
 - Recipes are plain Markdown at `content/recipes/<slug>.md`, with the filename
@@ -144,7 +158,7 @@ Inventory of the legacy site's public URLs (tag `pre-redesign-2026`):
 - `/archive` presents The Spin-Off Project, Travel Stories, and Letters, in the order they began. Letters links to `/letters`, and a few letters link to `/letters/<slug>`. The Spin-Off Project links to `/tsop`, and each of the twelve names links to that spin-off on the index. Travel Stories links to `/travel-stories`, and the places link to that index's country and city ids.
 - The Spin-Off Project keeps `/tsop`, `/tsop/posts/<slug>`, and the section pages `/tsop/about`, `/tsop/about-me`, `/tsop/faqs`, `/tsop/resources`, `/tsop/now`, and `/tsop/contact`. Those section-page URLs are not redirected away; removing or redirecting one is still open in `docs/PRODUCT.md`. Images that were at `/pages/tsop/<path>` redirect to `/tsop/<path>`.
 - `/travel-archives` redirects to `/travel-stories`. Each story is `/travel-stories/<number>`. Browsers keep the fragment across that redirect, and the index keeps the old ids (`australia`, `melbourne`, `sydney`, `bosnia-and-herzegovina`, `sarajevo`, `sri-lanka`, `colombo`, `israel`, `tel-aviv`, `japan`, `tokyo`, and each story number), so `/travel-archives#294` lands on `/travel-stories#294`. Photographs that were at `/pages/<number>_instagram_archive.jpg`, `/pages/<number>_instagram_archives.jpg`, or `/pages/<number>_instagram_archives.jpeg` redirect to `/travel-stories/<number>/photo.jpg` or `photo.jpeg`.
-- `/map` redirects to `/places`. Places is the collection page at that URL. The spots from the legacy map are not on it yet.
+- `/map` redirects to `/places`. Places lists the spots at that URL. `?city=<id>` selects a city on the same page and is not a separate canonical URL.
 - `/moments` redirects to `/posts`. The one published Moment is the article `/posts/when-we-were-young`, and `/moments/when-we-were-young` redirects there. It never had a root alias. The photograph that was at `/pages/moments/portugal-lisbon-musa-da-bica.jpeg` redirects to `/posts/when-we-were-young/portugal-lisbon-musa-da-bica.jpeg`.
 - `/resume` and `/dropbox` keep their paths. The résumé PDF that was at `/pages/cv_mirha_masala_2020.pdf` redirects to `/resume/cv_mirha_masala_2020.pdf`. Dropbox files that were at `/pages/begin_again.png`, `/pages/coconut_flour_flatbreads_recipe.jpg`, `/pages/bucket_list_cartwheels.mp4`, `/pages/bucket_list_juggling.mp4`, and `/pages/mirha_masala_tokyo.jpg` redirect to `/dropbox/<file>`. Heading ids on Dropbox still match the old anchors (`bucket-list-18-learn-to-do-a-cartwheel`, `bucket-list-19-learn-to-juggle-limes`, `in-tokyo`).
 - The legacy feeds at `/rss/feed.xml` and `/rss/feed.json` return 404 until a feed is decided.
@@ -169,7 +183,7 @@ app/
   sitemap.ts
   robots.ts
   places/
-    page.tsx          # Places collection
+    page.tsx          # Places collection and map
   resume/
     page.tsx
   dropbox/
@@ -198,6 +212,7 @@ app/
       [slug]/page.tsx # spin-off post
 components/
   archive-eyebrow.tsx
+  places-map.tsx      # Google map for the selected city
   display-title.tsx
   external-link.tsx
   site-footer.tsx
@@ -211,6 +226,7 @@ content/
   books/<slug>.md
   letters/<slug>.md
   travel-stories/<number>.md
+  places/<city>/<slug>.md
   tsop/<slug>.md
   tsop/posts/<slug>.md
 lib/
@@ -220,6 +236,7 @@ lib/
   books.ts            # read, parse, validate, sort
   letters.ts          # read, parse, validate, sort
   travel-stories.ts   # read, parse, validate, group, photograph order
+  places.ts           # read, parse, validate, group spots by city
   tsop.ts             # read, parse, validate, sort, group by spin-off
   format-date.ts      # long calendar dates
   redirects.ts        # legacy URLs that permanently redirect
@@ -239,8 +256,10 @@ There is no `src/` folder. Shared chrome lives in `components/`.
 
 ## Dependencies
 
-- Runtime: `next`, `react`, `react-dom`, `react-markdown`, `remark-gfm`, `github-slugger`, `yaml`, `zod`
-- Dev: `typescript`, `@types/node`, `@types/react`, `@types/react-dom`, `tailwindcss`, `@tailwindcss/postcss`, `@tailwindcss/typography`, `eslint`, `eslint-config-next`, `prettier`, `prettier-plugin-tailwindcss`, `@playwright/test`, `@axe-core/playwright`
+- Runtime: `next`, `react`, `react-dom`, `react-markdown`, `remark-gfm`, `github-slugger`, `yaml`, `zod`, `@vis.gl/react-google-maps`
+- Dev: `typescript`, `@types/node`, `@types/react`, `@types/react-dom`, `@types/google.maps`, `tailwindcss`, `@tailwindcss/postcss`, `@tailwindcss/typography`, `eslint`, `eslint-config-next`, `prettier`, `prettier-plugin-tailwindcss`, `@playwright/test`, `@axe-core/playwright`
+
+`@vis.gl/react-google-maps` draws the map on Places. Google's current Maps JavaScript API uses Advanced Markers, and this is the React library their docs point to for that. The map is a client island on `/places`. It loads only when `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` is set. Without a key, or if the script fails, the city notes still render and the map area says it isn't available. `NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID` is the Cloud Map ID Advanced Markers require. When it is unset, the map uses Google's `DEMO_MAP_ID`. The key is public by nature of the Maps JavaScript API. Restrict it by HTTP referrer. `@types/google.maps` is the type package for that map. `tsconfig.json` lists it beside `node` because `compilerOptions.types` does not include `@types/*` automatically.
 
 Any new runtime dependency or significant tooling dependency should have a concrete requirement, with the decision and rationale recorded here in the same change.
 
@@ -251,7 +270,7 @@ Playwright and axe check the rendered site so the verifier can test it after imp
 - `@playwright/test` drives Chromium. `pnpm test:e2e` builds the app and starts `next start` on `127.0.0.1:4173`, so the run does not depend on a dev server already listening on port 3000. The build gets `SITE_URL=http://127.0.0.1:4173`, so generated absolute URLs are deterministic.
 - Projects are desktop Chromium (`Desktop Chrome`) and mobile Chromium (`Pixel 5`). Add another browser only when there is a concrete need. `crawling.spec.ts` doesn't depend on the viewport, so it runs on desktop only.
 - Discoverability checks cover the contract under "Metadata and indexing" and "Sitemap and robots": title, description, canonical, indexing directives, and a single visible `h1` for every indexable route; distinct descriptions; sitemap contents compared with the published article inventory from `lib/posts.ts`; `robots.txt`; 404 and `noindex` for the draft fixture and an unknown slug; and redirects. They don't assert description wording (except that articles use their frontmatter), character limits, keywords, rankings, or Lighthouse scores.
-- `@axe-core/playwright` scans those same pages inside the Playwright suite. Serious and critical violations fail the run. Moderate and minor results do not.
+- `@axe-core/playwright` scans those same pages inside the Playwright suite. Serious and critical violations fail the run. Moderate and minor results do not. The Places map region (`#places-map`) is excluded, because that markup belongs to Google's map widget.
 - A failure keeps a screenshot and a trace under `test-results/`. Nothing compares screenshots.
 - Chromium is installed with `pnpm exec playwright install chromium`. `pnpm install` does not download it, because dependency install scripts stay blocked.
 
@@ -272,7 +291,7 @@ Technical questions only. Product-level open questions live in `docs/PRODUCT.md`
 - Article images: how their dimensions are known, and whether to use `next/image` optimization or plain pre-sized images. This migration uses static files at `public/posts/<slug>/`.
 - Whether the typography plugin stays or is replaced by custom styles
 - How an article moves out of Writing, and how that article is represented. `/archive` presents The Spin-Off Project, Travel Stories, and Letters. Links to an archived article's `/posts/<slug>` URL must keep working.
-- How related writing, and the spots on Places, are represented in content. `/places` is the page; `/map` redirects there. The legacy map application is not carried over.
+- How related writing is represented in content. Spots live in `content/places/`. `/places` is the page; `/map` redirects there.
 - Feed format, URL, and full text or excerpts, if a feed is added
 - Social preview images: static files or generated with `next/og`
 - A unit-test runner. Browser and accessibility verification is Playwright and axe, recorded under Verification.

@@ -98,8 +98,11 @@ includes one line on why it stuck, shown under the title on the index.
 ### Places
 
 Places is a collection at `/places`, and it is the new address of the old map.
-`/map` redirects there. The page is not the old map. How the spots from that
-map are represented is still open.
+`/map` redirects there. Each spot is one Markdown file in a folder for its
+city. The page opens with a
+map of the selected city, then that city’s notes, grouped by category. Choosing
+a city stays on this page (`?city=`). The canonical URL remains `/places`.
+Essays that already list these spots stay as they are.
 
 ### Archive
 
@@ -202,5 +205,4 @@ Prefer the former.
 - Social preview image strategy
 - Analytics
 - Tags, categories, or other additional ways to browse Writing
-- How the spots from the old map are represented on Places
 - Whether any Spin-Off Project section page (`/tsop/about`, `/tsop/about-me`, `/tsop/faqs`, `/tsop/resources`, `/tsop/now`, `/tsop/contact`) is later removed or redirected
