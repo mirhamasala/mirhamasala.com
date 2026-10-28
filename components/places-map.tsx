@@ -9,8 +9,10 @@ import {
   InfoWindow,
   Map,
   useApiLoadingStatus,
+  useMap,
 } from "@vis.gl/react-google-maps";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePlacePin } from "@/components/place-pin-button";
 
 export type MapSpot = {
   slug: string;
@@ -19,6 +21,7 @@ export type MapSpot = {
   latitude: number;
   longitude: number;
   body: string;
+  url?: string;
   map?: string;
 };
 
@@ -70,18 +73,42 @@ function frame(
   return { north, south, east, west, padding: 64 };
 }
 
+function FocusPin({
+  slug,
+  request,
+  spots,
+  onOpen,
+}: {
+  slug: string | null;
+  request: number | null;
+  spots: MapSpot[];
+  onOpen: (slug: string) => void;
+}) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (!map || !slug || request === null) return;
+    const spot = spots.find((item) => item.slug === slug);
+    if (!spot) return;
+    onOpen(slug);
+    map.setCenter({ lat: spot.latitude, lng: spot.longitude });
+    if ((map.getZoom() ?? 0) < 16) map.setZoom(16);
+  }, [map, onOpen, request, slug, spots]);
+
+  return null;
+}
+
 function CityMap({
   mapId,
-  city,
   center,
   spots,
 }: {
   mapId: string;
-  city: string;
   center: LatLng;
   spots: MapSpot[];
 }) {
   const status = useApiLoadingStatus();
+  const pins = usePlacePin();
   const [openSlug, setOpenSlug] = useState<string | null>(null);
   const open = spots.find((spot) => spot.slug === openSlug);
 
@@ -93,12 +120,7 @@ function CityMap({
   }
 
   return (
-    <div
-      id="places-map"
-      role="region"
-      aria-label={`Map of ${city}`}
-      className={mapClassName}
-    >
+    <div className={mapClassName}>
       <Map
         mapId={mapId}
         defaultBounds={frame(spots, center)}
@@ -109,6 +131,12 @@ function CityMap({
         keyboardShortcuts
         style={{ width: "100%", height: "100%" }}
       >
+        <FocusPin
+          slug={pins?.focus?.slug ?? null}
+          request={pins?.focus?.request ?? null}
+          spots={spots}
+          onOpen={setOpenSlug}
+        />
         {spots.map((spot) => (
           <AdvancedMarker
             key={spot.slug}
@@ -141,11 +169,23 @@ function CityMap({
               {open.body ? (
                 <p className="mt-2 text-slate-700">{open.body}</p>
               ) : null}
-              {open.map ? (
-                <p className="mt-3">
-                  <a href={open.map} className={noteLinkClassName}>
-                    Google Maps
-                  </a>
+              {open.url || open.map ? (
+                <p className="mt-3 flex flex-wrap items-baseline gap-x-3">
+                  {open.url ? (
+                    <a href={open.url} className={noteLinkClassName}>
+                      Website
+                    </a>
+                  ) : null}
+                  {open.url && open.map ? (
+                    <span aria-hidden="true" className="text-slate-400">
+                      ·
+                    </span>
+                  ) : null}
+                  {open.map ? (
+                    <a href={open.map} className={noteLinkClassName}>
+                      Google Maps
+                    </a>
+                  ) : null}
                 </p>
               ) : null}
             </div>
@@ -159,19 +199,17 @@ function CityMap({
 export function PlacesMap({
   apiKey,
   mapId,
-  city,
   center,
   spots,
 }: {
   apiKey: string;
   mapId: string;
-  city: string;
   center: LatLng;
   spots: MapSpot[];
 }) {
   return (
     <APIProvider apiKey={apiKey}>
-      <CityMap mapId={mapId} city={city} center={center} spots={spots} />
+      <CityMap mapId={mapId} center={center} spots={spots} />
     </APIProvider>
   );
 }

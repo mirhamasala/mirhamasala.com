@@ -101,7 +101,8 @@ Places is a collection at `/places`, and it is the new address of the old map.
 `/map` redirects there. Each spot is one Markdown file in a folder for its
 city. The page opens with a
 map of the selected city, then that city’s notes, grouped by category. Choosing
-a city stays on this page (`?city=`). The canonical URL remains `/places`.
+a city stays on this page (`?city=`) and leaves the viewport where it is. Choosing
+a place name that has a pin brings that pin into view. The canonical URL remains `/places`.
 Essays that already list these spots stay as they are.
 
 ### Archive

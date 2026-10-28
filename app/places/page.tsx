@@ -3,6 +3,8 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ExternalLink } from "@/components/external-link";
+import { PageHeader } from "@/components/page-header";
+import { PlacePinButton, PlacePins } from "@/components/place-pin-button";
 import type { MapSpot } from "@/components/places-map";
 import {
   categoryEmoji,
@@ -61,6 +63,7 @@ function mapSpots(places: Place[]): MapSpot[] {
         latitude: place.latitude,
         longitude: place.longitude,
         body: place.body,
+        url: httpUrl(place.url),
         map: place.map,
       },
     ];
@@ -96,202 +99,181 @@ export default async function PlacesPage({
 
   return (
     <article className="pt-7 pb-8 md:pt-10">
-      <header className="mx-auto max-w-[96rem] px-4 md:px-8">
-        <nav aria-label="Breadcrumb" className="relative z-10 mb-4 md:mb-6">
-          <ol className="flex items-baseline text-[1rem] leading-none font-medium text-slate-500">
-            <li>Collections</li>
-            <li aria-hidden="true" className="mx-2">
-              |
-            </li>
-            <li>
-              <span aria-current="page" className="text-slate-950">
-                Map
-              </span>
-            </li>
-          </ol>
-        </nav>
-        <h1 className="pb-[0.12em] font-display text-[clamp(4.6rem,12vw,8.75rem)] leading-[0.86] tracking-[-0.045em] text-slate-950 md:tracking-[-0.05em]">
-          Where I’d <em className="font-normal text-slate-500 italic">go.</em>
-        </h1>
-        <div className="mt-8 grid gap-8 border-t border-slate-300 pt-5 md:mt-10 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:gap-16 md:pt-6">
-          <div className="text-[1rem] leading-snug text-slate-600">
-            <p>
-              {places.length} places across {placeCities.length} cities.
+      <PageHeader
+        eyebrow="Places"
+        title="Where I’d go."
+        lede="Places I’ve eaten, drunk, stayed or stopped, and would recommend to a friend."
+      />
+
+      <PlacePins key={city.id}>
+        <section className="mx-auto mt-16 max-w-[96rem] px-4 md:mt-24 md:px-8">
+          <div className="flex items-baseline justify-between gap-6 border-b border-slate-300 pb-2">
+            <p
+              id="choose-a-place"
+              className="text-[1rem] leading-none font-medium tracking-[0.14em] text-slate-600 uppercase"
+            >
+              Choose a place
             </p>
-            <p className="mt-1">
-              {apiKey
-                ? "Tap a pin for notes and directions."
-                : "Notes and directions are with each place."}
+            <p className="text-[1rem] leading-none text-slate-500">
+              ({placeCities.length} cities)
             </p>
           </div>
-          <div>
-            <p className="max-w-[36rem] font-serif text-[1.2rem] leading-[1.45] text-slate-950 md:text-[1.35rem]">
-              Places I’ve eaten, drunk, stayed or stopped, and would recommend
-              to a friend.
-            </p>
-            <p className="mt-4 max-w-[36rem] font-serif text-[1.05rem] leading-[1.45] text-slate-600 md:mt-5 md:text-[1.15rem]">
-              From my hometown Sarajevo to cities like Amsterdam and Singapore,
-              where I lived for years, and other places that I visited many
-              times.
-            </p>
-          </div>
-        </div>
-      </header>
+          <nav aria-labelledby="choose-a-place" className="mt-5 md:mt-6">
+            <ol className="flex flex-wrap items-baseline font-display text-[clamp(2.35rem,5vw,4.15rem)] leading-[1.08] tracking-[-0.03em] italic">
+              {placeCities.map((item, index) => {
+                const selected = item.id === city.id;
+                const count = places.filter(
+                  (place) => place.cityId === item.id,
+                ).length;
+                return (
+                  <li key={item.id} className="mr-[0.28em]">
+                    <Link
+                      href={cityHref(item)}
+                      scroll={false}
+                      aria-current={selected ? "true" : undefined}
+                      className={
+                        selected
+                          ? "text-slate-950 underline decoration-slate-400 decoration-1 underline-offset-[0.14em]"
+                          : "text-slate-500 underline decoration-transparent underline-offset-[0.14em] hover:text-slate-800 hover:decoration-current focus-visible:text-slate-950 focus-visible:decoration-current"
+                      }
+                    >
+                      {item.label}
+                      <sup className="ml-[0.15em] align-super font-sans text-[1rem] leading-none font-medium tracking-normal text-inherit not-italic">
+                        {count}
+                      </sup>
+                    </Link>
+                    {index < placeCities.length - 1 ? (
+                      <span aria-hidden="true" className="text-slate-300">
+                        ,
+                      </span>
+                    ) : null}
+                  </li>
+                );
+              })}
+            </ol>
+          </nav>
 
-      <section className="mx-auto mt-12 max-w-[96rem] px-4 md:mt-16 md:px-8">
-        <div className="flex items-baseline justify-between gap-6 border-b border-slate-300 pb-2">
-          <p
-            id="choose-a-place"
-            className="text-[1rem] leading-none font-medium tracking-[0.14em] text-slate-600 uppercase"
+          <div
+            id="places-map"
+            role="region"
+            aria-label={`Map of ${city.label}`}
+            className="mt-8 scroll-mt-8"
           >
-            Choose a place
-          </p>
-          <p className="text-[1rem] leading-none text-slate-500">
-            ({placeCities.length} cities)
-          </p>
-        </div>
-        <nav aria-labelledby="choose-a-place" className="mt-5 md:mt-6">
-          <ol className="flex flex-wrap items-baseline font-display text-[clamp(2.35rem,5vw,4.15rem)] leading-[1.08] tracking-[-0.03em] italic">
-            {placeCities.map((item, index) => {
-              const selected = item.id === city.id;
-              const count = places.filter(
-                (place) => place.cityId === item.id,
-              ).length;
-              return (
-                <li key={item.id} className="mr-[0.28em]">
-                  <Link
-                    href={cityHref(item)}
-                    scroll={false}
-                    aria-current={selected ? "true" : undefined}
-                    className={
-                      selected
-                        ? "text-slate-950 underline decoration-slate-400 decoration-1 underline-offset-[0.14em]"
-                        : "text-slate-500 underline decoration-transparent underline-offset-[0.14em] hover:text-slate-800 hover:decoration-current focus-visible:text-slate-950 focus-visible:decoration-current"
-                    }
-                  >
-                    {item.label}
-                    <sup className="ml-[0.15em] align-super font-sans text-[1rem] leading-none font-medium tracking-normal text-inherit not-italic">
-                      {count}
-                    </sup>
-                  </Link>
-                  {index < placeCities.length - 1 ? (
-                    <span aria-hidden="true" className="text-slate-300">
-                      ,
-                    </span>
-                  ) : null}
-                </li>
-              );
-            })}
-          </ol>
-        </nav>
-
-        <div className="mt-8">
-          {apiKey ? (
-            <PlacesMap
-              key={city.id}
-              apiKey={apiKey}
-              mapId={mapId}
-              city={city.label}
-              center={{ latitude: city.latitude, longitude: city.longitude }}
-              spots={mapSpots(cityPlaces)}
-            />
-          ) : (
-            <div className={mapFrameClassName}>
-              <p className="max-w-[24rem] text-center font-serif text-[1.15rem] leading-snug text-slate-600">
-                The map isn’t available just now.
-              </p>
-            </div>
-          )}
-        </div>
-
-        <div className="mt-5 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3">
-          <h2 className="text-[1rem] leading-snug font-medium text-slate-950">
-            {city.label}
-            <span className="text-slate-500">
-              {" "}
-              · {cityPlaces.length}{" "}
-              {cityPlaces.length === 1 ? "place" : "places"}
-            </span>
-          </h2>
-          {essay ? (
-            <Link href={essay.href} className={textLinkClassName}>
-              Read {essay.title}
-            </Link>
-          ) : null}
-        </div>
-      </section>
-
-      <div className="mt-10 md:mt-12">
-        {groups.map((group, index) => (
-          <section
-            key={group.label}
-            className={index === 0 ? undefined : "border-t border-slate-300"}
-          >
-            <div className="mx-auto max-w-[96rem] px-4 py-8 md:px-8 md:py-10">
-              <div className="max-w-[40rem]">
-                <h3 className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase">
-                  <span aria-hidden="true">{group.emoji}</span> {group.label}
-                </h3>
-                <ul className="mt-7 space-y-8">
-                  {group.spots.map((spot) => {
-                    const website = httpUrl(spot.url);
-                    const directions = httpUrl(spot.map);
-                    return (
-                      <li
-                        key={spot.slug}
-                        id={spot.slug}
-                        className="scroll-mt-8"
-                      >
-                        <h4 className="font-serif text-[1.35rem] leading-snug text-slate-950 md:text-[1.5rem]">
-                          {spot.title}
-                        </h4>
-                        {spot.locality ? (
-                          <p className="mt-1 text-[1rem] leading-snug text-slate-500">
-                            {spot.locality}
-                          </p>
-                        ) : null}
-                        {spot.body ? (
-                          <p className="mt-2 font-serif text-[1.15rem] leading-[1.45] text-slate-700">
-                            {spot.body}
-                          </p>
-                        ) : null}
-                        {website || directions ? (
-                          <p className="mt-3 flex flex-wrap items-baseline gap-x-3 text-[1rem] leading-snug">
-                            {website ? (
-                              <ExternalLink
-                                href={website}
-                                className={textLinkClassName}
-                              >
-                                Website
-                              </ExternalLink>
-                            ) : null}
-                            {website && directions ? (
-                              <span
-                                aria-hidden="true"
-                                className="text-slate-400"
-                              >
-                                ·
-                              </span>
-                            ) : null}
-                            {directions ? (
-                              <ExternalLink
-                                href={directions}
-                                className={textLinkClassName}
-                              >
-                                Google Maps
-                              </ExternalLink>
-                            ) : null}
-                          </p>
-                        ) : null}
-                      </li>
-                    );
-                  })}
-                </ul>
+            {apiKey ? (
+              <PlacesMap
+                key={city.id}
+                apiKey={apiKey}
+                mapId={mapId}
+                center={{ latitude: city.latitude, longitude: city.longitude }}
+                spots={mapSpots(cityPlaces)}
+              />
+            ) : (
+              <div className={mapFrameClassName}>
+                <p className="max-w-[24rem] text-center font-serif text-[1.15rem] leading-snug text-slate-600">
+                  The map isn’t available just now.
+                </p>
               </div>
-            </div>
-          </section>
-        ))}
-      </div>
+            )}
+          </div>
+
+          <div className="mt-5 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3">
+            <h2 className="text-[1rem] leading-snug font-medium text-slate-950">
+              {city.label}
+              <span className="text-slate-500">
+                {" "}
+                · {cityPlaces.length}{" "}
+                {cityPlaces.length === 1 ? "place" : "places"}
+              </span>
+            </h2>
+            {essay ? (
+              <Link href={essay.href} className={textLinkClassName}>
+                Read {essay.title}
+              </Link>
+            ) : null}
+          </div>
+        </section>
+
+        <div className="mt-10 md:mt-12">
+          {groups.map((group, index) => (
+            <section
+              key={group.label}
+              className={index === 0 ? undefined : "border-t border-slate-300"}
+            >
+              <div className="mx-auto max-w-[96rem] px-4 py-8 md:px-8 md:py-10">
+                <div className="max-w-[40rem]">
+                  <h3 className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase">
+                    <span aria-hidden="true">{group.emoji}</span> {group.label}
+                  </h3>
+                  <ul className="mt-7 space-y-8">
+                    {group.spots.map((spot) => {
+                      const website = httpUrl(spot.url);
+                      const directions = httpUrl(spot.map);
+                      return (
+                        <li
+                          key={spot.slug}
+                          id={spot.slug}
+                          className="scroll-mt-8"
+                        >
+                          {apiKey &&
+                          spot.latitude !== undefined &&
+                          spot.longitude !== undefined ? (
+                            <PlacePinButton
+                              slug={spot.slug}
+                              title={spot.title}
+                            />
+                          ) : (
+                            <h4 className="font-serif text-[1.35rem] leading-snug text-slate-950 md:text-[1.5rem]">
+                              {spot.title}
+                            </h4>
+                          )}
+                          {spot.locality ? (
+                            <p className="mt-1 text-[1rem] leading-snug text-slate-500">
+                              {spot.locality}
+                            </p>
+                          ) : null}
+                          {spot.body ? (
+                            <p className="mt-2 font-serif text-[1.15rem] leading-[1.45] text-slate-700">
+                              {spot.body}
+                            </p>
+                          ) : null}
+                          {website || directions ? (
+                            <p className="mt-3 flex flex-wrap items-baseline gap-x-3 text-[1rem] leading-snug">
+                              {website ? (
+                                <ExternalLink
+                                  href={website}
+                                  className={textLinkClassName}
+                                >
+                                  Website
+                                </ExternalLink>
+                              ) : null}
+                              {website && directions ? (
+                                <span
+                                  aria-hidden="true"
+                                  className="text-slate-400"
+                                >
+                                  ·
+                                </span>
+                              ) : null}
+                              {directions ? (
+                                <ExternalLink
+                                  href={directions}
+                                  className={textLinkClassName}
+                                >
+                                  Google Maps
+                                </ExternalLink>
+                              ) : null}
+                            </p>
+                          ) : null}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
+            </section>
+          ))}
+        </div>
+      </PlacePins>
     </article>
   );
 }

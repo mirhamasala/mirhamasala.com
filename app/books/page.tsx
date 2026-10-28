@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PageHeader } from "@/components/page-header";
 import {
   bookTopics,
   getBooks,
@@ -20,17 +21,11 @@ export default async function BooksPage() {
 
   return (
     <article className="pt-7 pb-8 md:pt-10">
-      <header className="mx-auto max-w-[96rem] px-4 md:px-8">
-        <p className="mb-4 text-[1rem] leading-none font-medium text-slate-600 md:mb-6">
-          Books
-        </p>
-        <h1 className="pb-[0.28em] font-display text-[clamp(5.7rem,21vw,20rem)] leading-[0.76] tracking-[-0.045em] text-slate-950 md:text-[clamp(10rem,17.4vw,20rem)] md:tracking-[-0.055em]">
-          What I’ve taken from the pages.
-        </h1>
-        <p className="mt-6 max-w-[34rem] font-serif text-[1.2rem] leading-[1.45] text-slate-600 md:mt-8 md:text-[1.3rem]">
-          Quotes, notes, and ideas from books I’ve read.
-        </p>
-      </header>
+      <PageHeader
+        eyebrow="Books"
+        title="What I’ve taken from the pages."
+        lede="Quotes, notes, and ideas from books I’ve read."
+      />
 
       <section className="mx-auto mt-16 max-w-[96rem] px-4 md:mt-24 md:px-8">
         <div className="max-w-[40rem]">

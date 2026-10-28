@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PageHeader } from "@/components/page-header";
 import { formatLongDate } from "@/lib/format-date";
 import { getPosts, type Post } from "@/lib/posts";
 
@@ -16,14 +17,10 @@ export default async function WritingPage() {
 
   return (
     <article className="pt-7 pb-8 md:pt-10">
-      <header className="mx-auto max-w-[96rem] px-4 md:px-8">
-        <h1 className="pb-[0.28em] font-display text-[clamp(5.7rem,21vw,20rem)] leading-[0.76] tracking-[-0.045em] text-slate-950 md:text-[clamp(10rem,17.4vw,20rem)] md:tracking-[-0.055em]">
-          Writing
-        </h1>
-        <p className="mt-6 max-w-[34rem] font-serif text-[1.2rem] leading-[1.45] text-slate-600 md:mt-8 md:text-[1.3rem]">
-          Everything Mirha Masala has published in Writing, newest first.
-        </p>
-      </header>
+      <PageHeader
+        title="Writing"
+        lede="Everything Mirha Masala has published in Writing, newest first."
+      />
 
       <div className="mt-16 md:mt-24">
         {years.map(({ year, posts: inYear }, index) => (

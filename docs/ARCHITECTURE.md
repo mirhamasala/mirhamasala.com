@@ -211,7 +211,11 @@ app/
     posts/
       [slug]/page.tsx # spin-off post
 components/
-  archive-eyebrow.tsx
+  breadcrumbs.tsx     # Archive trail
+  eyebrow.tsx
+  page-header.tsx     # Index header for section pages
+  page-lede.tsx
+  page-title.tsx
   places-map.tsx      # Google map for the selected city
   display-title.tsx
   external-link.tsx

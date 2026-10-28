@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArchiveEyebrow } from "@/components/archive-eyebrow";
+import { archiveCrumbs } from "@/components/breadcrumbs";
+import { PageHeader } from "@/components/page-header";
 import { formatLongDate } from "@/lib/format-date";
 import {
   getTsopPages,
@@ -24,14 +25,13 @@ export default async function SpinOffProjectPage() {
 
   return (
     <article className="pt-7 pb-8 md:pt-10">
-      <header className="mx-auto max-w-[96rem] px-4 md:px-8">
-        <ArchiveEyebrow section="tsop" current />
-        <h1 className="max-w-[18ch] pb-[0.12em] font-display text-[clamp(3.5rem,10vw,8.75rem)] leading-[0.88] tracking-[-0.035em] text-balance text-slate-950">
-          The Spin-Off Project
-        </h1>
-        <p className="mt-6 max-w-[34rem] font-serif text-[1.2rem] leading-[1.45] text-slate-600 md:mt-8 md:text-[1.3rem]">
-          {description}
-        </p>
+      <PageHeader
+        breadcrumbs={archiveCrumbs("tsop", { current: true })}
+        title="The Spin-Off Project"
+        lede={description}
+        scale="name"
+      />
+      <div className="mx-auto max-w-[96rem] px-4 md:px-8">
         <ul className="mt-8 max-w-[34rem] md:mt-10">
           {pages.map((page) => (
             <li key={page.slug}>
@@ -44,7 +44,7 @@ export default async function SpinOffProjectPage() {
             </li>
           ))}
         </ul>
-      </header>
+      </div>
 
       <div className="mt-16 md:mt-24">
         {groups.map((group, index) => (

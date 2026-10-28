@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArchiveEyebrow } from "@/components/archive-eyebrow";
+import { archiveCrumbs, Breadcrumbs } from "@/components/breadcrumbs";
 import { DisplayTitle } from "@/components/display-title";
 import { formatLongDate } from "@/lib/format-date";
 import { LetterMarkdownContent } from "@/lib/markdown";
@@ -37,7 +37,7 @@ export default async function TravelStoryPage({
   return (
     <article className="mx-auto max-w-[96rem] overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
       <header>
-        <ArchiveEyebrow section="travel-stories" />
+        <Breadcrumbs items={archiveCrumbs("travel-stories")} />
         <DisplayTitle title={`#${story.number}`} />
 
         <div className="mt-4 md:mt-6 md:grid md:grid-cols-12 md:gap-8">

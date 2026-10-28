@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Eyebrow } from "@/components/eyebrow";
 
 export const metadata: Metadata = {
   title: "About",
@@ -73,9 +74,7 @@ export default function AboutPage() {
   return (
     <article className="overflow-x-clip pb-8">
       <section className="mx-auto max-w-[96rem] px-4 pt-7 md:px-8 md:pt-10">
-        <p className="mb-4 text-[1rem] leading-none font-medium text-slate-600 md:mb-6">
-          About
-        </p>
+        <Eyebrow>About</Eyebrow>
         <h1 className="font-display text-[clamp(5.7rem,21vw,20rem)] leading-[0.76] tracking-[-0.045em] text-slate-950 md:text-[clamp(10rem,17.4vw,20rem)] md:tracking-[-0.055em]">
           <span className="block md:inline">Hi, I’m </span>
           <em className="block font-normal text-slate-500 italic md:ml-[0.05em] md:inline">
