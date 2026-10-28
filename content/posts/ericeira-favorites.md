@@ -5,6 +5,8 @@ date: 2022-02-14
 draft: true
 ---
 
+Here's a list of my all-time favorite spots in Ericeira. The map is on [Places](/places?city=ericeira).
+
 ### ☕️ Coffee
 
 #### The Capsule Cafe

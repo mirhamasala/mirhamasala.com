@@ -56,7 +56,7 @@ Most importantly, I met the people who make a place. Strangers who became friend
 
 ## Singapore Favorites
 
-Here's a list of my all-time favorite spots in Singapore.
+Here's a list of my all-time favorite spots in Singapore. The map is on [Places](/places?city=singapore).
 
 ### 🌳 Parks
 

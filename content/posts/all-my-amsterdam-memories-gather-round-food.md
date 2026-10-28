@@ -18,7 +18,7 @@ Still, once I met G, my gastronomy explorations flared further as we rounded up 
 
 ## Amsterdam Favorites
 
-Here's a list of my all-time favorite spots in Amsterdam.
+Here's a list of my all-time favorite spots in Amsterdam. The map is on [Places](/places).
 
 ### 🌳 Parks
 
