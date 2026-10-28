@@ -3,12 +3,10 @@ import Link from "next/link";
 import { archiveCrumbs } from "@/components/breadcrumbs";
 import { PageHeader } from "@/components/page-header";
 import { formatLongDate } from "@/lib/format-date";
-import {
-  getTsopPages,
-  getTsopPosts,
-  groupTsopPosts,
-  type TsopPost,
-} from "@/lib/tsop";
+import { getTsopPosts, groupTsopPosts, type TsopPost } from "@/lib/tsop";
+
+const contentLinkClassName =
+  "underline decoration-slate-300 decoration-[2px] underline-offset-[6px] hover:decoration-slate-950 focus-visible:decoration-slate-950";
 
 const description =
   "Twelve lifestyles in five years, to find out what I wanted to do for a living.";
@@ -20,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 export default async function SpinOffProjectPage() {
-  const [pages, posts] = await Promise.all([getTsopPages(), getTsopPosts()]);
+  const posts = await getTsopPosts();
   const groups = groupTsopPosts(posts);
 
   return (
@@ -28,23 +26,17 @@ export default async function SpinOffProjectPage() {
       <PageHeader
         breadcrumbs={archiveCrumbs("tsop", { current: true })}
         title="The Spin-Off Project"
-        lede={description}
+        lede={
+          <>
+            {description}{" "}
+            <Link href="/tsop/about" className={contentLinkClassName}>
+              How it started
+            </Link>
+            .
+          </>
+        }
         scale="name"
       />
-      <div className="mx-auto max-w-[96rem] px-4 md:px-8">
-        <ul className="mt-8 max-w-[34rem] md:mt-10">
-          {pages.map((page) => (
-            <li key={page.slug}>
-              <Link
-                href={`/tsop/${page.slug}`}
-                className="font-serif text-[1.2rem] leading-[1.6] text-slate-950 underline decoration-slate-300 decoration-[2px] underline-offset-[6px] hover:decoration-slate-950 focus-visible:decoration-slate-950 md:text-[1.3rem]"
-              >
-                {page.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
 
       <div className="mt-16 md:mt-24">
         {groups.map((group, index) => (

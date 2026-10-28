@@ -27,6 +27,9 @@ export const bucketList = {
   title: "The bucket list",
 } as const;
 
+/** Item 1 on the bucket list. The post stays published and is not a second index entry. */
+const unlistedSlugs = new Set(["read-business-books"]);
+
 const spinOffIds = [
   ...spinOffs.map((spinOff) => spinOff.id),
   bucketList.id,
@@ -142,7 +145,9 @@ export async function getTsopPost(slug: string): Promise<TsopPost | undefined> {
 
 function postsInGroup(posts: TsopPost[], spinOff: TsopPost["spinOff"]) {
   return posts
-    .filter((post) => post.spinOff === spinOff)
+    .filter(
+      (post) => post.spinOff === spinOff && !unlistedSlugs.has(post.slug),
+    )
     .sort(
       (a, b) =>
         a.date.localeCompare(b.date) || a.title.localeCompare(b.title, "en"),

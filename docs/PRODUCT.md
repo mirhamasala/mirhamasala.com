@@ -113,7 +113,7 @@ The Archive page at `/archive` presents three groups, in the order they began: T
 
 ### The Spin-Off Project
 
-The Spin-Off Project is the archive of the twelve lifestyle experiments from 2012 to 2017, at `/tsop`. Posts stay at `/tsop/posts/<slug>`. About, frequently asked questions, and resources stay at `/tsop/<slug>`. `/tsop/contact`, `/tsop/about-me`, and `/tsop/now` redirect to `/about`. The index is a reading list grouped by spin-off, then the bucket list. Whether to remove or redirect one of the remaining section pages is not decided yet.
+The Spin-Off Project is the archive of the twelve lifestyle experiments from 2012 to 2017, at `/tsop`. Posts stay at `/tsop/posts/<slug>`. About, frequently asked questions, and resources stay at `/tsop/<slug>`. `/tsop/contact`, `/tsop/about-me`, and `/tsop/now` redirect to `/about`. The introduction links to About. Frequently asked questions and resources are not listed on the index. The index is a reading list grouped by spin-off, then the bucket list. The bucket list group lists the bucket list essay. Read 100 Business Books stays at `/tsop/posts/read-business-books` and is not listed beside it. Whether to remove or redirect one of the remaining section pages is not decided yet.
 
 Writing shows whatever is currently in Writing.
 
