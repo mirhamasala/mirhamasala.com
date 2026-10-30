@@ -7,7 +7,7 @@ const navigationLinkClassName =
 
 export function SiteHeader() {
   return (
-    <header className="relative z-10 mx-auto w-full max-w-[96rem] px-4 md:px-8">
+    <header className="relative z-10 mx-auto w-full max-w-384 px-4 md:px-8">
       <div className="flex h-28 items-center justify-between border-b border-slate-300">
         <Link
           href="/"

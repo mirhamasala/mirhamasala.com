@@ -16,7 +16,7 @@ import {
 } from "@/lib/places";
 
 function MapLoading() {
-  return <div className="h-[32rem] bg-slate-200 md:h-[38rem]" />;
+  return <div className="h-128 bg-slate-200 md:h-152" />;
 }
 
 const PlacesMap = dynamic(
@@ -106,7 +106,7 @@ export default async function PlacesPage({
       />
 
       <PlacePins key={city.id}>
-        <section className="mx-auto mt-16 max-w-[96rem] px-4 md:mt-24 md:px-8">
+        <section className="mx-auto mt-16 max-w-384 px-4 md:mt-24 md:px-8">
           <div className="flex items-baseline justify-between gap-6 border-b border-slate-300 pb-2">
             <p
               id="choose-a-place"
@@ -177,7 +177,7 @@ export default async function PlacesPage({
           </div>
 
           <div className="mt-5 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3">
-            <h2 className="text-[1rem] leading-snug font-medium text-slate-950">
+            <h2 className="text-base/snug font-medium text-slate-950">
               {city.label}
               <span className="text-slate-500">
                 {" "}
@@ -199,8 +199,8 @@ export default async function PlacesPage({
               key={group.label}
               className={index === 0 ? undefined : "border-t border-slate-300"}
             >
-              <div className="mx-auto max-w-[96rem] px-4 py-8 md:px-8 md:py-10">
-                <div className="max-w-[40rem]">
+              <div className="mx-auto max-w-384 px-4 py-8 md:px-8 md:py-10">
+                <div className="max-w-160">
                   <h3 className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase">
                     <span aria-hidden="true">{group.emoji}</span> {group.label}
                   </h3>
@@ -227,7 +227,7 @@ export default async function PlacesPage({
                             </h4>
                           )}
                           {spot.locality ? (
-                            <p className="mt-1 text-[1rem] leading-snug text-slate-500">
+                            <p className="mt-1 text-base/snug text-slate-500">
                               {spot.locality}
                             </p>
                           ) : null}
@@ -237,7 +237,7 @@ export default async function PlacesPage({
                             </p>
                           ) : null}
                           {website || directions ? (
-                            <p className="mt-3 flex flex-wrap items-baseline gap-x-3 text-[1rem] leading-snug">
+                            <p className="mt-3 flex flex-wrap items-baseline gap-x-3 text-base/snug">
                               {website ? (
                                 <ExternalLink
                                   href={website}

@@ -61,13 +61,13 @@ export default async function ArchivePage() {
         lede="Earlier work that lives outside Writing."
       />
 
-      <div className="mx-auto mt-16 max-w-[96rem] px-4 md:mt-24 md:px-8">
+      <div className="mx-auto mt-16 max-w-384 px-4 md:mt-24 md:px-8">
         <div className="flex flex-col">
           <ArchiveEntry years="2012 – 2017" titleId="tsop">
             <SectionTitle href="/tsop" id="tsop" published>
               The Spin-Off Project
             </SectionTitle>
-            <p className="mt-6 max-w-[36rem] font-serif text-[1.3125rem] leading-[1.55] text-pretty text-slate-600">
+            <p className="mt-6 max-w-xl font-serif text-[1.3125rem] leading-[1.55] text-pretty text-slate-600">
               Twelve lifestyles in five years, to find out what I wanted to do
               for a living.
             </p>
@@ -79,7 +79,7 @@ export default async function ArchivePage() {
             </p>
             <ol
               aria-labelledby="tsop-list"
-              className="mt-4 grid max-w-[44rem] grid-cols-2 gap-x-8 min-[40rem]:grid-cols-3"
+              className="mt-4 grid max-w-176 grid-cols-2 gap-x-8 sm:grid-cols-3"
             >
               {spinOffs.map((spinOff, index) => (
                 <li
@@ -94,7 +94,7 @@ export default async function ArchivePage() {
                   </span>
                   <Link
                     href={`/tsop#${spinOff.id}`}
-                    className="underline decoration-slate-300 decoration-[2px] underline-offset-[6px] hover:decoration-slate-950 focus-visible:decoration-slate-950"
+                    className="underline decoration-slate-300 decoration-2 underline-offset-[6px] hover:decoration-slate-950 focus-visible:decoration-slate-950"
                   >
                     {spinOff.title}
                   </Link>
@@ -107,7 +107,7 @@ export default async function ArchivePage() {
             <SectionTitle href="/travel-stories" id="travel" published>
               Travel Stories
             </SectionTitle>
-            <p className="mt-6 max-w-[36rem] font-serif text-[1.3125rem] leading-[1.55] text-pretty text-slate-600">
+            <p className="mt-6 max-w-xl font-serif text-[1.3125rem] leading-[1.55] text-pretty text-slate-600">
               Travel stories, photographs and recommendations originally
               published on Instagram.
             </p>
@@ -117,14 +117,14 @@ export default async function ArchivePage() {
             >
               Where they were posted from
             </p>
-            <ul aria-labelledby="travel-list" className="mt-4 max-w-[44rem]">
+            <ul aria-labelledby="travel-list" className="mt-4 max-w-176">
               {places.map((place) => (
                 <li key={place.href}>
                   <Link
                     href={place.href}
                     className="grid grid-cols-1 gap-x-6 py-[0.45rem] no-underline min-[30rem]:grid-cols-[minmax(0,1fr)_auto] min-[30rem]:items-baseline"
                   >
-                    <span className="font-serif text-[1.375rem] text-slate-950 underline decoration-slate-300 decoration-[2px] underline-offset-[8px] hover:decoration-slate-950 focus-visible:decoration-slate-950">
+                    <span className="font-serif text-[1.375rem] text-slate-950 underline decoration-slate-300 decoration-2 underline-offset-8 hover:decoration-slate-950 focus-visible:decoration-slate-950">
                       {place.name}
                     </span>
                     <span className="font-sans text-[1rem] text-slate-600 tabular-nums min-[30rem]:text-right min-[30rem]:whitespace-nowrap">
@@ -140,7 +140,7 @@ export default async function ArchivePage() {
             <SectionTitle href="/letters" id="letters" published>
               Letters
             </SectionTitle>
-            <p className="mt-6 max-w-[36rem] font-serif text-[1.3125rem] leading-[1.55] text-pretty text-slate-600">
+            <p className="mt-6 max-w-xl font-serif text-[1.3125rem] leading-[1.55] text-pretty text-slate-600">
               Letters I sent from 2018 to 2023.
             </p>
             <p
@@ -198,7 +198,7 @@ function SectionTitle({
       <Link
         href={href}
         prefetch={published ? undefined : false}
-        className="underline decoration-slate-300 decoration-[2px] underline-offset-[8px] hover:decoration-slate-950 focus-visible:decoration-slate-950"
+        className="underline decoration-slate-300 decoration-2 underline-offset-8 hover:decoration-slate-950 focus-visible:decoration-slate-950"
       >
         {children}
       </Link>

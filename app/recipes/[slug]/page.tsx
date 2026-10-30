@@ -42,12 +42,12 @@ export default async function RecipePage({
     .join(" · ");
 
   return (
-    <article className="mx-auto max-w-[96rem] overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
+    <article className="mx-auto max-w-384 overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
       <header>
         <DisplayTitle title={recipe.title} />
 
         <div className="mt-4 md:mt-6 md:grid md:grid-cols-12 md:gap-8">
-          <div className="max-w-[44rem] md:col-span-7 md:col-start-3">
+          <div className="max-w-176 md:col-span-7 md:col-start-3">
             <p className="font-serif text-[1.2rem] leading-[1.35] text-slate-700 italic md:text-[1.35rem]">
               {recipe.description}
             </p>
@@ -62,7 +62,7 @@ export default async function RecipePage({
       </header>
 
       <div className="mt-10 md:mt-12 md:grid md:grid-cols-12 md:gap-8">
-        <div className="max-w-[44rem] md:col-span-7 md:col-start-3">
+        <div className="max-w-176 md:col-span-7 md:col-start-3">
           <RecipeMarkdownContent source={recipe.body} />
         </div>
       </div>

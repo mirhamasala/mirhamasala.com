@@ -162,7 +162,7 @@ function CityMap({
             headerDisabled
             onCloseClick={() => setOpenSlug(null)}
           >
-            <div className="font-sans text-[1rem] leading-snug text-slate-950">
+            <div className="font-sans text-base/snug text-slate-950">
               <p className="font-serif text-[1.15rem] leading-snug">
                 {open.title}
               </p>

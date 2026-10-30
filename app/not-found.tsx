@@ -39,7 +39,7 @@ export default function NotFound() {
         }
       />
 
-      <ol className="mx-auto mt-16 max-w-[96rem] list-none px-4 md:mt-24 md:px-8">
+      <ol className="mx-auto mt-16 max-w-384 list-none px-4 md:mt-24 md:px-8">
         <li className="grid grid-cols-[2.25rem_minmax(0,1fr)] gap-x-2 py-5 md:grid-cols-[3rem_minmax(0,1fr)] md:gap-x-4 md:py-7">
           <span
             aria-hidden="true"
@@ -50,11 +50,11 @@ export default function NotFound() {
           <div className="min-w-0">
             <Link
               href="/posts"
-              className={`${titleClassName} underline decoration-slate-300 decoration-[2px] underline-offset-[8px] hover:decoration-slate-950 focus-visible:decoration-slate-950`}
+              className={`${titleClassName} underline decoration-slate-300 decoration-2 underline-offset-8 hover:decoration-slate-950 focus-visible:decoration-slate-950`}
             >
               Writing
             </Link>
-            <p className="mt-2 max-w-[34rem] font-serif text-[1.05rem] leading-[1.45] text-slate-600 md:text-[1.15rem]">
+            <p className="mt-2 max-w-136 font-serif text-[1.05rem] leading-[1.45] text-slate-600 md:text-[1.15rem]">
               Things I’ve learned, noticed and thought worth passing on.
             </p>
           </div>
@@ -69,7 +69,7 @@ export default function NotFound() {
           </span>
           <div className="min-w-0">
             <p className={titleClassName}>Collections</p>
-            <p className="mt-2 max-w-[34rem] font-serif text-[1.05rem] leading-[1.45] text-slate-600 md:text-[1.15rem]">
+            <p className="mt-2 max-w-136 font-serif text-[1.05rem] leading-[1.45] text-slate-600 md:text-[1.15rem]">
               <ContentLink href="/books">Books I’ve read</ContentLink>,{" "}
               <ContentLink href="/recipes">recipes I make</ContentLink>, and{" "}
               <ContentLink href="/places">places I’d recommend</ContentLink>.
@@ -86,7 +86,7 @@ export default function NotFound() {
           </span>
           <div className="min-w-0">
             <p className={titleClassName}>Archive</p>
-            <p className="mt-2 max-w-[34rem] font-serif text-[1.05rem] leading-[1.45] text-slate-600 md:text-[1.15rem]">
+            <p className="mt-2 max-w-136 font-serif text-[1.05rem] leading-[1.45] text-slate-600 md:text-[1.15rem]">
               Older projects and parts of the site, including{" "}
               <ContentLink href="/tsop">TSOP</ContentLink>,{" "}
               <ContentLink href="/letters">the letters</ContentLink>, and{" "}

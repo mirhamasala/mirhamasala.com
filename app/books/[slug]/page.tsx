@@ -42,19 +42,19 @@ export default async function BookPage({ params }: PageProps<"/books/[slug]">) {
   const { quote, rest } = splitLeadQuote(book.body);
 
   return (
-    <article className="mx-auto max-w-[96rem] overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
+    <article className="mx-auto max-w-384 overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
       <header>
         <DisplayTitle title={book.title} />
 
         <div className="mt-4 md:mt-6 md:grid md:grid-cols-12 md:gap-8">
-          <div className="max-w-[44rem] md:col-span-7 md:col-start-3">
+          <div className="max-w-176 md:col-span-7 md:col-start-3">
             {book.subtitle ? (
               <p className="font-serif text-[1.2rem] leading-[1.35] text-slate-700 italic md:text-[1.35rem]">
                 {book.subtitle}
               </p>
             ) : null}
             <p
-              className={`text-[1rem] leading-snug text-slate-950 ${book.subtitle ? "mt-5" : ""}`}
+              className={`text-base/snug text-slate-950 ${book.subtitle ? "mt-5" : ""}`}
             >
               {book.author}
             </p>
@@ -62,7 +62,7 @@ export default async function BookPage({ params }: PageProps<"/books/[slug]">) {
               <p className="mt-3">
                 <ExternalLink
                   href={book.url}
-                  className={`text-[1rem] leading-snug ${proseLinkClassName}`}
+                  className={`text-base/snug ${proseLinkClassName}`}
                 >
                   Find this book
                 </ExternalLink>
@@ -74,7 +74,7 @@ export default async function BookPage({ params }: PageProps<"/books/[slug]">) {
 
       {quote ? (
         <div className="mt-16 md:mt-24 md:grid md:grid-cols-12 md:gap-8">
-          <div className="max-w-[62rem] md:col-span-8 md:col-start-3">
+          <div className="max-w-248 md:col-span-8 md:col-start-3">
             <BookLeadQuote source={quote} />
           </div>
         </div>
@@ -84,7 +84,7 @@ export default async function BookPage({ params }: PageProps<"/books/[slug]">) {
         <div
           className={`md:grid md:grid-cols-12 md:gap-8 ${quote ? "mt-12 md:mt-16" : "mt-10 md:mt-12"}`}
         >
-          <div className="max-w-[44rem] md:col-span-7 md:col-start-3">
+          <div className="max-w-176 md:col-span-7 md:col-start-3">
             <BookMarkdownContent source={rest} />
           </div>
         </div>

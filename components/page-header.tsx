@@ -19,7 +19,7 @@ export function PageHeader(props: PageHeaderProps) {
   const breadcrumbs = "breadcrumbs" in props ? props.breadcrumbs : undefined;
 
   return (
-    <header className="mx-auto max-w-[96rem] px-4 md:px-8">
+    <header className="mx-auto max-w-384 px-4 md:px-8">
       {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
       {breadcrumbs ? <Breadcrumbs items={breadcrumbs} /> : null}
       <PageTitle scale={scale}>{title}</PageTitle>

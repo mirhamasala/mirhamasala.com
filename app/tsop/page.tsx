@@ -45,8 +45,8 @@ export default async function SpinOffProjectPage() {
             aria-labelledby={group.id}
             className={index === 0 ? undefined : "border-t border-slate-300"}
           >
-            <div className="mx-auto max-w-[96rem] px-4 pt-9 pb-8 md:px-8">
-              <div className="max-w-[44rem]">
+            <div className="mx-auto max-w-384 px-4 pt-9 pb-8 md:px-8">
+              <div className="max-w-176">
                 {group.number ? (
                   <p className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 tabular-nums">
                     {String(group.number).padStart(2, "0")}

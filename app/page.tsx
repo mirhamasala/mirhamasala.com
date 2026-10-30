@@ -66,7 +66,7 @@ export default async function HomePage() {
 
   return (
     <article className="pb-8">
-      <div className="mx-auto max-w-[96rem] px-4 pt-7 md:px-8 md:pt-10">
+      <div className="mx-auto max-w-384 px-4 pt-7 md:px-8 md:pt-10">
         <h1 className="max-w-[9.5em] font-display text-[clamp(4.25rem,22vw,7.25rem)] leading-[0.96] tracking-[-0.03em] text-balance text-slate-950">
           I write about the things I get unusually interested in.
         </h1>
@@ -91,7 +91,7 @@ export default async function HomePage() {
 
         <ExternalLink
           href="https://unsplash.com/photos/birds-eye-view-of-people-surfing-sea-waves-Eqjse2H-dak?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-          className="relative mt-14 block aspect-[8/5] overflow-hidden md:mt-20 md:aspect-[2/1]"
+          className="relative mt-14 block aspect-8/5 overflow-hidden md:mt-20 md:aspect-2/1"
         >
           <Image
             src="/home/ericeira.jpg"
@@ -117,7 +117,7 @@ export default async function HomePage() {
                   <li key={post.slug}>
                     <Link
                       href={`/posts/${post.slug}`}
-                      className="group block w-fit max-w-[44rem] no-underline"
+                      className="group block w-fit max-w-176 no-underline"
                     >
                       <h3
                         className={`${entryTitleClassName} text-[2rem] md:text-[2.35rem]`}
@@ -126,7 +126,7 @@ export default async function HomePage() {
                       </h3>
                       <time
                         dateTime={post.date}
-                        className="mt-2 block text-[1rem] leading-snug text-slate-600"
+                        className="mt-2 block text-base/snug text-slate-600"
                       >
                         {formatMonthYear(post.date)}
                       </time>
@@ -180,7 +180,7 @@ function FeaturedPost({ post }: { post: Post }) {
           {post.title}
         </Link>
       </h3>
-      <p className="mt-4 max-w-[36rem] font-serif text-[1.15rem] leading-[1.45] text-slate-600 md:mt-5 md:text-[1.25rem]">
+      <p className="mt-4 max-w-xl font-serif text-[1.15rem] leading-[1.45] text-slate-600 md:mt-5 md:text-[1.25rem]">
         {post.description}
       </p>
     </section>

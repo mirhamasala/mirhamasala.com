@@ -18,15 +18,15 @@ export default async function ResumePage() {
   const page = await getResume();
 
   return (
-    <article className="mx-auto max-w-[96rem] overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
+    <article className="mx-auto max-w-384 overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
       <header>
         <DisplayTitle title={page.title} />
 
         <div className="mt-4 md:mt-6 md:grid md:grid-cols-12 md:gap-8">
-          <div className="max-w-[44rem] md:col-span-7 md:col-start-3">
+          <div className="max-w-176 md:col-span-7 md:col-start-3">
             <time
               dateTime={page.date}
-              className="text-[1rem] leading-snug text-slate-950"
+              className="text-base/snug text-slate-950"
             >
               {formatMonthYear(page.date)}
             </time>
@@ -35,7 +35,7 @@ export default async function ResumePage() {
       </header>
 
       <div className="mt-10 md:mt-12 md:grid md:grid-cols-12 md:gap-8">
-        <div className="max-w-[44rem] md:col-span-7 md:col-start-3 [&_h3+p]:mt-1.5 [&_h3+p]:font-sans [&_h3+p]:text-[1rem] [&_h3+p]:leading-snug [&_h3+p]:text-slate-600 [&_h3+p+p]:mt-1 [&_h3+p+p]:font-sans [&_h3+p+p]:text-[1rem] [&_h3+p+p]:leading-snug [&_h3+p+p]:text-slate-600 [&_h4]:ml-6 [&_h4+p]:mt-1.5 [&_h4+p]:ml-6 [&_h4+p]:font-sans [&_h4+p]:text-[1rem] [&_h4+p]:leading-snug [&_h4+p]:text-slate-600 [&_h4+p+ul]:ml-6">
+        <div className="max-w-176 md:col-span-7 md:col-start-3 [&_h3+p]:mt-1.5 [&_h3+p]:font-sans [&_h3+p]:text-base/snug [&_h3+p]:text-slate-600 [&_h3+p+p]:mt-1 [&_h3+p+p]:font-sans [&_h3+p+p]:text-base/snug [&_h3+p+p]:text-slate-600 [&_h4]:ml-6 [&_h4+p]:mt-1.5 [&_h4+p]:ml-6 [&_h4+p]:font-sans [&_h4+p]:text-base/snug [&_h4+p]:text-slate-600 [&_h4+p+ul]:ml-6">
           <LetterMarkdownContent source={page.body} />
         </div>
       </div>

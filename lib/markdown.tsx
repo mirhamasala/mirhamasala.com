@@ -48,10 +48,7 @@ const recipeComponents: Components = {
   p: ({ node, ...props }) => {
     void node;
     return (
-      <p
-        className="mt-5 font-serif text-[1.25rem] leading-[1.5] first:mt-0"
-        {...props}
-      />
+      <p className="mt-5 font-serif text-xl/normal first:mt-0" {...props} />
     );
   },
   table: ({ node, children, ...props }) => {
@@ -86,7 +83,7 @@ const recipeComponents: Components = {
     void node;
     return (
       <ol
-        className="mt-6 list-decimal space-y-3 pl-7 font-serif text-[1.25rem] leading-[1.5] marker:font-sans marker:text-slate-600"
+        className="mt-6 list-decimal space-y-3 pl-7 font-serif text-xl/normal marker:font-sans marker:text-slate-600"
         {...props}
       />
     );
@@ -174,7 +171,7 @@ const bookComponents: Components = {
     void node;
     return (
       <ul
-        className="mt-5 list-disc space-y-2 pl-6 font-serif text-[1.2rem] leading-[1.5] md:text-[1.25rem]"
+        className="mt-5 list-disc space-y-2 pl-6 font-serif text-[1.2rem] leading-normal md:text-[1.25rem]"
         {...props}
       />
     );
@@ -183,7 +180,7 @@ const bookComponents: Components = {
     void node;
     return (
       <ol
-        className="mt-5 list-decimal space-y-2 pl-6 font-serif text-[1.2rem] leading-[1.5] marker:font-sans marker:text-slate-600 md:text-[1.25rem]"
+        className="mt-5 list-decimal space-y-2 pl-6 font-serif text-[1.2rem] leading-normal marker:font-sans marker:text-slate-600 md:text-[1.25rem]"
         {...props}
       />
     );

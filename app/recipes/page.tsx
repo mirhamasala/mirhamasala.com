@@ -16,8 +16,8 @@ export default async function RecipesPage() {
     <article className="overflow-x-clip pt-7 pb-8 md:pt-10">
       <PageHeader eyebrow="Recipes" title="What I keep making." />
 
-      <div className="mx-auto mt-16 max-w-[96rem] px-4 md:mt-24 md:px-8">
-        <ul className="max-w-[80rem] space-y-10 md:space-y-12">
+      <div className="mx-auto mt-16 max-w-384 px-4 md:mt-24 md:px-8">
+        <ul className="max-w-7xl space-y-10 md:space-y-12">
           {recipes.map((recipe) => (
             <IndexEntry
               key={recipe.slug}

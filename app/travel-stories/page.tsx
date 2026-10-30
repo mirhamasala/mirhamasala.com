@@ -41,7 +41,7 @@ export default async function TravelStoriesPage({
         title="What I brought home."
         lede="Stories, photographs, and recommendations originally published on Instagram."
       />
-      <div className="mx-auto max-w-[96rem] px-4 md:px-8">
+      <div className="mx-auto max-w-384 px-4 md:px-8">
         <ViewSwitch view={view} />
       </div>
 
@@ -88,7 +88,7 @@ function PhotographGrid({ stories }: { stories: TravelStory[] }) {
   return (
     <ul
       aria-label="Photographs"
-      className="mx-auto mt-16 grid max-w-[96rem] grid-cols-3 gap-1 px-4 md:mt-24 md:grid-cols-6 md:px-8"
+      className="mx-auto mt-16 grid max-w-384 grid-cols-3 gap-1 px-4 md:mt-24 md:grid-cols-6 md:px-8"
     >
       {storiesByNumber(stories).map((story) => (
         <li key={story.slug}>
@@ -104,7 +104,7 @@ function PhotographGrid({ stories }: { stories: TravelStory[] }) {
                 alt={`#${story.number}, ${story.location} ${story.photo.alt}`}
                 loading="lazy"
                 decoding="async"
-                className="absolute inset-0 h-full w-full object-cover hover:opacity-90 motion-safe:transition-opacity"
+                className="absolute inset-0 size-full object-cover hover:opacity-90 motion-safe:transition-opacity"
               />
             </span>
           </Link>
@@ -126,8 +126,8 @@ function PlaceList({ stories }: { stories: TravelStory[] }) {
             aria-labelledby={place.id}
             className={index === 0 ? undefined : "border-t border-slate-300"}
           >
-            <div className="mx-auto max-w-[96rem] px-4 pt-9 pb-8 md:px-8">
-              <div className="max-w-[44rem]">
+            <div className="mx-auto max-w-384 px-4 pt-9 pb-8 md:px-8">
+              <div className="max-w-176">
                 <h2
                   id={place.id}
                   className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase"
@@ -174,7 +174,7 @@ function CityGroup({
     <div className="mt-12">
       <h3
         id={id}
-        className="font-serif text-[1.5rem] leading-snug text-slate-950 md:text-[1.75rem]"
+        className="font-serif text-2xl/snug text-slate-950 md:text-[1.75rem]"
       >
         {city}
       </h3>
@@ -193,7 +193,7 @@ function StoryList({ stories }: { stories: TravelStory[] }) {
             href={`/travel-stories/${story.slug}`}
             className="group grid grid-cols-1 gap-x-6 py-[0.45rem] no-underline sm:grid-cols-[4.75rem_minmax(0,1fr)_auto] sm:items-baseline"
           >
-            <span className="font-serif text-[1.375rem] text-slate-950 tabular-nums underline decoration-slate-300 decoration-[2px] underline-offset-[8px] group-hover:decoration-slate-950 group-focus-visible:decoration-slate-950">
+            <span className="font-serif text-[1.375rem] text-slate-950 tabular-nums underline decoration-slate-300 decoration-2 underline-offset-8 group-hover:decoration-slate-950 group-focus-visible:decoration-slate-950">
               #{story.number}
             </span>
             <span className="font-serif text-[1.2rem] leading-snug text-slate-800 md:text-[1.25rem]">
@@ -217,11 +217,11 @@ function MelbourneNote() {
     <div className="mt-8">
       <h3
         id="melbourne"
-        className="font-serif text-[1.5rem] leading-snug text-slate-950 md:text-[1.75rem]"
+        className="font-serif text-2xl/snug text-slate-950 md:text-[1.75rem]"
       >
         Melbourne
       </h3>
-      <p className="mt-3 font-serif text-[1.2rem] leading-[1.5] text-slate-800 md:text-[1.25rem]">
+      <p className="mt-3 font-serif text-[1.2rem] leading-normal text-slate-800 md:text-[1.25rem]">
         For sunset-watching coordinates, a trio of pubs, my new, all-time
         favorite brunch and dinner spots, and a bit more, see{" "}
         <Link href="/posts/10-things-melbourne" className={proseLinkClassName}>
@@ -235,7 +235,7 @@ function MelbourneNote() {
 
 function TokyoNote() {
   return (
-    <p className="mt-3 font-serif text-[1.2rem] leading-[1.5] text-slate-800 md:text-[1.25rem]">
+    <p className="mt-3 font-serif text-[1.2rem] leading-normal text-slate-800 md:text-[1.25rem]">
       You might also like{" "}
       <Link href="/posts/found-in-nothing" className={proseLinkClassName}>
         Found in Nothing (and My Latest Tokyo Favorites)

@@ -15,7 +15,7 @@ The only intentional compatibility requirement: articles are served at `/posts/[
 - `@tailwindcss/typography` for article prose
 - Node.js Active LTS, declared in both `.node-version` and `engines` in `package.json`
 - pnpm, pinned with `packageManager` and run through Corepack (`corepack enable pnpm`). Dependency install scripts are blocked unless allowed in `pnpm-workspace.yaml`.
-- ESLint via `eslint-config-next`. Prettier, with the Tailwind plugin, for formatting.
+- ESLint via `eslint-config-next`. `eslint-plugin-better-tailwindcss` runs only `enforce-canonical-classes`, the same check as the Tailwind language server's `suggestCanonicalClasses`: an arbitrary class that already exists on the scale fails lint. Prettier, with the Tailwind plugin, still formats and sorts classes. The plugin's other rules stay off so order and wrapping are not checked twice.
 - Deployed on Vercel. `main` is production.
 
 Exact versions live in `package.json` and the lockfile, not here.
@@ -26,6 +26,8 @@ Temporary version holds, both caused by lint tooling lagging behind:
 - ESLint stays on 9.x. Plugins bundled in `eslint-config-next` do not yet support ESLint 10.
 
 Lift each hold when `eslint-config-next` supports the newer version.
+
+The canonical-class rule reads `app/globals.css`. `rootFontSize` is 16 because `html` sets `font-size: 100%`, the browser default, so a pixel value such as `underline-offset-[8px]` can match the scale. The rule exists so `pnpm lint` enforces the same built-in-value preference as the design guide, which previously showed up only in the editor.
 
 ## Rendering
 
@@ -265,7 +267,7 @@ There is no `src/` folder. Shared chrome lives in `components/`.
 ## Dependencies
 
 - Runtime: `next`, `react`, `react-dom`, `react-markdown`, `remark-gfm`, `github-slugger`, `yaml`, `zod`, `@vis.gl/react-google-maps`
-- Dev: `typescript`, `@types/node`, `@types/react`, `@types/react-dom`, `@types/google.maps`, `tailwindcss`, `@tailwindcss/postcss`, `@tailwindcss/typography`, `eslint`, `eslint-config-next`, `prettier`, `prettier-plugin-tailwindcss`, `@playwright/test`, `@axe-core/playwright`
+- Dev: `typescript`, `@types/node`, `@types/react`, `@types/react-dom`, `@types/google.maps`, `tailwindcss`, `@tailwindcss/postcss`, `@tailwindcss/typography`, `eslint`, `eslint-config-next`, `eslint-plugin-better-tailwindcss`, `prettier`, `prettier-plugin-tailwindcss`, `@playwright/test`, `@axe-core/playwright`
 
 `@vis.gl/react-google-maps` draws the map on Places. Google's current Maps JavaScript API uses Advanced Markers, and this is the React library their docs point to for that. The map is a client island on `/places`. It loads only when `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` is set. Without a key, or if the script fails, the city notes still render and the map area says it isn't available. `NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID` is the Cloud Map ID Advanced Markers require. When it is unset, the map uses Google's `DEMO_MAP_ID`. The key is public by nature of the Maps JavaScript API. Restrict it by HTTP referrer. `@types/google.maps` is the type package for that map. `tsconfig.json` lists it beside `node` because `compilerOptions.types` does not include `@types/*` automatically.
 

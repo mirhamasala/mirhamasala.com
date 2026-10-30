@@ -27,8 +27,8 @@ export default async function BooksPage() {
         lede="Quotes, notes, and ideas from books I’ve read."
       />
 
-      <section className="mx-auto mt-16 max-w-[96rem] px-4 md:mt-24 md:px-8">
-        <div className="max-w-[40rem]">
+      <section className="mx-auto mt-16 max-w-384 px-4 md:mt-24 md:px-8">
+        <div className="max-w-160">
           <h2 className={sectionHeadingClassName}>Start with these</h2>
           <p className="mt-3 font-serif text-[1.15rem] leading-[1.45] text-slate-600">
             A few books I find myself recommending again and again.
@@ -44,8 +44,8 @@ export default async function BooksPage() {
       </section>
 
       <section className="mt-20 md:mt-28">
-        <div className="mx-auto max-w-[96rem] px-4 md:px-8">
-          <div className="max-w-[44rem]">
+        <div className="mx-auto max-w-384 px-4 md:px-8">
+          <div className="max-w-176">
             <h2 className={sectionHeadingClassName}>The rest</h2>
             <p className="mt-3 font-serif text-[1.15rem] leading-[1.45] text-slate-600">
               By topic, most recent first. Not a complete list.
@@ -66,8 +66,8 @@ export default async function BooksPage() {
                     index === 0 ? undefined : "border-t border-slate-300"
                   }
                 >
-                  <div className="mx-auto max-w-[96rem] px-4 pt-9 pb-8 md:px-8">
-                    <div className="max-w-[44rem]">
+                  <div className="mx-auto max-w-384 px-4 pt-9 pb-8 md:px-8">
+                    <div className="max-w-176">
                       <h3 className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase">
                         {topic}
                       </h3>
@@ -113,9 +113,7 @@ function BookLink({
             {book.title}
           </Link>
         </h3>
-        <p className="mt-1.5 text-[1rem] leading-snug text-slate-600">
-          {book.author}
-        </p>
+        <p className="mt-1.5 text-base/snug text-slate-600">{book.author}</p>
         {book.why ? (
           <p className="mt-2 font-serif text-[1.15rem] leading-[1.45] text-slate-800">
             {book.why}
@@ -133,9 +131,7 @@ function BookLink({
       >
         {book.title}
       </Link>
-      <span className="text-[1rem] leading-snug text-slate-600">
-        {book.author}
-      </span>
+      <span className="text-base/snug text-slate-600">{book.author}</span>
     </>
   );
 }

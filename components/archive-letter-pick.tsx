@@ -53,7 +53,7 @@ export function ArchiveLetterPick({ letters }: { letters: ArchiveLetter[] }) {
       <ul
         aria-labelledby="letters-list"
         aria-live="polite"
-        className="mt-5 flex max-w-[44rem] flex-col gap-7"
+        className="mt-5 flex max-w-176 flex-col gap-7"
       >
         {picked.map((letter, index) => (
           <li
@@ -67,11 +67,11 @@ export function ArchiveLetterPick({ letters }: { letters: ArchiveLetter[] }) {
           >
             <Link
               href={`/letters/${letter.slug}`}
-              className="w-fit font-serif text-[1.5rem] leading-[1.3] text-slate-950 italic underline decoration-slate-300 decoration-[2px] underline-offset-[8px] hover:decoration-slate-950 focus-visible:decoration-slate-950"
+              className="w-fit font-serif text-[1.5rem] leading-[1.3] text-slate-950 italic underline decoration-slate-300 decoration-2 underline-offset-8 hover:decoration-slate-950 focus-visible:decoration-slate-950"
             >
               {letter.title}
             </Link>
-            <p className="max-w-[36rem] font-serif text-[1.125rem] leading-[1.55] text-pretty text-slate-600">
+            <p className="max-w-xl font-serif text-[1.125rem] leading-[1.55] text-pretty text-slate-600">
               {letter.description}
             </p>
           </li>
