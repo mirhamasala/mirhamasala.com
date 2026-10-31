@@ -1,10 +1,11 @@
 ---
+draft: true
 title: "Kljukusa (Bosnian Potato Flatbread)"
 description: "Bosnian potato flatbread, finished with melted butter. The quantities are by feel: po osjecaju."
 date: "2026-10-31"
 category: "Sides"
 serves: "4–6"
-time: "45 minutes"
+totalTime: 45
 ---
 
 ## Ingredients

@@ -1,9 +1,12 @@
 ---
+draft: true
 title: "Onion Soup"
 description: "Onion soup with dry white wine, finished with Gruyère croutons straight from the grill."
 date: "2026-10-31"
 category: "Soups"
 serves: "6"
+prepTime: 10
+cookTime: 30
 ---
 
 ## Ingredients
@@ -28,5 +31,3 @@ serves: "6"
 ## Notes
 
 Translated from Dutch. Serve the cheese croutons floating on top of the soup.
-
-Prep: 10 minutes. Cook: 30 minutes.

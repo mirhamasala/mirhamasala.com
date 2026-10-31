@@ -1,9 +1,15 @@
 ---
+draft: true
 title: "Traditional Callos a la Madrileña (Home Version)"
 description: "Madrid-style tripe with cow foot, beef snout and pimentón. A slow cook and an overnight rest give the broth its body."
 date: "2026-10-31"
 category: "Mains"
 serves: "8–10"
+prepTime: 30
+cookTime:
+  min: 360
+  max: 420
+restTime: "overnight"
 ---
 
 ## Ingredients
@@ -70,5 +76,3 @@ serves: "8–10"
 - The overnight rest is worth it. Callos is genuinely better the next day.
 - For a more traditional Madrid-style heat, replace the red pepper flakes with ½–1 tsp pimentón picante.
 - Cool the large batch promptly before refrigerating, dividing it between smaller containers if necessary.
-
-Prep: 30 minutes. Cook: 6 to 7 hours, plus overnight rest.

@@ -1,11 +1,32 @@
 import { existsSync } from "node:fs";
+import { readdir, readFile } from "node:fs/promises";
 import { expect, test, type APIRequestContext } from "@playwright/test";
+import { parse as parseYaml } from "yaml";
 import { legacyRedirects } from "@/lib/redirects";
 import { absoluteUrl, getIndexableRoutes } from "./routes";
 
 const routes = await getIndexableRoutes();
 
+// Read drafts independently of the published-content loader so a filtering
+// regression cannot make both the site and its expected inventory agree.
+const recipeFiles = (await readdir("content/recipes")).filter((file) =>
+  file.endsWith(".md"),
+);
+const draftRecipePaths = (
+  await Promise.all(
+    recipeFiles.map(async (file) => {
+      const source = await readFile(`content/recipes/${file}`, "utf8");
+      const frontmatter = /^---\r?\n([\s\S]*?)\r?\n---/.exec(source);
+      if (!frontmatter) throw new Error(`${file}: missing YAML frontmatter`);
+      return parseYaml(frontmatter[1]).draft === true
+        ? `/recipes/${file.slice(0, -".md".length)}`
+        : null;
+    }),
+  )
+).filter((path) => path !== null);
+
 const unpublishedPaths = [
+  ...draftRecipePaths,
   "/posts/draft-fixture",
   "/posts/not-a-real-article",
   "/recipes/not-a-real-recipe",
@@ -105,6 +126,15 @@ test.describe("crawling", () => {
       );
     });
   }
+
+  test("draft recipes are absent from the recipe index", async ({ page }) => {
+    await page.goto("/recipes");
+
+    for (const path of draftRecipePaths) {
+      expect(routes.map((route) => route.path)).not.toContain(path);
+      await expect(page.locator(`a[href="${path}"]`)).toHaveCount(0);
+    }
+  });
 
   test("/pages/tsop/posts/artist-month/memory-bytes_2b.jpg permanently redirects to /tsop/posts/artist-month/memory-bytes_2b.jpg", async ({
     request,

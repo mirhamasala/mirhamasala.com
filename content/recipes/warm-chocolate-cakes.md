@@ -1,9 +1,14 @@
 ---
+draft: true
 title: "Warm Chocolate Cakes (Molten Lava Cakes)"
 description: "Individual chocolate cakes with soft, slightly molten centres. Do not overbake: the soft centre is the point."
 date: "2026-10-31"
 category: "Desserts"
 serves: "4"
+prepTime: 15
+cookTime:
+  min: 15
+  max: 20
 ---
 
 ## Ingredients
@@ -38,5 +43,3 @@ serves: "4"
 - Do not overbake; the soft centre is the point of the recipe.
 
 You will need baking paper and 4 greased individual ovenproof ramekins. An apple corer is optional.
-
-Prep: 15 minutes. Cook: 15 to 20 minutes.

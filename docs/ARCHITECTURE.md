@@ -67,10 +67,23 @@ The canonical-class rule reads `app/globals.css`. `rootFontSize` is 16 because `
 - `content/posts/draft-fixture.md` is a permanent `draft: true` fixture. It gives the browser suite a known draft to prove drafts stay unpublished.
 - Recipes are plain Markdown at `content/recipes/<slug>.md`, with the filename
   as the slug. Their strict YAML schema is `title`, `description`, `date`
-  (`YYYY-MM-DD`), `category`, optional `serves`, and optional `time`.
+  (`YYYY-MM-DD`), `category`, optional `serves`, optional timing fields, and optional
+  `draft` (a boolean, defaulting to `false`). `draft: true` recipes are excluded
+  from the recipe index, generated recipe pages, and sitemap. Their URLs return
+  404, including in development, just like draft articles.
   `category` is one of the groups in `recipeCategories` in `lib/recipes.ts`.
   Unknown fields fail the build. Ingredient tables use portable GFM table
   syntax; recipe prose does not contain JSX or raw HTML.
+  Timing fields are `prepTime`, `cookTime`, `restTime`, `chillTime`, `soakTime`,
+  and `totalTime`, all optional. A measured duration is a non-negative integer
+  in minutes or a strict `{ min, max }` object in minutes, with `max >= min`.
+  Waiting fields (`restTime`, `chillTime`, `soakTime`) also accept `overnight`;
+  it is never converted to an invented number of minutes. Optional `timeNote`
+  holds qualifications such as optional chilling or a total excluding an
+  overnight soak. `totalTime` is explicitly authored, never calculated by
+  adding stages that may overlap. `lib/recipes.ts` formats the durations for
+  the recipe header during server rendering. This replaces the free-text
+  `time` field so timing data has one validated representation.
 - Books are plain Markdown at `content/books/<slug>.md`, with the filename as
   the slug. Schema: `title`, `author`, `description`, `topic`, `number`,
   `url`, optional `subtitle`, optional `recommend`, optional `why`, and

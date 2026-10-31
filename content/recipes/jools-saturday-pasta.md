@@ -1,9 +1,12 @@
 ---
+draft: true
 title: "Jools' Favourite Saturday Afternoon Pasta"
 description: "Tuna rigatoni with chilli, cinnamon, lemon and basil. An unlikely combination that works brilliantly."
 date: "2026-03-11"
 category: "Mains"
 serves: "4"
+prepTime: 10
+cookTime: 25
 ---
 
 _From Jamie Oliver’s Cook with Jamie. Recipe published as [Jools’ Favourite Saturday Afternoon Pasta](https://www.oprah.com/food/jools-favorite-saturday-afternoon-pasta)._
@@ -40,5 +43,3 @@ _From Jamie Oliver’s Cook with Jamie. Recipe published as [Jools’ Favourite 
 - If you can find fennel tops, stir them in with the tomatoes.
 - The cinnamon + chilli + lemon combo sounds odd but works brilliantly.
 - No sugar in this recipe.
-
-Prep: 10 minutes. Cook: 25 minutes.

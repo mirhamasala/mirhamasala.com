@@ -1,9 +1,12 @@
 ---
+draft: true
 title: "Black-Eyed Beans and Pumpkin Curry"
 description: "Pumpkin, potatoes and black-eyed beans in a curry with cumin and mustard seeds. Keep a lid nearby when the seeds start to pop."
 date: "2026-10-31"
 category: "Mains"
 serves: "4–6"
+prepTime: 15
+cookTime: 30
 ---
 
 ## Ingredients
@@ -38,5 +41,3 @@ serves: "4–6"
 ## Notes
 
 The mustard seeds will pop and splutter - keep a lid nearby.
-
-Prep: 15 minutes. Cook: 30 minutes.

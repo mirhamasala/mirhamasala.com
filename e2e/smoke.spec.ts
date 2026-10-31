@@ -402,7 +402,12 @@ test.describe("travel stories", () => {
 });
 
 test.describe("recipe pages", () => {
-  for (const path of ["/recipes", "/recipes/rum-hot-toddy"]) {
+  for (const path of [
+    "/recipes",
+    "/recipes/rum-hot-toddy",
+    "/recipes/banana-bread",
+    "/recipes/folded-sweet-eggs",
+  ]) {
     test(`${path} has no horizontal overflow or undersized text`, async ({
       page,
     }) => {

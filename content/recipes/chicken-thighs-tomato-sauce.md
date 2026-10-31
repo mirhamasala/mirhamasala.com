@@ -1,9 +1,12 @@
 ---
+draft: true
 title: "Chicken Thighs Stew (Traditional Spanish)"
 description: "Spanish-style chicken thighs stewed in tomato, white wine and stock. Serve with potatoes, rice or bread for the sauce."
 date: "2026-03-10"
 category: "Mains"
 serves: "4"
+prepTime: 15
+cookTime: 40
 ---
 
 ## Ingredients
@@ -59,5 +62,3 @@ serves: "4"
 - Serve with fried potatoes, white rice, or crusty bread to soak up the sauce.
 - The stew improves if made ahead and reheated.
 - Can be frozen for up to 3 months.
-
-Prep time: 15 minutes. Cook time: 40 minutes.

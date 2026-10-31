@@ -1,10 +1,11 @@
 ---
+draft: true
 title: "Mezcal Sour"
 description: "Mezcal, lemon, lime and honey, shaken with an egg white for a smooth, foamy sour."
 date: "2026-10-31"
 category: "Drinks"
 serves: "2"
-time: "5 minutes"
+prepTime: 5
 ---
 
 ## Ingredients

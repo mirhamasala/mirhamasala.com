@@ -1,8 +1,15 @@
 ---
+draft: true
 title: "Bondiola Braseada (Slow-Braised Pork Shoulder)"
 description: "Slow-braised pork with beer, leeks and mustard. Make it the day before, then shred and reheat it in the sauce."
 date: "2026-09-23"
 category: "Mains"
+prepTime: 20
+cookTime:
+  min: 240
+  max: 300
+chillTime: "overnight"
+timeNote: "Ideally salt the pork the night before cooking."
 ---
 
 Sized for a 28 cm Le Creuset round casserole. Braised Friday, shredded and reheated Saturday.
@@ -50,5 +57,3 @@ Sized for a 28 cm Le Creuset round casserole. Braised Friday, shredded and rehe
 - Salt: The 100 ml soy sauce provides most of the seasoning, and the sauce becomes saltier as it reduces. Adjust only at the end.
 - The chilli from the original recipe is omitted so the kids can eat it. Serve piri-piri at the table.
 - Serve with rice and plenty of sauce. Bread also works well for a more casual meal.
-
-Prep: 20 minutes, ideally salted the night before. Cook: 4 to 5 hours.

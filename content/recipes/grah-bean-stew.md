@@ -1,10 +1,15 @@
 ---
+draft: true
 title: "Grah (Bosnian Bean Stew)"
 description: "A Bosnian bean stew thickened with zaprska, a paprika roux. It gets thicker as it cools."
 date: "2026-10-31"
 category: "Mains"
 serves: "4–6"
-time: "1½ to 2 hours, plus overnight soaking"
+soakTime: "overnight"
+totalTime:
+  min: 90
+  max: 120
+timeNote: "Total excludes overnight soaking."
 ---
 
 ## Ingredients

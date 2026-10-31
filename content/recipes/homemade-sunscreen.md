@@ -1,8 +1,15 @@
 ---
+draft: true
 title: "Homemade Sunscreen"
 description: "A tallow, oil and zinc oxide mixture from the recipe notes. It has no verified SPF and should not be relied on for sun protection."
 date: "2026-05-10"
 category: "Home & Body"
+prepTime: 10
+cookTime: 10
+---
+
+_Recipe attributed to Paul Saladino._
+
 ---
 
 ## Ingredients
@@ -24,7 +31,6 @@ category: "Home & Body"
 
 ## Notes
 
-- Recipe attributed to Paul Saladino. Makes 1 small jar.
-- This mixture has no verified SPF. Its zinc oxide percentage does not establish an SPF rating. Do not rely on it for sun protection; use a tested, broad-spectrum, water-resistant sunscreen with SPF 30 or higher. See the [American Academy of Dermatology’s guidance on homemade sunscreen](https://www.aad.org/news/homemade-sunscreens-not-effective).
+Makes 1 small jar.
 
-Prep: 10 minutes. Cook: 10 minutes.
+- This mixture has no verified SPF. Its zinc oxide percentage does not establish an SPF rating. Do not rely on it for sun protection; use a tested, broad-spectrum, water-resistant sunscreen with SPF 30 or higher. See the [American Academy of Dermatology’s guidance on homemade sunscreen](https://www.aad.org/news/homemade-sunscreens-not-effective).

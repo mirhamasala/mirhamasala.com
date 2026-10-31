@@ -1,9 +1,12 @@
 ---
+draft: true
 title: "Spicy Pumpkin Soup"
 description: "Pumpkin soup with red chilli and curry powder, finished with crème fraîche. Good with multigrain baguette."
 date: "2026-10-31"
 category: "Soups"
 serves: "4"
+prepTime: 10
+cookTime: 20
 ---
 
 ## Ingredients
@@ -31,5 +34,3 @@ serves: "4"
 ## Notes
 
 Good served with multigrain baguette. Translated from Dutch.
-
-Prep: 10 minutes. Cook: 20 minutes.

@@ -1,9 +1,16 @@
 ---
+draft: true
 title: "Jamie's Chili con Carne"
 description: "Jamie’s beef chili with sun-dried tomatoes, cinnamon and kidney beans. Serve with rice, tortillas or crusty bread."
 date: "2026-10-31"
 category: "Mains"
 serves: "4–6"
+prepTime: 20
+cookTime: 90
+---
+
+_Adapted from Jamie Oliver._
+
 ---
 
 ## Ingredients
@@ -36,5 +43,3 @@ serves: "4–6"
 ## Notes
 
 - Serve with rice, tortillas or crusty bread.
-
-Prep: 20 minutes. Cook: 1 hour 30 minutes.

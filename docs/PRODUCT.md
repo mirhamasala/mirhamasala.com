@@ -177,7 +177,7 @@ Search visibility should help people discover writing worth reading without shap
 - Spin-Off Project posts and section pages are also plain text files in the repository.
 - The résumé and Dropbox are also plain text files in the repository.
 - There is no CMS, admin interface, or database.
-- An article can be kept as a draft. Drafts are never published.
+- Articles and recipes can be kept as drafts. Drafts are never published.
 
 ## The 2026 rebuild
 

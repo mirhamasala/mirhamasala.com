@@ -4,7 +4,7 @@ description: A winter warmer with rum, honey, and lemon. Add more rum if you sti
 date: 2023-11-27
 category: Drinks
 serves: "1"
-time: 5 minutes
+totalTime: 5
 ---
 
 Last week, while triumphantly unwinding in front of our already-lit Christmas tree, I was inspired to make a Hot Toddy. Since G doesn’t like the whiskey version much, I tried rum. And I think it’s even better.

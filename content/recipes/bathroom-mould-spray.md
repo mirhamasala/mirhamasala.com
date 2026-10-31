@@ -1,8 +1,11 @@
 ---
+draft: true
 title: "Bathroom Mould Spray"
 description: "A homemade spray for bathroom tiles, grout and sealant, mixed in a spray bottle."
 date: "2026-09-23"
 category: "Home & Body"
+prepTime: 5
+restTime: 15
 ---
 
 ## Ingredients
@@ -31,5 +34,3 @@ category: "Home & Body"
 - Ventilate the bathroom while spraying and avoid contact with eyes.
 
 Makes approximately 600 ml.
-
-Prep: 5 minutes. Sit time: 15 minutes.

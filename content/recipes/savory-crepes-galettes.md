@@ -1,8 +1,12 @@
 ---
+draft: true
 title: "Savory Crepes (Galettes)"
 description: "Buckwheat galettes with a nutty flavour and crisp edges. Fill with ham, egg and cheese, or spinach and goat’s cheese."
 date: "2026-03-11"
 category: "Mains"
+prepTime: 10
+cookTime: 20
+restTime: 30
 ---
 
 ## Ingredients
@@ -30,5 +34,3 @@ category: "Mains"
 - Slightly thicker and crispier edges than sweet crepes.
 
 Makes 6–8 galettes.
-
-Prep: 10 minutes. Rest: 30 minutes. Cook: 20 minutes.

@@ -1,9 +1,12 @@
 ---
+draft: true
 title: "Spicy Lentil Curry"
 description: "Brown lentils baked with vegetables and spices, then finished with sour cream. Good with sliced banana on the side."
 date: "2026-10-31"
 category: "Mains"
 serves: "6"
+prepTime: 15
+cookTime: 60
 ---
 
 ## Ingredients
@@ -48,5 +51,3 @@ serves: "6"
 ## Notes
 
 Good served with sliced banana on the side.
-
-Prep: 15 minutes. Cook: 1 hour.

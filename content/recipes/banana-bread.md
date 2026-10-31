@@ -3,9 +3,15 @@ title: Banana Bread
 description: A simple banana bread recipe with just the right amount of sweetness.
 date: 2023-03-14
 category: Bakes
+cookTime:
+  min: 45
+  max: 55
+restTime: 30
 ---
 
 Pretty much the only cake we make once in a while. An operation made plenty sweeter now that Dylan mashes the bananas.
+
+_Adapted from [Gluten-Free Banana Bread](https://cookieandkate.com/gluten-free-banana-bread-recipe/) by Cookie + Kate._
 
 ---
 
@@ -32,5 +38,3 @@ Pretty much the only cake we make once in a while. An operation made plenty swee
 5. Pour the batter into the loaf pan. Top with the two banana halves, then brush the tops with coconut oil.
 6. Bake for 45 to 55 minutes, or until the center of the loaf is springy to the touch and a toothpick comes out clean.
 7. Let the pan cool for 30 minutes. Then, use a rubber spatula to loosen the edges of the bread from the pan, and carefully tip it over to release.
-
-_Adapted from [Gluten-Free Banana Bread](https://cookieandkate.com/gluten-free-banana-bread-recipe/) by Cookie + Kate._

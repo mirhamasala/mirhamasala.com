@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DisplayTitle } from "@/components/display-title";
 import { RecipeMarkdownContent } from "@/lib/markdown";
-import { getRecipe, getRecipes } from "@/lib/recipes";
+import { formatRecipeTime, getRecipe, getRecipes } from "@/lib/recipes";
 
 export const dynamicParams = false;
 
@@ -36,7 +36,20 @@ export default async function RecipePage({
     recipe.serves
       ? `${recipe.serves} ${recipe.serves === "1" ? "serving" : "servings"}`
       : null,
-    recipe.time,
+    ...(
+      [
+        ["prepTime", "Prep"],
+        ["cookTime", "Cook"],
+        ["restTime", "Rest"],
+        ["chillTime", "Chill"],
+        ["soakTime", "Soak"],
+        ["totalTime", "Total"],
+      ] as const
+    ).map(([field, label]) =>
+      recipe[field] !== undefined
+        ? `${label}: ${formatRecipeTime(recipe[field])}`
+        : null,
+    ),
   ]
     .filter(Boolean)
     .join(" · ");
@@ -55,6 +68,12 @@ export default async function RecipePage({
             {recipeDetails ? (
               <p className="mt-6 font-sans text-[1rem] leading-[1.4] text-slate-600 md:mt-7">
                 {recipeDetails}
+              </p>
+            ) : null}
+
+            {recipe.timeNote ? (
+              <p className="mt-3 font-sans text-[1rem] leading-[1.4] text-slate-600">
+                {recipe.timeNote}
               </p>
             ) : null}
           </div>

@@ -1,9 +1,10 @@
 ---
+draft: true
 title: "Lokume (Bosnian Fried Dough)"
 description: "Bosnian fried dough with yoghurt and soured cream or kefir. Serve warm, with icing sugar if you like."
 date: "2026-10-31"
 category: "Bakes"
-time: "30 minutes"
+totalTime: 30
 ---
 
 ## Ingredients

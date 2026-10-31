@@ -1,9 +1,12 @@
 ---
+draft: true
 title: "Light Laksa"
 description: "A light coconut broth with gently poached chicken, rice noodles, ginger and makrut lime leaves."
 date: "2026-10-31"
 category: "Soups"
 serves: "4"
+prepTime: 15
+cookTime: 15
 ---
 
 ## Ingredients
@@ -41,5 +44,3 @@ serves: "4"
 ## Notes
 
 - Keep the broth just below a simmer while poaching the chicken so it stays tender.
-
-Prep: 15 minutes. Cook: 15 minutes.

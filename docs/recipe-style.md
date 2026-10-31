@@ -28,7 +28,8 @@ Recipes are metric. Write the quantity the kitchen will use. Do not add a second
 - Do not use cups, ounces, pounds, or Fahrenheit.
 - If a quantity cannot be converted to metric with confidence, leave it and flag it.
 
-`time` in the frontmatter is a short phrase, such as `5 minutes`. A duration in the method stays a phrase too: `45 to 55 minutes`, `30 seconds`.
+A duration in the method stays a phrase: `45 to 55 minutes`, `30 seconds`.
+Frontmatter durations are stored in minutes and formatted for readers by the page.
 
 ## Ingredients
 
@@ -69,19 +70,105 @@ A garnish or a second use that is its own amount gets its own row. A substitutio
 - `description` is a sentence or two in the recipe's own voice. It sits under the title.
 - `category` is one of Breakfast, Mains, Soups, Sides, Bakes, Desserts, Drinks, Kitchen Basics, or Home & Body.
 - `serves`, when the recipe actually states a count, is a numeral: `1`, `4`.
-- `time`, when the recipe actually states one, is a short phrase: `5 minutes`.
+- Timing fields are optional; see "Timing" below.
+- `draft: true` keeps a recipe unpublished. Remove it or set it to `false` to
+  publish the recipe. Drafts are absent from the index, recipe pages, and sitemap,
+  including on localhost.
 
-Leave `serves` and `time` out when the recipe does not state them. A recipe that states neither has no serving or time line. Rum Hot Toddy states both. Banana Bread's bake stays in the method as `45 to 55 minutes`, because the recipe never gives a single total for the metadata line.
+Leave `serves` and timing fields out when the recipe does not state them. A
+recipe that states neither has no serving or time line. Do not estimate missing
+values to fill the header.
+
+## Timing
+
+Use minutes in YAML, without quotes or units. The page turns `90` into
+`1 hour 30 minutes`. Do not write hours, duration strings, or ISO durations in
+these fields.
+
+| Field       | Meaning                                                |
+| ----------- | ------------------------------------------------------ |
+| `prepTime`  | Preparation before cooking                             |
+| `cookTime`  | Cooking or baking                                      |
+| `restTime`  | Resting, rising, cooling, or standing                  |
+| `chillTime` | Chilling in the fridge                                 |
+| `soakTime`  | Soaking                                                |
+| `totalTime` | The recipe's stated overall time                       |
+| `timeNote`  | A short qualification, such as "Chilling is optional." |
+
+Only add fields that help with this recipe. Numbers are non-negative whole
+minutes; omit an unknown duration rather than using `0` as a placeholder.
+Use `0` only when the recipe explicitly needs to say a stage takes no time.
+
+For a range, use `min` and `max`, both in minutes. For overnight waiting,
+`restTime`, `chillTime`, and `soakTime` also accept the literal `overnight`.
+Do not turn overnight into a guessed number of hours.
+
+```yaml
+prepTime: 20
+cookTime:
+  min: 240
+  max: 300
+chillTime: overnight
+timeNote: Ideally salt the pork the night before cooking.
+```
+
+`totalTime` is optional and explicitly authored. Do not add up stages to create
+a total: resting, cooking, and preparation can overlap. When the stated total
+excludes an overnight wait, record that wait separately and explain it in
+`timeNote`. A cooking-time range does not require a total. Banana Bread has
+`cookTime: { min: 45, max: 55 }` and `restTime: 30`, with no invented total.
+
+Move standalone summaries such as "Prep: 15 minutes. Cook: 30 minutes." out of
+the body and into these fields. Keep step-specific instructions such as "Bake
+for 45 to 55 minutes" in the method: cooks need those times beside the action.
+Timing for an alternative method stays with that method, such as the chicken
+stew's stovetop, oven, and slow-cooker options.
+
+The header lists servings, then prep, cook, rest, chill, soak, and total time,
+showing only the values present. `timeNote` follows on its own line.
+
+## Body order and attribution
 
 The body runs in this order:
 
-1. An optional introduction: why this recipe is here, in the author's voice. An adaptation credit can sit with the introduction or after the method.
-2. `Ingredients`.
-3. `Method`. Number the steps when the method is a sequence. A single action can stay one paragraph, as in Honey Butter Milk.
+1. An optional introduction: why this recipe is here, in the author's voice.
+2. The attribution, when a source is recorded: one italic paragraph after the
+   introduction, immediately before the rule and ingredients. Without an
+   introduction, the attribution is the first paragraph of the body.
+3. `Ingredients`.
+4. `Method`. Number the steps when the method is a sequence. A single action can stay one paragraph, as in Honey Butter Milk.
+5. Optional notes, variations, or substitutions.
 
-An introduction is followed by one horizontal rule, then the ingredients. The rule marks the shift from the story to the cooking. A recipe with no introduction has no rule. Do not add rules anywhere else.
+Use the same attribution position for every recipe. Keep the source name and
+link when known, and preserve distinctions such as "Adapted from", "From", or
+"Recipe attributed to". Do not invent a source or add an empty attribution for
+a recipe whose source is not recorded. A dedication is part of the introduction,
+not an attribution. An explanation of an earlier version belongs in the notes;
+the source credit itself still goes in the preface, before the ingredients.
 
-The reading order on the page is the title, the description, the serving and time line when those exist, the introduction, the rule, the ingredients, and the method.
+Example:
+
+```markdown
+An optional personal introduction.
+
+_Adapted from [Recipe name](https://example.com/recipe) by Author._
+
+---
+
+## Ingredients
+
+The ingredient table.
+```
+
+An introduction or attribution is followed by one horizontal rule, then the
+ingredients. When both exist, the attribution follows the introduction and
+precedes that rule. The rule marks the shift from the preface to the cooking.
+A recipe with neither an introduction nor an attribution has no rule. Do not
+add rules anywhere else.
+
+The reading order on the page is the title, description, serving and timing
+details when present, introduction when present, attribution when present, rule,
+ingredients, method, and any notes or variations.
 
 ## Voice
 

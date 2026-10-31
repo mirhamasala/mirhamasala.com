@@ -31,4 +31,6 @@ _Adapted from [Sweet Breakfast Omelet](https://www.amummytoo.co.uk/sweet-breakfa
 7. Once the eggs start to set, push the edges to the center and repeat until there’s not much raw egg left to move.
 8. Remove the pan from the heat once most of the raw egg has set and let the folded sweet eggs cool down on a plate.
 
+## Notes
+
 _For a sweet omelet version, follow the first six steps above. Then, for step 7: pour the mix into the pan and cook until the bottom is golden. 8. Take the pan off the heat and put it under the oven grill until the top is bronzed too. 9. Remove the pan from the grill and let the sweet omelet cool down on a plate._

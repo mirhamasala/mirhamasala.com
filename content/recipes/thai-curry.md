@@ -1,9 +1,12 @@
 ---
+draft: true
 title: "Thai Curry"
 description: "Chicken and potatoes in a coconut curry with peas and green beans, finished with basil and coriander."
 date: "2026-10-31"
 category: "Mains"
 serves: "4"
+prepTime: 10
+cookTime: 25
 ---
 
 ## Ingredients
@@ -40,5 +43,3 @@ serves: "4"
 ## Notes
 
 - The original recipe does not specify quantities for the chicken, potatoes, peas, green beans, herbs or rice; use enough for four servings.
-
-Prep: 10 minutes. Cook: 25 minutes.

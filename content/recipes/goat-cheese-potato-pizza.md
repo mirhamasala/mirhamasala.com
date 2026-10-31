@@ -1,10 +1,12 @@
 ---
+draft: true
 title: "Goat Cheese and Potato Pizza"
 description: "Homemade pizza with pan-fried potatoes, goat’s cheese and rosemary. The tomato sauce can be made the day before."
 date: "2026-10-31"
 category: "Mains"
 serves: "4"
-time: "1½ hours, including resting and simmering"
+totalTime: 90
+timeNote: "Includes dough resting and sauce simmering."
 ---
 
 ## Ingredients

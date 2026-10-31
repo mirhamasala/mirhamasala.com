@@ -1,9 +1,12 @@
 ---
+draft: true
 title: "Mozzarella Parcels with Grilled Vegetables"
 description: "Mozzarella wrapped in Parma ham and fried until crisp, served over warm grilled vegetables."
 date: "2026-10-31"
 category: "Mains"
 serves: "4"
+prepTime: 20
+cookTime: 20
 ---
 
 ## Ingredients
@@ -34,5 +37,3 @@ serves: "4"
 ## Notes
 
 Translated from Dutch. Good served with ciabatta.
-
-Prep: 20 minutes. Cook: 20 minutes.

@@ -1,10 +1,11 @@
 ---
+draft: true
 title: "Sogan Dolma (Stuffed Courgettes or Onions)"
 description: "Courgettes or onions stuffed with meat and rice, cooked in a tomato sauce and finished with a little zaprska."
 date: "2026-10-31"
 category: "Mains"
 serves: "4"
-time: "1½ hours"
+totalTime: 90
 ---
 
 ## Ingredients

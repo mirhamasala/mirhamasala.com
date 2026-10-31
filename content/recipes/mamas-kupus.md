@@ -1,10 +1,11 @@
 ---
+draft: true
 title: "Mama's Kupus (Braised Pointed Cabbage with Veal)"
 description: "Pointed cabbage and veal cooked slowly with suho meso, vegetables and a little roux to thicken the sauce."
 date: "2026-10-31"
 category: "Mains"
 serves: "4–6"
-time: "2 hours"
+totalTime: 120
 ---
 
 ## Ingredients

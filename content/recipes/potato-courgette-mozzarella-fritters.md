@@ -1,9 +1,12 @@
 ---
+draft: true
 title: "Potato, Courgette and Mozzarella Fritters"
 description: "Crisp vegetable fritters with mozzarella and parsley. Good with drinks, beside grilled meat or with bacon for breakfast."
 date: "2026-10-31"
 category: "Sides"
 serves: "4"
+prepTime: 15
+cookTime: 20
 ---
 
 ## Ingredients
@@ -39,5 +42,3 @@ serves: "4"
 - The drier the grated potato and courgette, the crisper the fritters will be.
 
 Makes 12 fritters.
-
-Prep: 15 minutes. Cook: 20 minutes.

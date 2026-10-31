@@ -1,8 +1,17 @@
 ---
+draft: true
 title: "Honey & Almond Flour Kruidnoten"
 description: "Small Dutch spiced biscuits made with almond flour and honey. Let them cool completely for a crisp finish."
 date: "2026-10-31"
 category: "Bakes"
+prepTime: 20
+cookTime:
+  min: 14
+  max: 17
+chillTime:
+  min: 15
+  max: 20
+timeNote: "Chilling is optional."
 ---
 
 ## Ingredients
@@ -47,5 +56,3 @@ category: "Bakes"
 - The recipe already uses honey as its sweetener, so no sugar substitution is needed.
 
 Makes approximately 45–50 kruidnoten. The spice blend makes approximately 12 g.
-
-Prep: 20 minutes, plus 15 to 20 minutes optional chilling. Cook: 14 to 17 minutes.

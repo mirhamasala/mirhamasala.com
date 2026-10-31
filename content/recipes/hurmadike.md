@@ -1,9 +1,10 @@
 ---
+draft: true
 title: "Hurmadike (Bosnian Coconut Syrup Cakes)"
 description: "Bosnian coconut cakes soaked in cold sugar syrup while still hot from the oven."
 date: "2026-10-31"
 category: "Desserts"
-time: "45 minutes"
+totalTime: 45
 ---
 
 ## Ingredients

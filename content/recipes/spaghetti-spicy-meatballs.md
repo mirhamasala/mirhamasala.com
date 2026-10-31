@@ -1,9 +1,16 @@
 ---
+draft: true
 title: "Spaghetti with Spicy Meatballs"
 description: "Spaghetti with chilli-spiked meatballs in a tomato and basil sauce. Finish with plenty of Parmesan."
 date: "2026-10-31"
 category: "Mains"
 serves: "4"
+prepTime: 20
+cookTime: 25
+---
+
+_Adapted from Bill Granger’s Man in de Keuken, via I Love Food & Wine._
+
 ---
 
 ## Ingredients
@@ -48,6 +55,3 @@ serves: "4"
 ## Notes
 
 - For a milder version, use one chilli or remove the seeds.
-  _Adapted from Bill Granger’s Man in de Keuken, via I Love Food & Wine._
-
-Prep: 20 minutes. Cook: 25 minutes.

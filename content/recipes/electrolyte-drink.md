@@ -1,10 +1,15 @@
 ---
+draft: true
 title: "Electrolyte Drink"
 description: "Water with sea salt, cream of tartar and fresh lemon or lime. Add a little raw honey or maple syrup if you like."
 date: "2026-10-31"
 category: "Drinks"
 serves: "4"
-time: "5 minutes"
+prepTime: 5
+---
+
+_Adapted from the [Electrolyte Drink](https://www.westonaprice.org/electrolyte-drink/) by the Weston A. Price Foundation._
+
 ---
 
 ## Ingredients
@@ -28,6 +33,5 @@ time: "5 minutes"
 - Cream of tartar supplies potassium, while the sea salt supplies sodium.
 - Chill before drinking if preferred. Shake again before serving if anything has settled.
 - This is a general hydration drink, not a medically formulated oral rehydration solution. Seek medical advice for significant dehydration or dehydration caused by illness.
-- Source: [Weston A. Price Foundation](https://www.westonaprice.org/electrolyte-drink/)
 
 Makes 1 l.

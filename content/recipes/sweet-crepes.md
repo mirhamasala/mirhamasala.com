@@ -1,8 +1,12 @@
 ---
+draft: true
 title: "Basic Sweet Crepes"
 description: "Thin sweet crepes with milk, butter and a little maple syrup. Rest the batter before cooking for smoother crepes."
 date: "2026-03-11"
 category: "Breakfast"
+prepTime: 10
+cookTime: 20
+restTime: 30
 ---
 
 ## Ingredients
@@ -32,5 +36,3 @@ category: "Breakfast"
 - Stack with parchment paper between crepes to prevent sticking.
 
 Makes 6–8 crepes.
-
-Prep: 10 minutes, plus 30 minutes resting. Cook: 20 minutes.

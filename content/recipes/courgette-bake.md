@@ -1,9 +1,13 @@
 ---
+draft: true
 title: "Courgette Bake"
 description: "Courgettes baked in tomato sauce with lardons, cream and a Parmesan and herb topping."
 date: "2026-10-31"
 category: "Mains"
 serves: "4"
+cookTime:
+  min: 20
+  max: 25
 ---
 
 ## Ingredients

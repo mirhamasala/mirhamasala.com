@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Spicy Butternut Squash Soup"
 description: "Butternut squash soup with cumin and chilli, blended smooth and finished with crème fraîche."
 date: "2026-10-31"

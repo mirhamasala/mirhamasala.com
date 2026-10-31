@@ -1,9 +1,18 @@
 ---
+draft: true
 title: "Whole Lemon, Almond and Olive Oil Cake"
 description: "An almond and olive oil cake made with a whole boiled lemon, peel and all, and sweetened with honey."
 date: "2026-10-31"
 category: "Bakes"
 serves: "8"
+prepTime: 45
+cookTime:
+  min: 35
+  max: 40
+---
+
+_Adapted from the whole-lemon cake by @joey_wellness._
+
 ---
 
 ## Ingredients
@@ -40,8 +49,6 @@ serves: "8"
 
 ### Original oat-flour version
 
-- The original recipe from **@joey_wellness** used 1 large lemon, 120 ml extra-virgin olive oil, 120 ml honey, 3 eggs, approximately 140 g oat flour, 10 ml baking powder and a pinch of salt. It also suggested an optional 60 ml honey glaze.
+- The original oat-flour recipe used 1 large lemon, 120 ml extra-virgin olive oil, 120 ml honey, 3 eggs, approximately 140 g oat flour, 10 ml baking powder and a pinch of salt. It also suggested an optional 60 ml honey glaze.
 - Its method was to boil the lemon for 25 minutes; blend it with the oil, honey and eggs; mix in the dry ingredients; cover and rest the batter at room temperature for 10 minutes; then bake at 175 °C for about 40 minutes.
 - The version above adapts it for almond flour by using 175 g almond flour, 4 eggs, less honey, and a combination of baking powder and baking soda. Unlike the oat-flour original, the almond batter should be baked immediately rather than rested.
-
-Prep: 45 minutes. Cook: 35 to 40 minutes.
