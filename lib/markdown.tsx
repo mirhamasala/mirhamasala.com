@@ -40,7 +40,22 @@ const recipeComponents: Components = {
     void node;
     return (
       <h2
-        className="mt-14 font-display text-[3rem] leading-none tracking-[-0.02em] md:mt-16 [&:first-of-type:not(:first-child)]:border-t [&:first-of-type:not(:first-child)]:border-slate-300 [&:first-of-type:not(:first-child)]:pt-10"
+        className="mt-14 font-display text-[3rem] leading-none tracking-[-0.02em] first:mt-0 md:mt-16"
+        {...props}
+      />
+    );
+  },
+  h3: ({ node, ...props }) => {
+    void node;
+    return (
+      <h3 className="mt-8 font-serif text-2xl/snug font-medium" {...props} />
+    );
+  },
+  hr: ({ node, ...props }) => {
+    void node;
+    return (
+      <hr
+        className="mt-10 border-0 border-t border-slate-300 [&+h2]:mt-10"
         {...props}
       />
     );
@@ -54,12 +69,14 @@ const recipeComponents: Components = {
   table: ({ node, children, ...props }) => {
     void node;
     return (
-      <table
-        className="mt-6 w-full border-collapse font-serif text-[1.25rem] leading-[1.45]"
-        {...props}
-      >
-        {children}
-      </table>
+      <div className="mt-6 overflow-x-auto">
+        <table
+          className="w-full border-collapse font-serif text-[1.25rem] leading-[1.45]"
+          {...props}
+        >
+          {children}
+        </table>
+      </div>
     );
   },
   thead: ({ node, ...props }) => {
@@ -84,6 +101,15 @@ const recipeComponents: Components = {
     return (
       <ol
         className="mt-6 list-decimal space-y-3 pl-7 font-serif text-xl/normal marker:font-sans marker:text-slate-600"
+        {...props}
+      />
+    );
+  },
+  ul: ({ node, ...props }) => {
+    void node;
+    return (
+      <ul
+        className="mt-6 list-disc space-y-3 pl-7 font-serif text-xl/normal marker:text-slate-600"
         {...props}
       />
     );

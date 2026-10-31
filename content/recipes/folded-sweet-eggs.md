@@ -9,6 +9,8 @@ G and I tried this recipe for the first time in Ericeira, Portugal. We liked it 
 
 _Adapted from [Sweet Breakfast Omelet](https://www.amummytoo.co.uk/sweet-breakfast-omelette-yes-really-delicious/) by Emily Leary._
 
+---
+
 ## Ingredients
 
 | Amount | Ingredient             |

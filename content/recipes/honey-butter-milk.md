@@ -7,6 +7,8 @@ category: Drinks
 
 My mom always made this when I had a cold as a kid. Nowadays, G and I have it for breakfast and sometimes after a light dinner. I like mine hot. G prefers his warm to preserve more of the nutrients in raw milk.
 
+---
+
 ## Ingredients
 
 | Amount | Ingredient       |

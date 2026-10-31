@@ -9,6 +9,8 @@ time: 5 minutes
 
 Last week, while triumphantly unwinding in front of our already-lit Christmas tree, I was inspired to make a Hot Toddy. Since G doesn’t like the whiskey version much, I tried rum. And I think it’s even better.
 
+---
+
 ## Ingredients
 
 | Amount | Ingredient                                                                                                                                                  |
