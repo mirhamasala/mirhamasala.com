@@ -68,7 +68,7 @@ Aug 2018 – Mar 2019 · 8 mos
 
 ### Creator and Writer
 
-[The Spin-Off Project](/tsop)
+The Spin-Off Project
 
 Aug 2012 – Aug 2017 · 5 yrs 1 mo
 

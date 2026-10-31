@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { DisplayTitle } from "@/components/display-title";
 import { formatMonthYear } from "@/lib/format-date";
-import { LetterMarkdownContent } from "@/lib/markdown";
+import { LetterMarkdownContent, proseLinkClassName } from "@/lib/markdown";
 import { getResume } from "@/lib/pages";
+import { assertResumeMarkdown } from "@/lib/resume-pdf";
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getResume();
@@ -16,6 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function ResumePage() {
   const page = await getResume();
+  assertResumeMarkdown(page.body);
 
   return (
     <article className="mx-auto max-w-384 overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
@@ -30,6 +32,13 @@ export default async function ResumePage() {
             >
               {formatMonthYear(page.date)}
             </time>
+            <a
+              href="/resume/mirha-masala.pdf"
+              download="mirha-masala-resume.pdf"
+              className={`${proseLinkClassName} mt-3 block w-fit text-base/snug`}
+            >
+              Download résumé (PDF)
+            </a>
           </div>
         </div>
       </header>

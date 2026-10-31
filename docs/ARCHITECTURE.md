@@ -111,9 +111,11 @@ The canonical-class rule reads `app/globals.css`. `rootFontSize` is 16 because `
   does not decide image dimensions or whether those images use `next/image`.
 - The résumé and Dropbox are plain Markdown at `content/pages/resume.md` and
   `content/pages/dropbox.md`. Schema: `title`, `description`, and `date`
-  (`YYYY-MM-DD`). Unknown fields fail the build. The résumé PDF is a static
-  file at `public/resume/`. Dropbox images and videos are static files at
-  `public/dropbox/`.
+  (`YYYY-MM-DD`). Unknown fields fail the build. The current résumé PDF is
+  generated from that Markdown at `/resume/mirha-masala.pdf`. Markdown the
+  renderer does not understand fails the build. The 2020 résumé PDF remains a
+  static file at `public/resume/cv_mirha_masala_2020.pdf`. Dropbox images and
+  videos are static files at `public/dropbox/`.
 
 ## Metadata and indexing
 
@@ -189,6 +191,8 @@ app/
     page.tsx          # Places collection and map
   resume/
     page.tsx
+    mirha-masala.pdf/
+      route.ts          # current résumé PDF
   dropbox/
     page.tsx
   posts/
@@ -242,6 +246,7 @@ content/
 lib/
   posts.ts            # read, parse, validate, sort, exclude drafts
   pages.ts            # résumé and Dropbox
+  resume-pdf.ts       # résumé Markdown to PDF
   recipes.ts          # read, parse, validate, sort
   books.ts            # read, parse, validate, sort
   letters.ts          # read, parse, validate, sort
@@ -258,6 +263,7 @@ e2e/
   smoke.spec.ts       # Playwright smoke and axe checks
   metadata.spec.ts    # per-page metadata, canonical, indexing, h1
   crawling.spec.ts    # sitemap, robots, unpublished routes, redirects
+  resume.spec.ts      # résumé download, PDF text and links, Markdown regressions
 next.config.ts        # redirects
 playwright.config.ts
 ```
@@ -266,8 +272,16 @@ There is no `src/` folder. Shared chrome lives in `components/`.
 
 ## Dependencies
 
-- Runtime: `next`, `react`, `react-dom`, `react-markdown`, `remark-gfm`, `github-slugger`, `yaml`, `zod`, `@vis.gl/react-google-maps`
-- Dev: `typescript`, `@types/node`, `@types/react`, `@types/react-dom`, `@types/google.maps`, `tailwindcss`, `@tailwindcss/postcss`, `@tailwindcss/typography`, `eslint`, `eslint-config-next`, `eslint-plugin-better-tailwindcss`, `prettier`, `prettier-plugin-tailwindcss`, `@playwright/test`, `@axe-core/playwright`
+- Runtime: `next`, `react`, `react-dom`, `react-markdown`, `remark-gfm`, `remark-parse`, `unified`, `github-slugger`, `yaml`, `zod`, `@vis.gl/react-google-maps`, `pdfkit`
+- Dev: `typescript`, `@types/node`, `@types/react`, `@types/react-dom`, `@types/google.maps`, `@types/mdast`, `@types/pdfkit`, `tailwindcss`, `@tailwindcss/postcss`, `@tailwindcss/typography`, `eslint`, `eslint-config-next`, `eslint-plugin-better-tailwindcss`, `prettier`, `prettier-plugin-tailwindcss`, `@playwright/test`, `@axe-core/playwright`, `unpdf`
+
+`pdfkit` writes the current résumé PDF at `/resume/mirha-masala.pdf` from `content/pages/resume.md`. The page and the download share that file, so the PDF stays in step with the text. Standard PDF fonts keep the text selectable without embedding the site's webfonts or running a browser. `serverExternalPackages` includes `pdfkit` so Next leaves its font data for Node to load. `@types/pdfkit` types that renderer. The 2020 file at `public/resume/cv_mirha_masala_2020.pdf` stays, because `/pages/cv_mirha_masala_2020.pdf` still redirects there.
+
+The PDF renderer parses Markdown with `unified`, `remark-parse`, and `remark-gfm`, the same parser stack used by `react-markdown`. `unified` and `remark-parse` are direct dependencies because the PDF needs the syntax tree independently of React; `@types/mdast` types that tree. This avoids treating URL punctuation as formatting or silently printing unsupported syntax. The renderer supports level 2–4 headings, paragraphs, flat unordered lists, plain text, and HTTP(S) or site-relative links. Other Markdown nodes fail with their type and position in the Markdown body. Text outside the standard fonts' supported character set also fails. Standalone website links include a readable address in the PDF and remain clickable; the web page keeps its ordinary link labels.
+
+Site-relative links in the résumé PDF always resolve against `https://www.mirhamasala.com`, including when generated locally or on a preview deployment. The PDF is a portable document: its printed addresses and clickable destinations must point to the public website. This origin is local to the PDF renderer; page metadata, sitemap, and robots continue to use the environment's `SITE_URL`.
+
+`unpdf` is a test-only PDF reader. Playwright uses it to compare the downloaded document's text with the résumé page, inspect link destinations and printed addresses, and exercise Markdown regressions through the renderer. Checking the actual PDF catches missing or stale content that a filename or `%PDF-` signature check cannot.
 
 `@vis.gl/react-google-maps` draws the map on Places. Google's current Maps JavaScript API uses Advanced Markers, and this is the React library their docs point to for that. The map is a client island on `/places`. It loads only when `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` is set. Without a key, or if the script fails, the city notes still render and the map area says it isn't available. `NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID` is the Cloud Map ID Advanced Markers require. When it is unset, the map uses Google's `DEMO_MAP_ID`. The key is public by nature of the Maps JavaScript API. Restrict it by HTTP referrer. `@types/google.maps` is the type package for that map. `tsconfig.json` lists it beside `node` because `compilerOptions.types` does not include `@types/*` automatically.
 
