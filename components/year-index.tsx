@@ -1,5 +1,6 @@
 import { IndexEntry } from "@/components/index-entry";
 import { IndexSection } from "@/components/index-section";
+import { SectionLabel } from "@/components/section-label";
 
 type DatedEntry = {
   slug: string;
@@ -23,9 +24,7 @@ export function YearIndex<T extends DatedEntry>({
     <div className="mt-16 md:mt-24">
       {years.map(({ year, items: inYear }) => (
         <IndexSection key={year}>
-          <h2 className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase">
-            {year}
-          </h2>
+          <SectionLabel>{year}</SectionLabel>
           <ul className="mt-7 space-y-10 md:space-y-12">
             {inYear.map((item) => (
               <IndexEntry

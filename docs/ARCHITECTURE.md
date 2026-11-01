@@ -270,6 +270,7 @@ components/
   eyebrow.tsx
   index-entry.tsx     # Linked title, date, and description on an index
   index-section.tsx  # Shared divider, spacing, and widths for index groups
+  section-label.tsx  # Small uppercase section headings
   year-index.tsx      # Year sections for Letters and Writing
   page.tsx           # Article wrapper with standard page spacing
   reading-layout.tsx # Display title, metadata, and aligned reading column
@@ -328,6 +329,9 @@ playwright.config.ts
 
 There is no `src/` folder. Shared chrome lives in `components/`.
 
+The 404 page's numbered suggestion rows use a local `Suggestion` component in
+`app/not-found.tsx`, keeping their layout and optional title link together.
+
 `Page` owns the standard page wrapper's vertical spacing and renders an
 `article`. Use it for pages with that shared structure, composing `PageHeader`
 and the content inside it. It accepts only children; pages that need different
@@ -339,6 +343,12 @@ Spin-Off Project groups. It accepts children and optional `aria-labelledby`;
 headings and lists stay with their callers. Render each group as sibling
 `IndexSection` elements in a dedicated parent: the first child has no top
 divider, and subsequent sections do.
+
+`SectionLabel` owns the matching uppercase sans-serif headings used for years
+in Writing and Letters, book topics, Travel Stories countries, and Places
+categories. It accepts rich-text children, a heading level (`h2` by default or
+`h3`), and an optional id. Spacing stays with its callers; the homepage and
+footer retain their distinct label treatments.
 
 `ReadingLayout` owns the shared outer container, display title, twelve-column
 grid, metadata placement, and reading width for Writing articles, letters,

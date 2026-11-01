@@ -4,6 +4,7 @@ import { archiveCrumbs } from "@/components/breadcrumbs";
 import { IndexSection } from "@/components/index-section";
 import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
+import { SectionLabel } from "@/components/section-label";
 import { formatLongDate } from "@/lib/format-date";
 import { proseLinkClassName } from "@/lib/markdown";
 import {
@@ -124,12 +125,7 @@ function PlaceList({ stories }: { stories: TravelStory[] }) {
 
         return (
           <IndexSection key={place.country} aria-labelledby={place.id}>
-            <h2
-              id={place.id}
-              className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase"
-            >
-              {place.country}
-            </h2>
+            <SectionLabel id={place.id}>{place.country}</SectionLabel>
 
             {place.country === "Australia" ? <MelbourneNote /> : null}
 

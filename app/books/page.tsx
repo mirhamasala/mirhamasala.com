@@ -3,6 +3,7 @@ import Link from "next/link";
 import { IndexSection } from "@/components/index-section";
 import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
+import { SectionLabel } from "@/components/section-label";
 import {
   bookTopics,
   getBooks,
@@ -63,9 +64,7 @@ export default async function BooksPage() {
             .map(({ topic, inTopic }) => {
               return (
                 <IndexSection key={topic}>
-                  <h3 className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase">
-                    {topic}
-                  </h3>
+                  <SectionLabel level="h3">{topic}</SectionLabel>
                   <ul className="mt-7 space-y-3">
                     {inTopic.map((book) => (
                       <li

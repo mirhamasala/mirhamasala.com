@@ -7,6 +7,7 @@ import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 import { PlacePinButton, PlacePins } from "@/components/place-pin-button";
 import type { MapSpot } from "@/components/places-map";
+import { SectionLabel } from "@/components/section-label";
 import {
   categoryEmoji,
   getPlaces,
@@ -202,9 +203,9 @@ export default async function PlacesPage({
             >
               <div className="mx-auto max-w-384 px-4 py-8 md:px-8 md:py-10">
                 <div className="max-w-160">
-                  <h3 className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase">
+                  <SectionLabel level="h3">
                     <span aria-hidden="true">{group.emoji}</span> {group.label}
-                  </h3>
+                  </SectionLabel>
                   <ul className="mt-7 space-y-8">
                     {group.spots.map((spot) => {
                       const website = httpUrl(spot.url);
