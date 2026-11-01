@@ -6,9 +6,8 @@ date: "2026-04-07"
 category: "Drinks"
 serves: "1"
 prepTime: 5
+attribution: "Adapted from [Secret Ingredient Chocolate Smoothie](https://www.runningwithspoons.com/secret-ingredient-chocolate-smoothie/) by Running with Spoons."
 ---
-
-_Adapted from [Secret Ingredient Chocolate Smoothie](https://www.runningwithspoons.com/secret-ingredient-chocolate-smoothie/) by Running with Spoons._
 
 ---
 

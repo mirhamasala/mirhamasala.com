@@ -6,9 +6,8 @@ date: "2026-10-31"
 category: "Drinks"
 serves: "4"
 prepTime: 5
+attribution: "Adapted from the [Electrolyte Drink](https://www.westonaprice.org/electrolyte-drink/) by the Weston A. Price Foundation."
 ---
-
-_Adapted from the [Electrolyte Drink](https://www.westonaprice.org/electrolyte-drink/) by the Weston A. Price Foundation._
 
 ---
 

@@ -67,7 +67,7 @@ The canonical-class rule reads `app/globals.css`. `rootFontSize` is 16 because `
 - `content/posts/draft-fixture.md` is a permanent `draft: true` fixture. It gives the browser suite a known draft to prove drafts stay unpublished.
 - Recipes are plain Markdown at `content/recipes/<slug>.md`, with the filename
   as the slug. Their strict YAML schema is `title`, `description`, `date`
-  (`YYYY-MM-DD`), `category`, optional `serves`, optional timing fields, and optional
+  (`YYYY-MM-DD`), `category`, optional `serves`, optional `attribution`, optional timing fields, and optional
   `draft` (a boolean, defaulting to `false`). `draft: true` recipes are excluded
   from the recipe index, generated recipe pages, and sitemap. Their URLs return
   404, including in development, just like draft articles.
@@ -82,8 +82,17 @@ The canonical-class rule reads `app/globals.css`. `rootFontSize` is 16 because `
   holds qualifications such as optional chilling or a total excluding an
   overnight soak. `totalTime` is explicitly authored, never calculated by
   adding stages that may overlap. `lib/recipes.ts` formats the durations for
-  the recipe header during server rendering. This replaces the free-text
+  the recipe's cooking details during server rendering. This replaces the free-text
   `time` field so timing data has one validated representation.
+  `attribution` is one optional, non-empty string, with self-contained inline
+  Markdown for source links. `lib/markdown.tsx` renders it in the preface's
+  horizontal-rule renderer, directly before that rule. It is not repeated in
+  the body, and its wording has no effect on styling. The level-two heading
+  renderer inserts `RecipeDetails` directly before `Ingredients`. Recipes have
+  exactly one `Ingredients` heading and at most one rule, at that boundary.
+  The recipe body is rendered as one Markdown document so its reference links
+  keep their definitions. No recipe-specific remark plugin or client code is
+  needed; the rendering logic stays in `lib/markdown.tsx`.
 - Books are plain Markdown at `content/books/<slug>.md`, with the filename as
   the slug. Schema: `title`, `author`, `description`, `topic`, `number`,
   `url`, optional `subtitle`, optional `recommend`, optional `why`, and
@@ -241,6 +250,7 @@ components/
   split-intro.tsx     # Two-column introduction under a page title
   places-map.tsx      # Google map for the selected city
   display-title.tsx
+  recipe-details.tsx  # Optional serving and timing details at Ingredients
   external-link.tsx
   site-footer.tsx
   site-header.tsx

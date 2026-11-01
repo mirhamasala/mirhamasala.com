@@ -7,9 +7,8 @@ category: "Mains"
 serves: "4"
 prepTime: 20
 cookTime: 25
+attribution: "Adapted from Bill Granger’s Man in de Keuken, via I Love Food & Wine."
 ---
-
-_Adapted from Bill Granger’s Man in de Keuken, via I Love Food & Wine._
 
 ---
 

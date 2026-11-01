@@ -6,9 +6,8 @@ date: "2026-05-10"
 category: "Home & Body"
 prepTime: 10
 cookTime: 10
+attribution: "Recipe attributed to Paul Saladino."
 ---
-
-_Recipe attributed to Paul Saladino._
 
 ---
 

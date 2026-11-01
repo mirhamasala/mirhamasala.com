@@ -7,11 +7,10 @@ cookTime:
   min: 45
   max: 55
 restTime: 30
+attribution: "Adapted from [Gluten-Free Banana Bread](https://cookieandkate.com/gluten-free-banana-bread-recipe/) by Cookie + Kate."
 ---
 
 Pretty much the only cake we make once in a while. An operation made plenty sweeter now that Dylan mashes the bananas.
-
-_Adapted from [Gluten-Free Banana Bread](https://cookieandkate.com/gluten-free-banana-bread-recipe/) by Cookie + Kate._
 
 ---
 

@@ -7,9 +7,8 @@ category: "Mains"
 serves: "4–6"
 prepTime: 20
 cookTime: 90
+attribution: "Adapted from Jamie Oliver."
 ---
-
-_Adapted from Jamie Oliver._
 
 ---
 

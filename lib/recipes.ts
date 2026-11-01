@@ -37,6 +37,7 @@ const frontmatterSchema = z.strictObject({
   date: z.iso.date(),
   category: z.enum(recipeCategories),
   serves: z.string().min(1).optional(),
+  attribution: z.string().min(1).optional(),
   prepTime: durationSchema.optional(),
   cookTime: durationSchema.optional(),
   restTime: waitingTimeSchema.optional(),

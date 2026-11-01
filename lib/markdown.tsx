@@ -1,5 +1,6 @@
 import GithubSlugger from "github-slugger";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import Markdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -36,28 +37,10 @@ export function MarkdownContent({ source }: { source: string }) {
 
 const recipeComponents: Components = {
   ...components,
-  h2: ({ node, ...props }) => {
-    void node;
-    return (
-      <h2
-        className="mt-14 font-display text-[3rem] leading-none tracking-[-0.02em] first:mt-0 md:mt-16"
-        {...props}
-      />
-    );
-  },
   h3: ({ node, ...props }) => {
     void node;
     return (
       <h3 className="mt-8 font-serif text-2xl/snug font-medium" {...props} />
-    );
-  },
-  hr: ({ node, ...props }) => {
-    void node;
-    return (
-      <hr
-        className="mt-10 border-0 border-t border-slate-300 [&+h2]:mt-10"
-        {...props}
-      />
     );
   },
   p: ({ node, ...props }) => {
@@ -134,9 +117,70 @@ const recipeComponents: Components = {
   },
 };
 
-export function RecipeMarkdownContent({ source }: { source: string }) {
+export function RecipeMarkdownContent({
+  source,
+  attribution,
+  details,
+}: {
+  source: string;
+  attribution?: string;
+  details?: ReactNode;
+}) {
+  const credit = attribution ? (
+    <Markdown
+      components={{
+        a: recipeComponents.a,
+        p: ({ node, ...props }) => {
+          void node;
+          return (
+            <p
+              className="mt-4 font-sans text-base/normal text-slate-600 first:mt-0"
+              {...props}
+            />
+          );
+        },
+      }}
+    >
+      {attribution}
+    </Markdown>
+  ) : null;
+
   return (
-    <Markdown remarkPlugins={[remarkGfm]} components={recipeComponents}>
+    <Markdown
+      remarkPlugins={[remarkGfm]}
+      components={{
+        ...recipeComponents,
+        hr: ({ node, ...props }) => {
+          void node;
+          return (
+            <>
+              {credit}
+              <hr
+                className="mt-8 border-0 border-t border-slate-300"
+                {...props}
+              />
+            </>
+          );
+        },
+        h2: ({ node, ...props }) => {
+          const isIngredients =
+            node && hastText(node as HastNode) === "Ingredients";
+          return (
+            <>
+              {isIngredients ? details : null}
+              <h2
+                className={
+                  isIngredients
+                    ? "mt-8 font-display text-[3rem] leading-none tracking-[-0.02em] first:mt-3"
+                    : "mt-14 font-display text-[3rem] leading-none tracking-[-0.02em] first:mt-0 md:mt-16"
+                }
+                {...props}
+              />
+            </>
+          );
+        },
+      }}
+    >
       {source}
     </Markdown>
   );

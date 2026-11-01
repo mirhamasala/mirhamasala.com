@@ -70,6 +70,8 @@ A garnish or a second use that is its own amount gets its own row. A substitutio
 - `description` is a sentence or two in the recipe's own voice. It sits under the title.
 - `category` is one of Breakfast, Mains, Soups, Sides, Bakes, Desserts, Drinks, Kitchen Basics, or Home & Body.
 - `serves`, when the recipe actually states a count, is a numeral: `1`, `4`.
+- `attribution` is an optional string containing the source credit, with inline
+  Markdown for a source link. See "Attribution" below.
 - Timing fields are optional; see "Timing" below.
 - `draft: true` keeps a recipe unpublished. Remove it or set it to `false` to
   publish the recipe. Drafts are absent from the index, recipe pages, and sitemap,
@@ -124,34 +126,47 @@ for 45 to 55 minutes" in the method: cooks need those times beside the action.
 Timing for an alternative method stays with that method, such as the chicken
 stew's stovetop, oven, and slow-cooker options.
 
-The header lists servings, then prep, cook, rest, chill, soak, and total time,
-showing only the values present. `timeNote` follows on its own line.
+The cooking details sit after the preface's rule, immediately before Ingredients.
+They list servings, then prep, cook, rest, chill, soak, and total time, showing
+only the values present. Each is a separate label–value pair: a row that can
+wrap on desktop, and aligned rows on mobile. `timeNote` follows directly below.
 
-## Body order and attribution
+## Attribution
+
+Store the credit as one optional YAML string. It supports self-contained inline
+Markdown links. Do not wrap the whole string in emphasis or repeat it in the body.
+The renderer controls its presentation and placement; the wording can vary.
+
+```yaml
+attribution: >-
+  Adapted from [Recipe name](https://example.com/recipe) by Author.
+```
+
+Keep the source name and link when known, and preserve distinctions such as
+"Adapted from", "From", or "Recipe attributed to". Omit the field when no source
+is recorded. A dedication stays in the introduction. An explanation of an
+earlier version belongs in the notes; its source credit belongs in `attribution`.
+
+The credit renders as quiet, regular sans-serif text at 1rem, with an underlined
+source link, after the introduction and before the divider. Without an
+introduction, the credit is the first paragraph beneath the description.
+
+## Body order
 
 The body runs in this order:
 
 1. An optional introduction: why this recipe is here, in the author's voice.
-2. The attribution, when a source is recorded: one italic paragraph after the
-   introduction, immediately before the rule and ingredients. Without an
-   introduction, the attribution is the first paragraph of the body.
-3. `Ingredients`.
+2. One horizontal rule, if the recipe has an introduction or an `attribution`.
+   The YAML credit is inserted immediately before this rule by the renderer.
+   Without an introduction, the body starts with the rule.
+3. Exactly one `## Ingredients` section.
 4. `Method`. Number the steps when the method is a sequence. A single action can stay one paragraph, as in Honey Butter Milk.
 5. Optional notes, variations, or substitutions.
-
-Use the same attribution position for every recipe. Keep the source name and
-link when known, and preserve distinctions such as "Adapted from", "From", or
-"Recipe attributed to". Do not invent a source or add an empty attribution for
-a recipe whose source is not recorded. A dedication is part of the introduction,
-not an attribution. An explanation of an earlier version belongs in the notes;
-the source credit itself still goes in the preface, before the ingredients.
 
 Example:
 
 ```markdown
 An optional personal introduction.
-
-_Adapted from [Recipe name](https://example.com/recipe) by Author._
 
 ---
 
@@ -161,14 +176,19 @@ The ingredient table.
 ```
 
 An introduction or attribution is followed by one horizontal rule, then the
-ingredients. When both exist, the attribution follows the introduction and
-precedes that rule. The rule marks the shift from the preface to the cooking.
+cooking details and ingredients. When both exist, the attribution follows
+the introduction and precedes that rule. The rule marks the shift from the
+preface to the cooking.
 A recipe with neither an introduction nor an attribution has no rule. Do not
 add rules anywhere else.
 
-The reading order on the page is the title, description, serving and timing
-details when present, introduction when present, attribution when present, rule,
-ingredients, method, and any notes or variations.
+The reading order on the page is the title, description, introduction when
+present, attribution when present, rule when a preface exists, serving and
+timing details when present, ingredients, method, and any notes or variations.
+Keep the description and introduction together with about 1.25rem between
+them, the credit about 1rem after the introduction, and about 2rem around the
+transition to cooking. A recipe without a preface uses whitespace before its
+cooking details rather than an empty preface or extra rule.
 
 ## Voice
 

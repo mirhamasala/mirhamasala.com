@@ -7,9 +7,8 @@ category: "Mains"
 serves: "4"
 prepTime: 10
 cookTime: 25
+attribution: "From Jamie Oliver’s Cook with Jamie. Recipe published as [Jools’ Favourite Saturday Afternoon Pasta](https://www.oprah.com/food/jools-favorite-saturday-afternoon-pasta)."
 ---
-
-_From Jamie Oliver’s Cook with Jamie. Recipe published as [Jools’ Favourite Saturday Afternoon Pasta](https://www.oprah.com/food/jools-favorite-saturday-afternoon-pasta)._
 
 ---
 

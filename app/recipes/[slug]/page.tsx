@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DisplayTitle } from "@/components/display-title";
+import { RecipeDetails } from "@/components/recipe-details";
 import { RecipeMarkdownContent } from "@/lib/markdown";
-import { formatRecipeTime, getRecipe, getRecipes } from "@/lib/recipes";
+import { getRecipe, getRecipes } from "@/lib/recipes";
 
 export const dynamicParams = false;
 
@@ -32,28 +33,6 @@ export default async function RecipePage({
   const recipe = await getRecipe(slug);
   if (!recipe) notFound();
 
-  const recipeDetails = [
-    recipe.serves
-      ? `${recipe.serves} ${recipe.serves === "1" ? "serving" : "servings"}`
-      : null,
-    ...(
-      [
-        ["prepTime", "Prep"],
-        ["cookTime", "Cook"],
-        ["restTime", "Rest"],
-        ["chillTime", "Chill"],
-        ["soakTime", "Soak"],
-        ["totalTime", "Total"],
-      ] as const
-    ).map(([field, label]) =>
-      recipe[field] !== undefined
-        ? `${label}: ${formatRecipeTime(recipe[field])}`
-        : null,
-    ),
-  ]
-    .filter(Boolean)
-    .join(" · ");
-
   return (
     <article className="mx-auto max-w-384 overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
       <header>
@@ -64,25 +43,17 @@ export default async function RecipePage({
             <p className="font-serif text-[1.2rem] leading-[1.35] text-slate-700 italic md:text-[1.35rem]">
               {recipe.description}
             </p>
-
-            {recipeDetails ? (
-              <p className="mt-6 font-sans text-[1rem] leading-[1.4] text-slate-600 md:mt-7">
-                {recipeDetails}
-              </p>
-            ) : null}
-
-            {recipe.timeNote ? (
-              <p className="mt-3 font-sans text-[1rem] leading-[1.4] text-slate-600">
-                {recipe.timeNote}
-              </p>
-            ) : null}
           </div>
         </div>
       </header>
 
-      <div className="mt-10 md:mt-12 md:grid md:grid-cols-12 md:gap-8">
-        <div className="max-w-176 md:col-span-7 md:col-start-3">
-          <RecipeMarkdownContent source={recipe.body} />
+      <div className="mt-5 md:grid md:grid-cols-12 md:gap-8">
+        <div className="flow-root max-w-176 md:col-span-7 md:col-start-3">
+          <RecipeMarkdownContent
+            source={recipe.body}
+            attribution={recipe.attribution}
+            details={<RecipeDetails recipe={recipe} />}
+          />
         </div>
       </div>
     </article>

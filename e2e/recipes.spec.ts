@@ -1,9 +1,10 @@
 import { readdir, readFile } from "node:fs/promises";
 import { expect, test } from "@playwright/test";
-import type { Nodes, Paragraph } from "mdast";
+import type { Nodes } from "mdast";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
+import { parse as parseYaml } from "yaml";
 import { formatRecipeTime } from "@/lib/recipes";
 
 test("recipe durations preserve minutes, ranges, and overnight waits", () => {
@@ -34,17 +35,7 @@ function plainText(node: Nodes): string {
   return "";
 }
 
-function creditParagraphs(node: Nodes): Paragraph[] {
-  if (
-    node.type === "paragraph" &&
-    /^(?:Adapted from|From |Recipe attributed to|Source:)/.test(plainText(node))
-  ) {
-    return [node];
-  }
-  return "children" in node ? node.children.flatMap(creditParagraphs) : [];
-}
-
-test("recipe timing summaries are metadata and credits precede the ingredients", async () => {
+test("recipe metadata has no duplicate credits and the body has one cooking boundary", async () => {
   const files = (await readdir("content/recipes")).filter((file) =>
     file.endsWith(".md"),
   );
@@ -52,40 +43,64 @@ test("recipe timing summaries are metadata and credits precede the ingredients",
 
   for (const file of files) {
     const source = await readFile(`content/recipes/${file}`, "utf8");
-    const body = source.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, "");
+    const frontmatter = /^---\r?\n([\s\S]*?)\r?\n---\r?\n/.exec(source);
+    if (!frontmatter) throw new Error(`${file}: missing YAML frontmatter`);
+    const metadata = parseYaml(frontmatter[1]);
+    const body = source.slice(frontmatter[0].length);
     expect(body, file).not.toMatch(/^Prep(?: time)?:/m);
     expect(source, file).not.toMatch(/^time:/m);
 
     const tree = parser.parse(body);
-    const blocks = tree.children;
-    const credits = creditParagraphs(tree);
-    expect(credits.length, file).toBeLessThanOrEqual(1);
-
-    for (const credit of credits) {
-      expect(credit.children, file).toHaveLength(1);
-      expect(credit.children[0].type, file).toBe("emphasis");
-
-      const index = blocks.indexOf(credit);
-      expect(index, file).toBeGreaterThan(-1);
-      expect(blocks[index + 1]?.type, file).toBe("thematicBreak");
-      const ingredients = blocks[index + 2];
-      expect(ingredients?.type, file).toBe("heading");
-      expect(ingredients && plainText(ingredients), file).toBe("Ingredients");
-      expect(
-        blocks.slice(0, index).some((node) => node.type === "heading"),
-        file,
-      ).toBe(false);
+    const blocks = tree.children.filter((node) => node.type !== "definition");
+    const headings = blocks.filter(
+      (node) =>
+        node.type === "heading" &&
+        node.depth === 2 &&
+        plainText(node) === "Ingredients",
+    );
+    expect(headings, file).toHaveLength(1);
+    const ingredientsAt = blocks.indexOf(headings[0]);
+    const preface = blocks.slice(0, ingredientsAt);
+    const introduction = preface.filter(
+      (node) => node.type !== "thematicBreak",
+    );
+    const needsRule = Boolean(metadata.attribution || introduction.length);
+    expect(
+      preface.filter((node) => node.type === "thematicBreak"),
+      file,
+    ).toHaveLength(needsRule ? 1 : 0);
+    if (needsRule) {
+      expect(preface.at(-1)?.type, file).toBe("thematicBreak");
     }
+    expect(
+      blocks
+        .slice(ingredientsAt)
+        .filter((node) => node.type === "thematicBreak"),
+      file,
+    ).toHaveLength(0);
+    if (metadata.attribution)
+      expect(body, file).not.toContain(metadata.attribution);
   }
 });
 
-test("recipe headers show cooking and resting times beside the recipe", async ({
+test("recipe cooking details sit below the preface rule and above Ingredients", async ({
   page,
 }) => {
   await page.goto("/recipes/banana-bread");
   const header = page.getByRole("article").locator("header");
-  await expect(header).toContainText("Cook: 45 to 55 minutes");
-  await expect(header).toContainText("Rest: 30 minutes");
+  await expect(header).not.toContainText("Cook");
+  const details = page.locator('dl[aria-label="Recipe details"]');
+  await expect(details.locator("dt")).toHaveText(["Cook", "Rest"]);
+  await expect(details.locator("dd")).toHaveText([
+    "45 to 55 minutes",
+    "30 minutes",
+  ]);
+  expect(
+    await details.evaluate((element) => ({
+      before: element.parentElement?.previousElementSibling?.tagName,
+      after: element.parentElement?.nextElementSibling?.textContent,
+    })),
+  ).toEqual({ before: "HR", after: "Ingredients" });
   // The duration stays beside the action as well as in the summary.
   await expect(page.getByRole("article").locator("ol")).toContainText(
     "Bake for 45 to 55 minutes",
@@ -101,7 +116,14 @@ test("a recipe credit sits after the introduction and before ingredients", async
     .locator("p")
     .filter({ hasText: "Adapted from Sweet Breakfast Omelet" });
   await expect(credit).toBeVisible();
-  await expect(credit.locator("em")).toHaveCount(1);
+  await expect(credit.locator("em")).toHaveCount(0);
+  await expect(credit).toHaveCSS("font-size", "16px");
+  await expect(credit).toHaveCSS("font-style", "normal");
+  await expect(credit.getByRole("link")).toHaveAttribute(
+    "href",
+    "https://www.amummytoo.co.uk/sweet-breakfast-omelette-yes-really-delicious/",
+  );
+  await expect(page.locator('dl[aria-label="Recipe details"]')).toHaveCount(0);
   const neighbors = await credit.evaluate((element) => ({
     before: element.previousElementSibling?.tagName,
     after: element.nextElementSibling?.tagName,
@@ -112,4 +134,47 @@ test("a recipe credit sits after the introduction and before ingredients", async
     after: "HR",
     section: "Ingredients",
   });
+});
+
+test("long recipe timing values wrap on each viewport", async ({ page }) => {
+  await page.goto("/recipes/banana-bread");
+  const details = page.locator('dl[aria-label="Recipe details"]');
+  // Stress the actual rendered row styles without publishing a draft recipe
+  // or changing any authoring files for a browser fixture.
+  await details.evaluate(
+    (element, values) => {
+      const template = element.firstElementChild!;
+      element.replaceChildren(
+        ...values.map(([label, value]) => {
+          const row = template.cloneNode(true) as HTMLElement;
+          row.querySelector("dt")!.textContent = label;
+          row.querySelector("dd")!.textContent = value;
+          return row;
+        }),
+      );
+    },
+    [
+      ["Serves", "4–6"],
+      ["Prep", "1 hour 30 minutes"],
+      ["Cook", "6 hours 30 minutes to 7 hours 30 minutes"],
+      ["Rest", "overnight"],
+      ["Chill", "1 hour 30 minutes to 2 hours 30 minutes"],
+      ["Soak", "overnight"],
+      ["Total", "8 to 10 hours"],
+    ],
+  );
+  await expect(details.locator("dt")).toHaveCount(7);
+  await expect(details.locator("dd").nth(2)).toHaveText(
+    "6 hours 30 minutes to 7 hours 30 minutes",
+  );
+  expect(
+    await details.evaluate(
+      (element) => element.scrollWidth > element.clientWidth,
+    ),
+  ).toBe(false);
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth > window.innerWidth,
+    ),
+  ).toBe(false);
 });

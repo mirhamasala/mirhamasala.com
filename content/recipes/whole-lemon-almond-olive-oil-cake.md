@@ -9,9 +9,8 @@ prepTime: 45
 cookTime:
   min: 35
   max: 40
+attribution: "Adapted from the whole-lemon cake by @joey_wellness."
 ---
-
-_Adapted from the whole-lemon cake by @joey_wellness._
 
 ---
 
