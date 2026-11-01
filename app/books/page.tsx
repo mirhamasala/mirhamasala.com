@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { IndexSection } from "@/components/index-section";
 import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 import {
@@ -59,32 +60,23 @@ export default async function BooksPage() {
               const inTopic = books.filter((book) => book.topic === topic);
               return inTopic.length === 0 ? [] : [{ topic, inTopic }];
             })
-            .map(({ topic, inTopic }, index) => {
+            .map(({ topic, inTopic }) => {
               return (
-                <section
-                  key={topic}
-                  className={
-                    index === 0 ? undefined : "border-t border-slate-300"
-                  }
-                >
-                  <div className="mx-auto max-w-384 px-4 pt-9 pb-8 md:px-8">
-                    <div className="max-w-176">
-                      <h3 className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase">
-                        {topic}
-                      </h3>
-                      <ul className="mt-7 space-y-3">
-                        {inTopic.map((book) => (
-                          <li
-                            key={book.slug}
-                            className="flex flex-wrap items-baseline gap-x-3"
-                          >
-                            <BookLink book={book} />
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </section>
+                <IndexSection key={topic}>
+                  <h3 className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase">
+                    {topic}
+                  </h3>
+                  <ul className="mt-7 space-y-3">
+                    {inTopic.map((book) => (
+                      <li
+                        key={book.slug}
+                        className="flex flex-wrap items-baseline gap-x-3"
+                      >
+                        <BookLink book={book} />
+                      </li>
+                    ))}
+                  </ul>
+                </IndexSection>
               );
             })}
         </div>

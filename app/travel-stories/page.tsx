@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { archiveCrumbs } from "@/components/breadcrumbs";
+import { IndexSection } from "@/components/index-section";
 import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 import { formatLongDate } from "@/lib/format-date";
@@ -118,42 +119,34 @@ function PhotographGrid({ stories }: { stories: TravelStory[] }) {
 function PlaceList({ stories }: { stories: TravelStory[] }) {
   return (
     <div className="mt-16 md:mt-24">
-      {travelPlaces.map((place, index) => {
+      {travelPlaces.map((place) => {
         const countryStories = storiesInPlace(stories, place.country);
 
         return (
-          <section
-            key={place.country}
-            aria-labelledby={place.id}
-            className={index === 0 ? undefined : "border-t border-slate-300"}
-          >
-            <div className="mx-auto max-w-384 px-4 pt-9 pb-8 md:px-8">
-              <div className="max-w-176">
-                <h2
-                  id={place.id}
-                  className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase"
-                >
-                  {place.country}
-                </h2>
+          <IndexSection key={place.country} aria-labelledby={place.id}>
+            <h2
+              id={place.id}
+              className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase"
+            >
+              {place.country}
+            </h2>
 
-                {place.country === "Australia" ? <MelbourneNote /> : null}
+            {place.country === "Australia" ? <MelbourneNote /> : null}
 
-                {countryStories.length > 0 ? (
-                  <StoryList stories={countryStories} />
-                ) : null}
+            {countryStories.length > 0 ? (
+              <StoryList stories={countryStories} />
+            ) : null}
 
-                {place.cities.map((city) => (
-                  <CityGroup
-                    key={city.id}
-                    country={place.country}
-                    city={city.city}
-                    id={city.id}
-                    stories={storiesInPlace(stories, place.country, city.city)}
-                  />
-                ))}
-              </div>
-            </div>
-          </section>
+            {place.cities.map((city) => (
+              <CityGroup
+                key={city.id}
+                country={place.country}
+                city={city.city}
+                id={city.id}
+                stories={storiesInPlace(stories, place.country, city.city)}
+              />
+            ))}
+          </IndexSection>
         );
       })}
     </div>

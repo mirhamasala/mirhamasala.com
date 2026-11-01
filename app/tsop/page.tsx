@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { archiveCrumbs } from "@/components/breadcrumbs";
 import { IndexEntry } from "@/components/index-entry";
+import { IndexSection } from "@/components/index-section";
 import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 import { getTsopPosts, groupTsopPosts } from "@/lib/tsop";
@@ -40,39 +41,31 @@ export default async function SpinOffProjectPage() {
       />
 
       <div className="mt-16 md:mt-24">
-        {groups.map((group, index) => (
-          <section
-            key={group.id}
-            aria-labelledby={group.id}
-            className={index === 0 ? undefined : "border-t border-slate-300"}
-          >
-            <div className="mx-auto max-w-384 px-4 pt-9 pb-8 md:px-8">
-              <div className="max-w-176">
-                {group.number ? (
-                  <p className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 tabular-nums">
-                    {String(group.number).padStart(2, "0")}
-                  </p>
-                ) : null}
-                <h2
-                  id={group.id}
-                  className={`font-display text-[clamp(2.75rem,6vw,4.5rem)] leading-none tracking-[-0.02em] text-slate-950 ${group.number ? "mt-3" : ""}`}
-                >
-                  {group.title}
-                </h2>
-                <ul className="mt-8 space-y-10 md:mt-10 md:space-y-12">
-                  {group.posts.map((post) => (
-                    <IndexEntry
-                      key={post.slug}
-                      href={`/tsop/posts/${post.slug}`}
-                      title={post.title}
-                      description={post.description}
-                      date={post.date}
-                    />
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </section>
+        {groups.map((group) => (
+          <IndexSection key={group.id} aria-labelledby={group.id}>
+            {group.number ? (
+              <p className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 tabular-nums">
+                {String(group.number).padStart(2, "0")}
+              </p>
+            ) : null}
+            <h2
+              id={group.id}
+              className={`font-display text-[clamp(2.75rem,6vw,4.5rem)] leading-none tracking-[-0.02em] text-slate-950 ${group.number ? "mt-3" : ""}`}
+            >
+              {group.title}
+            </h2>
+            <ul className="mt-8 space-y-10 md:mt-10 md:space-y-12">
+              {group.posts.map((post) => (
+                <IndexEntry
+                  key={post.slug}
+                  href={`/tsop/posts/${post.slug}`}
+                  title={post.title}
+                  description={post.description}
+                  date={post.date}
+                />
+              ))}
+            </ul>
+          </IndexSection>
         ))}
       </div>
     </Page>

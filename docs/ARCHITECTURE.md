@@ -269,6 +269,7 @@ components/
   breadcrumbs.tsx     # Archive trail
   eyebrow.tsx
   index-entry.tsx     # Linked title, date, and description on an index
+  index-section.tsx  # Shared divider, spacing, and widths for index groups
   year-index.tsx      # Year sections for Letters and Writing
   page.tsx           # Article wrapper with standard page spacing
   reading-layout.tsx # Display title, metadata, and aligned reading column
@@ -331,6 +332,13 @@ There is no `src/` folder. Shared chrome lives in `components/`.
 `article`. Use it for pages with that shared structure, composing `PageHeader`
 and the content inside it. It accepts only children; pages that need different
 outer layout or overflow behavior keep their own wrappers.
+
+`IndexSection` owns the divider, vertical padding, outer container, and narrower
+content column used by YearIndex, book topics, Travel Stories countries, and
+Spin-Off Project groups. It accepts children and optional `aria-labelledby`;
+headings and lists stay with their callers. Render each group as sibling
+`IndexSection` elements in a dedicated parent: the first child has no top
+divider, and subsequent sections do.
 
 `ReadingLayout` owns the shared outer container, display title, twelve-column
 grid, metadata placement, and reading width for Writing articles, letters,

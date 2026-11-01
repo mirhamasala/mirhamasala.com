@@ -1,4 +1,5 @@
 import { IndexEntry } from "@/components/index-entry";
+import { IndexSection } from "@/components/index-section";
 
 type DatedEntry = {
   slug: string;
@@ -20,30 +21,23 @@ export function YearIndex<T extends DatedEntry>({
 
   return (
     <div className="mt-16 md:mt-24">
-      {years.map(({ year, items: inYear }, index) => (
-        <section
-          key={year}
-          className={index === 0 ? undefined : "border-t border-slate-300"}
-        >
-          <div className="mx-auto max-w-384 px-4 pt-9 pb-8 md:px-8">
-            <div className="max-w-176">
-              <h2 className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase">
-                {year}
-              </h2>
-              <ul className="mt-7 space-y-10 md:space-y-12">
-                {inYear.map((item) => (
-                  <IndexEntry
-                    key={item.slug}
-                    href={href(item)}
-                    title={item.title}
-                    description={item.description}
-                    date={item.date}
-                  />
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
+      {years.map(({ year, items: inYear }) => (
+        <IndexSection key={year}>
+          <h2 className="font-sans text-[1rem] font-medium tracking-[0.14em] text-slate-600 uppercase">
+            {year}
+          </h2>
+          <ul className="mt-7 space-y-10 md:space-y-12">
+            {inYear.map((item) => (
+              <IndexEntry
+                key={item.slug}
+                href={href(item)}
+                title={item.title}
+                description={item.description}
+                date={item.date}
+              />
+            ))}
+          </ul>
+        </IndexSection>
       ))}
     </div>
   );
