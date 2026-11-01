@@ -179,6 +179,10 @@ Search visibility should help people discover writing worth reading without shap
 - There is no CMS, admin interface, or database.
 - Articles and recipes can be kept as drafts. Drafts are never published.
 
+Broken links are repaired according to their editorial purpose: retain meaningful
+words, preserve attribution, and update practical recommendations when necessary.
+The policy and review process are in `docs/link-maintenance.md`.
+
 ## The 2026 rebuild
 
 - The site is being rebuilt from scratch.

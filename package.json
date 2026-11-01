@@ -10,6 +10,7 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test:e2e": "playwright test",
     "test:seo": "playwright test --project=desktop-chromium e2e/metadata.spec.ts e2e/crawling.spec.ts e2e/discoverability.spec.ts",
+    "audit:links": "node scripts/external-links.mjs",
     "format": "prettier --write ."
   },
   "engines": {

@@ -1,0 +1,17 @@
+# External editorial audit only. Internal routes are checked by Playwright.
+scheme = ["http", "https"]
+method = "get"
+timeout = 20
+max_retries = 2
+retry_wait_time = 3
+max_concurrency = 8
+host_concurrency = 2
+host_request_interval = "1s"
+max_redirects = 5
+no_progress = true
+verbose = "info"
+exclude_all_private = true
+# Recheck every run; do not carry transient failures into next week's report.
+cache = false
+# Access blocks and rate limits must remain visible, not count as working links.
+accept = ["200..=299"]

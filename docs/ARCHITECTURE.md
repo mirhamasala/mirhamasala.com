@@ -325,6 +325,25 @@ Site-relative links in the résumé PDF always resolve against `https://www.mirh
 
 Any new runtime dependency or significant tooling dependency should have a concrete requirement, with the decision and rationale recorded here in the same change.
 
+Lychee 0.24.2 is an external audit tool, pinned in the separate scheduled workflow.
+It supplies HTTP checking, retries, per-host pacing, and structured results without
+adding a runtime or npm dependency. `scripts/external-links.mjs` uses Node 24,
+the existing Markdown parser, YAML-backed content inventory, and explicit current
+frontmatter link fields to collect published external resources. It maps Lychee
+results back to every source location and rejects incomplete reports. No new
+content schema or response cache is introduced. Local usage is `pnpm audit:links`;
+reports live under ignored `test-results/external-links/`.
+
+`.github/workflows/external-links.yml` runs weekly and on manual dispatch from the
+default branch, independently of Verify and builds. It has issue-write permission
+to maintain one review issue, preserving notes outside its generated block and
+closing/reopening that issue as the queue clears or returns. It writes no content.
+The issue body is bounded; full reports are artifacts retained for 30 days. A
+checker failure leaves the previous issue untouched. Offline regression cases
+for extraction, classification, report completeness, and issue updates run in
+the existing Playwright suite; they never contact external sites. Editorial
+decisions and operational details live in `docs/link-maintenance.md`.
+
 ## Verification
 
 Playwright and axe check the rendered site so the verifier can test it after implementation. They are dev dependencies: they are not part of the published application. This is not a unit-test runner, a visual-regression suite, or a performance audit.

@@ -1,0 +1,73 @@
+name: External links
+
+on:
+  schedule:
+    - cron: "23 8 * * 1" # Mondays at 08:23 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: external-link-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    # A manual run on a feature branch must not replace the publication's queue.
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+      - uses: pnpm/action-setup@v6
+      - run: pnpm install --frozen-lockfile
+      - name: Collect published external URLs
+        run: node scripts/external-links.mjs prepare
+      - name: Check URLs
+        id: lychee
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2
+        with:
+          lycheeVersion: v0.24.2
+          args: --config lychee.toml test-results/external-links/urls.md
+          format: json
+          output: test-results/external-links/lychee.json
+          fail: false
+          jobSummary: false
+          token: ""
+      - name: Validate checker completion
+        env:
+          LYCHEE_EXIT_CODE: ${{ steps.lychee.outputs.exit_code }}
+        run: |
+          # Link failures produce a review queue; operational failures fail this job.
+          case "$LYCHEE_EXIT_CODE" in
+            0|2) ;;
+            *) echo "Lychee did not complete (exit $LYCHEE_EXIT_CODE)"; exit 1 ;;
+          esac
+      - name: Build editorial report
+        run: node scripts/external-links.mjs report
+      - name: Keep one review issue
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        with:
+          script: |
+            const { readFile } = await import('node:fs/promises');
+            const { pathToFileURL } = await import('node:url');
+            const { updateIssue } = await import(pathToFileURL(`${process.env.GITHUB_WORKSPACE}/scripts/external-links.mjs`).href);
+            const report = JSON.parse(await readFile('test-results/external-links/report.json', 'utf8'));
+            const runUrl = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`;
+            await updateIssue(github, context.repo, report, runUrl);
+      - uses: actions/upload-artifact@v7
+        if: ${{ !cancelled() }}
+        with:
+          name: external-link-report
+          path: test-results/external-links/
+          retention-days: 30
+          if-no-files-found: error
