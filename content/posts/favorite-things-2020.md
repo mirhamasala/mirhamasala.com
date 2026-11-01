@@ -14,7 +14,7 @@ I taught seven days of code, joined TourHero as their front-end dev, and created
 
 From the writing sidelines, I published my [first essay](/posts/mirha-left/). And for the third year in a row, I flew [paper planes](/letters) every month.
 
-I also discovered DIY flower arranging, rediscovered DIY waxing, [puzzling](#few-small-things), learned to do a strict pull-up and binged on La Casa de Papel under the guise of practicing my Spanish.
+I also discovered DIY flower arranging, rediscovered DIY waxing, [puzzling](#and-a-few-small-ones), learned to do a strict pull-up and binged on La Casa de Papel under the guise of practicing my Spanish.
 
 There were 39 [books](/posts/read-100-books#finished-reads), 11 [MasterClasses](/posts/the-knitting-club#chapter-iii-masterclass), 1381 minutes of meditation, 15 nights spent away from home (when travel was still something people did), and a bottle of wine a week (when it was no longer something we did).
 

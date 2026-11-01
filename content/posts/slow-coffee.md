@@ -87,7 +87,7 @@ Also known as Harry to family and friends.
 [Kinto Coffee Server, SCS-202, 600ml](https://kinto-europe.com/collections/coffeeware/products/27592)\
 Before the Kinto, I had the adorable [Pitchii](https://kurasu.kyoto/products/coffee-server-pitchii)–until it cracked.
 
-### ⚗️ Places
+### ⚗️ Places {#places}
 
 [Cafelix](https://cafelix.co.il/) (both the Jaffa and Florentine/Levinsky locations), Tel Aviv, Israel
 

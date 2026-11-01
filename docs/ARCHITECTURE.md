@@ -176,7 +176,7 @@ Inventory of the legacy site's public URLs (tag `pre-redesign-2026`):
 
 - `/`, `/about`, `/posts`, and `/posts/<slug>` keep their paths. The legacy Writing articles are at their original slugs.
 - `/all-posts` redirects to `/posts`, as it did on the legacy site.
-- Published articles restore their legacy root aliases (`/<slug>` → `/posts/<slug>`). Drafts are not given root aliases, including `/we-need-to-talk-about-me`. `/amsterdam-favorites` has no article and is not redirected. Two published articles never had a root alias (`all-my-amsterdam-memories-gather-round-food`, `morphing-into-motherhood`) and still do not.
+- Published articles restore their legacy root aliases (`/<slug>` → `/posts/<slug>`). Drafts are not given root aliases, including `/we-need-to-talk-about-me` and `/sarajevo-favorites`. `/ericeira-favorites` never had a root alias. `/amsterdam-favorites` has no article and is not redirected. Two published articles never had a root alias (`all-my-amsterdam-memories-gather-round-food`, `morphing-into-motherhood`) and still do not.
 - The legacy slug `the-knitting-club-%c2%b7-the-ladies-we-need-to-talk-chapter` keeps that encoded middle dot. The article is a draft.
 - Article files that were at `/pages/posts/<slug>/<file>` redirect to `/posts/<slug>/<file>`.
 - Recipes keep their legacy `/recipes` and `/recipes/<slug>` URLs.
@@ -188,6 +188,9 @@ Inventory of the legacy site's public URLs (tag `pre-redesign-2026`):
 - `/map` redirects to `/places`. Places lists the spots at that URL. `?city=<id>` selects a city on the same page and is not a separate canonical URL.
 - `/moments` redirects to `/posts`. The one published Moment is the article `/posts/when-we-were-young`, and `/moments/when-we-were-young` redirects there. It never had a root alias. The photograph that was at `/pages/moments/portugal-lisbon-musa-da-bica.jpeg` redirects to `/posts/when-we-were-young/portugal-lisbon-musa-da-bica.jpeg`.
 - `/resume` and `/dropbox` keep their paths. The résumé PDF that was at `/pages/cv_mirha_masala_2020.pdf` redirects to `/resume/cv_mirha_masala_2020.pdf`. Dropbox files that were at `/pages/begin_again.png`, `/pages/coconut_flour_flatbreads_recipe.jpg`, `/pages/bucket_list_cartwheels.mp4`, `/pages/bucket_list_juggling.mp4`, and `/pages/mirha_masala_tokyo.jpg` redirect to `/dropbox/<file>`. Heading ids on Dropbox still match the old anchors (`bucket-list-18-learn-to-do-a-cartwheel`, `bucket-list-19-learn-to-juggle-limes`, `in-tokyo`).
+- The old About photograph at `/pages/gm_seoul_about_mm_v3a.jpg` is retired and returns 404 because current pages and content do not use it. Its URL stays in the inventory with an explicit exception in `e2e/legacy-404s.json`.
+- The previous design's `/favicon.ico` and six files under `/favicons/` are retired and return 404. Their URLs stay in the inventory with explicit exceptions in `e2e/legacy-404s.json`. The `/favicon.ico` exception is temporary: remove it when a new favicon serves that URL. The audit fails if an excepted URL starts returning 200, with instructions to remove the stale exception.
+- The two legacy Markdown notes routes (`/letters/dead-time-010223/notes` and `/posts/favorite-things-2022/notes`) return 404: they are editorial working notes, not finished publications. Legacy article URLs whose files remain `draft: true` also return 404.
 - The legacy feeds at `/rss/feed.xml` and `/rss/feed.json` return 404 until a feed is decided.
 
 ## Launch checks
@@ -196,6 +199,7 @@ These are operational checks, not Playwright tests. Before or immediately after 
 
 - Confirm `SITE_URL` is set in Vercel's production environment, and that production metadata, canonical links, sitemap, and `robots.txt` use `https://www.mirhamasala.com`.
 - Confirm the bare domain redirects permanently to `www`, and that deployment protection is enabled for preview deployments.
+- Add the new design's favicon. When `/favicon.ico` is restored, remove its temporary entry from `e2e/legacy-404s.json` and run the crawling audit. The retired `/favicons/` files can remain intentional 404s.
 - Verify Google Search Console ownership, submit the production sitemap, and inspect representative pages.
 - Check representative legacy URLs and redirects, then monitor indexing and crawl issues after the migration.
 
@@ -286,6 +290,9 @@ e2e/
   smoke.spec.ts       # Playwright smoke and axe checks
   metadata.spec.ts    # per-page metadata, canonical, indexing, h1
   crawling.spec.ts    # sitemap, robots, unpublished routes, redirects
+  link-audit.ts       # published Markdown links and cached local HTTP/HTML checks
+  legacy-urls.json    # frozen migration paths and preserved anchors
+  legacy-404s.json    # intentional migration 404s, each with a reason
   resume.spec.ts      # résumé download, PDF text and links, Markdown regressions
 next.config.ts        # redirects
 playwright.config.ts
@@ -317,6 +324,8 @@ Playwright and axe check the rendered site so the verifier can test it after imp
 - `@playwright/test` drives Chromium. `pnpm test:e2e` builds the app and starts `next start` on `127.0.0.1:4173`, so the run does not depend on a dev server already listening on port 3000. The build gets `SITE_URL=http://127.0.0.1:4173`, so generated absolute URLs are deterministic.
 - Projects are desktop Chromium (`Desktop Chrome`) and mobile Chromium (`Pixel 5`). Add another browser only when there is a concrete need. `crawling.spec.ts` doesn't depend on the viewport, so it runs on desktop only.
 - Discoverability checks cover the contract under "Metadata and indexing" and "Sitemap and robots": title, description, canonical, indexing directives, and a single visible `h1` for every indexable route; distinct descriptions; sitemap contents compared with the published article inventory from `lib/posts.ts`; `robots.txt`; 404 and `noindex` for the draft fixture and an unknown slug; and redirects. They don't assert description wording (except that articles use their frontmatter), character limits, keywords, rankings, or Lighthouse scores.
+- The migration audit freezes 548 legacy paths in `e2e/legacy-urls.json`, with the source tag and commit: 162 page routes (including the two `.md` notes routes), 96 redirect sources, 288 public files, and two generated feeds. It is independent of `lib/redirects.ts`, and CI needs no legacy tag. Unlighthouse reports are excluded as tooling output; old map markers are excluded because current content and UI do not reference them. `e2e/legacy-404s.json` records each intentional 404 and its reason. Removing an exception when its content is published is an explicit change.
+- `crawling.spec.ts` checks every inventoried URL for 200, one 308 directly to 200, or its recorded 404; redirects to home and redirect chains fail. Existing destination-specific redirect tests stay. The link audit parses published Markdown with the existing parser (including reference links, images, and recipe attribution), and extracts links and media URLs from the HTML of every indexable route and linked query views. Draft source files are excluded. Both production hostnames resolve against the local server; external URLs are never requested. Responses are cached by path and query, and decoded fragments are checked against actual HTML ids, including inherited fragments across redirects. The fixture also preserves 102 Travel Stories and Dropbox anchor links. An intentional legacy 404 is still a failure when linked from a published page.
 - `@axe-core/playwright` scans those same pages inside the Playwright suite. Serious and critical violations fail the run. Moderate and minor results do not. The Places map region (`#places-map`) is excluded, because that markup belongs to Google's map widget.
 - A failure keeps a screenshot and a trace under `test-results/`. Nothing compares screenshots.
 - Chromium is installed with `pnpm exec playwright install chromium`. `pnpm install` does not download it, because dependency install scripts stay blocked.

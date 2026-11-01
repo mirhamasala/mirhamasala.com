@@ -12,7 +12,7 @@ I swam and strolled between skyscrapers, mounted pine tree forests, surfed butte
 
 Still possessed by two alter egos, I sealed a front-end role that allowed me to descend into JavaScript at last, and I untangled my thoughts into [goodbyes](/posts/goodbye-little-red-dot/), [personal revelations](/posts/everything-i-never-told-you/), [The Story of Us](/posts/the-story-of-us/), a single [travel moment](/posts/when-we-were-young), and [eleven paper planes](/letters).
 
-I made my first investment, began learning Portuguese, took up a 30-day writing challenge, and ticked off my most precious [bucket list wish](#slow-retreats) yet.
+I made my first investment, began learning Portuguese, took up a 30-day writing challenge, and ticked off my most precious [bucket list wish](#the-bucket-list-idea-i-unexpectedly-ticked-off) yet.
 
 I also [learned more about my body](/letters/we-need-to-talk-0521/). Took a hard look at my [self-talk](/letters/less-mad-0421/). Learned to breathe. And ended my showers with cold water.
 

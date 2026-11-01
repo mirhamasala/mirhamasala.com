@@ -3,6 +3,9 @@ import { readdir, readFile } from "node:fs/promises";
 import { expect, test, type APIRequestContext } from "@playwright/test";
 import { parse as parseYaml } from "yaml";
 import { legacyRedirects } from "@/lib/redirects";
+import legacyUrls from "./legacy-urls.json" with { type: "json" };
+import legacy404s from "./legacy-404s.json" with { type: "json" };
+import { getPublishedContentLinks, LinkAudit } from "./link-audit";
 import { absoluteUrl, getIndexableRoutes } from "./routes";
 
 const routes = await getIndexableRoutes();
@@ -49,6 +52,112 @@ async function getSitemapUrls(request: APIRequestContext) {
 }
 
 test.describe("crawling", () => {
+  test("the link audit checks absolute production URLs and inherited fragments locally", async ({
+    request,
+    page,
+    baseURL,
+  }) => {
+    if (!baseURL) throw new Error("Playwright baseURL is not configured");
+    const audit = new LinkAudit(request, page, baseURL);
+    const check = (href: string, pagePath = "/") =>
+      audit.check({ href, pagePath, source: "Audit regression check" });
+
+    expect(
+      await check("https://mirhamasala.com/travel-archives#%32%39%34"),
+    ).toBeUndefined();
+    expect(
+      await check("#74-designing-your-life", "/posts/read-100-books"),
+    ).toBeUndefined();
+    expect(
+      await check("https://www.mirhamasala.com/posts/not-a-real-article"),
+    ).toContain("404");
+    expect(await check("/travel-archives#not-a-real-anchor")).toContain(
+      "missing id",
+    );
+  });
+
+  test("every inventoried legacy URL is kept, redirected once, or explicitly unpublished", async ({
+    request,
+    page,
+    baseURL,
+  }) => {
+    test.setTimeout(90_000);
+    if (!baseURL) throw new Error("Playwright baseURL is not configured");
+    const audit = new LinkAudit(request, page, baseURL);
+    const inventory = [
+      ...legacyUrls.pages,
+      ...legacyUrls.aliases,
+      ...legacyUrls.assets,
+      ...legacyUrls.feeds,
+    ];
+    expect(new Set(inventory).size).toBe(inventory.length);
+    const intentional404s: Record<string, string> = legacy404s;
+    for (const [path, reason] of Object.entries(intentional404s)) {
+      expect(inventory, `Stale intentional-404 entry: ${path}`).toContain(path);
+      expect(reason.trim(), path).not.toBe("");
+    }
+
+    const failures: string[] = [];
+    for (const path of inventory) {
+      const reason = intentional404s[path];
+      if (reason) {
+        const response = await audit.read(new URL(path, baseURL));
+        if (response.status !== 404)
+          failures.push(
+            `${path}: ${response.status}, expected intentional 404 (${reason}). If this URL was intentionally restored, remove its entry from e2e/legacy-404s.json.`,
+          );
+      } else {
+        const failure = await audit.check({
+          href: path,
+          pagePath: "/",
+          source: legacyUrls.sourceTag,
+        });
+        if (failure) failures.push(failure);
+      }
+    }
+    expect(failures, "Legacy URL migration gaps").toEqual([]);
+  });
+
+  test("published content and rendered internal links resolve, including fragments", async ({
+    request,
+    page,
+    baseURL,
+  }) => {
+    test.setTimeout(90_000);
+    if (!baseURL) throw new Error("Playwright baseURL is not configured");
+    const audit = new LinkAudit(request, page, baseURL);
+    const links = await getPublishedContentLinks();
+    const canonicalPaths = new Set(routes.map(({ path }) => path));
+    const renderedPaths = new Set(canonicalPaths);
+    // City selections and the photograph view render different links/assets,
+    // although they share their page's canonical URL.
+    for (const path of renderedPaths) {
+      const response = await audit.read(new URL(path, baseURL));
+      expect(response.status, path).toBe(200);
+      expect(response.document, `${path}: expected HTML`).toBeDefined();
+      for (const href of response.document!.links) {
+        links.push({ href, pagePath: path, source: `Rendered ${path}` });
+        const url = audit.localUrl(href, path);
+        if (url?.search && canonicalPaths.has(url.pathname))
+          renderedPaths.add(url.pathname + url.search);
+      }
+    }
+    for (const href of legacyUrls.anchors)
+      links.push({ href, pagePath: "/", source: "Preserved legacy anchor" });
+
+    const failures: string[] = [];
+    const checked = new Map<string, string | undefined>();
+    for (const link of links) {
+      const url = audit.localUrl(link.href, link.pagePath);
+      if (!url) continue;
+      if (!checked.has(url.href))
+        checked.set(url.href, await audit.check(link));
+      const failure = checked.get(url.href);
+      if (failure && !failures.includes(failure)) failures.push(failure);
+    }
+    expect(failures, "Broken published internal links or anchors").toEqual([]);
+  });
+
   test("sitemap lists exactly the indexable canonical URLs", async ({
     request,
     baseURL,

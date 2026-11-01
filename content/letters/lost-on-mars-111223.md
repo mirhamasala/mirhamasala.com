@@ -38,7 +38,7 @@ Last year, I decided to retire the domains of my old projects and migrate their 
 
 **Plus, a few other updates:**
 
-- Generating and hosting [Lighthouse reports](/unlighthouse/index.html) - [PR](https://github.com/mirhamasala/mirhamasala.com/commit/350c3a3f972754001380ef456da69e2044226358)
+- Generating and hosting Lighthouse reports - [PR](https://github.com/mirhamasala/mirhamasala.com/commit/350c3a3f972754001380ef456da69e2044226358)
 - Implementing a workflow action for automating the above process - [Commit](https://github.com/mirhamasala/mirhamasala.com/commit/59a50208000d0d252a83c8b053224d016f1479bb)
 - Creating a workflow action to check for broken links - [Commit](https://github.com/mirhamasala/mirhamasala.com/commit/711ca790b3575845a4367818571d0a736517c516)
 - Developing the `UnavailableLink` component - [PR](https://github.com/mirhamasala/mirhamasala.com/pull/170)

@@ -42,7 +42,7 @@ Yet, this is in no way an easy goodbye. Singapore has been the backdrop to five 
 
 In Singapore, I finished [The Spin-Off Project](/tsop), started this blog, and found my first two jobs as a [web developer](/posts/leap-of-code/).
 
-G and I married in [Fort Canning](#fort-canning). And I got the idea for [The Knitting Club](/posts/the-knitting-club/) on the F1 tarmac.
+G and I married in Fort Canning. And I got the idea for [The Knitting Club](/posts/the-knitting-club/) on the F1 tarmac.
 
 I ran my first 10K here, the last of the Green Corridor runs, and wore my medal after the race for the entire day. And I learned [to juggle](/dropbox#bucket-list-19-learn-to-juggle-limes), [swim freestyle](/posts/favorite-things-2020#a-skill-i-loved-learning), [do a cartwheel](/dropbox#bucket-list-18-learn-to-do-a-cartwheel), and strict pull-up.
 
@@ -50,7 +50,7 @@ I also joined [the 5 AM club](/posts/favorite-things-2020#a-habit-friends-were-m
 
 I went to numerous workshops, including [tea](/posts/favorite-things-2017#tea-side-faves), coffee, kombucha, cooking, and pottery ones. Plus, there was the acting one, leaving me flattered, still, with an offer to produce a one-woman show.
 
-I visited nine new countries from the dot. And I was always happy to come back, racing G through passport control, back to our humbling loft on the fringes of Chinatown and Tanjong Pagar, a serendipitous 5-minute walk from [the peek-through park](#ann-siang-hill-park) that [stole my imagination the first time I visited Singapore](/tsop/posts/30-days-traveling#day-26).
+I visited nine new countries from the dot. And I was always happy to come back, racing G through passport control, back to our humbling loft on the fringes of Chinatown and Tanjong Pagar, a serendipitous 5-minute walk from the peek-through park that [stole my imagination the first time I visited Singapore](/tsop/posts/30-days-traveling#day-26).
 
 Most importantly, I met the people who make a place. Strangers who became friends and filled my heart with their being and quirkiness—merging speckles of their sameness and otherness with mine, into something else, a dot of a different culture and way, now part of me, and from here with me everywhere.
 

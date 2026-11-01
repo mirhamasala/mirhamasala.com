@@ -80,7 +80,7 @@ I found sharing a secret with both sides of the family super cute.
 **2. Told a handful of friends about my pregnancy very early on**\
 I wanted to have a support system if I were to have a miscarriage or other complications.
 
-**3. Read up and followed [a course on positive birthing](#the-hypnobirthing-pack)**\
+**3. Read up and followed [a course on positive birthing](#bump-favorites)**\
 Thanks to this course, I felt confident about my wish and decision for a home birth. Nonetheless, I also learned a lot about complications in labor, which resulted in G and I keeping an open mind and preparing for a hospital birth and cesarean, aside from a home birth.
 
 **4. Rejected most checkups and tests**\
