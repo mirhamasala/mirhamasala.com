@@ -4,6 +4,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Container } from "@/components/container";
 import { ExternalLink } from "@/components/external-link";
+import { IndexSection } from "@/components/index-section";
 import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 import { PlacePinButton, PlacePins } from "@/components/place-pin-button";
@@ -197,83 +198,66 @@ export default async function PlacesPage({
         </Container>
 
         <div className="mt-10 md:mt-12">
-          {groups.map((group, index) => (
-            <section
-              key={group.label}
-              className={index === 0 ? undefined : "border-t border-slate-300"}
-            >
-              <Container className="py-8 md:py-10">
-                <div className="max-w-160">
-                  <SectionLabel level="h3">
-                    <span aria-hidden="true">{group.emoji}</span> {group.label}
-                  </SectionLabel>
-                  <ul className="mt-7 space-y-8">
-                    {group.spots.map((spot) => {
-                      const website = httpUrl(spot.url);
-                      const directions = httpUrl(spot.map);
-                      return (
-                        <li
-                          key={spot.slug}
-                          id={spot.slug}
-                          className="scroll-mt-8"
-                        >
-                          {apiKey &&
-                          spot.latitude !== undefined &&
-                          spot.longitude !== undefined ? (
-                            <PlacePinButton
-                              slug={spot.slug}
-                              title={spot.title}
-                            />
-                          ) : (
-                            <h4 className="font-serif text-[1.35rem] leading-snug text-slate-950 md:text-[1.5rem]">
-                              {spot.title}
-                            </h4>
-                          )}
-                          {spot.locality ? (
-                            <p className="mt-1 text-base/snug text-slate-500">
-                              {spot.locality}
-                            </p>
+          {groups.map((group) => (
+            <IndexSection key={group.label}>
+              <SectionLabel level="h3">
+                <span aria-hidden="true">{group.emoji}</span> {group.label}
+              </SectionLabel>
+              <ul className="mt-7 space-y-8">
+                {group.spots.map((spot) => {
+                  const website = httpUrl(spot.url);
+                  const directions = httpUrl(spot.map);
+                  return (
+                    <li key={spot.slug} id={spot.slug} className="scroll-mt-8">
+                      {apiKey &&
+                      spot.latitude !== undefined &&
+                      spot.longitude !== undefined ? (
+                        <PlacePinButton slug={spot.slug} title={spot.title} />
+                      ) : (
+                        <h4 className="font-serif text-[1.35rem] leading-snug text-slate-950 md:text-[1.5rem]">
+                          {spot.title}
+                        </h4>
+                      )}
+                      {spot.locality ? (
+                        <p className="mt-1 text-base/snug text-slate-500">
+                          {spot.locality}
+                        </p>
+                      ) : null}
+                      {spot.body ? (
+                        <p className="mt-2 font-serif text-[1.15rem] leading-[1.45] text-slate-700">
+                          {spot.body}
+                        </p>
+                      ) : null}
+                      {website || directions ? (
+                        <p className="mt-3 flex flex-wrap items-baseline gap-x-3 text-base/snug">
+                          {website ? (
+                            <ExternalLink
+                              href={website}
+                              className={textLinkClassName}
+                            >
+                              Website
+                            </ExternalLink>
                           ) : null}
-                          {spot.body ? (
-                            <p className="mt-2 font-serif text-[1.15rem] leading-[1.45] text-slate-700">
-                              {spot.body}
-                            </p>
+                          {website && directions ? (
+                            <span aria-hidden="true" className="text-slate-400">
+                              ·
+                            </span>
                           ) : null}
-                          {website || directions ? (
-                            <p className="mt-3 flex flex-wrap items-baseline gap-x-3 text-base/snug">
-                              {website ? (
-                                <ExternalLink
-                                  href={website}
-                                  className={textLinkClassName}
-                                >
-                                  Website
-                                </ExternalLink>
-                              ) : null}
-                              {website && directions ? (
-                                <span
-                                  aria-hidden="true"
-                                  className="text-slate-400"
-                                >
-                                  ·
-                                </span>
-                              ) : null}
-                              {directions ? (
-                                <ExternalLink
-                                  href={directions}
-                                  className={textLinkClassName}
-                                >
-                                  Google Maps
-                                </ExternalLink>
-                              ) : null}
-                            </p>
+                          {directions ? (
+                            <ExternalLink
+                              href={directions}
+                              className={textLinkClassName}
+                            >
+                              Google Maps
+                            </ExternalLink>
                           ) : null}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              </Container>
-            </section>
+                        </p>
+                      ) : null}
+                    </li>
+                  );
+                })}
+              </ul>
+            </IndexSection>
           ))}
         </div>
       </PlacePins>

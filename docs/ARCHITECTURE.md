@@ -346,9 +346,9 @@ and the content inside it. It accepts only children; pages that need different
 outer layout or overflow behavior keep their own wrappers.
 
 `IndexSection` owns the divider, vertical padding, outer container, and narrower
-content column used by YearIndex, book topics, Travel Stories countries, and
-Spin-Off Project groups. It accepts children and optional `aria-labelledby`;
-headings and lists stay with their callers. Render each group as sibling
+content column used by YearIndex, book topics, Travel Stories countries, Places
+categories, and Spin-Off Project groups. It accepts children and optional
+`aria-labelledby`; headings and lists stay with their callers. Render each group as sibling
 `IndexSection` elements in a dedicated parent: the first child has no top
 divider, and subsequent sections do.
 
