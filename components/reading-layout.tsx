@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Container } from "@/components/container";
 import { DisplayTitle } from "@/components/display-title";
 
 const readingColumnClassName = "max-w-176 md:col-span-7 md:col-start-3";
@@ -17,7 +18,7 @@ export function ReadingLayout({
   children,
 }: ReadingLayoutProps) {
   return (
-    <article className="mx-auto max-w-384 overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
+    <Container as="article" className="overflow-x-clip pt-7 pb-8 md:pt-10">
       <header>
         {breadcrumbs}
         <DisplayTitle title={title} />
@@ -30,6 +31,6 @@ export function ReadingLayout({
       <div className="mt-10 md:mt-12 md:grid md:grid-cols-12 md:gap-8">
         <div className={readingColumnClassName}>{children}</div>
       </div>
-    </article>
+    </Container>
   );
 }

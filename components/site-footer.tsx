@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Container } from "@/components/container";
 import { ExternalLink } from "@/components/external-link";
 import { site } from "@/lib/site";
 
@@ -76,7 +77,7 @@ function FooterGroup({
 
 export function SiteFooter() {
   return (
-    <footer className="mx-auto mt-16 w-full max-w-384 px-4 md:mt-20 md:px-8">
+    <Container as="footer" className="mt-16 w-full md:mt-20">
       <div className="grid border-t border-slate-300 pt-10 pb-8 md:pt-12 md:pb-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start">
         <p className="font-display text-[clamp(2.5rem,4.6vw,4rem)] leading-[0.96] tracking-[-0.03em] text-slate-950 lg:col-span-2 lg:row-start-1">
           <span className="block">From Ericeira,</span>
@@ -140,6 +141,6 @@ export function SiteFooter() {
           <time dateTime={String(site.since)}>{site.since}</time>
         </p>
       </div>
-    </footer>
+    </Container>
   );
 }

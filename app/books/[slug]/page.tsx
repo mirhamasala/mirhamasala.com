@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Container } from "@/components/container";
 import { DisplayTitle } from "@/components/display-title";
 import { ExternalLink } from "@/components/external-link";
 import { getBook, getBooks, splitLeadQuote } from "@/lib/books";
@@ -42,7 +43,7 @@ export default async function BookPage({ params }: PageProps<"/books/[slug]">) {
   const { quote, rest } = splitLeadQuote(book.body);
 
   return (
-    <article className="mx-auto max-w-384 overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
+    <Container as="article" className="overflow-x-clip pt-7 pb-8 md:pt-10">
       <header>
         <DisplayTitle title={book.title} />
 
@@ -89,6 +90,6 @@ export default async function BookPage({ params }: PageProps<"/books/[slug]">) {
           </div>
         </div>
       ) : null}
-    </article>
+    </Container>
   );
 }

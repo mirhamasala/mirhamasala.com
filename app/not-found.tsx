@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Container } from "@/components/container";
 import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 
@@ -78,7 +79,7 @@ export default function NotFound() {
         }
       />
 
-      <ol className="mx-auto mt-16 max-w-384 list-none px-4 md:mt-24 md:px-8">
+      <Container as="ol" className="mt-16 list-none md:mt-24">
         <Suggestion number="01" title="Writing" href="/posts">
           Things I’ve learned, noticed and thought worth passing on.
         </Suggestion>
@@ -95,7 +96,7 @@ export default function NotFound() {
           <ContentLink href="/letters">the letters</ContentLink>, and{" "}
           <ContentLink href="/travel-stories">travel stories</ContentLink>.
         </Suggestion>
-      </ol>
+      </Container>
     </Page>
   );
 }

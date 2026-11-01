@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Container } from "@/components/container";
 import { Eyebrow } from "@/components/eyebrow";
 import { SplitIntro } from "@/components/split-intro";
 import { Title } from "@/components/title";
@@ -75,7 +76,7 @@ function CurrentlyList() {
 export default function AboutPage() {
   return (
     <article className="overflow-x-clip pb-8">
-      <section className="mx-auto max-w-384 px-4 pt-7 md:px-8 md:pt-10">
+      <Container as="section" className="pt-7 md:pt-10">
         <Eyebrow>About</Eyebrow>
         <Title>
           <span className="block md:inline">Hi, I’m </span>
@@ -98,9 +99,12 @@ export default function AboutPage() {
           wrote about learning new things, building projects, travelling, food,
           books, work, and eventually becoming a mother.
         </SplitIntro>
-      </section>
+      </Container>
 
-      <section className="mx-auto mt-16 grid max-w-384 gap-12 px-4 md:mt-24 md:grid-cols-12 md:gap-8 md:px-8">
+      <Container
+        as="section"
+        className="mt-16 grid gap-12 md:mt-24 md:grid-cols-12 md:gap-8"
+      >
         <div className="md:col-span-5">
           <PortraitPlaceholder />
         </div>
@@ -118,20 +122,23 @@ export default function AboutPage() {
           </p>
           <CurrentlyList />
         </div>
-      </section>
+      </Container>
 
       <section className="mt-24 bg-slate-900 py-12 text-stone-50 md:mt-28 md:py-28">
-        <div className="mx-auto max-w-384 px-4 md:px-8">
+        <Container>
           <h2 className="max-w-272 font-display text-[clamp(3.8rem,13vw,13rem)] leading-[0.9] tracking-[-0.02em] md:text-[clamp(6rem,8.7vw,10.5rem)] md:leading-[0.86] md:tracking-[-0.03em]">
             Lately I’ve found myself wondering{" "}
             <em className="block font-normal text-slate-400 italic md:inline">
               what comes next.
             </em>
           </h2>
-        </div>
+        </Container>
       </section>
 
-      <section className="mx-auto grid max-w-384 gap-16 px-4 pt-16 md:grid-cols-12 md:gap-8 md:px-8 md:pt-28">
+      <Container
+        as="section"
+        className="grid gap-16 pt-16 md:grid-cols-12 md:gap-8 md:pt-28"
+      >
         <p className="max-w-88 font-serif text-[1.08rem] leading-[1.45] text-slate-950 sm:max-w-136 md:col-span-4 md:col-start-7 md:max-w-none md:text-[1.18rem]">
           I’m not looking to abandon the life or career I’ve built.
         </p>
@@ -162,15 +169,15 @@ export default function AboutPage() {
             niche.
           </p>
         </div>
-      </section>
+      </Container>
 
-      <section className="mx-auto max-w-384 px-4 pt-20 md:px-8 md:pt-28">
+      <Container as="section" className="pt-20 md:pt-28">
         <p className="font-display text-[clamp(4.2rem,15vw,14rem)] leading-[0.82] tracking-[-0.04em] text-slate-950 md:tracking-[-0.045em]">
           We’ll see
           <br />
           <em className="font-normal text-slate-500 italic">where it goes.</em>
         </p>
-      </section>
+      </Container>
     </article>
   );
 }

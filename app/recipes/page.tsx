@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Container } from "@/components/container";
 import { IndexEntry } from "@/components/index-entry";
 import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
@@ -17,7 +18,7 @@ export default async function RecipesPage() {
     <Page>
       <PageHeader eyebrow="Recipes" title="What I keep making." />
 
-      <div className="mx-auto mt-16 max-w-384 px-4 md:mt-24 md:px-8">
+      <Container className="mt-16 md:mt-24">
         <ul className="max-w-7xl space-y-10 md:space-y-12">
           {recipes.map((recipe) => (
             <IndexEntry
@@ -29,7 +30,7 @@ export default async function RecipesPage() {
             />
           ))}
         </ul>
-      </div>
+      </Container>
     </Page>
   );
 }

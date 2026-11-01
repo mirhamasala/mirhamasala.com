@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { Container } from "@/components/container";
 import { ExternalLink } from "@/components/external-link";
 import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
@@ -108,7 +109,7 @@ export default async function PlacesPage({
       />
 
       <PlacePins key={city.id}>
-        <section className="mx-auto mt-16 max-w-384 px-4 md:mt-24 md:px-8">
+        <Container as="section" className="mt-16 md:mt-24">
           <div className="flex items-baseline justify-between gap-6 border-b border-slate-300 pb-2">
             <p
               id="choose-a-place"
@@ -193,7 +194,7 @@ export default async function PlacesPage({
               </Link>
             ) : null}
           </div>
-        </section>
+        </Container>
 
         <div className="mt-10 md:mt-12">
           {groups.map((group, index) => (
@@ -201,7 +202,7 @@ export default async function PlacesPage({
               key={group.label}
               className={index === 0 ? undefined : "border-t border-slate-300"}
             >
-              <div className="mx-auto max-w-384 px-4 py-8 md:px-8 md:py-10">
+              <Container className="py-8 md:py-10">
                 <div className="max-w-160">
                   <SectionLabel level="h3">
                     <span aria-hidden="true">{group.emoji}</span> {group.label}
@@ -271,7 +272,7 @@ export default async function PlacesPage({
                     })}
                   </ul>
                 </div>
-              </div>
+              </Container>
             </section>
           ))}
         </div>

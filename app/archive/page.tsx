@@ -5,6 +5,7 @@ import {
   ArchiveLetterPick,
   type ArchiveLetter,
 } from "@/components/archive-letter-pick";
+import { Container } from "@/components/container";
 import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 import { getLetters } from "@/lib/letters";
@@ -62,7 +63,7 @@ export default async function ArchivePage() {
         lede="Earlier work that lives outside Writing."
       />
 
-      <div className="mx-auto mt-16 max-w-384 px-4 md:mt-24 md:px-8">
+      <Container className="mt-16 md:mt-24">
         <div className="flex flex-col">
           <ArchiveEntry years="2012 – 2017" titleId="tsop">
             <SectionTitle href="/tsop" id="tsop" published>
@@ -153,7 +154,7 @@ export default async function ArchivePage() {
             <ArchiveLetterPick letters={archiveLetters} />
           </ArchiveEntry>
         </div>
-      </div>
+      </Container>
     </Page>
   );
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Container } from "@/components/container";
 import { MobileNavigation } from "@/components/mobile-navigation";
 import { site } from "@/lib/site";
 
@@ -7,7 +8,7 @@ const navigationLinkClassName =
 
 export function SiteHeader() {
   return (
-    <header className="relative z-10 mx-auto w-full max-w-384 px-4 md:px-8">
+    <Container as="header" className="relative z-10 w-full">
       <div className="flex h-28 items-center justify-between border-b border-slate-300">
         <Link
           href="/"
@@ -31,6 +32,6 @@ export function SiteHeader() {
 
         <MobileNavigation navigation={site.nav} />
       </div>
-    </header>
+    </Container>
   );
 }

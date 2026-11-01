@@ -266,6 +266,7 @@ app/
     posts/
       [slug]/page.tsx # spin-off post
 components/
+  container.tsx      # Shared site width and responsive side padding
   breadcrumbs.tsx     # Archive trail
   eyebrow.tsx
   index-entry.tsx     # Linked title, date, and description on an index
@@ -328,6 +329,13 @@ playwright.config.ts
 ```
 
 There is no `src/` folder. Shared chrome lives in `components/`.
+
+`Container` owns the shared site width, horizontal centering, and responsive side
+padding. It renders a `div` by default; `as` preserves semantic wrappers such as
+`section`, `article`, and lists without adding an extra element. Native HTML
+attributes pass through, and `className` keeps vertical spacing, grids, and other
+local layout with the caller. Site chrome, shared layouts, and page sections use
+it wherever they share those page edges.
 
 The 404 page's numbered suggestion rows use a local `Suggestion` component in
 `app/not-found.tsx`, keeping their layout and optional title link together.

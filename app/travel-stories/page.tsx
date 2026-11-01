@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Container } from "@/components/container";
 import { archiveCrumbs } from "@/components/breadcrumbs";
 import { IndexSection } from "@/components/index-section";
 import { Page } from "@/components/page";
@@ -44,9 +45,9 @@ export default async function TravelStoriesPage({
         title="What I brought home."
         lede="Stories, photographs, and recommendations originally published on Instagram."
       />
-      <div className="mx-auto max-w-384 px-4 md:px-8">
+      <Container>
         <ViewSwitch view={view} />
-      </div>
+      </Container>
 
       {view === "photographs" ? (
         <PhotographGrid stories={stories} />
@@ -89,9 +90,10 @@ function ViewSwitch({ view }: { view: TravelStoriesView }) {
 
 function PhotographGrid({ stories }: { stories: TravelStory[] }) {
   return (
-    <ul
+    <Container
+      as="ul"
       aria-label="Photographs"
-      className="mx-auto mt-16 grid max-w-384 grid-cols-3 gap-1 px-4 md:mt-24 md:grid-cols-6 md:px-8"
+      className="mt-16 grid grid-cols-3 gap-1 md:mt-24 md:grid-cols-6"
     >
       {storiesByNumber(stories).map((story) => (
         <li key={story.slug}>
@@ -113,7 +115,7 @@ function PhotographGrid({ stories }: { stories: TravelStory[] }) {
           </Link>
         </li>
       ))}
-    </ul>
+    </Container>
   );
 }
 

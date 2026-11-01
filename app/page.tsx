@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Container } from "@/components/container";
 import { ExternalLink } from "@/components/external-link";
 import { SplitIntro } from "@/components/split-intro";
 import { formatMonthYear } from "@/lib/format-date";
@@ -66,7 +67,7 @@ export default async function HomePage() {
 
   return (
     <article className="pb-8">
-      <div className="mx-auto max-w-384 px-4 pt-7 md:px-8 md:pt-10">
+      <Container className="pt-7 md:pt-10">
         <h1 className="max-w-[9.5em] font-display text-[clamp(4.25rem,22vw,7.25rem)] leading-[0.96] tracking-[-0.03em] text-balance text-slate-950">
           I write about the things I get unusually interested in.
         </h1>
@@ -163,7 +164,7 @@ export default async function HomePage() {
             ))}
           </ul>
         </section>
-      </div>
+      </Container>
     </article>
   );
 }

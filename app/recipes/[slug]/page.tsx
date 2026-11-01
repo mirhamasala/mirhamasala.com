@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Container } from "@/components/container";
 import { DisplayTitle } from "@/components/display-title";
 import { RecipeDetails } from "@/components/recipe-details";
 import { RecipeMarkdownContent } from "@/lib/markdown";
@@ -34,7 +35,7 @@ export default async function RecipePage({
   if (!recipe) notFound();
 
   return (
-    <article className="mx-auto max-w-384 overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
+    <Container as="article" className="overflow-x-clip pt-7 pb-8 md:pt-10">
       <header>
         <DisplayTitle title={recipe.title} />
 
@@ -56,6 +57,6 @@ export default async function RecipePage({
           />
         </div>
       </div>
-    </article>
+    </Container>
   );
 }

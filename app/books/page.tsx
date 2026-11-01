@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Container } from "@/components/container";
 import { IndexSection } from "@/components/index-section";
 import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
@@ -30,7 +31,7 @@ export default async function BooksPage() {
         lede="Quotes, notes, and ideas from books I’ve read."
       />
 
-      <section className="mx-auto mt-16 max-w-384 px-4 md:mt-24 md:px-8">
+      <Container as="section" className="mt-16 md:mt-24">
         <div className="max-w-160">
           <h2 className={sectionHeadingClassName}>Start with these</h2>
           <p className="mt-3 font-serif text-[1.15rem] leading-[1.45] text-slate-600">
@@ -44,17 +45,17 @@ export default async function BooksPage() {
             ))}
           </ul>
         </div>
-      </section>
+      </Container>
 
       <section className="mt-20 md:mt-28">
-        <div className="mx-auto max-w-384 px-4 md:px-8">
+        <Container>
           <div className="max-w-176">
             <h2 className={sectionHeadingClassName}>The rest</h2>
             <p className="mt-3 font-serif text-[1.15rem] leading-[1.45] text-slate-600">
               By topic, most recent first. Not a complete list.
             </p>
           </div>
-        </div>
+        </Container>
         <div className="mt-8">
           {bookTopics
             .flatMap((topic) => {

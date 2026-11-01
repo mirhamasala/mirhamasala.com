@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Breadcrumbs, type Crumb } from "@/components/breadcrumbs";
+import { Container } from "@/components/container";
 import { Eyebrow } from "@/components/eyebrow";
 import { PageLede } from "@/components/page-lede";
 import { PageTitle, type PageTitleScale } from "@/components/page-title";
@@ -19,11 +20,11 @@ export function PageHeader(props: PageHeaderProps) {
   const breadcrumbs = "breadcrumbs" in props ? props.breadcrumbs : undefined;
 
   return (
-    <header className="mx-auto max-w-384 px-4 md:px-8">
+    <Container as="header">
       {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
       {breadcrumbs ? <Breadcrumbs items={breadcrumbs} /> : null}
       <PageTitle scale={scale}>{title}</PageTitle>
       {lede ? <PageLede>{lede}</PageLede> : null}
-    </header>
+    </Container>
   );
 }

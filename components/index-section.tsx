@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Container } from "@/components/container";
 
 type IndexSectionProps = {
   children: ReactNode;
@@ -14,9 +15,9 @@ export function IndexSection({
       aria-labelledby={labelledBy}
       className="border-t border-slate-300 first:border-t-0"
     >
-      <div className="mx-auto max-w-384 px-4 pt-9 pb-8 md:px-8">
+      <Container className="pt-9 pb-8">
         <div className="max-w-176">{children}</div>
-      </div>
+      </Container>
     </section>
   );
 }
