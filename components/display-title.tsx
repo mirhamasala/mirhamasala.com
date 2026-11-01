@@ -1,3 +1,5 @@
+import { Title } from "@/components/title";
+
 type DisplayTitleVariant = "auto" | "default" | "compact";
 
 type DisplayTitleProps = {
@@ -11,15 +13,6 @@ type DisplayTitleProps = {
  * longest current short title (29) and the shortest long one (32).
  */
 const compactTitleLength = 30;
-
-const displayTitleClassName =
-  "pb-[0.18em] font-display leading-[0.76] tracking-[-0.045em] text-balance text-slate-950 md:tracking-[-0.055em]";
-
-const displayTitleSizeClassName = {
-  default:
-    "text-[clamp(5.7rem,21vw,20rem)] md:text-[clamp(10rem,17.4vw,20rem)]",
-  compact: "text-[clamp(4rem,14.7vw,14rem)] md:text-[clamp(7rem,12.2vw,14rem)]",
-} as const satisfies Record<Exclude<DisplayTitleVariant, "auto">, string>;
 
 function resolveDisplayTitleVariant(
   title: string,
@@ -39,16 +32,13 @@ export function DisplayTitle({
   const resolvedVariant = resolveDisplayTitleVariant(title, variant);
 
   return (
-    <h1
-      className={[
-        displayTitleClassName,
-        displayTitleSizeClassName[resolvedVariant],
-        className,
-      ]
+    <Title
+      scale={resolvedVariant === "compact" ? "compact" : "poster"}
+      className={["pb-[0.18em] text-balance", className]
         .filter(Boolean)
         .join(" ")}
     >
       {title}
-    </h1>
+    </Title>
   );
 }

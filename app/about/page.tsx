@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Eyebrow } from "@/components/eyebrow";
 import { SplitIntro } from "@/components/split-intro";
+import { Title } from "@/components/title";
 
 export const metadata: Metadata = {
   title: "About",
@@ -76,12 +77,12 @@ export default function AboutPage() {
     <article className="overflow-x-clip pb-8">
       <section className="mx-auto max-w-384 px-4 pt-7 md:px-8 md:pt-10">
         <Eyebrow>About</Eyebrow>
-        <h1 className="font-display text-[clamp(5.7rem,21vw,20rem)] leading-[0.76] tracking-[-0.045em] text-slate-950 md:text-[clamp(10rem,17.4vw,20rem)] md:tracking-[-0.055em]">
+        <Title>
           <span className="block md:inline">Hi, I’m </span>
           <em className="block font-normal text-slate-500 italic md:ml-[0.05em] md:inline">
             Mirha.
           </em>
-        </h1>
+        </Title>
 
         <SplitIntro
           className="mt-6 border-t border-slate-300 pt-3 md:mt-10 md:pt-5"

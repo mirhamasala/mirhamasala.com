@@ -259,6 +259,7 @@ components/
   page-header.tsx     # Index header for section pages
   page-lede.tsx
   page-title.tsx
+  title.tsx          # Shared h1 typography for poster, compact, and name scales
   split-intro.tsx     # Two-column introduction under a page title
   places-map.tsx      # Google map for the selected city
   display-title.tsx
@@ -323,6 +324,14 @@ and the body as children. Dates, links, Markdown rendering, and content-specific
 styling stay with the page; the layout has no spacing or content-type options.
 Books retain their wider lead-quote layout, and recipes retain their distinct
 body spacing and flow containment.
+
+`Title` owns the shared h1 typeface, responsive sizes, leading, and tracking.
+It accepts rich-text children, a scale, and an optional class name for local
+spacing or wrapping. `PageTitle` supplies section-page padding; `DisplayTitle`
+keeps automatic length-based sizing, reading-page padding, and balanced wrapping.
+About uses `Title` directly and keeps its line breaks and emphasis in the page.
+These components preserve the existing treatments; they do not settle the
+site's final type scale.
 
 ## Dependencies
 
