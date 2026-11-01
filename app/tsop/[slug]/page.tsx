@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { archiveCrumbs, Breadcrumbs } from "@/components/breadcrumbs";
 import { ReadingLayout } from "@/components/reading-layout";
 import { formatLongDate } from "@/lib/format-date";
-import { LetterMarkdownContent } from "@/lib/markdown";
+import { ReadingMarkdownContent } from "@/lib/markdown";
 import { getTsopPage, getTsopPages } from "@/lib/tsop";
 
 export const dynamicParams = false;
@@ -44,7 +44,7 @@ export default async function SpinOffPage({
         </time>
       }
     >
-      <LetterMarkdownContent source={page.body} />
+      <ReadingMarkdownContent source={page.body} />
     </ReadingLayout>
   );
 }

@@ -1,42 +1,48 @@
 import GithubSlugger from "github-slugger";
 import Link from "next/link";
-import type { ReactNode } from "react";
-import Markdown, { type Components } from "react-markdown";
+import type { ComponentProps, ReactNode } from "react";
+import Markdown, { type Components, type ExtraProps } from "react-markdown";
 import remarkGfm from "remark-gfm";
-
-function isExternalHref(href: string): href is `http${string}` {
-  return href.startsWith("http://") || href.startsWith("https://");
-}
 
 export const proseLinkClassName =
   "not-italic underline decoration-1 decoration-slate-500 underline-offset-[0.22em] hover:decoration-current motion-safe:transition-[text-decoration-color] motion-safe:duration-150";
 
-const components: Components = {
-  a: ({ node, href = "", ...props }) => {
-    void node;
-    // Content still links to sections that have not returned. Prefetching
-    // those URLs logs a 404 on every page that renders the link.
-    if (href.startsWith("/")) {
-      return <Link href={href} {...props} prefetch={false} />;
-    }
-    if (isExternalHref(href)) {
-      return <a href={href} {...props} />;
-    }
+function MarkdownLink({
+  node,
+  href = "",
+  ...props
+}: ComponentProps<"a"> & ExtraProps) {
+  void node;
+  // Some content links to unpublished pages. Avoid prefetching those URLs.
+  if (href.startsWith("/")) {
+    return (
+      <Link
+        href={href}
+        prefetch={false}
+        className={proseLinkClassName}
+        {...props}
+      />
+    );
+  }
+  return <a href={href} className={proseLinkClassName} {...props} />;
+}
 
-    return <a href={href} {...props} />;
-  },
-};
-
-export function MarkdownContent({ source }: { source: string }) {
+function ReadingParagraph({
+  node,
+  ...props
+}: ComponentProps<"p"> & ExtraProps) {
+  void node;
   return (
-    <Markdown remarkPlugins={[remarkGfm]} components={components}>
-      {source}
-    </Markdown>
+    <p
+      className="mt-5 font-serif text-[1.2rem] leading-[1.55] first:mt-0 md:text-[1.25rem]"
+      {...props}
+    />
   );
 }
 
+// Recipes keep their cooking headings, ingredient table, and method rhythm.
 const recipeComponents: Components = {
-  ...components,
+  a: MarkdownLink,
   h3: ({ node, ...props }) => {
     void node;
     return (
@@ -96,24 +102,6 @@ const recipeComponents: Components = {
         {...props}
       />
     );
-  },
-  a: ({ node, href = "", ...props }) => {
-    void node;
-    if (href.startsWith("/")) {
-      return (
-        <Link
-          href={href}
-          prefetch={false}
-          className={proseLinkClassName}
-          {...props}
-        />
-      );
-    }
-    if (isExternalHref(href)) {
-      return <a href={href} className={proseLinkClassName} {...props} />;
-    }
-
-    return <a href={href} className={proseLinkClassName} {...props} />;
   },
 };
 
@@ -186,26 +174,9 @@ export function RecipeMarkdownContent({
   );
 }
 
-const bookComponents: Components = {
-  ...components,
-  a: ({ node, href = "", ...props }) => {
-    void node;
-    if (href.startsWith("/")) {
-      return (
-        <Link
-          href={href}
-          prefetch={false}
-          className={proseLinkClassName}
-          {...props}
-        />
-      );
-    }
-    if (isExternalHref(href)) {
-      return <a href={href} className={proseLinkClassName} {...props} />;
-    }
-
-    return <a href={href} className={proseLinkClassName} {...props} />;
-  },
+// Typography shared by book notes and long-form reading.
+const proseComponents: Components = {
+  a: MarkdownLink,
   h2: ({ node, className, ...props }) => {
     void node;
     return (
@@ -219,15 +190,7 @@ const bookComponents: Components = {
       />
     );
   },
-  p: ({ node, ...props }) => {
-    void node;
-    return (
-      <p
-        className="mt-5 font-serif text-[1.2rem] leading-[1.55] first:mt-0 md:text-[1.25rem]"
-        {...props}
-      />
-    );
-  },
+  p: ReadingParagraph,
   blockquote: ({ node, ...props }) => {
     void node;
     return (
@@ -299,7 +262,7 @@ const bookComponents: Components = {
 
 export function BookMarkdownContent({ source }: { source: string }) {
   return (
-    <Markdown remarkPlugins={[remarkGfm]} components={bookComponents}>
+    <Markdown remarkPlugins={[remarkGfm]} components={proseComponents}>
       {source}
     </Markdown>
   );
@@ -330,8 +293,8 @@ function standaloneVideoLabel(node: HastNode | undefined): string | undefined {
   return label || undefined;
 }
 
-const letterComponents: Components = {
-  ...bookComponents,
+const readingComponents: Components = {
+  ...proseComponents,
   p: ({ node, children, ...props }) => {
     const href = standaloneVideoHref(node as HastNode | undefined);
     if (href) {
@@ -347,14 +310,7 @@ const letterComponents: Components = {
       );
     }
 
-    return (
-      <p
-        className="mt-5 font-serif text-[1.2rem] leading-[1.55] first:mt-0 md:text-[1.25rem]"
-        {...props}
-      >
-        {children}
-      </p>
-    );
+    return <ReadingParagraph {...props}>{children}</ReadingParagraph>;
   },
   h3: ({ node, ...props }) => {
     void node;
@@ -531,13 +487,13 @@ function remarkHeadingIds() {
   };
 }
 
-export function LetterMarkdownContent({ source }: { source: string }) {
+export function ReadingMarkdownContent({ source }: { source: string }) {
   return (
     <div className="[&_.footnotes]:mt-16 [&_.footnotes]:border-t [&_.footnotes]:border-slate-300 [&_.footnotes]:pt-8 [&_hr+*]:mt-0 [&_img]:h-auto [&_img]:w-full [&_sup]:text-[1rem]">
       <Markdown
         remarkPlugins={[remarkGfm, remarkHeadingIds]}
         rehypePlugins={[rehypeArticleEnding]}
-        components={letterComponents}
+        components={readingComponents}
       >
         {source}
       </Markdown>
@@ -545,8 +501,17 @@ export function LetterMarkdownContent({ source }: { source: string }) {
   );
 }
 
+export function ResumeMarkdownContent({ source }: { source: string }) {
+  return (
+    // Lines following role headings are employment details, not body prose.
+    <div className="[&_h3+p]:mt-1.5 [&_h3+p]:font-sans [&_h3+p]:text-base/snug [&_h3+p]:text-slate-600 [&_h3+p+p]:mt-1 [&_h3+p+p]:font-sans [&_h3+p+p]:text-base/snug [&_h3+p+p]:text-slate-600 [&_h4]:ml-6 [&_h4+p]:mt-1.5 [&_h4+p]:ml-6 [&_h4+p]:font-sans [&_h4+p]:text-base/snug [&_h4+p]:text-slate-600 [&_h4+p+ul]:ml-6">
+      <ReadingMarkdownContent source={source} />
+    </div>
+  );
+}
+
 const quoteComponents: Components = {
-  ...bookComponents,
+  ...proseComponents,
   p: ({ node, ...props }) => {
     void node;
     return (

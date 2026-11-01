@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { archiveCrumbs, Breadcrumbs } from "@/components/breadcrumbs";
 import { ReadingLayout } from "@/components/reading-layout";
 import { formatLongDate } from "@/lib/format-date";
-import { LetterMarkdownContent } from "@/lib/markdown";
+import { ReadingMarkdownContent } from "@/lib/markdown";
 import { getTravelStories, getTravelStory } from "@/lib/travel-stories";
 
 export const dynamicParams = false;
@@ -50,7 +50,7 @@ export default async function TravelStoryPage({
         </>
       }
     >
-      <LetterMarkdownContent source={story.body} />
+      <ReadingMarkdownContent source={story.body} />
     </ReadingLayout>
   );
 }

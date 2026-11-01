@@ -4,7 +4,7 @@ import { archiveCrumbs, Breadcrumbs } from "@/components/breadcrumbs";
 import { ReadingLayout } from "@/components/reading-layout";
 import { formatLongDate } from "@/lib/format-date";
 import { getLetter, getLetters } from "@/lib/letters";
-import { LetterMarkdownContent } from "@/lib/markdown";
+import { ReadingMarkdownContent } from "@/lib/markdown";
 
 export const dynamicParams = false;
 
@@ -44,7 +44,7 @@ export default async function LetterPage({
         </time>
       }
     >
-      <LetterMarkdownContent source={letter.body} />
+      <ReadingMarkdownContent source={letter.body} />
     </ReadingLayout>
   );
 }

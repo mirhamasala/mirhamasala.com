@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ReadingLayout } from "@/components/reading-layout";
 import { formatLongDate } from "@/lib/format-date";
-import { LetterMarkdownContent } from "@/lib/markdown";
+import { ReadingMarkdownContent } from "@/lib/markdown";
 import { getDropbox } from "@/lib/pages";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -26,7 +26,7 @@ export default async function DropboxPage() {
         </time>
       }
     >
-      <LetterMarkdownContent source={page.body} />
+      <ReadingMarkdownContent source={page.body} />
     </ReadingLayout>
   );
 }

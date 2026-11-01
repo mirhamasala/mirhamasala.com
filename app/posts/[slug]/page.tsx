@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ReadingLayout } from "@/components/reading-layout";
 import { formatLongDate } from "@/lib/format-date";
-import { LetterMarkdownContent } from "@/lib/markdown";
+import { ReadingMarkdownContent } from "@/lib/markdown";
 import { getPost, getPosts } from "@/lib/posts";
 
 export const dynamicParams = false;
@@ -40,7 +40,7 @@ export default async function PostPage({ params }: PageProps<"/posts/[slug]">) {
         </time>
       }
     >
-      <LetterMarkdownContent source={post.body} />
+      <ReadingMarkdownContent source={post.body} />
     </ReadingLayout>
   );
 }

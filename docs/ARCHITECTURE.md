@@ -45,6 +45,22 @@ The canonical-class rule reads `app/globals.css`. `rootFontSize` is 16 because `
 - The homepage shows the newest published article with `featured: true`. If several are featured, the newest is the feature and the others may appear in Latest. If none are featured, that section is omitted. Latest is up to four published articles, newest first, excluding the feature. The homepage photograph is `public/home/ericeira.jpg`, rendered with `next/image` at a known size. The image links to its Unsplash page, which is the credit; there is no visible caption. That does not decide article images.
 - `draft: true` articles are excluded from every generated page and from the sitemap.
 - Markdown is rendered to React elements with `react-markdown` and `remark-gfm` (GFM, mainly for footnotes and tables). There is no HTML-string rendering, and raw HTML inside Markdown is not rendered.
+- `lib/markdown.tsx` owns Markdown typography. Its common `proseComponents`
+  map supplies book notes and long-form reading with the same paragraph,
+  list, label, quote, table, and code treatments. `ReadingParagraph` owns their
+  paragraph styling, and `MarkdownLink` supplies prose links across reading,
+  books, and recipes, preserving native fragment/external links and disabling
+  prefetch for site-relative links.
+- Use `ReadingMarkdownContent` for articles, letters, travel stories, Spin-Off
+  Project pages, and Dropbox. It adds reading headings, video paragraphs,
+  heading ids, images, and footnote handling to the common prose treatment.
+  `BookMarkdownContent` uses the common prose map with GFM; `BookLeadQuote`
+  keeps its separate display treatment. `RecipeMarkdownContent` keeps its
+  cooking-specific headings, tables, attribution, and details placement.
+  `ResumeMarkdownContent` wraps the reading renderer and owns the résumé's
+  employment-detail styling, so route files do not style Markdown descendants.
+  These named renderers keep their existing behavior without a configurable
+  typography API or a new site-wide type scale.
 - GFM collects footnote definitions and renders them at the end of the document. The footnote section draws the rule above the notes, so a Markdown rule that only introduced those definitions is not rendered again. A closing "You Might Also Like" section is placed after the notes: the notes finish the piece, and the suggestion comes last.
 - Article and letter headings get ids from `github-slugger` 2.0.0, the version the legacy site used, so existing in-article links still land.
 - Article images and the knitting-club PDF are static files at `public/posts/<slug>/`, referenced from Markdown, the same way the letter photograph is. This does not decide image dimensions or whether articles use `next/image`.
