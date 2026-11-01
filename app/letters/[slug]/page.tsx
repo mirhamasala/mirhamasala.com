@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { archiveCrumbs, Breadcrumbs } from "@/components/breadcrumbs";
-import { DisplayTitle } from "@/components/display-title";
+import { ReadingLayout } from "@/components/reading-layout";
 import { formatLongDate } from "@/lib/format-date";
 import { getLetter, getLetters } from "@/lib/letters";
 import { LetterMarkdownContent } from "@/lib/markdown";
@@ -35,28 +35,16 @@ export default async function LetterPage({
   if (!letter) notFound();
 
   return (
-    <article className="mx-auto max-w-384 overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
-      <header>
-        <Breadcrumbs items={archiveCrumbs()} />
-        <DisplayTitle title={letter.title} />
-
-        <div className="mt-4 md:mt-6 md:grid md:grid-cols-12 md:gap-8">
-          <div className="max-w-176 md:col-span-7 md:col-start-3">
-            <time
-              dateTime={letter.date}
-              className="text-base/snug text-slate-950"
-            >
-              {formatLongDate(letter.date)}
-            </time>
-          </div>
-        </div>
-      </header>
-
-      <div className="mt-10 md:mt-12 md:grid md:grid-cols-12 md:gap-8">
-        <div className="max-w-176 md:col-span-7 md:col-start-3">
-          <LetterMarkdownContent source={letter.body} />
-        </div>
-      </div>
-    </article>
+    <ReadingLayout
+      title={letter.title}
+      breadcrumbs={<Breadcrumbs items={archiveCrumbs()} />}
+      metadata={
+        <time dateTime={letter.date} className="text-base/snug text-slate-950">
+          {formatLongDate(letter.date)}
+        </time>
+      }
+    >
+      <LetterMarkdownContent source={letter.body} />
+    </ReadingLayout>
   );
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { archiveCrumbs, Breadcrumbs } from "@/components/breadcrumbs";
-import { DisplayTitle } from "@/components/display-title";
+import { ReadingLayout } from "@/components/reading-layout";
 import { formatLongDate } from "@/lib/format-date";
 import { LetterMarkdownContent } from "@/lib/markdown";
 import { getTsopPage, getTsopPages } from "@/lib/tsop";
@@ -35,28 +35,16 @@ export default async function SpinOffPage({
   if (!page) notFound();
 
   return (
-    <article className="mx-auto max-w-384 overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
-      <header>
-        <Breadcrumbs items={archiveCrumbs("tsop")} />
-        <DisplayTitle title={page.title} />
-
-        <div className="mt-4 md:mt-6 md:grid md:grid-cols-12 md:gap-8">
-          <div className="max-w-176 md:col-span-7 md:col-start-3">
-            <time
-              dateTime={page.date}
-              className="text-base/snug text-slate-950"
-            >
-              {formatLongDate(page.date)}
-            </time>
-          </div>
-        </div>
-      </header>
-
-      <div className="mt-10 md:mt-12 md:grid md:grid-cols-12 md:gap-8">
-        <div className="max-w-176 md:col-span-7 md:col-start-3">
-          <LetterMarkdownContent source={page.body} />
-        </div>
-      </div>
-    </article>
+    <ReadingLayout
+      title={page.title}
+      breadcrumbs={<Breadcrumbs items={archiveCrumbs("tsop")} />}
+      metadata={
+        <time dateTime={page.date} className="text-base/snug text-slate-950">
+          {formatLongDate(page.date)}
+        </time>
+      }
+    >
+      <LetterMarkdownContent source={page.body} />
+    </ReadingLayout>
   );
 }

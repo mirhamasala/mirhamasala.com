@@ -255,6 +255,7 @@ components/
   index-entry.tsx     # Linked title, date, and description on an index
   year-index.tsx      # Year sections for Letters and Writing
   page.tsx           # Article wrapper with standard page spacing
+  reading-layout.tsx # Display title, metadata, and aligned reading column
   page-header.tsx     # Index header for section pages
   page-lede.tsx
   page-title.tsx
@@ -313,6 +314,15 @@ There is no `src/` folder. Shared chrome lives in `components/`.
 `article`. Use it for pages with that shared structure, composing `PageHeader`
 and the content inside it. It accepts only children; pages that need different
 outer layout or overflow behavior keep their own wrappers.
+
+`ReadingLayout` owns the shared outer container, display title, twelve-column
+grid, metadata placement, and reading width for Writing articles, letters,
+travel stories, Spin-Off Project posts and section pages, the résumé, and
+Dropbox. Pass a title string, metadata as JSX, optional breadcrumbs as JSX,
+and the body as children. Dates, links, Markdown rendering, and content-specific
+styling stay with the page; the layout has no spacing or content-type options.
+Books retain their wider lead-quote layout, and recipes retain their distinct
+body spacing and flow containment.
 
 ## Dependencies
 

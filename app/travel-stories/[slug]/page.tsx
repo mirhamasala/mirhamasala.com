@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { archiveCrumbs, Breadcrumbs } from "@/components/breadcrumbs";
-import { DisplayTitle } from "@/components/display-title";
+import { ReadingLayout } from "@/components/reading-layout";
 import { formatLongDate } from "@/lib/format-date";
 import { LetterMarkdownContent } from "@/lib/markdown";
 import { getTravelStories, getTravelStory } from "@/lib/travel-stories";
@@ -35,29 +35,22 @@ export default async function TravelStoryPage({
   if (!story) notFound();
 
   return (
-    <article className="mx-auto max-w-384 overflow-x-clip px-4 pt-7 pb-8 md:px-8 md:pt-10">
-      <header>
-        <Breadcrumbs items={archiveCrumbs("travel-stories")} />
-        <DisplayTitle title={`#${story.number}`} />
-
-        <div className="mt-4 md:mt-6 md:grid md:grid-cols-12 md:gap-8">
-          <div className="max-w-176 md:col-span-7 md:col-start-3">
-            <p className="text-base/snug text-slate-950">{story.location}</p>
-            <time
-              dateTime={story.date}
-              className="mt-2 block text-base/snug text-slate-600"
-            >
-              {formatLongDate(story.date)}
-            </time>
-          </div>
-        </div>
-      </header>
-
-      <div className="mt-10 md:mt-12 md:grid md:grid-cols-12 md:gap-8">
-        <div className="max-w-176 md:col-span-7 md:col-start-3">
-          <LetterMarkdownContent source={story.body} />
-        </div>
-      </div>
-    </article>
+    <ReadingLayout
+      title={`#${story.number}`}
+      breadcrumbs={<Breadcrumbs items={archiveCrumbs("travel-stories")} />}
+      metadata={
+        <>
+          <p className="text-base/snug text-slate-950">{story.location}</p>
+          <time
+            dateTime={story.date}
+            className="mt-2 block text-base/snug text-slate-600"
+          >
+            {formatLongDate(story.date)}
+          </time>
+        </>
+      }
+    >
+      <LetterMarkdownContent source={story.body} />
+    </ReadingLayout>
   );
 }
