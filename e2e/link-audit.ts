@@ -1,17 +1,28 @@
-import { readdir, readFile } from "node:fs/promises";
-import { posix } from "node:path";
 import type { Nodes } from "mdast";
 import type { APIRequestContext, Page } from "@playwright/test";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkGfm from "remark-gfm";
-import { parse as parseYaml } from "yaml";
+import { getContentSources } from "./content";
 
 export type SiteLink = { href: string; pagePath: string; source: string };
-type HtmlDocument = { ids: string[]; links: string[] };
+type HtmlDocument = {
+  ids: string[];
+  links: string[];
+  title: string;
+  descriptions: string[];
+  canonicals: string[];
+  robots: string[];
+  headings: { level: number; text: string }[];
+  images: { src: string; alt: string | null }[];
+  hasOpenGraph: boolean;
+  hasTwitterCard: boolean;
+  hasStructuredData: boolean;
+};
 type ResponseInfo = {
   status: number;
   location?: string;
+  robots?: string;
   document?: HtmlDocument;
 };
 
@@ -27,56 +38,42 @@ export async function getPublishedContentLinks(): Promise<SiteLink[]> {
   const links: SiteLink[] = [];
   const parser = unified().use(remarkParse).use(remarkGfm);
 
-  async function scan(directory: string) {
-    for (const entry of await readdir(directory, { withFileTypes: true })) {
-      const file = posix.join(directory, entry.name);
-      if (entry.isDirectory()) {
-        await scan(file);
-        continue;
-      }
-      if (!entry.name.endsWith(".md")) continue;
-      const source = await readFile(file, "utf8");
-      const frontmatter = /^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/.exec(source);
-      if (!frontmatter) throw new Error(`${file}: missing YAML frontmatter`);
-      const metadata = parseYaml(frontmatter[1]);
-      if (metadata.draft === true) continue;
+  for (const {
+    file,
+    pagePath,
+    metadata,
+    body,
+    lineOffset,
+  } of await getContentSources()) {
+    if (metadata.draft === true) continue;
 
-      const relative = file.slice("content/".length, -".md".length);
-      const pagePath = relative.startsWith("places/")
-        ? `/places?city=${relative.split("/")[1]}`
-        : `/${relative.replace(/^pages\//, "")}`;
-      const body = source.slice(frontmatter[0].length);
-      const lineOffset = frontmatter[0].split("\n").length - 1;
-
-      function collect(markdown: string, label: string, offset: number) {
-        const tree = parser.parse(markdown);
-        const definitions = new Map<string, string>();
-        walk(tree, (node) => {
-          if (node.type === "definition")
-            definitions.set(node.identifier, node.url);
-        });
-        walk(tree, (node) => {
-          let href: string | undefined;
-          if (node.type === "link" || node.type === "image") href = node.url;
-          if (node.type === "linkReference" || node.type === "imageReference")
-            href = definitions.get(node.identifier);
-          if (href !== undefined) {
-            links.push({
-              href,
-              pagePath,
-              source: `${label}:${offset + (node.position?.start.line ?? 1)}`,
-            });
-          }
-        });
-      }
-
-      collect(body, file, lineOffset);
-      if (typeof metadata.attribution === "string")
-        collect(metadata.attribution, `${file} (attribution)`, 0);
+    function collect(markdown: string, label: string, offset: number) {
+      const tree = parser.parse(markdown);
+      const definitions = new Map<string, string>();
+      walk(tree, (node) => {
+        if (node.type === "definition")
+          definitions.set(node.identifier, node.url);
+      });
+      walk(tree, (node) => {
+        let href: string | undefined;
+        if (node.type === "link" || node.type === "image") href = node.url;
+        if (node.type === "linkReference" || node.type === "imageReference")
+          href = definitions.get(node.identifier);
+        if (href !== undefined) {
+          links.push({
+            href,
+            pagePath,
+            source: `${label}:${offset + (node.position?.start.line ?? 1)}`,
+          });
+        }
+      });
     }
+
+    collect(body, file, lineOffset);
+    if (typeof metadata.attribution === "string")
+      collect(metadata.attribution, `${file} (attribution)`, 0);
   }
 
-  await scan("content");
   return links;
 }
 
@@ -122,6 +119,7 @@ export class LinkAudit {
       const result: ResponseInfo = {
         status: response.status(),
         location: response.headers().location,
+        robots: response.headers()["x-robots-tag"],
       };
       if (
         result.status === 200 &&
@@ -147,6 +145,39 @@ export class LinkAudit {
                 (element) => element.id,
               ),
               links,
+              title: document.title,
+              descriptions: [
+                ...document.querySelectorAll('meta[name="description"]'),
+              ].map((el) => el.getAttribute("content") ?? ""),
+              canonicals: [
+                ...document.querySelectorAll('link[rel="canonical"]'),
+              ].map((el) => el.getAttribute("href") ?? ""),
+              robots: [
+                ...document.querySelectorAll(
+                  'meta[name="robots"], meta[name="googlebot"]',
+                ),
+              ].map((el) => el.getAttribute("content") ?? ""),
+              headings: [
+                ...document.querySelectorAll(
+                  "main h1, main h2, main h3, main h4, main h5, main h6",
+                ),
+              ].map((el) => ({
+                level: Number(el.tagName.slice(1)),
+                text: el.textContent?.trim() ?? "",
+              })),
+              images: [...document.querySelectorAll("img")].map((el) => ({
+                src: el.getAttribute("src") ?? "",
+                alt: el.getAttribute("alt"),
+              })),
+              hasOpenGraph: !!document.querySelector(
+                'meta[property="og:title"]',
+              ),
+              hasTwitterCard: !!document.querySelector(
+                'meta[name="twitter:card"]',
+              ),
+              hasStructuredData: !!document.querySelector(
+                'script[type="application/ld+json"]',
+              ),
             };
           },
           await response.text(),

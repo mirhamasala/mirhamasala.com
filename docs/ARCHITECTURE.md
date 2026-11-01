@@ -167,6 +167,12 @@ Vercel preview and development deployments (`VERCEL_ENV` other than `production`
 - Drafts, unknown routes, redirects, and noncanonical URLs are never listed.
 - Unknown and draft article slugs return 404. Next.js adds `noindex` to 404 responses.
 - `robots.txt` allows all crawling and references the absolute sitemap URL.
+- Omit sitemap `lastmod` for now. Content `date` means publication date, not
+  the last significant edit; file modification times and build dates are not
+  reliable substitutes. Editing a page therefore cannot leave a misleading
+  publication date presented as its modification date. Add modification dates
+  only alongside a reliable source and tests; no new authoring field is needed
+  for the current contract.
 
 ## URL migration
 
@@ -290,6 +296,8 @@ e2e/
   smoke.spec.ts       # Playwright smoke and axe checks
   metadata.spec.ts    # per-page metadata, canonical, indexing, h1
   crawling.spec.ts    # sitemap, robots, unpublished routes, redirects
+  discoverability.spec.ts # route coverage, server HTML, editorial report
+  content.ts          # independent content inventory for audits and draft checks
   link-audit.ts       # published Markdown links and cached local HTTP/HTML checks
   legacy-urls.json    # frozen migration paths and preserved anchors
   legacy-404s.json    # intentional migration 404s, each with a reason
@@ -322,8 +330,42 @@ Any new runtime dependency or significant tooling dependency should have a concr
 Playwright and axe check the rendered site so the verifier can test it after implementation. They are dev dependencies: they are not part of the published application. This is not a unit-test runner, a visual-regression suite, or a performance audit.
 
 - `@playwright/test` drives Chromium. `pnpm test:e2e` builds the app and starts `next start` on `127.0.0.1:4173`, so the run does not depend on a dev server already listening on port 3000. The build gets `SITE_URL=http://127.0.0.1:4173`, so generated absolute URLs are deterministic.
-- Projects are desktop Chromium (`Desktop Chrome`) and mobile Chromium (`Pixel 5`). Add another browser only when there is a concrete need. `crawling.spec.ts` doesn't depend on the viewport, so it runs on desktop only.
-- Discoverability checks cover the contract under "Metadata and indexing" and "Sitemap and robots": title, description, canonical, indexing directives, and a single visible `h1` for every indexable route; distinct descriptions; sitemap contents compared with the published article inventory from `lib/posts.ts`; `robots.txt`; 404 and `noindex` for the draft fixture and an unknown slug; and redirects. They don't assert description wording (except that articles use their frontmatter), character limits, keywords, rankings, or Lighthouse scores.
+- Set `PLAYWRIGHT_PORT` if 4173 is occupied. The build origin and test server
+  use the same port; existing servers are never reused. CI uses two workers.
+- Projects are desktop Chromium (`Desktop Chrome`) and mobile Chromium (`Pixel 5`). Add another browser only when there is a concrete need. `crawling.spec.ts` and `discoverability.spec.ts` don't depend on the viewport, so they run on desktop only.
+- Discoverability checks cover the contract under "Metadata and indexing" and "Sitemap and robots": title, description, canonical, indexing directives, and a single visible `h1` for every indexable route; distinct descriptions; sitemap contents compared with the published inventory from all content loaders; `robots.txt`; 404 and `noindex` for every draft page and representative unknown slugs; and redirects. They don't assert description wording (except that articles use their frontmatter), character limits, keywords, rankings, or Lighthouse scores.
+- `pnpm test:seo` runs metadata, crawling, and discoverability checks on
+  desktop. It is a focused subset of `pnpm test:e2e`, not a second audit system.
+  New or edited content in existing collections enters the inventory
+  automatically. A filesystem check catches page templates and published
+  Markdown files missing from the inventory, independently of the published
+  loaders. New page types must be added to `e2e/routes.ts` and the sitemap, or
+  given explicit exclusion coverage. Draft checks read frontmatter independently
+  too; draft places are checked for absent ids in their city views.
+- The server-HTML pass reads every canonical page, every configured Places city,
+  and the Travel Stories photograph view without executing page scripts. It
+  checks metadata, indexing, the base-page canonical for query views, one main
+  `h1`, nonempty headings, and image alt attributes. Empty alt text is allowed:
+  whether an image needs a description requires editorial judgment.
+- That pass also writes `editorial-report.md` and `editorial-report.json` in
+  its `test-results/` directory, with route-specific review prompts. Heading
+  jumps, empty or filename-like alts, normalized duplicate titles/descriptions,
+  description lengths outside 40–200 characters, titles outside 10–80, and
+  referenced local image source files over 1 MiB are nonblocking heuristics,
+  not SEO targets. The report counts missing Open Graph, Twitter cards, and
+  JSON-LD separately as optional features. It never rewrites editorial content
+  or fetches external links. The initial reviewed findings are in
+  `docs/seo-audit.md`.
+- `.github/workflows/verify.yml` runs lint, typecheck, and the full production
+  browser suite on every pull request (including content-only changes), pushes
+  to `main`, and manual dispatch. The suite includes the build. Editorial counts
+  appear in the Actions job summary, and reports, failure screenshots, and
+  traces are retained in the `verification-results` artifact for 14 days.
+  The workflow has read-only repository permissions and does not deploy.
+  Require the **Site verification** status check in the `main` branch rule
+  after publishing the workflow. A workflow file alone does not enforce merge
+  protection, and a check triggered by a direct push cannot stop that push's
+  Vercel deployment. Publish through pull requests with the required check.
 - The migration audit freezes 548 legacy paths in `e2e/legacy-urls.json`, with the source tag and commit: 162 page routes (including the two `.md` notes routes), 96 redirect sources, 288 public files, and two generated feeds. It is independent of `lib/redirects.ts`, and CI needs no legacy tag. Unlighthouse reports are excluded as tooling output; old map markers are excluded because current content and UI do not reference them. `e2e/legacy-404s.json` records each intentional 404 and its reason. Removing an exception when its content is published is an explicit change.
 - `crawling.spec.ts` checks every inventoried URL for 200, one 308 directly to 200, or its recorded 404; redirects to home and redirect chains fail. Existing destination-specific redirect tests stay. The link audit parses published Markdown with the existing parser (including reference links, images, and recipe attribution), and extracts links and media URLs from the HTML of every indexable route and linked query views. Draft source files are excluded. Both production hostnames resolve against the local server; external URLs are never requested. Responses are cached by path and query, and decoded fragments are checked against actual HTML ids, including inherited fragments across redirects. The fixture also preserves 102 Travel Stories and Dropbox anchor links. An intentional legacy 404 is still a failure when linked from a published page.
 - `@axe-core/playwright` scans those same pages inside the Playwright suite. Serious and critical violations fail the run. Moderate and minor results do not. The Places map region (`#places-map`) is excluded, because that markup belongs to Google's map widget.

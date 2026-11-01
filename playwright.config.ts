@@ -1,6 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
 
-const port = 4173;
+const port = Number(process.env.PLAYWRIGHT_PORT ?? 4173);
 const baseURL = `http://127.0.0.1:${port}`;
 
 export default defineConfig({
@@ -8,6 +8,7 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
+  workers: process.env.CI ? 2 : undefined,
   reporter: "list",
   use: {
     baseURL,
@@ -30,7 +31,7 @@ export default defineConfig({
       name: "mobile-chromium",
       use: { ...devices["Pixel 5"] },
       // Crawler checks don't depend on the viewport, so they run once.
-      testIgnore: "crawling.spec.ts",
+      testIgnore: ["crawling.spec.ts", "discoverability.spec.ts"],
     },
   ],
 });

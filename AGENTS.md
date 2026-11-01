@@ -21,6 +21,7 @@ Read `docs/PRODUCT.md`, `docs/ARCHITECTURE.md`, and `docs/DESIGN.md` before maki
 - Do not add frontmatter fields, abstractions, or folders ahead of a concrete need.
 - When a durable architectural decision is made, record it in `docs/ARCHITECTURE.md` in the same change.
 - Use pnpm. Before finishing, `pnpm lint`, `pnpm typecheck`, and `pnpm build` must pass.
+- For content, routing, or metadata changes, also run `pnpm test:seo`. Fix contract failures and review its nonblocking editorial report; do not rewrite content merely to satisfy length heuristics. `pnpm test:e2e` includes these checks.
 
 ## Component reuse
 

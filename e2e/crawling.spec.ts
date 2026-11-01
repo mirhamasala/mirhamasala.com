@@ -1,36 +1,24 @@
 import { existsSync } from "node:fs";
-import { readdir, readFile } from "node:fs/promises";
 import { expect, test, type APIRequestContext } from "@playwright/test";
-import { parse as parseYaml } from "yaml";
 import { legacyRedirects } from "@/lib/redirects";
 import legacyUrls from "./legacy-urls.json" with { type: "json" };
 import legacy404s from "./legacy-404s.json" with { type: "json" };
 import { getPublishedContentLinks, LinkAudit } from "./link-audit";
 import { absoluteUrl, getIndexableRoutes } from "./routes";
+import { getContentSources } from "./content";
 
 const routes = await getIndexableRoutes();
 
-// Read drafts independently of the published-content loader so a filtering
-// regression cannot make both the site and its expected inventory agree.
-const recipeFiles = (await readdir("content/recipes")).filter((file) =>
-  file.endsWith(".md"),
-);
-const draftRecipePaths = (
-  await Promise.all(
-    recipeFiles.map(async (file) => {
-      const source = await readFile(`content/recipes/${file}`, "utf8");
-      const frontmatter = /^---\r?\n([\s\S]*?)\r?\n---/.exec(source);
-      if (!frontmatter) throw new Error(`${file}: missing YAML frontmatter`);
-      return parseYaml(frontmatter[1]).draft === true
-        ? `/recipes/${file.slice(0, -".md".length)}`
-        : null;
-    }),
+const draftPaths = (await getContentSources())
+  .filter(
+    ({ metadata, file }) =>
+      metadata.draft === true && !file.startsWith("content/places/"),
   )
-).filter((path) => path !== null);
+  .map(({ pagePath }) => pagePath);
 
 const unpublishedPaths = [
-  ...draftRecipePaths,
-  "/posts/draft-fixture",
+  ...draftPaths,
+  "/not-a-real-page",
   "/posts/not-a-real-article",
   "/recipes/not-a-real-recipe",
   "/books/not-a-real-book",
@@ -236,10 +224,9 @@ test.describe("crawling", () => {
     });
   }
 
-  test("draft recipes are absent from the recipe index", async ({ page }) => {
-    await page.goto("/recipes");
-
-    for (const path of draftRecipePaths) {
+  test("draft pages are absent from their indexes", async ({ page }) => {
+    for (const path of draftPaths) {
+      await page.goto(path.slice(0, path.lastIndexOf("/")) || "/");
       expect(routes.map((route) => route.path)).not.toContain(path);
       await expect(page.locator(`a[href="${path}"]`)).toHaveCount(0);
     }

@@ -27,12 +27,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: absoluteUrl("/posts") },
     ...posts.map((post) => ({
       url: absoluteUrl(`/posts/${post.slug}`),
-      lastModified: post.date,
     })),
     { url: absoluteUrl("/recipes") },
     ...recipes.map((recipe) => ({
       url: absoluteUrl(`/recipes/${recipe.slug}`),
-      lastModified: recipe.date,
     })),
     { url: absoluteUrl("/books") },
     { url: absoluteUrl("/places") },
@@ -43,21 +41,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: absoluteUrl("/letters") },
     ...letters.map((letter) => ({
       url: absoluteUrl(`/letters/${letter.slug}`),
-      lastModified: letter.date,
     })),
     { url: absoluteUrl("/travel-stories") },
     ...stories.map((story) => ({
       url: absoluteUrl(`/travel-stories/${story.slug}`),
-      lastModified: story.date,
     })),
     { url: absoluteUrl("/tsop") },
     ...tsopPosts.map((post) => ({
       url: absoluteUrl(`/tsop/posts/${post.slug}`),
-      lastModified: post.date,
     })),
     ...tsopPages.map((page) => ({
       url: absoluteUrl(`/tsop/${page.slug}`),
-      lastModified: page.date,
     })),
   ];
 }
