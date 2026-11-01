@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 import {
   bookTopics,
@@ -20,7 +21,7 @@ export default async function BooksPage() {
   const recommended = getRecommendedBooks(books);
 
   return (
-    <article className="pt-7 pb-8 md:pt-10">
+    <Page>
       <PageHeader
         eyebrow="Books"
         title="What I’ve taken from the pages."
@@ -88,7 +89,7 @@ export default async function BooksPage() {
             })}
         </div>
       </section>
-    </article>
+    </Page>
   );
 }
 

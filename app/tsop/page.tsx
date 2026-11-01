@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { archiveCrumbs } from "@/components/breadcrumbs";
 import { IndexEntry } from "@/components/index-entry";
+import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 import { getTsopPosts, groupTsopPosts } from "@/lib/tsop";
 
@@ -22,7 +23,7 @@ export default async function SpinOffProjectPage() {
   const groups = groupTsopPosts(posts);
 
   return (
-    <article className="pt-7 pb-8 md:pt-10">
+    <Page>
       <PageHeader
         breadcrumbs={archiveCrumbs("tsop", { current: true })}
         title="The Spin-Off Project"
@@ -74,6 +75,6 @@ export default async function SpinOffProjectPage() {
           </section>
         ))}
       </div>
-    </article>
+    </Page>
   );
 }

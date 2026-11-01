@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 
 const contentLinkClassName =
@@ -26,7 +27,7 @@ function ContentLink({
 
 export default function NotFound() {
   return (
-    <article className="pt-7 pb-8 md:pt-10">
+    <Page>
       <PageHeader
         eyebrow="404 · Page not found"
         title="Nothing here."
@@ -95,6 +96,6 @@ export default function NotFound() {
           </div>
         </li>
       </ol>
-    </article>
+    </Page>
   );
 }

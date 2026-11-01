@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ExternalLink } from "@/components/external-link";
+import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 import { PlacePinButton, PlacePins } from "@/components/place-pin-button";
 import type { MapSpot } from "@/components/places-map";
@@ -98,7 +99,7 @@ export default async function PlacesPage({
   const essay = "essay" in city ? city.essay : undefined;
 
   return (
-    <article className="pt-7 pb-8 md:pt-10">
+    <Page>
       <PageHeader
         eyebrow="Places"
         title="Where I’d go."
@@ -274,6 +275,6 @@ export default async function PlacesPage({
           ))}
         </div>
       </PlacePins>
-    </article>
+    </Page>
   );
 }

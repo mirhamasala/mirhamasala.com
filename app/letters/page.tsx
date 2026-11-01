@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { archiveCrumbs } from "@/components/breadcrumbs";
+import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 import { YearIndex } from "@/components/year-index";
 import { getLetters } from "@/lib/letters";
@@ -14,7 +15,7 @@ export default async function LettersPage() {
   const letters = await getLetters();
 
   return (
-    <article className="pt-7 pb-8 md:pt-10">
+    <Page>
       <PageHeader
         breadcrumbs={archiveCrumbs("letters", { current: true })}
         title="Flying paper planes."
@@ -22,6 +23,6 @@ export default async function LettersPage() {
       />
 
       <YearIndex items={letters} href={(letter) => `/letters/${letter.slug}`} />
-    </article>
+    </Page>
   );
 }

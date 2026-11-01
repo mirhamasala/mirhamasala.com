@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { archiveCrumbs } from "@/components/breadcrumbs";
+import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 import { formatLongDate } from "@/lib/format-date";
 import { proseLinkClassName } from "@/lib/markdown";
@@ -35,7 +36,7 @@ export default async function TravelStoriesPage({
     requestedView === "photographs" ? "photographs" : "list";
 
   return (
-    <article className="pt-7 pb-8 md:pt-10">
+    <Page>
       <PageHeader
         breadcrumbs={archiveCrumbs("travel-stories", { current: true })}
         title="What I brought home."
@@ -50,7 +51,7 @@ export default async function TravelStoriesPage({
       ) : (
         <PlaceList stories={stories} />
       )}
-    </article>
+    </Page>
   );
 }
 

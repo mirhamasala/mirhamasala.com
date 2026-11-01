@@ -254,6 +254,7 @@ components/
   eyebrow.tsx
   index-entry.tsx     # Linked title, date, and description on an index
   year-index.tsx      # Year sections for Letters and Writing
+  page.tsx           # Article wrapper with standard page spacing
   page-header.tsx     # Index header for section pages
   page-lede.tsx
   page-title.tsx
@@ -307,6 +308,11 @@ playwright.config.ts
 ```
 
 There is no `src/` folder. Shared chrome lives in `components/`.
+
+`Page` owns the standard page wrapper's vertical spacing and renders an
+`article`. Use it for pages with that shared structure, composing `PageHeader`
+and the content inside it. It accepts only children; pages that need different
+outer layout or overflow behavior keep their own wrappers.
 
 ## Dependencies
 

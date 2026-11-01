@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IndexEntry } from "@/components/index-entry";
+import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 import { getRecipes } from "@/lib/recipes";
 
@@ -13,7 +14,7 @@ export default async function RecipesPage() {
   const recipes = await getRecipes();
 
   return (
-    <article className="overflow-x-clip pt-7 pb-8 md:pt-10">
+    <Page>
       <PageHeader eyebrow="Recipes" title="What I keep making." />
 
       <div className="mx-auto mt-16 max-w-384 px-4 md:mt-24 md:px-8">
@@ -29,6 +30,6 @@ export default async function RecipesPage() {
           ))}
         </ul>
       </div>
-    </article>
+    </Page>
   );
 }

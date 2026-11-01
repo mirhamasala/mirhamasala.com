@@ -5,6 +5,7 @@ import {
   ArchiveLetterPick,
   type ArchiveLetter,
 } from "@/components/archive-letter-pick";
+import { Page } from "@/components/page";
 import { PageHeader } from "@/components/page-header";
 import { getLetters } from "@/lib/letters";
 import { spinOffs } from "@/lib/tsop";
@@ -55,7 +56,7 @@ export default async function ArchivePage() {
   );
 
   return (
-    <article className="pt-7 pb-8 md:pt-10">
+    <Page>
       <PageHeader
         title="Archive"
         lede="Earlier work that lives outside Writing."
@@ -153,7 +154,7 @@ export default async function ArchivePage() {
           </ArchiveEntry>
         </div>
       </div>
-    </article>
+    </Page>
   );
 }
 
