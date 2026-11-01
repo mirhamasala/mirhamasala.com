@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/container";
 import { DisplayTitle } from "@/components/display-title";
+import { ReadingColumn } from "@/components/reading-column";
 import { RecipeDetails } from "@/components/recipe-details";
 import { RecipeMarkdownContent } from "@/lib/markdown";
 import { getRecipe, getRecipes } from "@/lib/recipes";
@@ -39,24 +40,22 @@ export default async function RecipePage({
       <header>
         <DisplayTitle title={recipe.title} />
 
-        <div className="mt-4 md:mt-6 md:grid md:grid-cols-12 md:gap-8">
-          <div className="max-w-176 md:col-span-7 md:col-start-3">
-            <p className="font-serif text-[1.2rem] leading-[1.35] text-slate-700 italic md:text-[1.35rem]">
-              {recipe.description}
-            </p>
-          </div>
-        </div>
+        <ReadingColumn className="mt-4 md:mt-6">
+          <p className="font-serif text-[1.2rem] leading-[1.35] text-slate-700 italic md:text-[1.35rem]">
+            {recipe.description}
+          </p>
+        </ReadingColumn>
       </header>
 
-      <div className="mt-5 md:grid md:grid-cols-12 md:gap-8">
-        <div className="flow-root max-w-176 md:col-span-7 md:col-start-3">
+      <ReadingColumn className="mt-5">
+        <div className="flow-root">
           <RecipeMarkdownContent
             source={recipe.body}
             attribution={recipe.attribution}
             details={<RecipeDetails recipe={recipe} />}
           />
         </div>
-      </div>
+      </ReadingColumn>
     </Container>
   );
 }

@@ -275,6 +275,7 @@ components/
   year-index.tsx      # Year sections for Letters and Writing
   page.tsx           # Article wrapper with standard page spacing
   reading-layout.tsx # Display title, metadata, and aligned reading column
+  reading-column.tsx # Twelve-column grid and shared reading-column alignment
   page-header.tsx     # Index header for section pages
   page-lede.tsx
   page-title.tsx
@@ -358,8 +359,13 @@ categories. It accepts rich-text children, a heading level (`h2` by default or
 `h3`), and an optional id. Spacing stays with its callers; the homepage and
 footer retain their distinct label treatments.
 
-`ReadingLayout` owns the shared outer container, display title, twelve-column
-grid, metadata placement, and reading width for Writing articles, letters,
+`ReadingColumn` owns the twelve-column grid, reading width, and column alignment
+used by `ReadingLayout`, individual books, and individual recipes. It accepts
+children and optional `className` for spacing on the outer grid. Books keep their
+wider lead quote separately; recipes keep flow containment in a local wrapper.
+
+`ReadingLayout` composes `ReadingColumn` with the shared outer container, display
+title, metadata placement, and body spacing for Writing articles, letters,
 travel stories, Spin-Off Project posts and section pages, the résumé, and
 Dropbox. Pass a title string, metadata as JSX, optional breadcrumbs as JSX,
 and the body as children. Dates, links, Markdown rendering, and content-specific

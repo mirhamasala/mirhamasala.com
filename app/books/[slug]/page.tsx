@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/container";
 import { DisplayTitle } from "@/components/display-title";
 import { ExternalLink } from "@/components/external-link";
+import { ReadingColumn } from "@/components/reading-column";
 import { getBook, getBooks, splitLeadQuote } from "@/lib/books";
 import {
   BookLeadQuote,
@@ -47,30 +48,28 @@ export default async function BookPage({ params }: PageProps<"/books/[slug]">) {
       <header>
         <DisplayTitle title={book.title} />
 
-        <div className="mt-4 md:mt-6 md:grid md:grid-cols-12 md:gap-8">
-          <div className="max-w-176 md:col-span-7 md:col-start-3">
-            {book.subtitle ? (
-              <p className="font-serif text-[1.2rem] leading-[1.35] text-slate-700 italic md:text-[1.35rem]">
-                {book.subtitle}
-              </p>
-            ) : null}
-            <p
-              className={`text-base/snug text-slate-950 ${book.subtitle ? "mt-5" : ""}`}
-            >
-              {book.author}
+        <ReadingColumn className="mt-4 md:mt-6">
+          {book.subtitle ? (
+            <p className="font-serif text-[1.2rem] leading-[1.35] text-slate-700 italic md:text-[1.35rem]">
+              {book.subtitle}
             </p>
-            {isHttpUrl(book.url) ? (
-              <p className="mt-3">
-                <ExternalLink
-                  href={book.url}
-                  className={`text-base/snug ${proseLinkClassName}`}
-                >
-                  Find this book
-                </ExternalLink>
-              </p>
-            ) : null}
-          </div>
-        </div>
+          ) : null}
+          <p
+            className={`text-base/snug text-slate-950 ${book.subtitle ? "mt-5" : ""}`}
+          >
+            {book.author}
+          </p>
+          {isHttpUrl(book.url) ? (
+            <p className="mt-3">
+              <ExternalLink
+                href={book.url}
+                className={`text-base/snug ${proseLinkClassName}`}
+              >
+                Find this book
+              </ExternalLink>
+            </p>
+          ) : null}
+        </ReadingColumn>
       </header>
 
       {quote ? (
@@ -82,13 +81,9 @@ export default async function BookPage({ params }: PageProps<"/books/[slug]">) {
       ) : null}
 
       {rest ? (
-        <div
-          className={`md:grid md:grid-cols-12 md:gap-8 ${quote ? "mt-12 md:mt-16" : "mt-10 md:mt-12"}`}
-        >
-          <div className="max-w-176 md:col-span-7 md:col-start-3">
-            <BookMarkdownContent source={rest} />
-          </div>
-        </div>
+        <ReadingColumn className={quote ? "mt-12 md:mt-16" : "mt-10 md:mt-12"}>
+          <BookMarkdownContent source={rest} />
+        </ReadingColumn>
       ) : null}
     </Container>
   );

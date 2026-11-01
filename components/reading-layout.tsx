@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
 import { Container } from "@/components/container";
 import { DisplayTitle } from "@/components/display-title";
-
-const readingColumnClassName = "max-w-176 md:col-span-7 md:col-start-3";
+import { ReadingColumn } from "@/components/reading-column";
 
 type ReadingLayoutProps = {
   title: string;
@@ -23,14 +22,10 @@ export function ReadingLayout({
         {breadcrumbs}
         <DisplayTitle title={title} />
 
-        <div className="mt-4 md:mt-6 md:grid md:grid-cols-12 md:gap-8">
-          <div className={readingColumnClassName}>{metadata}</div>
-        </div>
+        <ReadingColumn className="mt-4 md:mt-6">{metadata}</ReadingColumn>
       </header>
 
-      <div className="mt-10 md:mt-12 md:grid md:grid-cols-12 md:gap-8">
-        <div className={readingColumnClassName}>{children}</div>
-      </div>
+      <ReadingColumn className="mt-10 md:mt-12">{children}</ReadingColumn>
     </Container>
   );
 }
